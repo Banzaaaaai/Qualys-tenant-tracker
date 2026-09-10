@@ -1,0 +1,16 @@
+[
+  {
+    "api_success": true,
+    "changed": true,
+    "changed_modules": 0,
+    "duration_seconds": 1.59,
+    "email_sent": false,
+    "error": null,
+    "new_modules": 37,
+    "removed_modules": 0,
+    "stale_alert": false,
+    "success": true,
+    "timestamp": "2026-09-10T15:39:50Z",
+    "total_modules": 37
+  }
+]

@@ -1,0 +1,298 @@
+[
+  {
+    "api_field": "PortalApplication-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "PortalApplication",
+    "new_version": "3.25.0.0-5 DEVELOP #81 (2026-08-05T15:38:25Z)",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  },
+  {
+    "api_field": "QWEB_VM-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "QWEB_VM",
+    "new_version": "2.12.0-12-101",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  },
+  {
+    "api_field": "ITAM-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "ITAM",
+    "new_version": "3.7.2.1-82",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  },
+  {
+    "api_field": "ETM-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "ETM",
+    "new_version": "1.12.0-305",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  },
+  {
+    "api_field": "QFLOW-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "QFLOW",
+    "new_version": "1.24.0",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  },
+  {
+    "api_field": "WAF-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "WAF",
+    "new_version": "2.13.8.4",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  },
+  {
+    "api_field": "TC-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "TC",
+    "new_version": "1.4.0-16",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  },
+  {
+    "api_field": "QUESTIONNAIRE_V2-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "QUESTIONNAIRE_V2",
+    "new_version": "1.33.1.0",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  },
+  {
+    "api_field": "WAS-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "WAS",
+    "new_version": "1.30.0.0-18",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  },
+  {
+    "api_field": "ICS-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "ICS",
+    "new_version": "1.7.0.0-18",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  },
+  {
+    "api_field": "WAF_V3-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "WAF_V3",
+    "new_version": "3.0.4.0",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  },
+  {
+    "api_field": "CERTVIEW-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "CERTVIEW",
+    "new_version": "4.8.1.0-13",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  },
+  {
+    "api_field": "CLOUDVIEW-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "CLOUDVIEW",
+    "new_version": "2.27.1-23",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  },
+  {
+    "api_field": "MDS-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "MDS",
+    "new_version": "2.24.0.0-17",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  },
+  {
+    "api_field": "PS-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "PS",
+    "new_version": "2.5.0.0-10",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  },
+  {
+    "api_field": "TA-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "TA",
+    "new_version": "1.7.1.0-10",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  },
+  {
+    "api_field": "IOC-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "IOC",
+    "new_version": "3.8.4",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  },
+  {
+    "api_field": "MTG-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "MTG",
+    "new_version": "4.0.0.0-178",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  },
+  {
+    "api_field": "OCA-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "OCA",
+    "new_version": "1.13.3.0-2",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  },
+  {
+    "api_field": "UD-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "UD",
+    "new_version": "2.15.1-37",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  },
+  {
+    "api_field": "ISL-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "ISL",
+    "new_version": "4.0.0.0-178",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  },
+  {
+    "api_field": "QWEB_PC-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "QWEB_PC",
+    "new_version": "1.14.0",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  },
+  {
+    "api_field": "CS-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "CS",
+    "new_version": "1.44.5-9",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  },
+  {
+    "api_field": "CA-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "CA",
+    "new_version": "2.7.0-79",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  },
+  {
+    "api_field": "SECURITY_ANALYTICS-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "SECURITY_ANALYTICS",
+    "new_version": "1.0.6",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  },
+  {
+    "api_field": "QGS-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "QGS",
+    "new_version": "2.9.0-16",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  },
+  {
+    "api_field": "QUESTIONNAIRE-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "QUESTIONNAIRE",
+    "new_version": "2.45.1.0",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  },
+  {
+    "api_field": "FIM-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "FIM",
+    "new_version": "4.9.3.0-34",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  },
+  {
+    "api_field": "CM-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "CM",
+    "new_version": "1.38.1.0",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  },
+  {
+    "api_field": "PM-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "PM",
+    "new_version": "4.0.0.0-178",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  },
+  {
+    "api_field": "CONN-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "CONN",
+    "new_version": "2.20.1-8",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  },
+  {
+    "api_field": "THREAT_PROTECT-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "THREAT_PROTECT",
+    "new_version": "1.8.1",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  },
+  {
+    "api_field": "AV2-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "AV2",
+    "new_version": "0.1.0",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  },
+  {
+    "api_field": "SEM-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "SEM",
+    "new_version": "1.6.1-0",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  },
+  {
+    "api_field": "SSC-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "SSC",
+    "new_version": "1.15.0",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  },
+  {
+    "api_field": "ISPM-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "ISPM",
+    "new_version": "1.4.0-51",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  },
+  {
+    "api_field": "SM-VERSION",
+    "change_type": "NEW_MODULE",
+    "module": "SM",
+    "new_version": "2.9.2.0-37",
+    "old_version": null,
+    "timestamp": "2026-09-10T15:39:50Z"
+  }
+]

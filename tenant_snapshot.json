@@ -1,0 +1,231 @@
+{
+  "last_checked": "2026-09-10T15:39:50Z",
+  "modules": {
+    "AV2": {
+      "api_field": "AV2-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "0.1.0"
+    },
+    "CA": {
+      "api_field": "CA-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "2.7.0-79"
+    },
+    "CERTVIEW": {
+      "api_field": "CERTVIEW-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "4.8.1.0-13"
+    },
+    "CLOUDVIEW": {
+      "api_field": "CLOUDVIEW-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "2.27.1-23"
+    },
+    "CM": {
+      "api_field": "CM-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "1.38.1.0"
+    },
+    "CONN": {
+      "api_field": "CONN-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "2.20.1-8"
+    },
+    "CS": {
+      "api_field": "CS-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "1.44.5-9"
+    },
+    "ETM": {
+      "api_field": "ETM-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "1.12.0-305"
+    },
+    "FIM": {
+      "api_field": "FIM-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "4.9.3.0-34"
+    },
+    "ICS": {
+      "api_field": "ICS-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "1.7.0.0-18"
+    },
+    "IOC": {
+      "api_field": "IOC-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "3.8.4"
+    },
+    "ISL": {
+      "api_field": "ISL-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "4.0.0.0-178"
+    },
+    "ISPM": {
+      "api_field": "ISPM-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "1.4.0-51"
+    },
+    "ITAM": {
+      "api_field": "ITAM-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "3.7.2.1-82"
+    },
+    "MDS": {
+      "api_field": "MDS-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "2.24.0.0-17"
+    },
+    "MTG": {
+      "api_field": "MTG-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "4.0.0.0-178"
+    },
+    "OCA": {
+      "api_field": "OCA-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "1.13.3.0-2"
+    },
+    "PM": {
+      "api_field": "PM-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "4.0.0.0-178"
+    },
+    "PS": {
+      "api_field": "PS-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "2.5.0.0-10"
+    },
+    "PortalApplication": {
+      "api_field": "PortalApplication-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "3.25.0.0-5 DEVELOP #81 (2026-08-05T15:38:25Z)"
+    },
+    "QFLOW": {
+      "api_field": "QFLOW-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "1.24.0"
+    },
+    "QGS": {
+      "api_field": "QGS-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "2.9.0-16"
+    },
+    "QUESTIONNAIRE": {
+      "api_field": "QUESTIONNAIRE-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "2.45.1.0"
+    },
+    "QUESTIONNAIRE_V2": {
+      "api_field": "QUESTIONNAIRE_V2-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "1.33.1.0"
+    },
+    "QWEB_PC": {
+      "api_field": "QWEB_PC-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "1.14.0"
+    },
+    "QWEB_VM": {
+      "api_field": "QWEB_VM-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "2.12.0-12-101"
+    },
+    "SECURITY_ANALYTICS": {
+      "api_field": "SECURITY_ANALYTICS-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "1.0.6"
+    },
+    "SEM": {
+      "api_field": "SEM-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "1.6.1-0"
+    },
+    "SM": {
+      "api_field": "SM-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "2.9.2.0-37"
+    },
+    "SSC": {
+      "api_field": "SSC-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "1.15.0"
+    },
+    "TA": {
+      "api_field": "TA-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "1.7.1.0-10"
+    },
+    "TC": {
+      "api_field": "TC-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "1.4.0-16"
+    },
+    "THREAT_PROTECT": {
+      "api_field": "THREAT_PROTECT-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "1.8.1"
+    },
+    "UD": {
+      "api_field": "UD-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "2.15.1-37"
+    },
+    "WAF": {
+      "api_field": "WAF-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "2.13.8.4"
+    },
+    "WAF_V3": {
+      "api_field": "WAF_V3-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "3.0.4.0"
+    },
+    "WAS": {
+      "api_field": "WAS-VERSION",
+      "first_seen": "2026-09-10T15:39:50Z",
+      "last_changed": "2026-09-10T15:39:50Z",
+      "version": "1.30.0.0-18"
+    }
+  },
+  "tenant": {
+    "api_url": "https://qualysapi.qg2.apps.qualys.eu",
+    "identifier": "qualysapi.qg2.apps.qualys.eu"
+  }
+}
