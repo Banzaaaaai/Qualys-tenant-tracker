@@ -11,6 +11,7 @@ import smtplib
 import pytest
 
 from qualys_tracker import main as main_module
+from qualys_tracker.release_notes import QualysReleaseNotesClient
 
 
 class FakeSMTP:
@@ -41,6 +42,14 @@ def patch_smtp(monkeypatch):
     monkeypatch.setattr(smtplib, "SMTP", FakeSMTP)
 
 
+@pytest.fixture(autouse=True)
+def no_real_release_notes_traffic(monkeypatch):
+    """Tenant-tracking tests aren't about release-notes correlation --
+    keep them hermetic (and fast) by making the index lookup always
+    come back empty, exactly like a module with no hint-table match."""
+    monkeypatch.setattr(QualysReleaseNotesClient, "fetch_index_entries", lambda self: [])
+
+
 @pytest.fixture
 def base_env(monkeypatch, tmp_path):
     monkeypatch.setenv("QUALYS_API_URL", "https://qualysapi.example.com")
@@ -52,6 +61,11 @@ def base_env(monkeypatch, tmp_path):
     monkeypatch.setenv("TRACKER_STATE_DIR", str(tmp_path))
     monkeypatch.setenv("TRACKER_SCHEDULE_GUARD_ENABLED", "false")
     monkeypatch.setenv("INITIAL_RUN_NOTIFY", "false")
+    # These tests exercise tenant tracking, not release-notes correlation
+    # (see test_release_intelligence.py / test_notifier.py for that) --
+    # keep the standalone public-release scan off so it can't add an
+    # unexpected extra email into assertions that count FakeSMTP.sent.
+    monkeypatch.setenv("CHECK_PUBLIC_RELEASES", "false")
     return tmp_path
 
 

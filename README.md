@@ -2,18 +2,28 @@
 
 Monitors **your specific Qualys tenant** via the Qualys Version API and
 emails you whenever Qualys upgrades, changes, or otherwise reports a
-new version for any module in your subscription.
+new version for any module in your subscription -- and, for every such
+change, correlates it against Qualys's own official public release
+notes so the email also answers *what that version actually gives you*
+and *whether Qualys has already announced something newer that hasn't
+reached this tenant yet*.
 
 This is a standalone project. It does not depend on, import, or scrape
-any public Qualys release-tracking repository. It answers one
-question, and only one question:
+any third-party Qualys release-tracking repository, blog, or
+aggregator -- only `qualys.com`/`docs.qualys.com` are ever contacted.
+It is built around three distinct facts, kept clearly separate end to
+end (see [Public release-notes correlation](#public-release-notes-correlation)):
+
+1. **What Qualys has publicly announced** -- the official release notes.
+2. **What your tenant is actually running** -- `/qps/rest/portal/version`.
+3. **What capabilities you have available right now** -- the release
+   notes that correspond to your tenant's *current* version, not the
+   newest one that exists in the world.
 
 > **What version is currently installed/reported by my Qualys tenant,
-> and did it change?**
-
-If you're looking for "what did Qualys publicly release," that's a
-different (and deliberately separate) concern -- see
-[Future extensibility](#future-extensibility).
+> did it change, what does that version give me, and has Qualys
+> already announced something newer that hasn't reached this tenant
+> yet?**
 
 ## Table of contents
 
@@ -24,6 +34,7 @@ different (and deliberately separate) concern -- see
 - [How email works](#how-email-works)
 - [How the baseline works](#how-the-baseline-works)
 - [How change detection works](#how-change-detection-works)
+- [Public release-notes correlation](#public-release-notes-correlation)
 - [Running locally](#running-locally)
 - [Running manually in GitHub Actions](#running-manually-in-github-actions)
 - [Resetting the baseline](#resetting-the-baseline)
@@ -78,11 +89,18 @@ different (and deliberately separate) concern -- see
              /        \
            no          yes
            │            │
-           ▼            ▼
-        no email    HTML email                           src/qualys_tracker/notifier.py
-                       │                                  raises on failure -- never
-                       ▼                                  silently swallowed
-                    User
+           │            ▼
+           │   ┌────────────────────────┐
+           │   │  Release Notes Engine    │   release_notes.py (fetch+parse;
+           │   │ tenant capabilities +    │   qualys.com/docs.qualys.com only)
+           │   │ latest public version    │   release_intelligence.py orchestrates,
+           │   └──────────────┬───────────┘   never lets a lookup failure block
+           │                │                 tenant tracking above
+           │                ▼
+           │     release_notes_cache.json
+           │                │
+           ▼                ▼
+        no email    Enhanced HTML email                  src/qualys_tracker/notifier.py
 
   Every run, regardless of outcome, is also recorded in run_log.json
   (src/qualys_tracker/run_log.py) and checked for staleness
@@ -164,6 +182,10 @@ real hostname or credential.
 | `TRACKER_TIMEZONE` | `Europe/Amsterdam` | IANA timezone used for the schedule guard |
 | `TRACKER_LOCAL_RUN_TIMES` | `08:45,16:45` | Local times the tracker is expected to run |
 | `RUN_LOG_MAX_ENTRIES` | `500` | Retention cap for `run_log.json` |
+| `QUALYS_RELEASE_NOTES_URL` | `https://www.qualys.com/documentation/release-notes` | Official Qualys release-notes index to correlate against |
+| `CHECK_PUBLIC_RELEASES` | `true` | Also scan unchanged modules for newly-announced public versions (spec section 21) |
+| `RELEASE_NOTES_CACHE_TTL_DAYS` | `1` | How long a "latest public version" lookup is trusted before re-checking |
+| `PUBLIC_RELEASE_NOTIFICATION` | `true` | Allow the standalone scan above to actually send an email (vs. silently caching) |
 
 Everything is read in `src/qualys_tracker/config.py`; nothing here is
 ever printed to the console or logged (see [Security
@@ -177,15 +199,20 @@ SMTP provider (SendGrid, Mailgun, Amazon SES, Office 365, Gmail app
 passwords, etc.) -- just point `SMTP_HOST`/`SMTP_PORT` at that
 provider's relay and use its credentials.
 
-Four distinct email types exist, and they never get confused with each
+Five distinct email types exist, and they never get confused with each
 other because each has a distinct subject and an explicit label in the
 body:
 
 1. **Change notification** -- one or more versions actually changed.
-2. **Initial baseline created** -- only sent if `INITIAL_RUN_NOTIFY=true`.
-3. **Manual / forced notification** -- `force_notify`, full inventory,
+   When a changed/new module's release notes could be correlated, this
+   email is enhanced with capability and rollout-status sections -- see
+   [Public release-notes correlation](#public-release-notes-correlation).
+2. **Public release announcement** -- Qualys announced a newer version
+   for a module whose *tenant* version did not change this run.
+3. **Initial baseline created** -- only sent if `INITIAL_RUN_NOTIFY=true`.
+4. **Manual / forced notification** -- `force_notify`, full inventory,
    clearly marked so it's never mistaken for a real upgrade.
-4. **Staleness alert** -- the tracker itself has been failing to reach
+5. **Staleness alert** -- the tracker itself has been failing to reach
    Qualys for too long.
 
 A rendered example lives at
@@ -229,6 +256,71 @@ version strings don't follow one consistent scheme --
 `4.9.4`, `2.12.0-12-101`, `1.44.5-9`, `2.33.0.0-SNAPSHOT-1` all show up
 in the wild -- so no numeric ordering is attempted. The goal is
 reliable *change* detection, not "is this newer or older."
+
+## Public release-notes correlation
+
+Whenever a module is `VERSION_CHANGED` or `NEW_MODULE` (never for
+`MODULE_REMOVED` -- there is no current version to look up), the
+tracker additionally asks the **official** Qualys release notes at
+`QUALYS_RELEASE_NOTES_URL` (default
+`https://www.qualys.com/documentation/release-notes`; only that host
+and `docs.qualys.com` are ever contacted -- no blogs, no aggregators,
+no third-party mirrors) two questions:
+
+1. What does the tenant's *current* version actually give you?
+2. Has Qualys already announced something newer that hasn't reached
+   this tenant yet?
+
+**Matching strategy** (`src/qualys_tracker/release_notes.py`): the
+index page is fetched and parsed for real `<module, version, url>`
+entries -- no URL pattern is ever guessed. A short module code (e.g.
+`FIM`) is matched to its full product name via a small, documented,
+*best-effort* hint table (`MODULE_NAME_HINTS`); an unmapped module
+falls back to matching its own code as a substring, and if nothing
+matches, the result is honestly "release notes: not found" rather than
+a guess. An exact version match is required before a release page is
+fetched and its title/date/features parsed.
+
+**Ordering is never guessed either.** `src/qualys_tracker/version_compare.py`
+tokenizes version strings and only claims an ordering when every
+token pair is confidently comparable (numeric-vs-numeric, or
+zero-padding on a purely-numeric trailing segment); anything else
+(`2.33.0.0` vs `2.33.0.0-SNAPSHOT-1`, differing letter suffixes like
+`RC` vs `BETA`) is reported as "unable to safely determine ordering"
+-- `UpgradeStatus.VERSION_ORDER_UNKNOWN` -- instead of a guess.
+
+**Status wording is deliberately careful.** The tracker never says
+"your tenant is behind." Per the spec this was built against: Qualys
+may perform phased rollouts, so a newer public version simply means
+*"Qualys has publicly announced version X, but X has not yet been
+detected on this tenant"* -- not that anything is wrong or overdue.
+
+**A lookup failure never blocks tenant tracking.** If the release-notes
+site is unreachable, the module's snapshot/history update is
+unaffected; the enhanced email section for that module just says
+"Temporarily unavailable," and `run_log.json` records
+`"release_notes_lookup_success": false` -- distinct from
+`"api_success"`, which reflects the Qualys tenant API only.
+
+**Caching** (`release_notes_cache.json`, via
+`src/qualys_tracker/release_cache.py`): a specific module+version's
+release notes never change once published, so those entries are
+cached indefinitely. The "latest public version" per module *does*
+need periodic re-checking, so that entry expires after
+`RELEASE_NOTES_CACHE_TTL_DAYS` (default 1 day). Within a single run,
+the (large) release-notes index page itself is only ever fetched once
+and shared across every module being checked.
+
+**Standalone announcements without a tenant change** (`CHECK_PUBLIC_RELEASES`,
+default `true`): once per run, every module whose version did *not*
+change this run is also compared against the latest public release. If
+Qualys has announced something newer, a separate "Public release
+announcement" email is sent -- but only once per distinct newly-found
+version (deduplicated via `public_release_notifications.json`), so an
+outstanding announcement doesn't re-email on every run until either
+the tenant catches up or Qualys announces something even newer. Set
+`PUBLIC_RELEASE_NOTIFICATION=false` to keep the scan (and its cache
+warming) running without ever emailing about it.
 
 ## Running locally
 
@@ -299,7 +391,19 @@ a baseline reset.
 | `[Qualys Tenant] N module versions changed` | Multiple modules changed (new/changed/removed combined) |
 | `[Qualys Tenant] Initial baseline created (...)` | First run, `INITIAL_RUN_NOTIFY=true` |
 | `[Qualys Tenant] Manual / forced notification (...)` | You (or a teammate) ran `force_notify` -- **not** a real change |
+| `[Qualys Tenant] <Module> <version> publicly announced (not yet on this tenant)` | Tenant version unchanged; Qualys announced something newer (see [Public release-notes correlation](#public-release-notes-correlation)) |
 | `[Qualys Tenant] Tracker has not succeeded in over N day(s)` | The tracker itself is unhealthy -- Qualys API has been failing, not that your tenant is fine |
+
+Within a change-notification email, look for the badge next to each
+module's "Latest publicly announced version" section:
+
+| Badge | Meaning |
+| --- | --- |
+| `CURRENT` | The tenant is already on the latest publicly announced version |
+| `PUBLICLY ANNOUNCED — NOT YET DETECTED ON THIS TENANT` | Qualys has announced a newer version; this tenant hasn't received it (phased rollouts are normal -- this is not a fault) |
+| `NOT FOUND` | The module couldn't be matched against the release-notes site at all (see `MODULE_NAME_HINTS`) |
+| `ORDERING UNKNOWN` | Multiple public versions were found but couldn't be safely ordered -- reported honestly rather than guessed |
+| `TEMPORARILY UNAVAILABLE` | The release-notes site couldn't be reached this run; tenant tracking above was unaffected |
 
 ## Staleness monitoring
 
@@ -330,6 +434,7 @@ state file is needed.
 | Response fails validation (missing fields, empty `Portal-Version`, wrong `responseCode`) | untouched | untouched | none | **failed** |
 | Existing `tenant_snapshot.json` is corrupted on disk | untouched | untouched | none | **failed** (won't guess a fresh baseline) |
 | API succeeds, versions changed, email send fails | **updated** | **updated** | attempted, failed | **failed** (loudly, but state is not lost) |
+| API succeeds, versions changed, release-notes site unreachable | **updated** | **updated** | sent (correlation section says "Temporarily unavailable") | success |
 | API succeeds, no changes | updated (`last_checked` only) | untouched | none | success |
 
 The one rule underlying all of this: **a bad read must never cause a
@@ -395,6 +500,13 @@ intervention around the DST transition dates.
   are committed to the repository by the workflow so state survives
   between ephemeral runners. If your Qualys module inventory itself is
   sensitive, keep this repository private.
+- The release-notes client (`src/qualys_tracker/release_notes.py`)
+  only ever contacts `qualys.com`/`docs.qualys.com` (enforced by an
+  explicit host allowlist, not just by convention) and only performs
+  read-only `GET` requests. Its content is Qualys's own public
+  documentation, so caching it in `release_notes_cache.json` and
+  committing that file is safe -- unlike the tenant files above, it
+  contains no tenant-specific data at all, only public release text.
 
 ## Project structure
 
@@ -415,20 +527,26 @@ intervention around the DST transition dates.
 │   ├── notifier.py                     # HTML email construction + SMTP send
 │   ├── report.py                        # tenant_report.json / .md
 │   ├── scheduling.py                     # DST-robust local-time guard
-│   ├── config.py                          # All env-var configuration
-│   └── main.py                             # Orchestration + console output
-├── tests/                                   # pytest suite (see below)
+│   ├── version_compare.py                 # Safe, best-effort version ordering
+│   ├── release_notes.py                    # Qualys release-notes HTTP client + HTML parsing
+│   ├── release_cache.py                     # release_notes_cache.json (atomic, TTL for "latest public")
+│   ├── release_intelligence.py               # Orchestrates release_notes.py + release_cache.py
+│   ├── config.py                              # All env-var configuration
+│   └── main.py                                 # Orchestration + console output
+├── tests/                                        # pytest suite (see below)
 ├── docs/sample-email-change-notification.html
 ├── tenant_snapshot.json      # created by the tracker (git-committed by CI)
 ├── version_history.json      # created by the tracker (git-committed by CI)
 ├── run_log.json               # created by the tracker (git-committed by CI)
 ├── tenant_report.{json,md}     # created by the tracker (git-committed by CI)
+├── release_notes_cache.json    # created by the tracker (git-committed by CI; public data only)
+├── public_release_notifications.json  # dedup state for standalone announcements
 ├── requirements.txt / requirements-dev.txt
 ├── pyproject.toml
 └── pytest.ini
 ```
 
-Test coverage (`pytest -q`, 60+ tests):
+Test coverage (`pytest -q`, 120+ tests):
 
 - `test_parser.py` -- valid response, missing `ServiceResponse`/`data`/
   `Portal-Version`, no version fields, multiple fields, unknown/new
@@ -439,21 +557,44 @@ Test coverage (`pytest -q`, 60+ tests):
   first-seen/last-changed bookkeeping, history append-only + duplicate
   prevention.
 - `test_notifier.py` -- one/many changed, initial baseline, forced
-  notification labeling, send failure raises.
+  notification labeling, send failure raises, plus the enhanced
+  release-intelligence sections (current/newer-available/not-found/
+  order-unknown/lookup-failed badges, consolidated multi-module email,
+  standalone public-release announcement).
 - `test_api.py` -- 200, 401, 403, 429, 500, timeout, retry success,
   retry exhaustion.
 - `test_monitoring.py`, `test_scheduling.py` -- staleness suppression
   windows; DST-safe schedule guard across winter/summer.
+- `test_version_compare.py` -- numeric/zero-padding/SNAPSHOT/differing-
+  suffix ordering, `latest_version()` confident vs. unable-to-determine.
+- `test_release_notes.py` -- index/detail HTML parsing (real-structure
+  fixtures), module-name-hint matching and fallback, API-companion-page
+  filtering, host allowlist, HTTP 503/retry/exhaustion.
+- `test_release_cache.py` -- missing/corrupted cache, put/get round
+  trip, atomic save.
+- `test_release_intelligence.py` -- exact match, not-found, cache hit/
+  TTL-expiry/refresh, failed refresh keeps the prior good cache entry,
+  lookup-failure never raises, standalone announcement dedup.
 - `test_main_integration.py` -- full dry-run of `main.run()` against
-  the sanitized fixture, exercising the whole pipeline end to end.
+  the sanitized fixture (release-notes correlation disabled here to
+  stay focused on tenant tracking), exercising the whole pipeline.
+- `test_main_release_integration.py` -- the same, with release-notes
+  correlation enabled and mocked: tenant change + CURRENT, tenant
+  change + newer-public-available, release-notes site down (tenant
+  tracking unaffected), standalone announcement + its dedup, and
+  `PUBLIC_RELEASE_NOTIFICATION=false` suppressing it.
 
 ## Future extensibility
 
-This first version deliberately does not correlate tenant versions
-against Qualys's public release notes. A future second data source
-(a public release tracker) could feed a separate "tenant release gap"
-correlation engine, but that is out of scope here and must not couple
-this project to any other repository. Today, a version change is
-detected purely from an actual observed change in
-`GET /qps/rest/portal/version` -- nothing is inferred from what Qualys
-has publicly announced.
+Rollout-delay analytics ("version 4.9.4 was announced on day X and
+reached this tenant on day Y, N days later") are a natural next step
+now that both dates are known, but aren't computed yet -- see the
+`ModuleReleaseIntelligence` model and `version_history.json` entries,
+which already carry what such a feature would need.
+
+This project still does not depend on or import any third-party
+Qualys release-tracking repository, blog, or aggregator -- only
+`qualys.com`/`docs.qualys.com` are ever contacted, and every fact
+shown in a notification traces back to either the tenant's own
+`GET /qps/rest/portal/version` response or Qualys's own published
+release notes.

@@ -75,6 +75,10 @@ jobs:
           TRACKER_TIMEZONE: ${{ vars.TRACKER_TIMEZONE }}
           TRACKER_LOCAL_RUN_TIMES: ${{ vars.TRACKER_LOCAL_RUN_TIMES }}
           RUN_LOG_MAX_ENTRIES: ${{ vars.RUN_LOG_MAX_ENTRIES }}
+          QUALYS_RELEASE_NOTES_URL: ${{ vars.QUALYS_RELEASE_NOTES_URL }}
+          CHECK_PUBLIC_RELEASES: ${{ vars.CHECK_PUBLIC_RELEASES }}
+          RELEASE_NOTES_CACHE_TTL_DAYS: ${{ vars.RELEASE_NOTES_CACHE_TTL_DAYS }}
+          PUBLIC_RELEASE_NOTIFICATION: ${{ vars.PUBLIC_RELEASE_NOTIFICATION }}
           FORCE_NOTIFY: ${{ inputs.force_notify }}
           SEND_TEST_EMAIL: ${{ inputs.send_test_email }}
           RESET_BASELINE: ${{ inputs.reset_baseline }}
@@ -88,7 +92,8 @@ jobs:
           git config user.name "qualys-tenant-tracker-bot"
           git config user.email "actions@users.noreply.github.com"
           git add tenant_snapshot.json version_history.json run_log.json \
-                   tenant_report.json tenant_report.md 2>/dev/null || true
+                   tenant_report.json tenant_report.md \
+                   release_notes_cache.json public_release_notifications.json 2>/dev/null || true
           if ! git diff --cached --quiet; then
             git commit -m "chore: update tenant version tracker state [skip ci]"
             git push

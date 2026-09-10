@@ -143,3 +143,26 @@ class TrackerConfig:
             state_dir=os.environ.get("TRACKER_STATE_DIR", ".").strip() or ".",
             github_run_url=run_url,
         )
+
+
+@dataclass
+class ReleaseNotesConfig:
+    """Configuration for the public-release-notes correlation layer.
+
+    See src/qualys_tracker/release_notes.py and release_intelligence.py.
+    """
+
+    index_url: str = "https://www.qualys.com/documentation/release-notes"
+    check_public_releases: bool = True
+    cache_ttl_days: int = 1
+    public_release_notification: bool = True
+
+    @classmethod
+    def from_env(cls) -> "ReleaseNotesConfig":
+        return cls(
+            index_url=os.environ.get("QUALYS_RELEASE_NOTES_URL", "").strip()
+            or "https://www.qualys.com/documentation/release-notes",
+            check_public_releases=_env_bool("CHECK_PUBLIC_RELEASES", True),
+            cache_ttl_days=_env_int("RELEASE_NOTES_CACHE_TTL_DAYS", 1),
+            public_release_notification=_env_bool("PUBLIC_RELEASE_NOTIFICATION", True),
+        )

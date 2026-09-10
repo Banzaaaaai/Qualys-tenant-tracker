@@ -14,14 +14,16 @@ import time
 import traceback
 from datetime import datetime, timezone
 
-from . import comparison, history, report
+from . import comparison, history, release_cache, release_intelligence, report
 from . import run_log as run_log_module
 from . import state as state_module
 from .api import QualysAuthError, QualysClient, QualysAPIError
-from .config import ConfigError, EmailConfig, QualysConfig, TrackerConfig
+from .config import ConfigError, EmailConfig, QualysConfig, ReleaseNotesConfig, TrackerConfig
+from .models import UpgradeStatus
 from .monitoring import check_staleness, utcnow
 from .notifier import EmailNotifier, NotificationError
 from .parser import ParserError, parse_portal_version_response
+from .release_notes import QualysReleaseNotesClient
 from .scheduling import is_within_scheduled_window
 
 SNAPSHOT_FILENAME = state_module.DEFAULT_SNAPSHOT_FILENAME
@@ -29,6 +31,8 @@ HISTORY_FILENAME = history.DEFAULT_HISTORY_FILENAME
 RUN_LOG_FILENAME = run_log_module.DEFAULT_RUN_LOG_FILENAME
 REPORT_JSON_FILENAME = "tenant_report.json"
 REPORT_MD_FILENAME = "tenant_report.md"
+RELEASE_CACHE_FILENAME = release_cache.DEFAULT_CACHE_FILENAME
+PUBLIC_RELEASE_STATE_FILENAME = release_intelligence.DEFAULT_NOTIFIED_STATE_FILENAME
 
 RESET_BASELINE_CONFIRMATION = "CONFIRM"
 
@@ -44,6 +48,8 @@ def _paths(state_dir: str) -> dict:
         "run_log": os.path.join(state_dir, RUN_LOG_FILENAME),
         "report_json": os.path.join(state_dir, REPORT_JSON_FILENAME),
         "report_md": os.path.join(state_dir, REPORT_MD_FILENAME),
+        "release_cache": os.path.join(state_dir, RELEASE_CACHE_FILENAME),
+        "public_release_state": os.path.join(state_dir, PUBLIC_RELEASE_STATE_FILENAME),
     }
 
 
@@ -100,6 +106,7 @@ def run(argv: list[str] | None = None) -> int:
         return 2
 
     tracker_config = TrackerConfig.from_env(qualys_config.api_url)
+    release_config = ReleaseNotesConfig.from_env()
     paths = _paths(tracker_config.state_dir)
 
     if not args.ignore_schedule_guard and tracker_config.schedule_guard_enabled:
@@ -125,7 +132,7 @@ def run(argv: list[str] | None = None) -> int:
             return 2
         _archive_snapshot(paths["snapshot"])
 
-    return _run_check(paths, qualys_config, tracker_config, args, started_at)
+    return _run_check(paths, qualys_config, tracker_config, release_config, args, started_at)
 
 
 def _handle_send_test_email() -> int:
@@ -153,6 +160,7 @@ def _run_check(
     paths: dict,
     qualys_config: QualysConfig,
     tracker_config: TrackerConfig,
+    release_config: ReleaseNotesConfig,
     args: argparse.Namespace,
     started_at: float,
 ) -> int:
@@ -233,6 +241,40 @@ def _run_check(
             print(f"  {change.module:<12}{change.old_version or '-':<15}-> {change.new_version or '(removed)'}")
         print()
 
+    # --- Public release-notes correlation (spec: an additional layer   --
+    # --- after tenant version detection; never allowed to affect       --
+    # --- tenant tracking above, or the snapshot/history already saved) --
+    release_intel_by_module: dict | None = None
+    release_notes_lookup_success: bool | None = None
+    release_client: QualysReleaseNotesClient | None = None
+    release_cache_data: dict | None = None
+
+    changed_or_new_names = [c.module for c in comparison_result.changed] + [
+        c.module for c in comparison_result.new
+    ]
+
+    if changed_or_new_names and not is_first_run:
+        # Skipped entirely on the baseline run: every module looks "new"
+        # on a first run, and firing dozens of external lookups for a
+        # from-scratch inventory (see README) isn't worth the latency
+        # for an email that (by default) won't even be sent.
+        release_cache_data = release_cache.load_cache(paths["release_cache"])
+        release_client = QualysReleaseNotesClient(release_config.index_url)
+        release_intel_by_module = {}
+        release_notes_lookup_success = True
+        print("Public release-note correlation:")
+        for name in changed_or_new_names:
+            version = current_by_name[name].version
+            intel = release_intelligence.build_module_intelligence(
+                release_client, release_cache_data, name, version,
+                release_config.cache_ttl_days, timestamp,
+            )
+            release_intel_by_module[name] = intel
+            if intel.upgrade_status == UpgradeStatus.RELEASE_NOTE_LOOKUP_FAILED:
+                release_notes_lookup_success = False
+            print(f"  {name:<12}tenant={version:<15}status={intel.upgrade_status.value}")
+        print()
+
     email_sent = False
     email_failed = False
 
@@ -265,6 +307,7 @@ def _run_check(
             notifier.send_change_notification(
                 comparison_result, tracker_config.tenant_identifier,
                 timestamp, tracker_config.github_run_url,
+                release_intel=release_intel_by_module,
             )
             email_sent = True
         elif args.force_notify:
@@ -282,6 +325,46 @@ def _run_check(
         email_failed = True
         print(f"Email:\n  Notification: FAILED ({exc})\n")
 
+    # --- Public release announcement for UNCHANGED modules (spec 21-22) --
+    # Qualys may announce a new version before any tenant has it -- tell
+    # the user even though nothing in their tenant snapshot moved, but
+    # only once per newly-discovered public version (dedup via
+    # public_release_notifications.json), and only for modules not
+    # already covered by the change email above.
+    if release_config.check_public_releases and not is_first_run:
+        if release_client is None:
+            release_cache_data = release_cache.load_cache(paths["release_cache"])
+            release_client = QualysReleaseNotesClient(release_config.index_url)
+        notified_state = release_intelligence.load_notified_state(paths["public_release_state"])
+        remaining_modules = {
+            name: info
+            for name, info in new_snapshot["modules"].items()
+            if name not in changed_or_new_names
+        }
+        announcements = release_intelligence.check_public_release_announcements(
+            release_client, release_cache_data, notified_state, remaining_modules,
+            release_config.cache_ttl_days, timestamp,
+        )
+        if announcements:
+            print(f"Public release announcements found: {len(announcements)}")
+            if release_config.public_release_notification:
+                try:
+                    EmailNotifier(EmailConfig.from_env()).send_public_release_announcement(
+                        announcements, tracker_config.tenant_identifier,
+                        timestamp, tracker_config.github_run_url,
+                    )
+                    for intel in announcements:
+                        notified_state[intel.module] = intel.latest_public_release.version
+                    release_intelligence.save_notified_state(paths["public_release_state"], notified_state)
+                    print("  Notification: SENT\n")
+                except (ConfigError, NotificationError) as exc:
+                    print(f"  Notification: FAILED ({exc})\n")
+            else:
+                print("  Notification: SKIPPED (PUBLIC_RELEASE_NOTIFICATION=false)\n")
+
+    if release_cache_data is not None:
+        release_cache.save_cache(paths["release_cache"], release_cache_data)
+
     stale_alert_sent = False
     duration = round(time.monotonic() - started_at, 2)
 
@@ -289,6 +372,7 @@ def _run_check(
         "timestamp": timestamp,
         "success": not email_failed,
         "api_success": True,
+        "release_notes_lookup_success": release_notes_lookup_success,
         "changed": comparison_result.has_changes,
         "changed_modules": len(comparison_result.changed),
         "new_modules": len(comparison_result.new),
@@ -354,6 +438,7 @@ def _fail_run(
         "timestamp": timestamp,
         "success": False,
         "api_success": False,
+        "release_notes_lookup_success": None,
         "changed": False,
         "changed_modules": 0,
         "new_modules": 0,
