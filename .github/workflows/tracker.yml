@@ -1,0 +1,103 @@
+name: Qualys Tenant Version Tracker
+
+# Scheduling note (DST): GitHub Actions cron is fixed UTC. The target
+# local schedule is 08:45 and 16:45 Europe/Amsterdam, which is
+# UTC+1 (CET) in winter and UTC+2 (CEST) in summer. Rather than editing
+# this file twice a year, we register BOTH UTC times for each local
+# slot below; src/qualys_tracker/scheduling.py checks the real local
+# time via zoneinfo and no-ops the "wrong season" trigger. This is
+# robust across the actual DST transition dates without any manual
+# cron edits. workflow_dispatch always bypasses the guard.
+on:
+  schedule:
+    - cron: "45 7 * * *"   # 08:45 Europe/Amsterdam during CET (winter)
+    - cron: "45 6 * * *"   # 08:45 Europe/Amsterdam during CEST (summer)
+    - cron: "45 15 * * *"  # 16:45 Europe/Amsterdam during CET (winter)
+    - cron: "45 14 * * *"  # 16:45 Europe/Amsterdam during CEST (summer)
+  workflow_dispatch:
+    inputs:
+      force_notify:
+        description: "Send the current inventory even if nothing changed"
+        type: boolean
+        default: false
+      send_test_email:
+        description: "Send a test email to verify SMTP delivery, then exit"
+        type: boolean
+        default: false
+      reset_baseline:
+        description: >-
+          DANGER: archives the current snapshot and starts a fresh baseline.
+          Type CONFIRM (exact case) to actually do this. Leave blank otherwise.
+        type: string
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: qualys-tenant-version-tracker
+  cancel-in-progress: false
+
+jobs:
+  track:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install .
+
+      - name: Run tracker
+        id: run_tracker
+        continue-on-error: true
+        env:
+          QUALYS_API_URL: ${{ secrets.QUALYS_API_URL }}
+          QUALYS_USERNAME: ${{ secrets.QUALYS_USERNAME }}
+          QUALYS_PASSWORD: ${{ secrets.QUALYS_PASSWORD }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          TENANT_IDENTIFIER: ${{ vars.TENANT_IDENTIFIER }}
+          INITIAL_RUN_NOTIFY: ${{ vars.INITIAL_RUN_NOTIFY }}
+          STALE_AFTER_DAYS: ${{ vars.STALE_AFTER_DAYS }}
+          STALE_ALERT_SUPPRESSION_DAYS: ${{ vars.STALE_ALERT_SUPPRESSION_DAYS }}
+          TRACKER_TIMEZONE: ${{ vars.TRACKER_TIMEZONE }}
+          TRACKER_LOCAL_RUN_TIMES: ${{ vars.TRACKER_LOCAL_RUN_TIMES }}
+          RUN_LOG_MAX_ENTRIES: ${{ vars.RUN_LOG_MAX_ENTRIES }}
+          FORCE_NOTIFY: ${{ inputs.force_notify }}
+          SEND_TEST_EMAIL: ${{ inputs.send_test_email }}
+          RESET_BASELINE: ${{ inputs.reset_baseline }}
+        run: python -m qualys_tracker.main
+        working-directory: .
+        shell: bash
+
+      - name: Commit updated state
+        if: always()
+        run: |
+          git config user.name "qualys-tenant-tracker-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add tenant_snapshot.json version_history.json run_log.json \
+                   tenant_report.json tenant_report.md 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: update tenant version tracker state [skip ci]"
+            git push
+          else
+            echo "No state changes to commit."
+          fi
+
+      - name: Fail job if tracker run failed
+        if: steps.run_tracker.outcome == 'failure'
+        run: |
+          echo "::error::Tracker run failed -- see the 'Run tracker' step output above for details (API, validation, or email failure)."
+          exit 1

@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qualys-tenant-version-tracker"
+version = "1.0.0"
+description = "Monitors a Qualys tenant's Portal Version API and emails on change"
+requires-python = ">=3.11"
+dependencies = [
+    "requests>=2.31,<3",
+    "tzdata>=2024.1",
+]
+
+[project.scripts]
+qualys-tracker = "qualys_tracker.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
