@@ -79,6 +79,20 @@ def test_first_run_creates_baseline_without_email(base_env, monkeypatch):
     assert not FakeSMTP.sent  # INITIAL_RUN_NOTIFY=false
 
 
+def test_force_notify_on_first_run_overrides_baseline_suppression(base_env, monkeypatch):
+    # A first run with no prior snapshot would normally suppress its email
+    # (INITIAL_RUN_NOTIFY=false), but an explicit --force-notify must still
+    # send the current inventory rather than being silently swallowed by
+    # the baseline path.
+    _patch_api(monkeypatch, "tests/fixtures/valid_response.json")
+
+    exit_code = main_module.run(["--force-notify"])
+
+    assert exit_code == 0
+    assert len(FakeSMTP.sent) == 1
+    assert "Manual / forced notification" in FakeSMTP.sent[0]
+
+
 def test_second_run_with_no_change_sends_no_email(base_env, monkeypatch):
     _patch_api(monkeypatch, "tests/fixtures/valid_response.json")
     main_module.run([])

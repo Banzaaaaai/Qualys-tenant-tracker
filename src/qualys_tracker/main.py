@@ -240,9 +240,21 @@ def _run_check(
         email_config = EmailConfig.from_env()
         notifier = EmailNotifier(email_config)
 
+        # A first run's comparison naturally reports every module as "new"
+        # (has_changes is True), but that must never be treated as a real
+        # change notification -- it's the baseline, handled separately.
         if is_first_run:
             if tracker_config.initial_run_notify:
                 notifier.send_initial_baseline_notification(
+                    new_snapshot["modules"], tracker_config.tenant_identifier,
+                    timestamp, tracker_config.github_run_url,
+                )
+                email_sent = True
+            elif args.force_notify:
+                # Explicit request for a forced/manual send wins even with
+                # INITIAL_RUN_NOTIFY=false -- the user asked for an email
+                # right now, not for the baseline-suppression default.
+                notifier.send_forced_notification(
                     new_snapshot["modules"], tracker_config.tenant_identifier,
                     timestamp, tracker_config.github_run_url,
                 )
