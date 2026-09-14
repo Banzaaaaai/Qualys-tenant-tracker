@@ -91,9 +91,19 @@ jobs:
         run: |
           git config user.name "qualys-tenant-tracker-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add tenant_snapshot.json version_history.json run_log.json \
+          # `git add` with multiple pathspecs fails ATOMICALLY (stages
+          # nothing at all) if even one doesn't exist yet -- several of
+          # these files (e.g. public_release_notifications.json) are only
+          # created the first time their feature actually fires. Add each
+          # one individually so a not-yet-created file can't silently
+          # suppress every other file's update.
+          for f in tenant_snapshot.json version_history.json run_log.json \
                    tenant_report.json tenant_report.md \
-                   release_notes_cache.json public_release_notifications.json 2>/dev/null || true
+                   release_notes_cache.json public_release_notifications.json; do
+            if [ -f "$f" ]; then
+              git add "$f"
+            fi
+          done
           if ! git diff --cached --quiet; then
             git commit -m "chore: update tenant version tracker state [skip ci]"
             git push
