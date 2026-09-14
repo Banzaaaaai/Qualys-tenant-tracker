@@ -6,6 +6,7 @@ import requests
 from qualys_tracker.release_notes import (
     QualysReleaseNotesClient,
     ReleaseNotesError,
+    candidate_product_names,
     find_entries_for_module,
     find_entry_for_version,
     parse_index,
@@ -45,6 +46,26 @@ def test_find_entries_for_module_uses_hint_table(index_html):
     entries = parse_index(index_html)
     fim_entries = find_entries_for_module(entries, "FIM")
     assert {e.version_text for e in fim_entries} == {"4.9.4", "4.9.3"}
+
+
+def test_module_hint_table_matches_real_tenant_module_codes():
+    # These were corrected against a real tenant's module list -- CM is
+    # Continuous Monitoring (not Certificate View, an earlier guess),
+    # and CERTVIEW/MDS are distinct real module codes with their own
+    # correct product names.
+    assert candidate_product_names("CM") == ["Continuous Monitoring"]
+    assert candidate_product_names("CERTVIEW") == ["Certificate View"]
+    assert candidate_product_names("MDS") == ["Web Malware Detection"]
+    assert candidate_product_names("PM") == ["Patch Management"]
+    assert candidate_product_names("CA") == ["Cloud Agent"]
+    assert candidate_product_names("THREAT_PROTECT") == ["Threat Protect"]
+    assert candidate_product_names("SCA") == ["Security Configuration Assessment"]
+    assert candidate_product_names("QFLOW") == ["Qualys Flow"]
+    assert candidate_product_names("UD") == ["Unified Dashboard"]
+    assert candidate_product_names("GAV") == ["Global AssetView"]
+    assert candidate_product_names("CSAM") == ["CyberSecurity Asset Management"]
+    assert candidate_product_names("PS") == ["Network Passive Sensor"]
+    assert candidate_product_names("QGS") == ["Qualys Gateway Service"]
 
 
 def test_find_entries_for_module_with_known_hint_matches_full_product_name(index_html):

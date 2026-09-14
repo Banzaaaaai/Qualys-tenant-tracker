@@ -41,24 +41,43 @@ _MAX_FEATURE_DESC_LEN = 400
 # and an unmapped module simply falls back to matching its own code
 # against product names, then to "release notes: not found" (Strategy
 # 4) rather than a guessed mapping. Extend this table as gaps are found.
+#
+# Sourced in part from a user-maintained abbreviation reference; entries
+# below marked (verified) replace earlier guesses that turned out wrong
+# once checked against a real tenant (e.g. CM is Continuous Monitoring,
+# not Certificate View -- CERTVIEW is its own separate module/code).
 MODULE_NAME_HINTS: dict[str, list[str]] = {
     "FIM": ["File Integrity Monitoring"],
     "WAS": ["Web Application Scanning"],
+    "TAS": ["TotalAppSec", "Web Application Scanning"],
     "WAF": ["Web Application Firewall"],
     "VM": ["Vulnerability Management", "Enterprise TruRisk"],
-    "VMDR": ["Vulnerability Management", "Enterprise TruRisk"],
+    "VMDR": ["Vulnerability Management, Detection and Response", "Vulnerability Management", "Enterprise TruRisk"],
+    "VMDR_MOBILE": ["VMDR Mobile"],
     "PC": ["Policy Compliance"],
+    "PA": ["Policy Audit"],
     "PCI": ["PCI Compliance"],
     "PM": ["Patch Management"],
-    "CS": ["Container Security"],
+    "CS": ["Container Security", "Qscanner"],
     "CA": ["Cloud Agent"],
-    "CM": ["Certificate View", "CertView"],
+    "CM": ["Continuous Monitoring"],  # (verified) not Certificate View
+    "CERTVIEW": ["Certificate View"],
+    "CONTINUOUSMONITORING": ["Continuous Monitoring"],
     "EDR": ["Endpoint Detection and Response"],
     "CAR": ["Custom Assessment and Remediation"],
     "QUESTIONNAIRE": ["Security Assessment Questionnaire", "Questionnaire"],
     "SAQ": ["Security Assessment Questionnaire"],
     "TC": ["TotalCloud"],
-    "MDS": ["Multi-Vector EDR", "MDS"],
+    "MDS": ["Web Malware Detection"],  # (verified) not Multi-Vector EDR
+    "PS": ["Network Passive Sensor"],
+    "QF": ["Qualys Flow"],
+    "QFLOW": ["Qualys Flow"],
+    "QGS": ["Qualys Gateway Service"],
+    "UD": ["Unified Dashboard"],
+    "GAV": ["Global AssetView"],
+    "CSAM": ["CyberSecurity Asset Management"],
+    "THREAT_PROTECT": ["Threat Protect"],
+    "SCA": ["Security Configuration Assessment"],
 }
 
 
