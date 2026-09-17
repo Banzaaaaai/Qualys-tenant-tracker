@@ -1,20 +1,22 @@
 """Orchestrates one execution of the tracker.
 
 Flow: authenticate -> fetch -> validate/parse -> compare against the
-stored snapshot -> persist -> notify -> log the run. See README.md for
+stored snapshot -> render -> journal state/outbox -> deliver -> log. See docs/operations.md for
 the full architecture diagram and the failure-mode table.
 """
 
 from __future__ import annotations
 
 import argparse
+import json
+from pathlib import Path
 import os
 import sys
 import time
 import traceback
 from datetime import datetime, timezone
 
-from . import comparison, history, release_cache, release_intelligence, report
+from . import comparison, history, release_cache, release_intelligence, report, persistence, outbox
 from . import run_log as run_log_module
 from . import state as state_module
 from .api import QualysAuthError, QualysClient, QualysAPIError
@@ -25,6 +27,8 @@ from .notifier import EmailNotifier, NotificationError
 from .parser import ParserError, parse_portal_version_response
 from .release_notes import QualysReleaseNotesClient
 from .scheduling import is_within_scheduled_window
+from .heartbeat import ping_heartbeat
+from .locking import state_lock
 
 SNAPSHOT_FILENAME = state_module.DEFAULT_SNAPSHOT_FILENAME
 HISTORY_FILENAME = history.DEFAULT_HISTORY_FILENAME
@@ -79,7 +83,13 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         default=os.environ.get("GITHUB_EVENT_NAME") == "workflow_dispatch",
         help="Bypass the DST schedule guard (automatic for workflow_dispatch).",
     )
-    return parser_.parse_args(argv)
+    parser_.add_argument("--dry-run", action="store_true", help="Fetch and compare without writes, SMTP, or heartbeat.")
+    parser_.add_argument("--preview-email", metavar="HTML", help="Render an offline inventory email to this file.")
+    parser_.add_argument("--snapshot", default="tenant_snapshot.json", help="Snapshot used for offline preview.")
+    args = parser_.parse_args(argv)
+    if args.dry_run and (args.reset_baseline or args.send_test_email or args.preview_email):
+        parser_.error("--dry-run cannot be combined with reset, test email, or preview")
+    return args
 
 
 def _print_header() -> None:
@@ -91,8 +101,26 @@ def _print_header() -> None:
 
 def run(argv: list[str] | None = None) -> int:
     args = parse_args(argv)
+    if args.dry_run or args.preview_email or args.send_test_email:
+        return _run_once(args)
+    directory = os.environ.get("TRACKER_STATE_DIR", ".").strip() or "."
+    with state_lock(directory):
+        return _run_once(args)
+
+
+def _run_once(args: argparse.Namespace) -> int:
     _print_header()
     started_at = time.monotonic()
+
+    if args.preview_email:
+        snapshot = state_module.load_snapshot(args.snapshot)
+        if snapshot is None:
+            raise ValueError("Preview snapshot does not exist")
+        renderer = outbox.RenderNotifier()
+        renderer.send_forced_notification(snapshot["modules"], snapshot.get("tenant", {}).get("identifier", "Preview"), snapshot.get("last_checked", "unknown"), None)
+        Path(args.preview_email).write_text(renderer.messages[0]["html"], encoding="utf-8")
+        print(f"Email preview written to {args.preview_email}")
+        return 0
 
     # send-test-email only exercises SMTP delivery, so it deliberately
     # does not require valid Qualys credentials to be configured.
@@ -105,17 +133,29 @@ def run(argv: list[str] | None = None) -> int:
         print(f"Configuration error: {exc}")
         return 2
 
-    tracker_config = TrackerConfig.from_env(qualys_config.api_url)
-    release_config = ReleaseNotesConfig.from_env()
+    try:
+        tracker_config = TrackerConfig.from_env(qualys_config.api_url)
+        release_config = ReleaseNotesConfig.from_env()
+    except ConfigError as exc:
+        print(f"Configuration error: {exc}")
+        return 2
     paths = _paths(tracker_config.state_dir)
 
-    if not args.ignore_schedule_guard and tracker_config.schedule_guard_enabled:
+    slot = None
+    if not args.dry_run:
+        persistence.recover(tracker_config.state_dir)
+    if not args.dry_run and not args.ignore_schedule_guard and tracker_config.schedule_guard_enabled:
         check = is_within_scheduled_window(
             utcnow(),
             tracker_config.timezone,
             tracker_config.local_run_times,
             tracker_config.schedule_guard_tolerance_minutes,
         )
+        slot = check.slot
+        completed = run_log_module.load_run_log(paths["run_log"])
+        if slot and any(r.get("schedule_slot") == slot and r.get("success") for r in completed):
+            print("Scheduled slot already completed. Skipping.")
+            return 0
         if not check.should_run:
             print(
                 f"Local time in {check.timezone} is {check.local_time}, outside "
@@ -132,6 +172,7 @@ def run(argv: list[str] | None = None) -> int:
             return 2
         _archive_snapshot(paths["snapshot"])
 
+    args.schedule_slot = slot
     return _run_check(paths, qualys_config, tracker_config, release_config, args, started_at)
 
 
@@ -181,11 +222,17 @@ def _run_check(
         raw = client.get_portal_version()
         current_modules = parse_portal_version_response(raw)
     except QualysAuthError as exc:
+        if args.dry_run:
+            print(str(exc))
+            return 1
         return _fail_run(
             paths, tracker_config, timestamp, started_at,
             error=f"Authentication failed: {exc}",
         )
     except (QualysAPIError, ParserError) as exc:
+        if args.dry_run:
+            print(str(exc))
+            return 1
         return _fail_run(
             paths, tracker_config, timestamp, started_at,
             error=str(exc),
@@ -196,6 +243,9 @@ def _run_check(
     try:
         previous_snapshot = state_module.load_snapshot(paths["snapshot"])
     except state_module.StateCorruptionError as exc:
+        if args.dry_run:
+            print(str(exc))
+            return 1
         return _fail_run(
             paths, tracker_config, timestamp, started_at,
             error=f"Snapshot validation failed, refusing to overwrite: {exc}",
@@ -214,20 +264,13 @@ def _run_check(
         qualys_config.api_url,
         tracker_config.tenant_identifier,
     )
-    state_module.save_snapshot_atomic(paths["snapshot"], new_snapshot)
-
-    if not is_first_run:
-        history.append_history_entries(
-            paths["history"], comparison_result.all_changes, timestamp
-        )
-    else:
-        # Record the baseline for future "when did this first appear" queries.
-        history.append_history_entries(
-            paths["history"], comparison_result.new, timestamp
-        )
-
-    report.write_json_report(paths["report_json"], new_snapshot)
-    report.write_markdown_report(paths["report_md"], new_snapshot)
+    if args.dry_run:
+        if os.path.exists(os.path.join(tracker_config.state_dir, persistence.JOURNAL)):
+            print("Pending state recovery exists; run the tracker normally before a dry run")
+            return 1
+        print(json.dumps({"baseline": is_first_run, "total_modules": comparison_result.total_current,
+                          "changes": [c.to_history_entry(timestamp) for c in comparison_result.all_changes]}, indent=2))
+        return 0
 
     print("Modules:")
     print(f"  Total: {comparison_result.total_current}")
@@ -260,6 +303,7 @@ def _run_check(
         # for an email that (by default) won't even be sent.
         release_cache_data = release_cache.load_cache(paths["release_cache"])
         release_client = QualysReleaseNotesClient(release_config.index_url)
+        release_client.set_budget(release_config.budget_seconds)
         release_intel_by_module = {}
         release_notes_lookup_success = True
         print("Public release-note correlation:")
@@ -275,55 +319,29 @@ def _run_check(
             print(f"  {name:<12}tenant={version:<15}status={intel.upgrade_status.value}")
         print()
 
-    email_sent = False
-    email_failed = False
-
-    try:
-        email_config = EmailConfig.from_env()
-        notifier = EmailNotifier(email_config)
-
-        # A first run's comparison naturally reports every module as "new"
-        # (has_changes is True), but that must never be treated as a real
-        # change notification -- it's the baseline, handled separately.
-        if is_first_run:
-            if tracker_config.initial_run_notify:
-                notifier.send_initial_baseline_notification(
-                    new_snapshot["modules"], tracker_config.tenant_identifier,
-                    timestamp, tracker_config.github_run_url,
-                )
-                email_sent = True
-            elif args.force_notify:
-                # Explicit request for a forced/manual send wins even with
-                # INITIAL_RUN_NOTIFY=false -- the user asked for an email
-                # right now, not for the baseline-suppression default.
-                notifier.send_forced_notification(
-                    new_snapshot["modules"], tracker_config.tenant_identifier,
-                    timestamp, tracker_config.github_run_url,
-                )
-                email_sent = True
-            else:
-                print("Email:\n  Notification: SKIPPED (initial baseline, INITIAL_RUN_NOTIFY=false)\n")
-        elif comparison_result.has_changes:
-            notifier.send_change_notification(
-                comparison_result, tracker_config.tenant_identifier,
-                timestamp, tracker_config.github_run_url,
-                release_intel=release_intel_by_module,
-            )
-            email_sent = True
-        elif args.force_notify:
-            notifier.send_forced_notification(
-                new_snapshot["modules"], tracker_config.tenant_identifier,
-                timestamp, tracker_config.github_run_url,
-            )
-            email_sent = True
-        else:
-            print("Email:\n  Notification: SKIPPED (no change)\n")
-
-        if email_sent:
-            print("Email:\n  Notification: SENT\n")
-    except (ConfigError, NotificationError) as exc:
-        email_failed = True
-        print(f"Email:\n  Notification: FAILED ({exc})\n")
+    pending_path = os.path.join(tracker_config.state_dir, outbox.FILENAME)
+    pending = outbox.load(pending_path)
+    renderer = outbox.RenderNotifier()
+    kind = "change"
+    if is_first_run and tracker_config.initial_run_notify:
+        kind = "baseline"
+        renderer.send_initial_baseline_notification(new_snapshot["modules"], tracker_config.tenant_identifier, timestamp, tracker_config.github_run_url)
+    elif not is_first_run and comparison_result.has_changes:
+        renderer.send_change_notification(comparison_result, tracker_config.tenant_identifier, timestamp, tracker_config.github_run_url, release_intel=release_intel_by_module)
+    elif args.force_notify:
+        kind = "forced"
+        renderer.send_forced_notification(new_snapshot["modules"], tracker_config.tenant_identifier, timestamp, tracker_config.github_run_url)
+    outbox.enqueue(pending, renderer.messages, kind, json.dumps(new_snapshot, sort_keys=True))
+    existing_history = history.load_history(paths["history"])
+    changes = comparison_result.new if is_first_run else comparison_result.all_changes
+    existing_history.extend(c.to_history_entry(timestamp) for c in changes)
+    persistence.commit(tracker_config.state_dir, {
+        SNAPSHOT_FILENAME: new_snapshot,
+        HISTORY_FILENAME: existing_history,
+        outbox.FILENAME: pending,
+    })
+    report.write_json_report(paths["report_json"], new_snapshot)
+    report.write_markdown_report(paths["report_md"], new_snapshot)
 
     # --- Public release announcement for UNCHANGED modules (spec 21-22) --
     # Qualys may announce a new version before any tenant has it -- tell
@@ -335,6 +353,7 @@ def _run_check(
         if release_client is None:
             release_cache_data = release_cache.load_cache(paths["release_cache"])
             release_client = QualysReleaseNotesClient(release_config.index_url)
+            release_client.set_budget(release_config.budget_seconds)
         notified_state = release_intelligence.load_notified_state(paths["public_release_state"])
         remaining_modules = {
             name: info
@@ -348,29 +367,37 @@ def _run_check(
         if announcements:
             print(f"Public release announcements found: {len(announcements)}")
             if release_config.public_release_notification:
-                try:
-                    EmailNotifier(EmailConfig.from_env()).send_public_release_announcement(
-                        announcements, tracker_config.tenant_identifier,
-                        timestamp, tracker_config.github_run_url,
-                    )
-                    for intel in announcements:
-                        notified_state[intel.module] = intel.latest_public_release.version
-                    release_intelligence.save_notified_state(paths["public_release_state"], notified_state)
-                    print("  Notification: SENT\n")
-                except (ConfigError, NotificationError) as exc:
-                    print(f"  Notification: FAILED ({exc})\n")
+                renderer = outbox.RenderNotifier()
+                renderer.send_public_release_announcement(announcements, tracker_config.tenant_identifier, timestamp, tracker_config.github_run_url)
+                pending = outbox.load(pending_path)
+                event_key = json.dumps([(i.module, i.latest_public_release.version) for i in announcements])
+                outbox.enqueue(pending, renderer.messages, "public_release", event_key)
+                for intel in announcements:
+                    notified_state[intel.module] = intel.latest_public_release.version
+                persistence.commit(tracker_config.state_dir, {
+                    outbox.FILENAME: pending, PUBLIC_RELEASE_STATE_FILENAME: notified_state,
+                })
             else:
                 print("  Notification: SKIPPED (PUBLIC_RELEASE_NOTIFICATION=false)\n")
 
     if release_cache_data is not None:
         release_cache.save_cache(paths["release_cache"], release_cache_data)
 
+    delivery = outbox.deliver(pending_path)
+    email_sent = delivery["sent"] > 0
+    email_failed = delivery["failed"] > 0
+    print(f"Email: {delivery['sent']} sent, {delivery['failed']} pending retry")
+    heartbeat_success = ping_heartbeat() if not email_failed else None
     stale_alert_sent = False
     duration = round(time.monotonic() - started_at, 2)
 
     record = {
         "timestamp": timestamp,
-        "success": not email_failed,
+        "success": not email_failed and heartbeat_success is not False,
+        "schedule_slot": args.schedule_slot,
+        "github_run": os.environ.get("GITHUB_RUN_ID", "") + ":" + os.environ.get("GITHUB_RUN_ATTEMPT", ""),
+        "notifications": delivery,
+        "heartbeat_success": heartbeat_success,
         "api_success": True,
         "release_notes_lookup_success": release_notes_lookup_success,
         "changed": comparison_result.has_changes,
@@ -381,7 +408,7 @@ def _run_check(
         "email_sent": email_sent,
         "stale_alert": stale_alert_sent,
         "duration_seconds": duration,
-        "error": None if not email_failed else "Email notification failed",
+        "error": "Email notification failed" if email_failed else ("Heartbeat failed" if heartbeat_success is False else None),
     }
     run_log_module.append_run_record(
         paths["run_log"], record, tracker_config.run_log_max_entries
@@ -390,10 +417,10 @@ def _run_check(
     print("State:")
     print("  Snapshot: UPDATED")
     print("  History: UPDATED" if comparison_result.has_changes or is_first_run else "  History: UNCHANGED")
-    print(f"\nCompleted {'successfully' if not email_failed else 'with errors'} in {duration} seconds.")
+    print(f"\nCompleted {'successfully' if not email_failed and heartbeat_success is not False else 'with errors'} in {duration} seconds.")
     print("=" * 60)
 
-    return 1 if email_failed else 0
+    return 1 if email_failed or heartbeat_success is False else 0
 
 
 def _fail_run(
@@ -403,10 +430,11 @@ def _fail_run(
     started_at: float,
     error: str,
 ) -> int:
+    delivery = outbox.deliver(os.path.join(tracker_config.state_dir, outbox.FILENAME))
     print(f"  Status: FAILED ({error})\n")
     print("API collection: FAILED")
     print("Snapshot NOT modified")
-    print("No version-change email will be sent for this run")
+    print("No new version-change email will be created; queued deliveries were retried")
 
     now = utcnow()
     staleness = check_staleness(
@@ -437,6 +465,7 @@ def _fail_run(
     record = {
         "timestamp": timestamp,
         "success": False,
+        "notifications": delivery,
         "api_success": False,
         "release_notes_lookup_success": None,
         "changed": False,
@@ -444,7 +473,7 @@ def _fail_run(
         "new_modules": 0,
         "removed_modules": 0,
         "total_modules": 0,
-        "email_sent": False,
+        "email_sent": delivery["sent"] > 0,
         "stale_alert": stale_alert_sent,
         "duration_seconds": duration,
         "error": error,

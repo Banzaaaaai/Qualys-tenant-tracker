@@ -26,3 +26,8 @@ tenant_snapshot.json.backup-*
 
 # Never commit local secrets
 .env
+
+# Local process lock and offline previews
+.tracker.lock
+email-preview.html
+.review-pytest-tmp/

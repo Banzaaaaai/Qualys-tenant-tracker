@@ -22,10 +22,10 @@ def load_history(path: str) -> list[dict]:
         with open(path, encoding="utf-8") as fh:
             data = json.load(fh)
     except (json.JSONDecodeError, OSError):
-        # History is diagnostic, not authoritative state: if it's unreadable,
-        # start a fresh list rather than blocking the run.
-        return []
-    return data if isinstance(data, list) else []
+        raise ValueError("Existing history is unreadable; preserved for recovery")
+    if not isinstance(data, list) or any(not isinstance(entry, dict) for entry in data):
+        raise ValueError("Existing history has an invalid shape; preserved for recovery")
+    return data
 
 
 def append_history_entries(

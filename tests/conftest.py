@@ -29,3 +29,9 @@ def missing_service_response() -> dict:
 @pytest.fixture
 def response_code_failure() -> dict:
     return load_fixture("response_code_failure.json")
+
+
+@pytest.fixture(autouse=True)
+def isolate_optional_heartbeat(monkeypatch):
+    # Never use a developer's monitoring endpoint from the test suite.
+    monkeypatch.delenv("TRACKER_HEARTBEAT_URL", raising=False)

@@ -276,3 +276,59 @@ def test_send_test_email_cli_path(base_env, monkeypatch):
     assert exit_code == 0
     assert len(FakeSMTP.sent) == 1
     assert "Test email" in FakeSMTP.sent[0]
+
+
+def test_failed_change_email_retries_without_repeating_history(base_env, monkeypatch):
+    _patch_api(monkeypatch, "tests/fixtures/valid_response.json")
+    assert main_module.run([]) == 0
+    _patch_api(monkeypatch, "tests/fixtures/valid_response_changed.json")
+    original_send = FakeSMTP.sendmail
+    def fail(*args, **kwargs):
+        raise smtplib.SMTPException("offline")
+    monkeypatch.setattr(FakeSMTP, "sendmail", fail)
+    assert main_module.run([]) == 1
+    pending_path = base_env / "notification_outbox.json"
+    pending = json.loads(pending_path.read_text())
+    assert len(pending) == 1 and pending[0]["attempts"] == 1
+    saved_history = (base_env / "version_history.json").read_text()
+    monkeypatch.setattr(FakeSMTP, "sendmail", original_send)
+    assert main_module.run([]) == 0
+    assert json.loads(pending_path.read_text()) == []
+    assert (base_env / "version_history.json").read_text() == saved_history
+    assert len(FakeSMTP.sent) == 1
+    assert pending[0]["id"] in FakeSMTP.sent[0]
+    assert main_module.run([]) == 0
+    assert len(FakeSMTP.sent) == 1
+
+
+def test_dry_run_leaves_state_and_email_untouched(base_env, monkeypatch):
+    _patch_api(monkeypatch, "tests/fixtures/valid_response.json")
+    assert main_module.run([]) == 0
+    before = {p.name: p.read_bytes() for p in base_env.iterdir()}
+    _patch_api(monkeypatch, "tests/fixtures/valid_response_changed.json")
+    assert main_module.run(["--dry-run"]) == 0
+    assert {p.name: p.read_bytes() for p in base_env.iterdir()} == before
+    assert not FakeSMTP.sent
+
+
+def test_offline_preview_needs_no_credentials(base_env, monkeypatch):
+    _patch_api(monkeypatch, "tests/fixtures/valid_response.json")
+    main_module.run([])
+    monkeypatch.delenv("QUALYS_PASSWORD")
+    monkeypatch.delenv("SMTP_HOST")
+    output = base_env / "preview.html"
+    assert main_module.run(["--preview-email", str(output), "--snapshot", str(base_env / "tenant_snapshot.json")]) == 0
+    assert "FIM" in output.read_text(encoding="utf-8")
+    assert not FakeSMTP.sent
+
+
+def test_summer_second_trigger_is_skipped(base_env, monkeypatch):
+    from datetime import datetime, timezone
+    monkeypatch.setenv("TRACKER_SCHEDULE_GUARD_ENABLED", "true")
+    _patch_api(monkeypatch, "tests/fixtures/valid_response.json")
+    monkeypatch.setattr(main_module, "utcnow", lambda: datetime(2026, 7, 15, 6, 50, tzinfo=timezone.utc))
+    assert main_module.run([]) == 0
+    before = (base_env / "run_log.json").read_text()
+    monkeypatch.setattr(main_module, "utcnow", lambda: datetime(2026, 7, 15, 7, 50, tzinfo=timezone.utc))
+    assert main_module.run([]) == 0
+    assert (base_env / "run_log.json").read_text() == before

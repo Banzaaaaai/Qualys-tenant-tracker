@@ -273,3 +273,27 @@ def test_public_release_notification_disabled_suppresses_standalone_email(base_e
     exit_code = main_module.run([])
     assert exit_code == 0
     assert not FakeSMTP.sent
+
+
+def test_failed_public_announcement_fails_run_and_retries(base_env, monkeypatch):
+    monkeypatch.setenv("CHECK_PUBLIC_RELEASES", "true")
+    _patch_tenant_api(monkeypatch, "valid_response.json")
+    assert main_module.run([]) == 0
+    _patch_release_site(monkeypatch)
+    original = FakeSMTP.sendmail
+    def fail(*args, **kwargs):
+        raise smtplib.SMTPException("offline")
+    monkeypatch.setattr(FakeSMTP, "sendmail", fail)
+    assert main_module.run([]) == 1
+    record = json.loads((base_env / "run_log.json").read_text())[-1]
+    assert record["success"] is False
+    assert record["notifications"]["by_kind"]["public_release"]["failed"] == 1
+    assert record["email_sent"] is False
+    pending = json.loads((base_env / "notification_outbox.json").read_text())
+    assert len(pending) == 1
+    monkeypatch.setattr(FakeSMTP, "sendmail", original)
+    assert main_module.run([]) == 0
+    assert len(FakeSMTP.sent) == 1
+    assert pending[0]["id"] in FakeSMTP.sent[0]
+    assert main_module.run([]) == 0
+    assert len(FakeSMTP.sent) == 1

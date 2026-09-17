@@ -41,11 +41,13 @@ concurrency:
 jobs:
   track:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           persist-credentials: true
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -78,6 +80,10 @@ jobs:
           QUALYS_RELEASE_NOTES_URL: ${{ vars.QUALYS_RELEASE_NOTES_URL }}
           CHECK_PUBLIC_RELEASES: ${{ vars.CHECK_PUBLIC_RELEASES }}
           RELEASE_NOTES_CACHE_TTL_DAYS: ${{ vars.RELEASE_NOTES_CACHE_TTL_DAYS }}
+          RELEASE_NOTES_BUDGET_SECONDS: ${{ vars.RELEASE_NOTES_BUDGET_SECONDS }}
+          QUALYS_HTTP_TIMEOUT_SECONDS: ${{ vars.QUALYS_HTTP_TIMEOUT_SECONDS }}
+          QUALYS_HTTP_MAX_RETRIES: ${{ vars.QUALYS_HTTP_MAX_RETRIES }}
+          TRACKER_SCHEDULE_GUARD_TOLERANCE_MINUTES: ${{ vars.TRACKER_SCHEDULE_GUARD_TOLERANCE_MINUTES }}
           PUBLIC_RELEASE_NOTIFICATION: ${{ vars.PUBLIC_RELEASE_NOTIFICATION }}
           FORCE_NOTIFY: ${{ inputs.force_notify }}
           SEND_TEST_EMAIL: ${{ inputs.send_test_email }}
@@ -86,7 +92,27 @@ jobs:
         working-directory: .
         shell: bash
 
+      - name: Preserve state and reset backups for recovery
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tracker-recovery-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 30
+          if-no-files-found: ignore
+          path: |
+            tenant_snapshot.json
+            tenant_snapshot.json.backup-*
+            version_history.json
+            run_log.json
+            tenant_report.json
+            tenant_report.md
+            release_notes_cache.json
+            public_release_notifications.json
+            notification_outbox.json
+            pending_transaction.json
+
       - name: Commit updated state
+        id: persist
         if: always()
         run: |
           git config user.name "qualys-tenant-tracker-bot"
@@ -99,17 +125,49 @@ jobs:
           # suppress every other file's update.
           for f in tenant_snapshot.json version_history.json run_log.json \
                    tenant_report.json tenant_report.md \
-                   release_notes_cache.json public_release_notifications.json; do
-            if [ -f "$f" ]; then
-              git add "$f"
+                   release_notes_cache.json public_release_notifications.json \
+                   notification_outbox.json pending_transaction.json; do
+            if [ -f "$f" ] || git ls-files --error-unmatch "$f" >/dev/null 2>&1; then
+              git add -A -- "$f"
             fi
           done
           if ! git diff --cached --quiet; then
             git commit -m "chore: update tenant version tracker state [skip ci]"
-            git push
+            pushed=false
+            for attempt in 1 2 3; do
+              if git push origin "HEAD:$GITHUB_REF_NAME"; then
+                pushed=true
+                break
+              fi
+              git fetch origin "$GITHUB_REF_NAME"
+              if ! git rebase "origin/$GITHUB_REF_NAME"; then
+                git rebase --abort
+                echo "::error::State conflicts with remote changes. Restore from the recovery artifact; no files were force-pushed."
+                exit 1
+              fi
+            done
+            if [ "$pushed" != true ]; then
+              echo "::error::Could not persist state after three attempts. Recovery artifact is available."
+              exit 1
+            fi
           else
             echo "No state changes to commit."
           fi
+
+      - name: Send external heartbeat after persisted successful check
+        if: steps.run_tracker.outcome == 'success' && steps.persist.outcome == 'success'
+        env:
+          TRACKER_HEARTBEAT_URL: ${{ secrets.TRACKER_HEARTBEAT_URL }}
+        run: |
+          python - <<'PY'
+          import os
+          from qualys_tracker.run_log import load_run_log
+          from qualys_tracker.heartbeat import ping_heartbeat
+          records = load_run_log("run_log.json")
+          current_run = os.environ["GITHUB_RUN_ID"] + ":" + os.environ["GITHUB_RUN_ATTEMPT"]
+          if records and records[-1].get("github_run") == current_run and records[-1].get("success"):
+              raise SystemExit(1 if ping_heartbeat() is False else 0)
+          PY
 
       - name: Fail job if tracker run failed
         if: steps.run_tracker.outcome == 'failure'

@@ -11,16 +11,34 @@ permissions:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.11", "3.12", "3.13", "3.14"]
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
-
-      - name: Install dependencies
-        run: pip install -r requirements-dev.txt
-
+          python-version: ${{ matrix.python }}
+      - name: Install dependencies and package
+        run: python -m pip install . -r requirements-dev.txt
       - name: Run tests
-        run: pytest -q
+        run: python -m pytest -q
+      - name: Build wheel
+        run: python -m pip wheel --no-deps --wheel-dir dist .
+      - name: Smoke test installed wheel outside source tree
+        shell: bash
+        run: |
+          python -m venv "$RUNNER_TEMP/tracker-smoke"
+          if [ "$RUNNER_OS" = Windows ]; then
+            smoke_python="$RUNNER_TEMP/tracker-smoke/Scripts/python.exe"
+            smoke_cli="$RUNNER_TEMP/tracker-smoke/Scripts/qualys-tracker.exe"
+          else
+            smoke_python="$RUNNER_TEMP/tracker-smoke/bin/python"
+            smoke_cli="$RUNNER_TEMP/tracker-smoke/bin/qualys-tracker"
+          fi
+          "$smoke_python" -m pip install dist/*.whl
+          cd "$RUNNER_TEMP"
+          "$smoke_cli" --help

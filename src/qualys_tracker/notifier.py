@@ -380,8 +380,10 @@ class EmailNotifier:
         )
         self._send("[Qualys Tenant] Test email", body)
 
-    def _send(self, subject: str, html_body: str) -> None:
+    def _send(self, subject: str, html_body: str, message_id: str | None = None) -> None:
         message = MIMEMultipart("alternative")
+        if message_id:
+            message["Message-ID"] = f"<{message_id}@qualys-tracker.local>"
         message["Subject"] = subject
         message["From"] = self._config.email_from
         message["To"] = ", ".join(self._config.email_to)
@@ -395,9 +397,11 @@ class EmailNotifier:
                     server.starttls()
                 if self._config.smtp_username:
                     server.login(self._config.smtp_username, self._config.smtp_password)
-                server.sendmail(
+                refused = server.sendmail(
                     self._config.email_from, self._config.email_to, message.as_string()
                 )
+                if refused:
+                    raise NotificationError("SMTP refused one or more recipients; delivery will be retried")
         except (smtplib.SMTPException, OSError) as exc:
             # Never include SMTP credentials in the raised message.
             raise NotificationError(f"Failed to send email: {type(exc).__name__}") from exc

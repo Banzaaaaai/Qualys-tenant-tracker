@@ -48,6 +48,14 @@ def load_snapshot(path: str) -> dict | None:
             "Existing snapshot is missing the expected 'modules' object"
         )
 
+    for name, info in data["modules"].items():
+        if not isinstance(name, str) or not name.strip() or not isinstance(info, dict):
+            raise StateCorruptionError("Invalid module record in snapshot")
+        if not isinstance(info.get("version"), str) or not info["version"].strip():
+            raise StateCorruptionError("Invalid module version in snapshot")
+        for field in ("api_field", "first_seen", "last_changed"):
+            if field in info and not isinstance(info[field], str):
+                raise StateCorruptionError(f"Invalid module {field} in snapshot")
     return data
 
 
@@ -123,6 +131,8 @@ def save_snapshot_atomic(path: str, snapshot: dict) -> None:
         with os.fdopen(fd, "w", encoding="utf-8") as fh:
             json.dump(snapshot, fh, indent=2, sort_keys=True)
             fh.write("\n")
+            fh.flush()
+            os.fsync(fh.fileno())
 
         with open(tmp_path, encoding="utf-8") as fh:
             json.load(fh)  # Validate round-trip before installing.

@@ -167,8 +167,8 @@ def build_module_intelligence(
 
 
 def load_notified_state(path: str) -> dict[str, str]:
-    """module -> the latest public version we've already sent a
-    standalone announcement email about (see spec section 21-22)."""
+    """module -> the latest public version durably queued for a
+    standalone announcement email (see spec section 21-22)."""
     if not os.path.exists(path):
         return {}
     try:
@@ -210,7 +210,7 @@ def check_public_release_announcements(
 
     Idempotent by design (spec section 22): a module is only included
     once per distinct newly-discovered public version. The caller is
-    responsible for updating `notified_state` after a successful send.
+    responsible for committing `notified_state` together with the outbox.
     """
     results = []
     for module, info in modules.items():

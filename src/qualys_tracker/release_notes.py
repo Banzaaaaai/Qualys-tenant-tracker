@@ -209,6 +209,8 @@ class QualysReleaseNotesClient:
         backoff_base_seconds: float = 1.0,
         sleep_fn=time.sleep,
     ) -> None:
+        self._index_error = None
+        self._deadline = time.monotonic() + 60
         self._index_url = index_url
         self._timeout = timeout_seconds
         self._max_retries = max_retries
@@ -221,14 +223,32 @@ class QualysReleaseNotesClient:
         so a single run never re-downloads the (large) index page once per
         module -- see release_intelligence.py, which shares one client
         across all modules checked in a run."""
+        if self._index_error is not None:
+            raise self._index_error
         if self._index_entries is None:
-            html = self._get(self._index_url)
-            self._index_entries = parse_index(html)
+            try:
+                html = self._get(self._index_url)
+                self._index_entries = parse_index(html)
+            except ReleaseNotesError as exc:
+                self._index_error = exc
+                raise
         return self._index_entries
 
     def fetch_release_detail(self, url: str) -> ReleaseDetail:
         html = self._get(url)
         return parse_release_detail(html, url)
+
+    def set_budget(self, seconds: int) -> None:
+        self._deadline = time.monotonic() + seconds
+
+    def _remaining(self) -> float:
+        remaining = self._deadline - time.monotonic()
+        if remaining <= 0:
+            raise ReleaseNotesError("Release-note lookup time budget exhausted")
+        return remaining
+
+    def _pause(self, seconds: float) -> None:
+        self._sleep(min(seconds, self._remaining()))
 
     def _get(self, url: str) -> str:
         host = urlparse(url).netloc
@@ -241,7 +261,7 @@ class QualysReleaseNotesClient:
                 response = requests.get(
                     url,
                     headers={"Accept": "text/html", "User-Agent": "qualys-tenant-version-tracker"},
-                    timeout=self._timeout,
+                    timeout=min(self._timeout, self._remaining()),
                 )
             except requests.RequestException as exc:
                 last_exception = exc
@@ -249,7 +269,7 @@ class QualysReleaseNotesClient:
                     raise ReleaseNotesError(
                         f"Network error fetching {url}: {type(exc).__name__}"
                     ) from exc
-                self._sleep(self._backoff_base * (2 ** (attempt - 1)))
+                self._pause(self._backoff_base * (2 ** (attempt - 1)))
                 continue
 
             if response.status_code == 429 or 500 <= response.status_code < 600:
@@ -258,7 +278,7 @@ class QualysReleaseNotesClient:
                     raise ReleaseNotesError(
                         f"HTTP {response.status_code} persisted fetching {url}"
                     )
-                self._sleep(self._backoff_base * (2 ** (attempt - 1)))
+                self._pause(self._backoff_base * (2 ** (attempt - 1)))
                 continue
 
             if not response.ok:

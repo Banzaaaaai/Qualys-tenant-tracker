@@ -19,7 +19,10 @@ def _env_bool(name: str, default: bool) -> bool:
     raw = os.environ.get(name)
     if raw is None or raw.strip() == "":
         return default
-    return raw.strip().lower() in ("1", "true", "yes", "on")
+    value = raw.strip().lower()
+    if value not in ("1", "true", "yes", "on", "0", "false", "no", "off"):
+        raise ConfigError(f"{name} must be a boolean")
+    return value in ("1", "true", "yes", "on")
 
 
 def _env_int(name: str, default: int) -> int:
@@ -27,7 +30,15 @@ def _env_int(name: str, default: int) -> int:
     if raw is None or raw.strip() == "":
         return default
     try:
-        return int(raw.strip())
+        value = int(raw.strip())
+        minimum = 0 if name in ("RELEASE_NOTES_CACHE_TTL_DAYS", "STALE_ALERT_SUPPRESSION_DAYS") else 1
+        maximum = {"SMTP_PORT": 65535, "QUALYS_HTTP_MAX_RETRIES": 10,
+                   "QUALYS_HTTP_TIMEOUT_SECONDS": 300,
+                   "TRACKER_SCHEDULE_GUARD_TOLERANCE_MINUTES": 180,
+                   "RELEASE_NOTES_BUDGET_SECONDS": 300}.get(name)
+        if value < minimum or (maximum is not None and value > maximum):
+            raise ConfigError(f"{name} is outside its allowed range")
+        return value
     except ValueError as exc:
         raise ConfigError(f"{name} must be an integer, got {raw!r}") from exc
 
@@ -52,6 +63,10 @@ class QualysConfig:
         password = os.environ.get("QUALYS_PASSWORD", "")
         if not api_url:
             raise ConfigError("QUALYS_API_URL is required")
+        from urllib.parse import urlparse
+        parsed = urlparse(api_url)
+        if parsed.scheme != "https" or not parsed.hostname or parsed.username or parsed.password or parsed.query or parsed.fragment:
+            raise ConfigError("QUALYS_API_URL must be an HTTPS URL without credentials, query, or fragment")
         if not username:
             raise ConfigError("QUALYS_USERNAME is required")
         if not password:
@@ -111,6 +126,18 @@ class TrackerConfig:
     state_dir: str = "."
     github_run_url: str | None = None
 
+    def __post_init__(self):
+        from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
+        from .scheduling import _parse_hhmm
+        try:
+            ZoneInfo(self.timezone)
+            if not self.local_run_times:
+                raise ValueError("empty schedule")
+            for value in self.local_run_times:
+                _parse_hhmm(value)
+        except (ValueError, ZoneInfoNotFoundError) as exc:
+            raise ConfigError("Invalid TRACKER_TIMEZONE or TRACKER_LOCAL_RUN_TIMES") from exc
+
     @classmethod
     def from_env(cls, tenant_api_url: str) -> "TrackerConfig":
         tenant_identifier = os.environ.get("TENANT_IDENTIFIER", "").strip()
@@ -155,6 +182,7 @@ class ReleaseNotesConfig:
     index_url: str = "https://www.qualys.com/documentation/release-notes"
     check_public_releases: bool = True
     cache_ttl_days: int = 1
+    budget_seconds: int = 60
     public_release_notification: bool = True
 
     @classmethod
@@ -164,5 +192,6 @@ class ReleaseNotesConfig:
             or "https://www.qualys.com/documentation/release-notes",
             check_public_releases=_env_bool("CHECK_PUBLIC_RELEASES", True),
             cache_ttl_days=_env_int("RELEASE_NOTES_CACHE_TTL_DAYS", 1),
+            budget_seconds=_env_int("RELEASE_NOTES_BUDGET_SECONDS", 60),
             public_release_notification=_env_bool("PUBLIC_RELEASE_NOTIFICATION", True),
         )
