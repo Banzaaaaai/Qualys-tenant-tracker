@@ -452,7 +452,7 @@ in local time (`TRACKER_TIMEZONE`, default `Europe/Amsterdam`,
 times each local slot can map to (CET and CEST), and
 `src/qualys_tracker/scheduling.py` uses the real IANA tzdata (via
 `zoneinfo`) to compute the actual local time at execution and no-ops
-early triggers. It permits delayed runs up to 90 minutes after the slot, then uses successful run-log slot IDs to suppress duplicate seasonal triggers. `workflow_dispatch` runs always bypass
+early triggers. It permits a due slot to be picked up for up to 24 hours, then uses successful run-log slot IDs to suppress duplicate seasonal triggers. GitHub commonly starts scheduled runs many hours after the cron minute, so lateness is normal and must not gate the check -- a narrow window makes every scheduled run no-op while still reporting success. `workflow_dispatch` runs always bypass
 this guard, so manual runs are never silently skipped.
 
 This is more robust than hardcoding UTC offsets because it re-derives
@@ -473,10 +473,16 @@ intervention around the DST transition dates.
   auth, or transient Qualys errors), not about your tenant's health.
   Check the `error` field of the most recent failed `run_log.json`
   entry.
-- **The scheduled run seems to "do nothing"** -- check whether it was
-  outside the configured local run window (see [DST / timezone
-  handling](#dst--timezone-handling)); this is expected for the
-  "off-season" cron trigger and is not a failure.
+- **The scheduled run seems to "do nothing"** -- one no-op per slot is
+  expected: the "off-season" cron trigger fires before its slot is due,
+  and the second trigger finds the slot already completed (see [DST /
+  timezone handling](#dst--timezone-handling)). But if *every* run logs
+  `outside the configured run window` and `No state changes to commit`,
+  the guard is rejecting real runs and the tracker is dark while showing
+  green. Compare the logged local time against
+  `TRACKER_LOCAL_RUN_TIMES` and confirm
+  `TRACKER_SCHEDULE_GUARD_TOLERANCE_MINUTES` still exceeds the actual
+  GitHub scheduler delay.
 - **I want to see the exact current inventory without waiting for a
   change** -- run the workflow manually with `force_notify: true`, or
   read `tenant_report.md` / `tenant_report.json` in the repo, updated

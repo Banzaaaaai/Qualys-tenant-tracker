@@ -23,7 +23,7 @@ Rejected pushes retry up to three times, rebasing over unrelated remote changes.
 
 ## Scheduling
 
-Slots are identified by timezone, local date, and local time. Checks run after a slot is due and within the tolerance (default 90 minutes). A successful run log entry suppresses that slot's later triggers. Failed checks may retry; manual runs bypass the guard.
+Slots are identified by timezone, local date, and local time. Checks run once a slot is due, however late the runner starts, up to a catch-up bound (default 24 hours). GitHub routinely delivers scheduled runs hours late, so this bound must stay well above the observed delay; a narrow window silently no-ops every scheduled run. A successful run log entry suppresses that slot's later triggers. Failed checks may retry; manual runs bypass the guard.
 
 Changing the timezone or local run times also requires updating the workflow's UTC cron triggers. The guard does not create new triggers. Retain enough run-log entries to cover the current day's slots.
 
@@ -43,7 +43,7 @@ Local scheduling uses the same environment variable. The CLI pings after a succe
 | `QUALYS_HTTP_MAX_RETRIES` | 5 | 1-10 total attempts |
 | `RELEASE_NOTES_BUDGET_SECONDS` | 60 | 1-300 seconds per check |
 | `RELEASE_NOTES_CACHE_TTL_DAYS` | 1 | Zero or greater |
-| `TRACKER_SCHEDULE_GUARD_TOLERANCE_MINUTES` | 90 | 1-180 minutes after due time |
+| `TRACKER_SCHEDULE_GUARD_TOLERANCE_MINUTES` | 1440 | 1-1440 minutes after due time |
 | `RUN_LOG_MAX_ENTRIES` | 500 | Positive integer |
 | `STALE_AFTER_DAYS` | 3 | Positive integer |
 | `STALE_ALERT_SUPPRESSION_DAYS` | 3 | Zero or greater |

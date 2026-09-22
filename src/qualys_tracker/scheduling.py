@@ -2,10 +2,20 @@
 
 GitHub Actions cron is fixed in UTC, but the desired run times are
 expressed in local time. The workflow registers both seasonal UTC offsets.
-This guard permits due slots within a late-arrival tolerance. main.py uses
-successful run-log slot IDs to suppress duplicate seasonal triggers.
 
-Manual runs (workflow_dispatch) always bypass this guard.
+GitHub does NOT deliver scheduled runs on time: on this repo the cron has
+arrived anywhere from ~3 to ~13 hours after its nominal minute. So this
+guard deliberately does NOT enforce a narrow window around a slot -- doing
+that silently no-ops every scheduled run and the tracker goes dark without
+failing (see docs/operations.md). Instead it attributes the run to the most
+recent slot that is already DUE, however late the runner turned up, and
+main.py uses the persisted slot ID to skip a slot that already completed
+successfully. That is what suppresses the duplicate seasonal trigger and
+any redundant retry, not the elapsed time.
+
+`max_lateness_minutes` therefore only bounds how stale a missed slot may be
+before it is abandoned rather than caught up. Manual runs
+(workflow_dispatch) always bypass this guard.
 """
 
 from __future__ import annotations
@@ -32,13 +42,15 @@ def is_within_scheduled_window(
     now_utc: datetime,
     timezone_name: str,
     local_run_times: list[str],
-    tolerance_minutes: int,
+    max_lateness_minutes: int,
 ) -> ScheduleCheck:
     local_now = now_utc.astimezone(ZoneInfo(timezone_name))
     local_time_str = local_now.strftime("%H:%M")
 
-    # Only run after a slot is due. This skips the early winter trigger.
-    # The persisted slot ID suppresses the late summer trigger and delayed duplicates.
+    # Only run once a slot is actually due; this is what skips the "wrong
+    # season" trigger that fires an hour early. There is no upper bound on
+    # lateness beyond max_lateness_minutes, because a late runner is the
+    # normal case, not an anomaly.
     candidates = []
     for days_back in (0, 1):
         for target in local_run_times:
@@ -47,7 +59,7 @@ def is_within_scheduled_window(
                 hour=target_time.hour, minute=target_time.minute, second=0, microsecond=0
             )
             elapsed = local_now - target_dt
-            if timedelta(0) <= elapsed <= timedelta(minutes=tolerance_minutes):
+            if timedelta(0) <= elapsed <= timedelta(minutes=max_lateness_minutes):
                 candidates.append(target_dt)
     slot = None
     if candidates:

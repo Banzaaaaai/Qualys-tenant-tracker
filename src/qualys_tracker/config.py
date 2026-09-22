@@ -34,7 +34,7 @@ def _env_int(name: str, default: int) -> int:
         minimum = 0 if name in ("RELEASE_NOTES_CACHE_TTL_DAYS", "STALE_ALERT_SUPPRESSION_DAYS") else 1
         maximum = {"SMTP_PORT": 65535, "QUALYS_HTTP_MAX_RETRIES": 10,
                    "QUALYS_HTTP_TIMEOUT_SECONDS": 300,
-                   "TRACKER_SCHEDULE_GUARD_TOLERANCE_MINUTES": 180,
+                   "TRACKER_SCHEDULE_GUARD_TOLERANCE_MINUTES": 1440,
                    "RELEASE_NOTES_BUDGET_SECONDS": 300}.get(name)
         if value < minimum or (maximum is not None and value > maximum):
             raise ConfigError(f"{name} is outside its allowed range")
@@ -121,7 +121,11 @@ class TrackerConfig:
     timezone: str = "Europe/Amsterdam"
     local_run_times: list[str] = field(default_factory=lambda: ["08:45", "16:45"])
     schedule_guard_enabled: bool = True
-    schedule_guard_tolerance_minutes: int = 90
+    # How late a due slot may be picked up. GitHub routinely delivers
+    # scheduled runs many hours after the cron minute, so this is a
+    # catch-up bound (24h), NOT a narrow on-time window. Lowering it
+    # below the real scheduler delay makes every scheduled run no-op.
+    schedule_guard_tolerance_minutes: int = 1440
     run_log_max_entries: int = 500
     state_dir: str = "."
     github_run_url: str | None = None
@@ -164,7 +168,7 @@ class TrackerConfig:
             local_run_times=_env_list("TRACKER_LOCAL_RUN_TIMES", "08:45,16:45"),
             schedule_guard_enabled=_env_bool("TRACKER_SCHEDULE_GUARD_ENABLED", True),
             schedule_guard_tolerance_minutes=_env_int(
-                "TRACKER_SCHEDULE_GUARD_TOLERANCE_MINUTES", 90
+                "TRACKER_SCHEDULE_GUARD_TOLERANCE_MINUTES", 1440
             ),
             run_log_max_entries=_env_int("RUN_LOG_MAX_ENTRIES", 500),
             state_dir=os.environ.get("TRACKER_STATE_DIR", ".").strip() or ".",
