@@ -318,5 +318,101 @@
     "new_version": "4.0.0.0-182",
     "old_version": "4.0.0.0-178",
     "timestamp": "2026-09-14T14:39:11Z"
+  },
+  {
+    "api_field": "PortalApplication-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "PortalApplication",
+    "new_version": "3.25.0.0-9 DEVELOP #85 (2026-09-10T13:18:14Z)",
+    "old_version": "3.25.0.0-5 DEVELOP #81 (2026-08-05T15:38:25Z)",
+    "timestamp": "2026-09-22T07:09:04Z"
+  },
+  {
+    "api_field": "ETM-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "ETM",
+    "new_version": "1.12.0-308",
+    "old_version": "1.12.0-305",
+    "timestamp": "2026-09-22T07:09:04Z"
+  },
+  {
+    "api_field": "QUESTIONNAIRE_V2-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "QUESTIONNAIRE_V2",
+    "new_version": "1.34.0.0",
+    "old_version": "1.33.1.0",
+    "timestamp": "2026-09-22T07:09:04Z"
+  },
+  {
+    "api_field": "PS-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "PS",
+    "new_version": "2.6.0.0-7",
+    "old_version": "2.5.0.0-10",
+    "timestamp": "2026-09-22T07:09:04Z"
+  },
+  {
+    "api_field": "MTG-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "MTG",
+    "new_version": "4.1.0.0-281",
+    "old_version": "4.0.0.0-182",
+    "timestamp": "2026-09-22T07:09:04Z"
+  },
+  {
+    "api_field": "ISL-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "ISL",
+    "new_version": "4.1.0.0-281",
+    "old_version": "4.0.0.0-182",
+    "timestamp": "2026-09-22T07:09:04Z"
+  },
+  {
+    "api_field": "CS-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "CS",
+    "new_version": "1.45.0-116",
+    "old_version": "1.44.5-9",
+    "timestamp": "2026-09-22T07:09:04Z"
+  },
+  {
+    "api_field": "QUESTIONNAIRE-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "QUESTIONNAIRE",
+    "new_version": "2.46.0.0",
+    "old_version": "2.45.1.0",
+    "timestamp": "2026-09-22T07:09:04Z"
+  },
+  {
+    "api_field": "FIM-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "FIM",
+    "new_version": "4.9.4.0-38",
+    "old_version": "4.9.3.0-34",
+    "timestamp": "2026-09-22T07:09:04Z"
+  },
+  {
+    "api_field": "PM-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "PM",
+    "new_version": "4.1.0.0-281",
+    "old_version": "4.0.0.0-182",
+    "timestamp": "2026-09-22T07:09:04Z"
+  },
+  {
+    "api_field": "SEM-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "SEM",
+    "new_version": "1.6.2-0",
+    "old_version": "1.6.1-0",
+    "timestamp": "2026-09-22T07:09:04Z"
+  },
+  {
+    "api_field": "SSC-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "SSC",
+    "new_version": "1.16.0",
+    "old_version": "1.15.0",
+    "timestamp": "2026-09-22T07:09:04Z"
   }
 ]
