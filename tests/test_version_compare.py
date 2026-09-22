@@ -1,4 +1,10 @@
-from qualys_tracker.version_compare import Ordering, compare_versions, latest_version
+from qualys_tracker.version_compare import (
+    Ordering,
+    compare_public_to_tenant,
+    compare_versions,
+    is_same_release,
+    latest_version,
+)
 
 
 def test_equal_strings():
@@ -69,3 +75,32 @@ def test_latest_version_empty_list():
     result = latest_version([])
     assert result.confident
     assert result.version is None
+
+
+# --- Published-label granularity ----------------------------------------
+# Qualys publishes "FIM 4.9.4"; the portal API reports "4.9.4.0-38".
+# Those are the same release and must not read as tenant-ahead.
+
+
+def test_tenant_version_extending_published_label_is_the_same_release():
+    assert is_same_release("4.9.4", "4.9.4.0-38") is True
+    assert compare_public_to_tenant("4.9.4", "4.9.4.0-38") == Ordering.EQUAL
+    assert compare_public_to_tenant("1.45", "1.45.0-116") == Ordering.EQUAL
+
+
+def test_published_label_newer_than_tenant_still_reads_as_newer():
+    assert compare_public_to_tenant("4.9.4", "4.9.3.0-34") == Ordering.NEWER
+
+
+def test_tenant_genuinely_ahead_of_published_label_still_reads_as_older():
+    # ETM: tenant on 1.13.x, Qualys has only published 1.12.
+    assert is_same_release("1.12", "1.13.0-260") is False
+    assert compare_public_to_tenant("1.12", "1.13.0-260") == Ordering.OLDER
+
+
+def test_bare_major_published_label_is_too_coarse_to_claim_a_match():
+    assert is_same_release("2", "2.12.0-12-101") is False
+
+
+def test_similar_but_different_component_is_not_the_same_release():
+    assert is_same_release("4.9.4", "4.9.40-1") is False

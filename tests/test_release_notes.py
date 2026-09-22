@@ -9,6 +9,7 @@ from qualys_tracker.release_notes import (
     candidate_product_names,
     find_entries_for_module,
     find_entry_for_version,
+    IndexEntry,
     parse_index,
     parse_release_detail,
 )
@@ -373,3 +374,35 @@ def test_readme_documents_each_mapped_path():
             assert source.url_contains in text, (
                 f"{code}'s path {source.url_contains} is not documented in the README"
             )
+
+
+def test_find_entry_matches_tenant_version_under_a_coarser_published_label(index_html):
+    """Qualys publishes "FIM 4.9.4"; the portal reports "4.9.4.0-38".
+    The note describes the tenant's release, so it must be found."""
+    entries = find_entries_for_module(parse_index(index_html), "FIM")
+    match = find_entry_for_version(entries, "4.9.4.0-38")
+    assert match is not None
+    assert match.url.endswith("release_4_9_4.htm")
+
+
+def test_find_entry_prefers_the_most_specific_published_label():
+    entries = [
+        IndexEntry(product_name="File Integrity Monitoring", version_text="4.9", url="a.htm"),
+        IndexEntry(product_name="File Integrity Monitoring", version_text="4.9.4", url="b.htm"),
+    ]
+    assert find_entry_for_version(entries, "4.9.4.0-38").url == "b.htm"
+
+
+def test_find_entry_refuses_an_ambiguous_granularity_match():
+    """Two equally specific labels both "fit" -- report nothing rather
+    than pick one (spec: never fabricate a correlation)."""
+    entries = [
+        IndexEntry(product_name="File Integrity Monitoring", version_text="4.9.4", url="a.htm"),
+        IndexEntry(product_name="File Integrity Monitoring", version_text="4.9.4", url="b.htm"),
+    ]
+    assert find_entry_for_version(entries, "4.9.4.0-38") is None
+
+
+def test_find_entry_does_not_match_a_different_component(index_html):
+    entries = find_entries_for_module(parse_index(index_html), "FIM")
+    assert find_entry_for_version(entries, "4.9.40-1") is None

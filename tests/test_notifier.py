@@ -190,6 +190,38 @@ def test_change_notification_current_status(email_config):
     assert "already running the latest publicly announced version" in message
 
 
+def test_change_notification_tenant_ahead_of_public(email_config):
+    """The tenant already runs a version Qualys hasn't announced yet --
+    that must be said explicitly, not reported as CURRENT."""
+    from qualys_tracker.models import ChangeType, ModuleChange
+
+    result = compare({"ETM": {"version": "1.12.0-308"}},
+                     [ModuleVersion("ETM-VERSION", "ETM", "1.13.0-260")])
+    result.changed = [
+        ModuleChange("ETM", "ETM-VERSION", "1.12.0-308", "1.13.0-260", ChangeType.VERSION_CHANGED)
+    ]
+    result.unchanged = []
+
+    intel = ModuleReleaseIntelligence(
+        module="ETM", tenant_version="1.13.0-260", tenant_release=None,
+        latest_public_release=ReleaseInfo(
+            version="1.12.0-308", url="https://docs.qualys.com/en/etm/release_1_12.htm",
+            release_date="August 01, 2026", title="ETM 1.12", features=[],
+        ),
+        upgrade_status=UpgradeStatus.TENANT_AHEAD_OF_PUBLIC,
+    )
+
+    notifier = EmailNotifier(email_config)
+    notifier.send_change_notification(
+        result, "tenant-1", "2026-01-01T00:00:00Z", None, release_intel={"ETM": intel}
+    )
+    _, _, message = FakeSMTP.sent[0]
+    assert "NOT PUBLICLY ANNOUNCED YET" in message
+    assert "already running the latest publicly announced version" not in message
+    assert "is ahead of the latest publicly announced version" in message
+    assert "1.12.0-308" in message
+
+
 def test_change_notification_release_lookup_failed_does_not_break_email(email_config):
     from qualys_tracker.models import ChangeType, ModuleChange
 

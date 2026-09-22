@@ -22,7 +22,7 @@ from .release_notes import (
     find_entry_for_version,
 )
 from .release_cache import get_latest_public, get_release, put_latest_public, put_release
-from .version_compare import Ordering, compare_versions, latest_version
+from .version_compare import Ordering, compare_public_to_tenant, latest_version
 
 DEFAULT_NOTIFIED_STATE_FILENAME = "public_release_notifications.json"
 
@@ -145,11 +145,18 @@ def build_module_intelligence(
     elif latest_release is None:
         status = UpgradeStatus.PUBLIC_RELEASE_NOT_FOUND if order_confident else UpgradeStatus.VERSION_ORDER_UNKNOWN
     else:
-        ordering = compare_versions(latest_release.version, tenant_version)
+        # Compared at the granularity Qualys published, so a coarser
+        # public label ("4.9.4") does not read as older than the exact
+        # tenant string ("4.9.4.0-38") it actually describes.
+        ordering = compare_public_to_tenant(latest_release.version, tenant_version)
         if ordering == Ordering.UNKNOWN:
             status = UpgradeStatus.VERSION_ORDER_UNKNOWN
         elif ordering == Ordering.NEWER:
             status = UpgradeStatus.PUBLIC_NEWER_VERSION_AVAILABLE
+        elif ordering == Ordering.OLDER:
+            # The tenant is running something Qualys hasn't published
+            # release notes for yet -- not the same as being "current".
+            status = UpgradeStatus.TENANT_AHEAD_OF_PUBLIC
         else:
             status = UpgradeStatus.CURRENT
 

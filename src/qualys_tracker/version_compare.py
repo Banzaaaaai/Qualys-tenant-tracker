@@ -37,6 +37,12 @@ def _tokenize(version: str) -> list[str]:
     return _TOKEN_RE.findall(version)
 
 
+def version_tokens(version: str) -> list[str]:
+    """Public view of the tokenization, so callers can talk about how
+    specific a version label is without re-implementing the split."""
+    return _tokenize(version)
+
+
 def compare_versions(a: str, b: str) -> Ordering:
     """Compare `a` to `b`. Returns how `a` relates to `b`."""
     if a == b:
@@ -64,6 +70,33 @@ def compare_versions(a: str, b: str) -> Ordering:
     if all(int(tok) == 0 for tok in tail):
         return Ordering.EQUAL
     return Ordering.OLDER if len(tb) > len(ta) else Ordering.NEWER
+
+
+def is_same_release(published: str, tenant: str) -> bool:
+    """True when `tenant` is the same release as `published`, only
+    written at a finer granularity.
+
+    Qualys labels its public release notes more coarsely than the
+    portal reports ("FIM 4.9.4" on the docs site vs "4.9.4.0-38" from
+    the API). Comparing those two strings token by token would make the
+    tenant look *ahead* of a release it is actually running, so a
+    tenant version that extends the published one is treated as the
+    same release. A published label of a single token (a bare major)
+    is too coarse to make that claim, so it is refused.
+    """
+    tp, tt = _tokenize(published), _tokenize(tenant)
+    if len(tp) < 2 or len(tp) > len(tt):
+        return False
+    return tt[: len(tp)] == tp
+
+
+def compare_public_to_tenant(published: str, tenant: str) -> Ordering:
+    """Compare a publicly announced version to a tenant version, at the
+    granularity the public label was written in (see is_same_release).
+    """
+    if is_same_release(published, tenant):
+        return Ordering.EQUAL
+    return compare_versions(published, tenant)
 
 
 @dataclass

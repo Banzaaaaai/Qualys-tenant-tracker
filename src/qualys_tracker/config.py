@@ -184,7 +184,10 @@ class ReleaseNotesConfig:
     """
 
     index_url: str = "https://www.qualys.com/documentation/release-notes"
-    check_public_releases: bool = True
+    # Off by default: this tracker reports changes on the tenant only.
+    # Standalone "Qualys announced X" emails for modules whose tenant
+    # version did NOT move are opt-in via CHECK_PUBLIC_RELEASES=true.
+    check_public_releases: bool = False
     cache_ttl_days: int = 1
     budget_seconds: int = 60
     public_release_notification: bool = True
@@ -194,7 +197,7 @@ class ReleaseNotesConfig:
         return cls(
             index_url=os.environ.get("QUALYS_RELEASE_NOTES_URL", "").strip()
             or "https://www.qualys.com/documentation/release-notes",
-            check_public_releases=_env_bool("CHECK_PUBLIC_RELEASES", True),
+            check_public_releases=_env_bool("CHECK_PUBLIC_RELEASES", False),
             cache_ttl_days=_env_int("RELEASE_NOTES_CACHE_TTL_DAYS", 1),
             budget_seconds=_env_int("RELEASE_NOTES_BUDGET_SECONDS", 60),
             public_release_notification=_env_bool("PUBLIC_RELEASE_NOTIFICATION", True),

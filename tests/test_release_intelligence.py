@@ -166,6 +166,17 @@ def test_build_module_intelligence_newer_public_available(fake_site):
     assert intel.latest_public_release.version == "4.9.4"
 
 
+def test_build_module_intelligence_tenant_ahead_of_public(fake_site):
+    """Tenant runs a version newer than anything Qualys announced --
+    reported distinctly, never as CURRENT."""
+    client = QualysReleaseNotesClient()
+    cache = release_cache.load_cache("/nonexistent")
+    intel = release_intelligence.build_module_intelligence(client, cache, "FIM", "4.9.9", 1, NOW)
+    assert intel.upgrade_status == UpgradeStatus.TENANT_AHEAD_OF_PUBLIC
+    assert intel.tenant_release is None
+    assert intel.latest_public_release.version == "4.9.4"
+
+
 def test_build_module_intelligence_release_not_found_for_unknown_module(fake_site):
     client = QualysReleaseNotesClient()
     cache = release_cache.load_cache("/nonexistent")

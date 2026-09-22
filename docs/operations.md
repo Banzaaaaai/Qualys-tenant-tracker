@@ -183,7 +183,7 @@ real hostname or credential.
 | `TRACKER_LOCAL_RUN_TIMES` | `08:45,16:45` | Local times the tracker is expected to run |
 | `RUN_LOG_MAX_ENTRIES` | `500` | Retention cap for `run_log.json` |
 | `QUALYS_RELEASE_NOTES_URL` | `https://www.qualys.com/documentation/release-notes` | Official Qualys release-notes index to correlate against |
-| `CHECK_PUBLIC_RELEASES` | `true` | Also scan unchanged modules for newly-announced public versions (spec section 21) |
+| `CHECK_PUBLIC_RELEASES` | `false` | Opt in to also scanning *unchanged* modules for newly-announced public versions (spec section 21). Off by default: the tracker reports tenant changes only |
 | `RELEASE_NOTES_CACHE_TTL_DAYS` | `1` | How long a "latest public version" lookup is trusted before re-checking |
 | `PUBLIC_RELEASE_NOTIFICATION` | `true` | Allow the standalone scan above to actually send an email (vs. silently caching) |
 
@@ -314,8 +314,9 @@ the (large) release-notes index page itself is only ever fetched once
 and shared across every module being checked.
 
 **Standalone announcements without a tenant change** (`CHECK_PUBLIC_RELEASES`,
-default `true`): once per run, every module whose version did *not*
-change this run is also compared against the latest public release. If
+default `false` -- opt-in): when enabled, every module whose version
+did *not* change this run is also compared against the latest public
+release once per run. If
 Qualys has announced something newer, a separate "Public release
 announcement" email is sent -- but only once per distinct newly-found
 version (deduplicated via `public_release_notifications.json`), so an
@@ -403,9 +404,23 @@ module's "Latest publicly announced version" section:
 | --- | --- |
 | `CURRENT` | The tenant is already on the latest publicly announced version |
 | `PUBLICLY ANNOUNCED — NOT YET DETECTED ON THIS TENANT` | Qualys has announced a newer version; this tenant hasn't received it (phased rollouts are normal -- this is not a fault) |
+| `CAPABILITIES AVAILABLE ON TENANT — NOT PUBLICLY ANNOUNCED YET` | The tenant is running a version Qualys has not published release notes for yet. The capabilities are live on the tenant but cannot be listed |
 | `NOT FOUND` | The module couldn't be matched against the release-notes site at all (see `MODULE_NAME_HINTS`) |
 | `ORDERING UNKNOWN` | Multiple public versions were found but couldn't be safely ordered -- reported honestly rather than guessed |
 | `TEMPORARILY UNAVAILABLE` | The release-notes site couldn't be reached this run; tenant tracking above was unaffected |
+
+### Version granularity
+
+Qualys labels its public release notes more coarsely than the portal
+API reports: the docs site publishes "FIM 4.9.4" for what the tenant
+reports as `4.9.4.0-38`. A tenant version that simply extends the
+published label is therefore treated as *the same release* -- both for
+finding the tenant's own release note and for the latest-public
+comparison (`is_same_release` in `version_compare.py`). Without that,
+every module would look like it was running ahead of a release it is
+actually on. A genuinely different component (`1.13.x` against a
+published `1.12`) still reports the tenant as ahead, and a bare major
+("2") is refused as too coarse a label to match on.
 
 ## Staleness monitoring
 

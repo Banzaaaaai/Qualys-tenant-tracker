@@ -109,6 +109,9 @@ class ReleaseInfo:
 class UpgradeStatus(str, Enum):
     CURRENT = "CURRENT"
     PUBLIC_NEWER_VERSION_AVAILABLE = "PUBLIC_NEWER_VERSION_AVAILABLE"
+    # Tenant runs a version newer than anything Qualys has published
+    # release notes for -- capabilities are live but not announced yet.
+    TENANT_AHEAD_OF_PUBLIC = "TENANT_AHEAD_OF_PUBLIC"
     PUBLIC_RELEASE_NOT_FOUND = "PUBLIC_RELEASE_NOT_FOUND"
     VERSION_ORDER_UNKNOWN = "VERSION_ORDER_UNKNOWN"
     RELEASE_NOTE_LOOKUP_FAILED = "RELEASE_NOTE_LOOKUP_FAILED"

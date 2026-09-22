@@ -3,6 +3,11 @@
 Failures here are never swallowed: `send_*` methods raise
 NotificationError on any SMTP failure so the caller (main.py) can
 report it prominently and fail the job, per spec section 9.
+
+Presentation follows the same visual language as the sibling
+qualys-release-tracker project: a dark navy header bar, a light page
+background and white rounded cards. Everything is table-based with
+inline styles, because Outlook and Gmail strip <style> blocks.
 """
 
 from __future__ import annotations
@@ -15,25 +20,132 @@ from .config import EmailConfig
 from .release_notes import full_product_name
 from .models import ChangeType, ComparisonResult, ModuleReleaseIntelligence, UpgradeStatus
 
-TABLE_STYLE = (
-    "border-collapse:collapse;width:100%;font-family:Arial,Helvetica,sans-serif;"
-    "font-size:14px;"
+# --- Design tokens -------------------------------------------------------
+
+FONT = "Arial,Helvetica,sans-serif"
+PAGE_BG = "#f4f6f9"
+CARD_BG = "#ffffff"
+HEADER_BG = "#1a3a5c"
+HEADER_TEXT = "#ffffff"
+HEADER_SUBTEXT = "#adc8e6"
+LINK_COLOR = "#1a5276"
+BORDER_COLOR = "#e5e9ef"
+RULE_COLOR = "#eeeeee"
+TABLE_HEAD_BG = "#f0f4f8"
+TEXT_COLOR = "#333333"
+BODY_TEXT = "#444444"
+MUTED_TEXT = "#888888"
+RED = "#c0392b"
+AMBER = "#d68910"
+GREEN = "#27ae60"
+CONTENT_WIDTH = 640
+
+BODY_STYLE = (
+    f"margin:0;padding:0;background:{PAGE_BG};font-family:{FONT};"
+    f"font-size:15px;line-height:1.5;color:{TEXT_COLOR};"
 )
+CARD_STYLE = (
+    f"width:100%;border-collapse:collapse;background:{CARD_BG};"
+    f"border:1px solid {BORDER_COLOR};border-radius:6px;margin-bottom:14px;"
+)
+TABLE_STYLE = f"width:100%;border-collapse:collapse;font-family:{FONT};font-size:13px;"
 TH_STYLE = (
-    "text-align:left;padding:8px 12px;background-color:#0b3d63;color:#ffffff;"
-    "border:1px solid #0b3d63;"
+    f"padding:8px 12px;text-align:left;color:{BODY_TEXT};font-weight:700;"
+    f"background:{TABLE_HEAD_BG};border-bottom:2px solid #dde3ea;"
 )
-TD_STYLE = "padding:8px 12px;border:1px solid #d0d7de;"
-WRAP_STYLE = "font-family:Arial,Helvetica,sans-serif;color:#1a1a1a;font-size:14px;"
+TD_STYLE = (
+    f"padding:10px 12px;border-bottom:1px solid {RULE_COLOR};"
+    f"vertical-align:top;color:{BODY_TEXT};"
+)
+P_STYLE = f"margin:10px 0 0;font-size:13px;color:{BODY_TEXT};line-height:1.6;"
+META_STYLE = f"margin:0 0 16px;font-size:13px;color:{BODY_TEXT};line-height:1.8;"
+SUBHEAD_STYLE = f"margin:16px 0 6px;font-size:13px;font-weight:700;color:{HEADER_BG};font-family:{FONT};"
+SECTION_HEAD_STYLE = (
+    f"margin:22px 0 12px;font-size:15px;font-weight:700;color:{HEADER_BG};font-family:{FONT};"
+)
+CARD_TITLE_STYLE = (
+    f"margin:0;color:{LINK_COLOR};font-weight:700;font-size:16px;line-height:1.4;font-family:{FONT};"
+)
+DATE_STYLE = "color:#999999;font-size:12px;margin:6px 0 0;"
+LIST_STYLE = f"margin:10px 0 0;padding-left:18px;font-size:13px;color:{BODY_TEXT};line-height:1.5;"
+NOTICE_STYLE = (
+    f"margin:0 0 16px;padding:12px 14px;background:#fdf6e3;border-left:4px solid {AMBER};"
+    f"font-size:13px;color:{BODY_TEXT};line-height:1.6;"
+)
 
 
 class NotificationError(Exception):
     """Raised when an email could not be delivered. Never suppressed."""
 
 
+def _badge(text: str, color: str) -> str:
+    """A solid pill, as used for tags and status in the release tracker."""
+    return (
+        f'<span style="display:inline-block;padding:3px 9px;margin:2px 4px 2px 0;'
+        f'border-radius:3px;background:{color};color:#ffffff;font-size:11px;'
+        f'font-weight:700;font-family:{FONT};">{text}</span>'
+    )
+
+
+def _shell(title: str, subtitle: str, content: str) -> str:
+    """Wrap `content` in the standard header bar + white card layout."""
+    return f"""<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Qualys Tenant Version Tracker</title>
+</head>
+<body style="{BODY_STYLE}">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;background:{PAGE_BG};">
+  <tr>
+    <td align="center" style="padding:20px 10px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+             style="width:100%;max-width:{CONTENT_WIDTH}px;background:{CARD_BG};border-radius:6px;overflow:hidden;">
+        <tr>
+          <td style="background:{HEADER_BG};padding:24px 20px;">
+            <h1 style="margin:0;color:{HEADER_TEXT};font-size:20px;line-height:1.3;font-family:{FONT};">{title}</h1>
+            <p style="margin:8px 0 0;color:{HEADER_SUBTEXT};font-size:13px;font-family:{FONT};">{subtitle}</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:18px 16px;font-family:{FONT};">
+            {content}
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>"""
+
+
+def _subtitle(tenant_identifier: str, timestamp: str) -> str:
+    return f"{tenant_identifier} &nbsp;&middot;&nbsp; Checked at {timestamp}"
+
+
+def _meta(pairs: list) -> str:
+    inner = "<br>".join(f"<b>{label}:</b> {value}" for label, value in pairs)
+    return f'<p style="{META_STYLE}">{inner}</p>'
+
+
 def _row(cells: list[str]) -> str:
     tds = "".join(f'<td style="{TD_STYLE}">{c}</td>' for c in cells)
     return f"<tr>{tds}</tr>"
+
+
+def _header_row(cells: list[str]) -> str:
+    ths = "".join(f'<th style="{TH_STYLE}">{c}</th>' for c in cells)
+    return f"<tr>{ths}</tr>"
+
+
+def _table(headers: list[str], rows: list[str]) -> str:
+    return (
+        f'<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="{TABLE_STYLE}">'
+        f"<thead>{_header_row(headers)}</thead>"
+        f"<tbody>{''.join(rows)}</tbody></table>"
+    )
 
 
 def _change_type_label(change_type: ChangeType) -> str:
@@ -44,63 +156,12 @@ def _change_type_label(change_type: ChangeType) -> str:
     }[change_type]
 
 
-def _build_change_table(comparison: ComparisonResult) -> str:
-    rows = []
-    for change in [*comparison.changed, *comparison.new, *comparison.removed]:
-        rows.append(
-            _row(
-                [
-                    _module_label(change.module),
-                    change.old_version or "&mdash;",
-                    change.new_version or "&mdash;",
-                    _change_type_label(change.change_type),
-                ]
-            )
-        )
-    header = _row(["Module", "Previous", "Current", "Change"])
-    header = header.replace('<td style="' + TD_STYLE + '">', f'<th style="{TH_STYLE}">').replace(
-        "</td>", "</th>"
-    )
-    return f'<table style="{TABLE_STYLE}"><thead>{header}</thead><tbody>{"".join(rows)}</tbody></table>'
-
-
-def _build_inventory_table(modules: dict[str, dict]) -> str:
-    rows = []
-    for module in sorted(modules):
-        info = modules[module]
-        rows.append(
-            _row(
-                [
-                    _module_label(module),
-                    info.get("api_field", ""),
-                    info.get("version", ""),
-                    info.get("first_seen", ""),
-                    info.get("last_changed", ""),
-                ]
-            )
-        )
-    header = _row(["Module", "API Field", "Version", "First Seen", "Last Changed"])
-    header = header.replace('<td style="' + TD_STYLE + '">', f'<th style="{TH_STYLE}">').replace(
-        "</td>", "</th>"
-    )
-    return f'<table style="{TABLE_STYLE}"><thead>{header}</thead><tbody>{"".join(rows)}</tbody></table>'
-
-
-CAPABILITY_BOX_STYLE = (
-    "border:1px solid #d0d7de;border-radius:6px;padding:12px 16px;margin:10px 0;"
-)
-WARNING_BADGE_STYLE = (
-    "display:inline-block;background:#fff2cc;color:#7a5b00;border:1px solid #d4b106;"
-    "border-radius:4px;padding:2px 8px;font-weight:bold;font-size:12px;"
-)
-OK_BADGE_STYLE = (
-    "display:inline-block;background:#e6f4ea;color:#1e7a34;border:1px solid #7bc492;"
-    "border-radius:4px;padding:2px 8px;font-weight:bold;font-size:12px;"
-)
-NEUTRAL_BADGE_STYLE = (
-    "display:inline-block;background:#eef1f4;color:#57606a;border:1px solid #d0d7de;"
-    "border-radius:4px;padding:2px 8px;font-weight:bold;font-size:12px;"
-)
+def _change_type_color(change_type: ChangeType) -> str:
+    return {
+        ChangeType.NEW_MODULE: GREEN,
+        ChangeType.VERSION_CHANGED: HEADER_BG,
+        ChangeType.MODULE_REMOVED: RED,
+    }[change_type]
 
 
 def _module_label(module: str) -> str:
@@ -113,38 +174,106 @@ def _module_label(module: str) -> str:
     return f"{module} ({full})" if full else module
 
 
+def _build_change_table(comparison: ComparisonResult) -> str:
+    rows = []
+    for change in [*comparison.changed, *comparison.new, *comparison.removed]:
+        rows.append(
+            _row(
+                [
+                    f'<b style="color:{LINK_COLOR};">{_module_label(change.module)}</b>',
+                    change.old_version or "&mdash;",
+                    f"<b>{change.new_version}</b>" if change.new_version else "&mdash;",
+                    _badge(
+                        _change_type_label(change.change_type),
+                        _change_type_color(change.change_type),
+                    ),
+                ]
+            )
+        )
+    return _table(["Module", "Previous", "Current", "Change"], rows)
+
+
+def _build_inventory_table(modules: dict[str, dict]) -> str:
+    rows = []
+    for module in sorted(modules):
+        info = modules[module]
+        rows.append(
+            _row(
+                [
+                    f'<b style="color:{LINK_COLOR};">{_module_label(module)}</b>',
+                    info.get("api_field", ""),
+                    info.get("version", ""),
+                    info.get("first_seen", ""),
+                    info.get("last_changed", ""),
+                ]
+            )
+        )
+    return _table(["Module", "API Field", "Version", "First Seen", "Last Changed"], rows)
+
+
 def _build_feature_list(features: list) -> str:
     if not features:
-        return "<p><i>No individual capabilities were listed on this release note.</i></p>"
+        return (
+            f'<p style="{P_STYLE}"><i>No individual capabilities were listed on '
+            "this release note.</i></p>"
+        )
     items = "".join(
-        f"<li><b>{f.title}</b>"
+        f'<li style="margin-bottom:6px;"><strong>{f.title}</strong>'
         + (f" &mdash; {f.description}" if f.description else "")
         + "</li>"
         for f in features
     )
-    return f'<ul style="margin:4px 0;padding-left:20px;">{items}</ul>'
+    return f'<ul style="{LIST_STYLE}">{items}</ul>'
 
 
 def _release_link(release) -> str:
     if release is None or not release.url:
         return ""
-    return f'<p><a href="{release.url}">Official Qualys release notes</a></p>'
+    return (
+        f'<p style="{P_STYLE}"><a href="{release.url}" '
+        f'style="color:{LINK_COLOR};font-weight:700;text-decoration:none;">'
+        "Official Qualys release notes &#8599;</a></p>"
+    )
+
+
+def _subhead(text: str) -> str:
+    return f'<div style="{SUBHEAD_STYLE}">{text}</div>'
+
+
+def _para(text: str) -> str:
+    return f'<p style="{P_STYLE}">{text}</p>'
+
+
+def _badge_line(text: str, color: str) -> str:
+    return f'<p style="margin:8px 0 0;">{_badge(text, color)}</p>'
 
 
 def _build_tenant_capabilities_block(module: str, intel: ModuleReleaseIntelligence) -> str:
     version = intel.tenant_version
+    heading = _subhead(
+        f"Capabilities available on this tenant now &mdash; {_module_label(module)} {version}"
+    )
     if intel.tenant_release is not None:
-        body = (
-            f"<h4>Capabilities available on this tenant now &mdash; {_module_label(module)} {version}</h4>"
-            f"{_build_feature_list(intel.tenant_release.features)}"
-            f"{_release_link(intel.tenant_release)}"
+        return (
+            heading
+            + _build_feature_list(intel.tenant_release.features)
+            + _release_link(intel.tenant_release)
         )
-    else:
-        body = (
-            f"<h4>Capabilities available on this tenant now &mdash; {_module_label(module)} {version}</h4>"
-            f"<p>Official release notes: <i>Not found.</i></p>"
+    if intel.upgrade_status == UpgradeStatus.TENANT_AHEAD_OF_PUBLIC:
+        latest = intel.latest_public_release
+        return (
+            heading
+            + _badge_line(
+                "CAPABILITIES AVAILABLE ON TENANT &mdash; NOT PUBLICLY ANNOUNCED YET", AMBER
+            )
+            + _para(
+                f"This tenant is running {version}, but Qualys has not published release "
+                f"notes for it yet &mdash; the latest publicly announced version is "
+                f"{latest.version}. The new capabilities in {version} cannot be listed "
+                "until Qualys publishes them."
+            )
         )
-    return body
+    return heading + _para("Official release notes: <i>Not found.</i>")
 
 
 def _build_latest_public_block(module: str, intel: ModuleReleaseIntelligence) -> str:
@@ -152,59 +281,87 @@ def _build_latest_public_block(module: str, intel: ModuleReleaseIntelligence) ->
 
     if status == UpgradeStatus.RELEASE_NOTE_LOOKUP_FAILED:
         return (
-            "<h4>Latest publicly announced version</h4>"
-            f'<p><span style="{NEUTRAL_BADGE_STYLE}">TEMPORARILY UNAVAILABLE</span></p>'
-            "<p>Public release-note correlation: Temporarily unavailable. "
-            "Tenant version tracking was still successful.</p>"
+            _subhead("Latest publicly announced version")
+            + _badge_line("TEMPORARILY UNAVAILABLE", MUTED_TEXT)
+            + _para(
+                "Public release-note correlation: Temporarily unavailable. "
+                "Tenant version tracking was still successful."
+            )
         )
 
     if status == UpgradeStatus.VERSION_ORDER_UNKNOWN:
         return (
-            "<h4>Latest publicly announced version</h4>"
-            f'<p><span style="{NEUTRAL_BADGE_STYLE}">ORDERING UNKNOWN</span></p>'
-            "<p>Multiple public versions found; unable to safely determine ordering.</p>"
+            _subhead("Latest publicly announced version")
+            + _badge_line("ORDERING UNKNOWN", MUTED_TEXT)
+            + _para("Multiple public versions found; unable to safely determine ordering.")
         )
 
     if status == UpgradeStatus.PUBLIC_RELEASE_NOT_FOUND:
         return (
-            "<h4>Latest publicly announced version</h4>"
-            f'<p><span style="{NEUTRAL_BADGE_STYLE}">NOT FOUND</span></p>'
-            "<p>Release notes: Not found.</p>"
+            _subhead("Latest publicly announced version")
+            + _badge_line("NOT FOUND", MUTED_TEXT)
+            + _para("Release notes: Not found.")
         )
 
     latest = intel.latest_public_release
+    released = _para(f"<b>Released:</b> {latest.release_date}") if latest.release_date else ""
+
+    if status == UpgradeStatus.TENANT_AHEAD_OF_PUBLIC:
+        return (
+            _subhead(
+                f"Latest publicly announced version &mdash; {_module_label(module)} {latest.version}"
+            )
+            + released
+            + _para(
+                f"The tenant version ({intel.tenant_version}) is ahead of the latest "
+                f"publicly announced version ({latest.version}). Qualys may publish the "
+                "release notes for the tenant version later."
+            )
+            + _release_link(latest)
+        )
 
     if status == UpgradeStatus.CURRENT:
         return (
-            f"<h4>Latest publicly announced version &mdash; {_module_label(module)} {latest.version}</h4>"
-            f'<p><span style="{OK_BADGE_STYLE}">CURRENT</span></p>'
-            f"<p>This tenant is already running the latest publicly announced version.</p>"
-            + (f"<p><b>Released:</b> {latest.release_date}</p>" if latest.release_date else "")
+            _subhead(
+                f"Latest publicly announced version &mdash; {_module_label(module)} {latest.version}"
+            )
+            + _badge_line("CURRENT", GREEN)
+            + _para("This tenant is already running the latest publicly announced version.")
+            + released
             + _release_link(latest)
         )
 
     # PUBLIC_NEWER_VERSION_AVAILABLE
     return (
-        f"<h4>Latest publicly announced version &mdash; {_module_label(module)} {latest.version}</h4>"
-        + (f"<p><b>Released:</b> {latest.release_date}</p>" if latest.release_date else "")
-        + f'<p><span style="{WARNING_BADGE_STYLE}">PUBLICLY ANNOUNCED &mdash; NOT YET DETECTED ON THIS TENANT</span></p>'
-        + f"<p>Qualys has publicly announced version {latest.version}, but version "
-        + f"{latest.version} has not yet been detected on this tenant "
-        + f"(tenant currently reports {intel.tenant_version}). Qualys may perform "
-        + "phased tenant rollouts, so this does not necessarily indicate a problem.</p>"
+        _subhead(
+            f"Latest publicly announced version &mdash; {_module_label(module)} {latest.version}"
+        )
+        + released
+        + _badge_line("PUBLICLY ANNOUNCED &mdash; NOT YET DETECTED ON THIS TENANT", AMBER)
+        + _para(
+            f"Qualys has publicly announced version {latest.version}, but version "
+            f"{latest.version} has not yet been detected on this tenant "
+            f"(tenant currently reports {intel.tenant_version}). Qualys may perform "
+            "phased tenant rollouts, so this does not necessarily indicate a problem."
+        )
         + _release_link(latest)
-        + "<p>New capabilities in the announced version:</p>"
+        + _para("New capabilities in the announced version:")
         + _build_feature_list(latest.features)
     )
 
 
-def _build_module_intelligence_block(index: int, module: str, intel: ModuleReleaseIntelligence) -> str:
+def _build_module_intelligence_block(
+    index: int, module: str, intel: ModuleReleaseIntelligence
+) -> str:
     return (
-        f'<div style="{CAPABILITY_BOX_STYLE}">'
-        f"<h3>{index}. {_module_label(module)}</h3>"
+        f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" '
+        f'border="0" style="{CARD_STYLE}">'
+        f'<tr><td style="padding:16px;font-family:{FONT};">'
+        f'<p style="{CARD_TITLE_STYLE}">{index}. {_module_label(module)}</p>'
+        f'<p style="{DATE_STYLE}">Tenant version {intel.tenant_version}</p>'
         f"{_build_tenant_capabilities_block(module, intel)}"
         f"{_build_latest_public_block(module, intel)}"
-        f"</div>"
+        f"</td></tr></table>"
     )
 
 
@@ -240,17 +397,19 @@ def _build_release_intelligence_section(
             )
         blocks.append(_build_module_intelligence_block(i, change.module, intel))
 
-    return "<h3>Capabilities &amp; release intelligence</h3>" + "".join(blocks)
+    return (
+        f'<div style="{SECTION_HEAD_STYLE}">Capabilities &amp; release intelligence</div>'
+        + "".join(blocks)
+    )
 
 
 def _footer(run_url: str | None) -> str:
-    link = f'<p><a href="{run_url}">View this run</a></p>' if run_url else ""
-    return f'<hr style="border:none;border-top:1px solid #d0d7de;margin:20px 0;">{link}' \
-        '<p style="color:#57606a;font-size:12px;">Qualys Tenant Version Tracker</p>'
-
-
-def _wrap(body: str) -> str:
-    return f'<div style="{WRAP_STYLE}">{body}</div>'
+    """No email footer: the "View this run" link and the product
+    sign-off line were dropped at the user's request. `run_url` is
+    still accepted (and still recorded in the run log) so callers and
+    config need no change if a footer is ever wanted again.
+    """
+    return ""
 
 
 class EmailNotifier:
@@ -275,18 +434,13 @@ class EmailNotifier:
         else:
             subject = f"[Qualys Tenant] {count} module versions changed"
 
-        body = _wrap(
-            f"<h2>Qualys Tenant Version Change Detected</h2>"
-            f"<p><b>Tenant:</b> {tenant_identifier}<br>"
-            f"<b>Checked at:</b> {timestamp}<br>"
-            f"<b>Modules changed:</b> {count}</p>"
+        plural = "s" if count != 1 else ""
+        body = _shell(
+            f"&#128276; Qualys Tenant Version Change Detected &mdash; {count} Module{plural}",
+            _subtitle(tenant_identifier, timestamp),
             f"{_build_change_table(comparison)}"
-            f"<p>Unchanged modules: {len(comparison.unchanged)}<br>"
-            f"Changed modules: {len(comparison.changed)}<br>"
-            f"New modules: {len(comparison.new)}<br>"
-            f"Removed modules: {len(comparison.removed)}</p>"
             f"{_build_release_intelligence_section(comparison, release_intel)}"
-            f"{_footer(run_url)}"
+            f"{_footer(run_url)}",
         )
         self._send(subject, body)
 
@@ -316,16 +470,15 @@ class EmailNotifier:
             _build_module_intelligence_block(i, intel.module, intel)
             for i, intel in enumerate(announcements, start=1)
         )
-        body = _wrap(
-            "<h2>Qualys Public Release Announcement</h2>"
-            f"<p><b>Tenant:</b> {tenant_identifier}<br>"
-            f"<b>Checked at:</b> {timestamp}</p>"
-            "<p>Your tenant's reported version has not changed, but Qualys has "
-            "publicly announced a newer version for the module(s) below. This "
-            "does not necessarily mean the tenant is overdue -- Qualys may "
+        body = _shell(
+            "&#128276; Qualys Public Release Announcement",
+            _subtitle(tenant_identifier, timestamp),
+            f'<p style="{NOTICE_STYLE}">Your tenant\'s reported version has not changed, '
+            "but Qualys has publicly announced a newer version for the module(s) below. "
+            "This does not necessarily mean the tenant is overdue &mdash; Qualys may "
             "perform phased rollouts across tenants.</p>"
             f"{blocks}"
-            f"{_footer(run_url)}"
+            f"{_footer(run_url)}",
         )
         self._send(subject, body)
 
@@ -333,16 +486,15 @@ class EmailNotifier:
         self, modules: dict[str, dict], tenant_identifier: str, timestamp: str, run_url: str | None
     ) -> None:
         subject = f"[Qualys Tenant] Initial baseline created ({len(modules)} modules)"
-        body = _wrap(
-            f"<h2>Qualys Tenant Version Tracker &mdash; Initial Baseline</h2>"
-            f"<p><b>Tenant:</b> {tenant_identifier}<br>"
-            f"<b>Checked at:</b> {timestamp}<br>"
-            f"<b>Total modules:</b> {len(modules)}</p>"
-            f"<p>This is the first run. No prior snapshot existed, so the "
-            f"versions below are being saved as the baseline. Future runs "
-            f"will only notify when something actually changes.</p>"
-            f"{_build_inventory_table(modules)}"
-            f"{_footer(run_url)}"
+        body = _shell(
+            "Qualys Tenant Version Tracker &mdash; Initial Baseline",
+            _subtitle(tenant_identifier, timestamp),
+            _meta([("Total modules", len(modules))])
+            + f'<p style="{NOTICE_STYLE}">This is the first run. No prior snapshot existed, '
+            "so the versions below are being saved as the baseline. Future runs will only "
+            "notify when something actually changes.</p>"
+            + f"{_build_inventory_table(modules)}"
+            + f"{_footer(run_url)}",
         )
         self._send(subject, body)
 
@@ -350,16 +502,14 @@ class EmailNotifier:
         self, modules: dict[str, dict], tenant_identifier: str, timestamp: str, run_url: str | None
     ) -> None:
         subject = f"[Qualys Tenant] Manual / forced notification ({len(modules)} modules)"
-        body = _wrap(
-            f'<p style="background:#fff8c5;border:1px solid #d4c65a;padding:8px 12px;">'
-            f"<b>Manual / forced notification</b> &mdash; requested manually; "
-            f"this is not an upgrade notification.</p>"
-            f"<h2>Qualys Tenant Version Tracker &mdash; Current Inventory</h2>"
-            f"<p><b>Tenant:</b> {tenant_identifier}<br>"
-            f"<b>Checked at:</b> {timestamp}<br>"
-            f"<b>Total modules:</b> {len(modules)}</p>"
-            f"{_build_inventory_table(modules)}"
-            f"{_footer(run_url)}"
+        body = _shell(
+            "Qualys Tenant Version Tracker &mdash; Current Inventory",
+            _subtitle(tenant_identifier, timestamp),
+            f'<p style="{NOTICE_STYLE}"><b>Manual / forced notification</b> &mdash; '
+            "requested manually; this is not an upgrade notification.</p>"
+            + _meta([("Total modules", len(modules))])
+            + f"{_build_inventory_table(modules)}"
+            + f"{_footer(run_url)}",
         )
         self._send(subject, body)
 
@@ -372,22 +522,29 @@ class EmailNotifier:
         run_url: str | None,
     ) -> None:
         subject = f"[Qualys Tenant] Tracker has not succeeded in over {stale_after_days} day(s)"
-        body = _wrap(
-            f"<h2>Qualys Tenant Version Tracker &mdash; Staleness Alert</h2>"
-            f"<p><b>Tenant:</b> {tenant_identifier}</p>"
-            f"<p>The tracker has not successfully retrieved tenant version "
-            f"information for more than {stale_after_days} day(s).</p>"
-            f"<p><b>Last successful check:</b> {last_success_at or 'never'}<br>"
-            f"<b>Last error:</b> {last_error or 'unknown'}</p>"
-            f"{_footer(run_url)}"
+        body = _shell(
+            "&#128993; Qualys Tenant Version Tracker &mdash; Staleness Alert",
+            tenant_identifier,
+            f'<p style="{NOTICE_STYLE}">The tracker has not successfully retrieved tenant '
+            f"version information for more than {stale_after_days} day(s).</p>"
+            + _meta(
+                [
+                    ("Last successful check", last_success_at or "never"),
+                    ("Last error", last_error or "unknown"),
+                ]
+            )
+            + f"{_footer(run_url)}",
         )
         self._send(subject, body)
 
     def send_test_email(self) -> None:
-        body = _wrap(
-            "<h2>Qualys Tenant Version Tracker &mdash; Test Email</h2>"
-            "<p>This is a test message confirming SMTP delivery is configured "
-            "correctly. No tenant data is included.</p>"
+        body = _shell(
+            "Qualys Tenant Version Tracker &mdash; Test Email",
+            "SMTP delivery check",
+            _para(
+                "This is a test message confirming SMTP delivery is configured "
+                "correctly. No tenant data is included."
+            ),
         )
         self._send("[Qualys Tenant] Test email", body)
 

@@ -28,6 +28,8 @@ from urllib.parse import urlparse
 import requests
 from bs4 import BeautifulSoup
 
+from .version_compare import is_same_release, version_tokens as _version_tokens
+
 DEFAULT_INDEX_URL = "https://www.qualys.com/documentation/release-notes"
 ALLOWED_HOSTS = {"www.qualys.com", "qualys.com", "docs.qualys.com"}
 
@@ -256,10 +258,28 @@ def find_entries_for_module(entries: list[IndexEntry], module: str) -> list[Inde
 
 
 def find_entry_for_version(entries: list[IndexEntry], version: str) -> IndexEntry | None:
+    """Find the release note describing tenant `version`.
+
+    An exact match wins. Failing that, Qualys often publishes the note
+    under a coarser label than the portal reports ("FIM 4.9.4" for a
+    tenant running "4.9.4.0-38"), so the most specific entry that the
+    tenant version extends is accepted as the same release. If two
+    equally specific labels would match, nothing is returned -- an
+    ambiguous match is a guess, and a guess is worse than "not found".
+    """
     for entry in entries:
         if entry.version_text == version:
             return entry
-    return None
+
+    matches = [e for e in entries if is_same_release(e.version_text, version)]
+    if not matches:
+        return None
+    best = max(matches, key=lambda e: len(_version_tokens(e.version_text)))
+    depth = len(_version_tokens(best.version_text))
+    equally_specific = {
+        (e.version_text, e.url) for e in matches if len(_version_tokens(e.version_text)) == depth
+    }
+    return best if len(equally_specific) == 1 else None
 
 
 def parse_index(html: str) -> list[IndexEntry]:

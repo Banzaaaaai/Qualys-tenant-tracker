@@ -219,8 +219,9 @@ def test_release_note_lookup_failure_does_not_block_tenant_tracking(base_env, mo
 
 def test_standalone_public_release_announcement_when_tenant_unchanged(base_env, monkeypatch):
     """FIM stays at 4.9.3 on the tenant across two runs; Qualys's site
-    already lists 4.9.4 as available. No tenant change occurs, but the
-    tracker should still tell the user about the announcement once."""
+    already lists 4.9.4 as available. No tenant change occurs; with the
+    opt-in scan enabled, the tracker tells the user about it once."""
+    monkeypatch.setenv("CHECK_PUBLIC_RELEASES", "true")
     payload = _read_tenant_fixture("valid_response.json")
     payload["ServiceResponse"]["data"][0]["Portal-Version"]["FIM-VERSION"] = "4.9.3"
 
@@ -239,7 +240,26 @@ def test_standalone_public_release_announcement_when_tenant_unchanged(base_env, 
     assert "4.9.4" in FakeSMTP.sent[0]
 
 
+def test_no_standalone_announcement_by_default(base_env, monkeypatch):
+    """Default behaviour: this tracker reports tenant changes only. A
+    public announcement for a module whose tenant version did not move
+    must not produce an email unless CHECK_PUBLIC_RELEASES is opted in."""
+    payload = _read_tenant_fixture("valid_response.json")
+    payload["ServiceResponse"]["data"][0]["Portal-Version"]["FIM-VERSION"] = "4.9.3"
+
+    def fake_get_portal_version(self):
+        return payload
+
+    monkeypatch.setattr(main_module.QualysClient, "get_portal_version", fake_get_portal_version)
+    main_module.run([])  # baseline, FIM=4.9.3
+
+    _patch_release_site(monkeypatch)
+    assert main_module.run([]) == 0
+    assert not FakeSMTP.sent
+
+
 def test_standalone_public_release_announcement_is_not_repeated(base_env, monkeypatch):
+    monkeypatch.setenv("CHECK_PUBLIC_RELEASES", "true")
     payload = _read_tenant_fixture("valid_response.json")
     payload["ServiceResponse"]["data"][0]["Portal-Version"]["FIM-VERSION"] = "4.9.3"
 
@@ -259,6 +279,7 @@ def test_standalone_public_release_announcement_is_not_repeated(base_env, monkey
 
 
 def test_public_release_notification_disabled_suppresses_standalone_email(base_env, monkeypatch):
+    monkeypatch.setenv("CHECK_PUBLIC_RELEASES", "true")
     monkeypatch.setenv("PUBLIC_RELEASE_NOTIFICATION", "false")
     payload = _read_tenant_fixture("valid_response.json")
     payload["ServiceResponse"]["data"][0]["Portal-Version"]["FIM-VERSION"] = "4.9.3"
