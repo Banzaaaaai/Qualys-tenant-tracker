@@ -215,6 +215,45 @@
       },
       "retrieved_at": "2026-09-22T12:03:11Z"
     },
+    "ETM": {
+      "release": {
+        "features": [
+          {
+            "description": "We introduced Agent Insta, which powers InstaScan, the industry's first scanless detection capability. InstaScan continuously correlates every new vendor advisory against the software and asset telemetry, exposure, and threat context that Qualys already holds (collected from Qualys and 3rd-party tools), detecting new vulnerabilities at AI speed with no scan window and no dependence on which\u2026",
+            "title": "Meet Agent Insta: Know your Exposed Assets Within Minutes of a New Advisory"
+          },
+          {
+            "description": "You can now see what ROCky is doing behind the scenes while it processes your complex queries. This release adds real-time reasoning transparency to the Cyber Assistant Chatbot, showing you each processing stage, tool call, and execution status as it happens, along with the ability to interact with those steps directly.",
+            "title": "Watch ROCky Think in Real Time"
+          },
+          {
+            "description": "We introduced the AI-based Findings Consolidation Engine 2.0, which uniquely identifies, deduplicates, and normalizes vulnerability data reported across all your connected sources, such as Qualys VMDR, CrowdStrike, Microsoft Defender, Tenable, and other scanners and agents. Instead of one vulnerability generating a separate console record for every tool that happens to see it, the engine\u2026",
+            "title": "Eliminate Duplicate Findings Automatically with Consolidation Engine 2.0"
+          },
+          {
+            "description": "This release introduces several enhancements to Unified Asset Inventory (UAI),\u00a0making it easier to organize and manage your assets. One key feature is the expansion of asset tagging options, which now include new types of dynamic tags. You can now assess an asset's importance using consistent Asset Criticality Scoring and improve auditing through the Action Log for both tags and tag sets.",
+            "title": "Unified Asset Inventory: Organize Assets More Efficiently"
+          },
+          {
+            "description": "You now have more flexibility when validating vulnerabilities with TruConfirm. With this release, the ETM platform supports Cloud Agent-based TruConfirm scans, giving you another way to confirm real, exploitable risk across your environment.",
+            "title": "TruConfirm Now Validates Findings Using Cloud Agent"
+          },
+          {
+            "description": "We added new tokens to help you refine your searches.",
+            "title": "New Search Tokens"
+          },
+          {
+            "description": "The following reported issues are fixed in this release.",
+            "title": "Issues Addressed"
+          }
+        ],
+        "release_date": null,
+        "title": "Enterprise TruRisk Management Release 1.12",
+        "url": "https://docs.qualys.com/en/etm/release-notes/etm/release_1_12.htm",
+        "version": "1.12"
+      },
+      "retrieved_at": "2026-09-22T14:50:36Z"
+    },
     "FIM": {
       "release": {
         "features": [
