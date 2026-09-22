@@ -47,7 +47,7 @@
       "api_field": "ETM-VERSION",
       "first_seen": "2026-09-10T15:39:50Z",
       "last_changed": "2026-09-22T12:03:11Z",
-      "version": "1.13.0-260"
+      "version": "1.12.0-308"
     },
     "FIM": {
       "api_field": "FIM-VERSION",
