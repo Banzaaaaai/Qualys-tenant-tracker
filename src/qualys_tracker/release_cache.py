@@ -4,7 +4,9 @@ Two independent sections:
 
 - `releases`: exact module+version -> full ReleaseInfo. A specific
   version's release notes don't change after publication, so these
-  entries never expire.
+  entries never expire -- but they ARE discarded wholesale when the
+  parser's output format changes (see PARSE_FORMAT_VERSION), since a
+  never-expiring entry would otherwise pin text a parser fix corrected.
 - `latest_public`: module -> the most recently discovered "latest
   public version" info, with a `retrieved_at` timestamp. These DO
   expire, after RELEASE_NOTES_CACHE_TTL_DAYS, so the tracker
@@ -25,12 +27,17 @@ import tempfile
 from datetime import datetime, timedelta
 
 from .models import ReleaseInfo
+from .release_notes import PARSE_FORMAT_VERSION
 
 DEFAULT_CACHE_FILENAME = "release_notes_cache.json"
 
 
 def _empty_cache() -> dict:
-    return {"releases": {}, "latest_public": {}}
+    return {
+        "parse_format_version": PARSE_FORMAT_VERSION,
+        "releases": {},
+        "latest_public": {},
+    }
 
 
 def _cache_key(module: str, version: str) -> str:
@@ -47,6 +54,10 @@ def load_cache(path: str) -> dict:
         return _empty_cache()
     if not isinstance(data, dict):
         return _empty_cache()
+    if data.get("parse_format_version") != PARSE_FORMAT_VERSION:
+        # Parsed by a different parser: discard wholesale and re-fetch.
+        # Cheap (a few HTTP calls) next to serving text we know is wrong.
+        return _empty_cache()
     data.setdefault("releases", {})
     data.setdefault("latest_public", {})
     return data
@@ -55,6 +66,8 @@ def load_cache(path: str) -> dict:
 def save_cache(path: str, cache: dict) -> None:
     directory = os.path.dirname(os.path.abspath(path)) or "."
     os.makedirs(directory, exist_ok=True)
+
+    cache["parse_format_version"] = PARSE_FORMAT_VERSION
 
     fd, tmp_path = tempfile.mkstemp(
         prefix=os.path.basename(path) + ".", suffix=".tmp", dir=directory

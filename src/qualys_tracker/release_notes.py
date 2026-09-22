@@ -178,6 +178,15 @@ def parse_index(html: str) -> list[IndexEntry]:
     return entries
 
 
+# Bump whenever parse_release_detail's OUTPUT changes -- different fields,
+# different feature titles, or different description text for the same page.
+# `releases` cache entries never expire (a published release note doesn't
+# change), so without this a parser fix would never reach an already-cached
+# module: the "Applicable for:" descriptions survived the parser fix until
+# this invalidation was added. See release_cache.load_cache.
+PARSE_FORMAT_VERSION = 2
+
+
 def _is_label_paragraph(text: str) -> bool:
     """True for a short heading-like paragraph that labels what follows.
 
