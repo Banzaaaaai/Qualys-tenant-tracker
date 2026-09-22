@@ -12,6 +12,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 from .config import EmailConfig
+from .release_notes import full_product_name
 from .models import ChangeType, ComparisonResult, ModuleReleaseIntelligence, UpgradeStatus
 
 TABLE_STYLE = (
@@ -49,7 +50,7 @@ def _build_change_table(comparison: ComparisonResult) -> str:
         rows.append(
             _row(
                 [
-                    change.module,
+                    _module_label(change.module),
                     change.old_version or "&mdash;",
                     change.new_version or "&mdash;",
                     _change_type_label(change.change_type),
@@ -70,7 +71,7 @@ def _build_inventory_table(modules: dict[str, dict]) -> str:
         rows.append(
             _row(
                 [
-                    module,
+                    _module_label(module),
                     info.get("api_field", ""),
                     info.get("version", ""),
                     info.get("first_seen", ""),
@@ -102,6 +103,16 @@ NEUTRAL_BADGE_STYLE = (
 )
 
 
+def _module_label(module: str) -> str:
+    """Render a module as "TC (TotalCloud)" so the code is never bare.
+
+    Falls back to the code alone when there is no curated product name
+    for it -- an invented expansion would be worse than none.
+    """
+    full = full_product_name(module)
+    return f"{module} ({full})" if full else module
+
+
 def _build_feature_list(features: list) -> str:
     if not features:
         return "<p><i>No individual capabilities were listed on this release note.</i></p>"
@@ -124,13 +135,13 @@ def _build_tenant_capabilities_block(module: str, intel: ModuleReleaseIntelligen
     version = intel.tenant_version
     if intel.tenant_release is not None:
         body = (
-            f"<h4>Capabilities available on this tenant now &mdash; {module} {version}</h4>"
+            f"<h4>Capabilities available on this tenant now &mdash; {_module_label(module)} {version}</h4>"
             f"{_build_feature_list(intel.tenant_release.features)}"
             f"{_release_link(intel.tenant_release)}"
         )
     else:
         body = (
-            f"<h4>Capabilities available on this tenant now &mdash; {module} {version}</h4>"
+            f"<h4>Capabilities available on this tenant now &mdash; {_module_label(module)} {version}</h4>"
             f"<p>Official release notes: <i>Not found.</i></p>"
         )
     return body
@@ -165,7 +176,7 @@ def _build_latest_public_block(module: str, intel: ModuleReleaseIntelligence) ->
 
     if status == UpgradeStatus.CURRENT:
         return (
-            f"<h4>Latest publicly announced version &mdash; {module} {latest.version}</h4>"
+            f"<h4>Latest publicly announced version &mdash; {_module_label(module)} {latest.version}</h4>"
             f'<p><span style="{OK_BADGE_STYLE}">CURRENT</span></p>'
             f"<p>This tenant is already running the latest publicly announced version.</p>"
             + (f"<p><b>Released:</b> {latest.release_date}</p>" if latest.release_date else "")
@@ -174,23 +185,23 @@ def _build_latest_public_block(module: str, intel: ModuleReleaseIntelligence) ->
 
     # PUBLIC_NEWER_VERSION_AVAILABLE
     return (
-        f"<h4>Latest publicly announced version &mdash; {module} {latest.version}</h4>"
+        f"<h4>Latest publicly announced version &mdash; {_module_label(module)} {latest.version}</h4>"
         + (f"<p><b>Released:</b> {latest.release_date}</p>" if latest.release_date else "")
         + f'<p><span style="{WARNING_BADGE_STYLE}">PUBLICLY ANNOUNCED &mdash; NOT YET DETECTED ON THIS TENANT</span></p>'
         + f"<p>Qualys has publicly announced version {latest.version}, but version "
         + f"{latest.version} has not yet been detected on this tenant "
         + f"(tenant currently reports {intel.tenant_version}). Qualys may perform "
         + "phased tenant rollouts, so this does not necessarily indicate a problem.</p>"
+        + _release_link(latest)
         + "<p>New capabilities in the announced version:</p>"
         + _build_feature_list(latest.features)
-        + _release_link(latest)
     )
 
 
 def _build_module_intelligence_block(index: int, module: str, intel: ModuleReleaseIntelligence) -> str:
     return (
         f'<div style="{CAPABILITY_BOX_STYLE}">'
-        f"<h3>{index}. {module}</h3>"
+        f"<h3>{index}. {_module_label(module)}</h3>"
         f"{_build_tenant_capabilities_block(module, intel)}"
         f"{_build_latest_public_block(module, intel)}"
         f"</div>"

@@ -46,6 +46,7 @@ USER_AGENT = "Mozilla/5.0 (compatible; tenant-version-tracker/1.0)"
 _VERSION_TAIL_RE = re.compile(r"([0-9][0-9A-Za-z_.\-]*)\s*$")
 _MAX_FEATURES = 12
 _MAX_FEATURE_DESC_LEN = 400
+_MAX_LABEL_LEN = 60
 
 # Best-effort mapping from a Qualys API "*-VERSION" short code to the
 # full product name(s) used on the public release-notes site. This is
@@ -177,6 +178,28 @@ def parse_index(html: str) -> list[IndexEntry]:
     return entries
 
 
+def _is_label_paragraph(text: str) -> bool:
+    """True for a short heading-like paragraph that labels what follows.
+
+    These carry no information on their own, e.g. "Applicable for:".
+    """
+    return text.endswith(":") and len(text) <= _MAX_LABEL_LEN
+
+
+def full_product_name(module: str) -> str | None:
+    """The public product name for an API short code, e.g. TC -> TotalCloud.
+
+    Returns None for a module with no curated mapping, so callers render
+    the bare code rather than inventing an expansion.
+    """
+    hints = MODULE_NAME_HINTS.get(module.upper())
+    if not hints:
+        return None
+    name = hints[0].strip()
+    # An "expansion" identical to the code itself tells the reader nothing.
+    return name if name.upper() != module.upper() else None
+
+
 def parse_release_detail(html: str, url: str) -> ReleaseDetail:
     soup = BeautifulSoup(html, "html.parser")
 
@@ -197,9 +220,16 @@ def parse_release_detail(html: str, url: str) -> ReleaseDetail:
                 break
             if sibling.name == "p":
                 text = sibling.get_text(strip=True)
-                if text:
-                    description = text
-                    break
+                if not text or _is_label_paragraph(text):
+                    # Qualys release notes open each feature with label
+                    # paragraphs ("Applicable for:", "Benefit",
+                    # "Prerequisites") whose value lives in the element
+                    # AFTER them. Taking the first non-empty <p> made every
+                    # feature's description render as the bare word
+                    # "Applicable for:". Keep scanning for real prose.
+                    continue
+                description = text
+                break
         if len(description) > _MAX_FEATURE_DESC_LEN:
             description = description[:_MAX_FEATURE_DESC_LEN].rsplit(" ", 1)[0] + "…"
         features.append((feature_title, description))

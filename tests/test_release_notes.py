@@ -216,3 +216,34 @@ def test_client_does_not_retry_a_403(monkeypatch):
     with pytest.raises(ReleaseNotesError, match="403"):
         client.fetch_index_entries()
     assert calls["count"] == 1
+
+
+def test_parse_release_detail_skips_label_paragraphs():
+    """Regression: every feature rendered its description as "Applicable for:".
+
+    Qualys release notes open each feature with label paragraphs whose value
+    lives in the element after them, so the first non-empty <p> is a label,
+    not prose.
+    """
+    detail = parse_release_detail(
+        _read("labelled_release.html"),
+        "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_27.htm",
+    )
+    titles = [t for t, _ in detail.features]
+    descs = [d for _, d in detail.features]
+    assert titles[0] == "Granular Access Control for Policies and Controls"
+    assert descs[0].startswith("TotalCloud now supports granular")
+    assert not any(d.strip() == "Applicable for:" for d in descs)
+    # A feature whose only paragraph is a label renders with no description
+    # rather than echoing the label.
+    assert descs[-1] == ""
+
+
+def test_full_product_name_expands_known_codes():
+    from qualys_tracker.release_notes import full_product_name
+
+    assert full_product_name("TC") == "TotalCloud"
+    assert full_product_name("tc") == "TotalCloud"
+    assert full_product_name("FIM") == "File Integrity Monitoring"
+    # No curated mapping -> no invented expansion.
+    assert full_product_name("PortalApplication") is None

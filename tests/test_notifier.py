@@ -285,3 +285,30 @@ def test_public_release_announcement_labeled_distinctly_from_change(email_config
     _, _, message = FakeSMTP.sent[0]
     assert "publicly announced" in message.lower()
     assert "Qualys Public Release Announcement" in message
+
+
+def test_module_codes_are_rendered_with_their_full_product_name():
+    from qualys_tracker.notifier import _module_label
+
+    assert _module_label("TC") == "TC (TotalCloud)"
+    assert _module_label("FIM") == "FIM (File Integrity Monitoring)"
+    # Unmapped code stays bare rather than getting an invented expansion.
+    assert _module_label("PortalApplication") == "PortalApplication"
+
+
+def test_release_link_precedes_the_new_capabilities_list(email_config):
+    """The link belongs above the feature list, not stranded after it."""
+    from qualys_tracker.notifier import _build_module_intelligence_block
+
+    intel = _intel(
+        "TC", "1.4.0-16", UpgradeStatus.PUBLIC_NEWER_VERSION_AVAILABLE,
+        latest_version="2.27", features=[Feature("Wildcard Support", "match tags by pattern")],
+    )
+    block = _build_module_intelligence_block(1, "TC", intel)
+
+    link_pos = block.index("Official Qualys release notes")
+    caps_pos = block.index("New capabilities in the announced version")
+    feature_pos = block.index("Wildcard Support")
+    assert link_pos < caps_pos < feature_pos
+    # And the heading carries the expanded name.
+    assert "TC (TotalCloud)" in block
