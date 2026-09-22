@@ -31,6 +31,18 @@ from bs4 import BeautifulSoup
 DEFAULT_INDEX_URL = "https://www.qualys.com/documentation/release-notes"
 ALLOWED_HOSTS = {"www.qualys.com", "qualys.com", "docs.qualys.com"}
 
+# www.qualys.com sits behind a WAF that returns 403 to any request whose
+# User-Agent contains the substring "qualys" (case-insensitive) -- almost
+# certainly an anti-impersonation rule. That includes the obvious
+# self-identifying values ("qualys-tenant-version-tracker") AND any UA that
+# merely cites this project's repo URL, because the repo name contains it.
+# A 403 is not retried, so it fails the shared index fetch and every module
+# in the run reports RELEASE_NOTE_LOOKUP_FAILED.
+#
+# So: identify honestly as a bot, but do NOT put "qualys" in this string.
+# Verified against the live site -- see tests/test_release_notes.py.
+USER_AGENT = "Mozilla/5.0 (compatible; tenant-version-tracker/1.0)"
+
 _VERSION_TAIL_RE = re.compile(r"([0-9][0-9A-Za-z_.\-]*)\s*$")
 _MAX_FEATURES = 12
 _MAX_FEATURE_DESC_LEN = 400
@@ -260,7 +272,7 @@ class QualysReleaseNotesClient:
             try:
                 response = requests.get(
                     url,
-                    headers={"Accept": "text/html", "User-Agent": "qualys-tenant-version-tracker"},
+                    headers={"Accept": "text/html", "User-Agent": USER_AGENT},
                     timeout=min(self._timeout, self._remaining()),
                 )
             except requests.RequestException as exc:

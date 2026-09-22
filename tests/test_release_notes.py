@@ -172,3 +172,47 @@ def test_client_raises_after_website_unavailable(monkeypatch):
     client = QualysReleaseNotesClient(max_retries=2, sleep_fn=lambda s: None)
     with pytest.raises(ReleaseNotesError):
         client.fetch_index_entries()
+
+
+def test_user_agent_never_contains_qualys():
+    """Regression: the site's WAF 403s any UA containing "qualys".
+
+    A 403 is not a retryable status, so it kills the shared index fetch and
+    every module in the run reports RELEASE_NOTE_LOOKUP_FAILED -- which is
+    exactly what happened while the UA was "qualys-tenant-version-tracker".
+    Note this also rules out citing the repo URL, whose name contains it.
+    """
+    from qualys_tracker.release_notes import USER_AGENT
+
+    assert "qualys" not in USER_AGENT.lower()
+    assert USER_AGENT.strip()
+
+
+def test_client_sends_the_declared_user_agent(monkeypatch, index_html):
+    from qualys_tracker.release_notes import USER_AGENT
+
+    seen = {}
+
+    def fake_get(url, headers=None, timeout=None):
+        seen.update(headers or {})
+        return _FakeResponse(200, index_html)
+
+    monkeypatch.setattr(requests, "get", fake_get)
+    QualysReleaseNotesClient().fetch_index_entries()
+    assert seen.get("User-Agent") == USER_AGENT
+    assert "qualys" not in seen["User-Agent"].lower()
+
+
+def test_client_does_not_retry_a_403(monkeypatch):
+    """403 here means "blocked", not "busy" -- retrying just burns budget."""
+    calls = {"count": 0}
+
+    def fake_get(url, headers=None, timeout=None):
+        calls["count"] += 1
+        return _FakeResponse(403, "<html>Access Denied</html>")
+
+    monkeypatch.setattr(requests, "get", fake_get)
+    client = QualysReleaseNotesClient(max_retries=3, sleep_fn=lambda s: None)
+    with pytest.raises(ReleaseNotesError, match="403"):
+        client.fetch_index_entries()
+    assert calls["count"] == 1
