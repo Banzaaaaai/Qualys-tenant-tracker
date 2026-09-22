@@ -321,3 +321,55 @@ def test_full_names_come_from_the_authoritative_table():
     assert full_product_name("WAS") == "Total Application Security"
     # Still no invented expansion for a code with no entry.
     assert full_product_name("PortalApplication") is None
+
+
+def test_readme_module_map_stays_in_step_with_the_code():
+    """The README table is the human-facing copy of MODULE_SOURCES /
+    MODULE_FULL_NAMES. A mapping added in code and not documented (or a
+    row left behind after one is removed) is a silent doc regression."""
+    import re
+
+    from qualys_tracker.release_notes import (
+        MODULE_FULL_NAMES,
+        MODULE_SOURCES,
+    )
+
+    readme = os.path.join(os.path.dirname(__file__), os.pardir, "README.md")
+    with open(readme, encoding="utf-8") as fh:
+        text = fh.read()
+
+    section = text.split("## Module map", 1)
+    assert len(section) == 2, "README is missing the '## Module map' section"
+    table = section[1].split("## ", 1)[0]
+
+    documented = set(re.findall(r"^\| `([^`]+)` \|", table, re.MULTILINE))
+    assert documented, "module map table has no rows"
+
+    for code in set(MODULE_SOURCES) | set(MODULE_FULL_NAMES):
+        assert code in documented, f"{code} is mapped in code but missing from the README table"
+
+    # The table also documents tenant modules that have no mapping at all
+    # (so a reader knows they were considered), so a documented row is not
+    # required to exist in code. But a row CLAIMING a path must, or the
+    # README is advertising a mapping that was removed.
+    claims_path = dict(
+        re.findall(r"^\| `([^`]+)` \| [^|]* \| (`[^|]*)\|", table, re.MULTILINE)
+    )
+    for code in claims_path:
+        assert code in MODULE_SOURCES, (
+            f"README shows a release-notes path for {code}, but it has no MODULE_SOURCES entry"
+        )
+
+
+def test_readme_documents_each_mapped_path():
+    from qualys_tracker.release_notes import MODULE_SOURCES
+
+    readme = os.path.join(os.path.dirname(__file__), os.pardir, "README.md")
+    with open(readme, encoding="utf-8") as fh:
+        text = fh.read()
+
+    for code, sources in MODULE_SOURCES.items():
+        for source in sources:
+            assert source.url_contains in text, (
+                f"{code}'s path {source.url_contains} is not documented in the README"
+            )

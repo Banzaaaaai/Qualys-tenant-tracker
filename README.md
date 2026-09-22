@@ -22,7 +22,7 @@ The tracker runs locally or through GitHub Actions. It keeps a tenant snapshot, 
 4. Run **Qualys Tenant Version Tracker** manually with `send_test_email` enabled to check SMTP.
 5. Run normally to establish the baseline. The first run records inventory without sending email by default.
 
-The default schedule is 08:45 and 16:45 Europe/Amsterdam. Both seasonal UTC triggers are configured. Early triggers are skipped and completed local slots suppress duplicates. Manual workflow runs bypass the schedule guard.
+The default schedule is 08:45 and 16:45 Europe/Amsterdam. Both seasonal UTC triggers are configured. A run claims the most recent due slot however late GitHub starts it -- delays of several hours are normal -- and a completed slot suppresses the duplicate trigger. Manual workflow runs bypass the schedule guard.
 
 ## Run locally
 
@@ -53,6 +53,62 @@ qualys-tracker --preview-email email-preview.html --snapshot tenant_snapshot.jso
 ```
 
 Open the generated HTML file in a browser. It contains tenant inventory.
+
+## Module map
+
+A tenant reports module versions under short API codes (`CS`, `ISL`, `QWEB_PC`). Correlating one with its public release notes needs two things: the product's real name, for the email, and where its notes live, to search.
+
+Product name alone is not enough to locate them. **"Cloud Agent" names two different products** on the documentation site -- the agent binary under `/ca/release-notes/cloud_agent/` (at 6.x) and the Cloud Agent application under `/ca/release-notes/ca_application/` (at 2.x). A tenant's `CA` module reports the application, so matching on the name alone correlates it against the wrong product entirely. `Patch Management` appears under several paths too.
+
+So a module is located by **URL path first**, and narrowed by product name only where one path genuinely hosts several products: `/pm/release-notes/patch_management/` carries both *Isolation* and *Patch Management*, which is how `ISL` and `PM` are told apart even though they report the same version. A mapped module never falls back to name matching, because that would reintroduce the collisions the map exists to prevent.
+
+An unmapped module falls back to its product-name hint, then to its own code, and finally to "release notes: not found". That last outcome is correct, not a gap: several modules publish no public release notes at all.
+
+The table lives in `src/qualys_tracker/release_notes.py` as `MODULE_SOURCES` and `MODULE_FULL_NAMES`; paths there are matched as substrings of the full documentation URL. `tests/test_release_notes.py` asserts this section stays in step with them.
+
+| Code | Product name | Release-notes path | Notes |
+| --- | --- | --- | --- |
+| `AV2` | VMDR | - | Unmapped. Tenant reports `0.1.0`; no matching public line identified. |
+| `CA` | Cloud Agent | `/ca/release-notes/ca_application/` |  |
+| `CERTVIEW` | Certificate View | `/certview/release-notes/certview/` |  |
+| `CLOUDVIEW` | TotalCloud | `/tc/release-notes/totalcloud/` |  |
+| `CM` | Continuous Monitoring | - | Publishes no public release notes. |
+| `CONN` | Connectors | `/conn/release-notes/connector/` |  |
+| `CS` | Container Security | `/cs/release-notes/container_security/` | Sensor notes under `/cs-sensor/` are a separate version line and are deliberately not included. |
+| `EDR` | Endpoint Protection and Response | `/edr/release-notes/endpoint_detection_and_response/` | Not present on this tenant. |
+| `ETM` | Enterprise TruRisk Management | `/etm/release-notes/etm/` |  |
+| `FIM` | File Integrity Monitoring | `/fim/release-notes/file_integrity_monitoring/` |  |
+| `ICS` | Industrial Control System | - | No public release notes found. |
+| `IOC` | Indicator of Compromise | - | No public release notes found. |
+| `ISL` | Isolation (part of Cloud Agent) | `/pm/release-notes/patch_management/` (*Isolation*) |  |
+| `ISPM` | Identity Security Posture Management | - | No public release notes found. |
+| `ITAM` | CyberSecurity Asset Management | `/csam/release-notes/cybersecurity_asset_management/` |  |
+| `MDS` | Web Malware Detection | - | Publishes no public release notes. |
+| `MROC` | Managed Risk Operations Center | `/mroc/release-notes/managed_risk_operations_center/` | Not present on this tenant. |
+| `MTG` | Mitigation (part of Cloud Agent) | - | Unmapped. No product named "Mitigation" exists on the index. |
+| `OCA` | Industrial OCA | `/oca/release-notes/oca/` |  |
+| `PA` | Policy Audit | `/vm/release-notes/mergedProjects/qualys_pa/` | Not present on this tenant. |
+| `PM` | Patch Management | `/pm/release-notes/patch_management/` (*Patch Management*) | **Unconfirmed.** The public *Patch Management* line tops out at 3.x; the tenant reports `4.1.0.0-281`, which matches *Isolation* 4.1. |
+| `PortalApplication` | - | - | Internal portal build; no public release notes. |
+| `PS` | Network Passive Sensor | `/ps/release-notes/ps/` |  |
+| `QFLOW` | Qualys Flow | `/qflow/release-notes/qflow/` |  |
+| `QGS` | Qualys Gateway Service | `/qgs/release-notes/qgs/` | Tenant reports `2.9.0-16` against a public 3.16.1; verify these are the same numbering line. |
+| `QUESTIONNAIRE` | Security Assessment Questionnaire | - | Matched by product name only; the source table's `/car/` path belongs to `SM`. |
+| `QUESTIONNAIRE_V2` | Security Assessment Questionnaire | - | Unmapped. No matching public line identified. |
+| `QWEB_PC` | Policy Audit | `/vm/release-notes/mergedProjects/qualys_pa/` |  |
+| `QWEB_VM` | Vulnerability Management | `/vm/release-notes/mergedProjects/qualys_vmdr_rn/` |  |
+| `SA` | Virtual Scanner Appliance | `/scanner/release-notes/virtual_scanner/` | Not present on this tenant. |
+| `SECURITY_ANALYTICS` | - | - | No public release notes found. |
+| `SEM` | Secure Enterprise Mobility | `/vmdr-mobile/release-notes/vmdr_mobile/` |  |
+| `SM` | Script Manager | `/car/release-notes/car/` |  |
+| `SSC` | PCI SSC | - | Unmapped. The only public PCI line is *PCI Compliance*, which does not match. |
+| `TA` | Total AI | `/ta/release-notes/total_ai/` |  |
+| `TC` | TotalCloud | `/tc/release-notes/totalcloud/` | **Unconfirmed.** Shares TotalCloud with `CLOUDVIEW`, whose version matches the public line exactly; `TC` reports `1.4.0-16`. |
+| `THREAT_PROTECT` | Threat Protect | - | Publishes no public release notes. |
+| `UD` | Unified Dashboard | `/ud/release-notes/unified_dashboard/` |  |
+| `WAF` | Web Application Firewall | - | Publishes no public release notes. |
+| `WAF_V3` | Web Application Firewall | - | Publishes no public release notes. |
+| `WAS` | Total Application Security | `/tas/release-notes/total_app_sec/` |  |
 
 ## Reliability
 
