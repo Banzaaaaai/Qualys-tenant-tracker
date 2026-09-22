@@ -1,18 +1,151 @@
 {
   "latest_public": {
+    "CA": {
+      "release": {
+        "features": [
+          {
+            "description": "We have introduced an improved user experience for theAgentstab in Cloud Agent user interface. You can see updates across menus, fonts, colors, typography, and buttons, making the interface more intuitive and easier to use. This release features User Interface and design system enhancements that improve visual consistency, readability, and usability across the application, resulting in a cleaner,\u2026",
+            "title": "Enhanced Cloud Agent User Interface"
+          },
+          {
+            "description": "TheAgent Managementwindow now includes a dedicatedRequeststab to track agent report downloads, on-demand vulnerability scans, and vulnerability scan status. Previously, there was no option in Cloud Agent user interface to track these actions.",
+            "title": "Track Scan and Report Download Status with the Requests Tab"
+          },
+          {
+            "description": "We are introducing theTag-based User Accessfor Cloud Agent. Tag-based access provides precise, scalable permission control, ensuring that each user can view and edit only the assets\u00a0assigned to them.",
+            "title": "Control User Permissions with Tag-based Access"
+          },
+          {
+            "description": "Cloud Agent now supports activating a new Qualys application, TruConfirm, from the\u00a0Cloud Agent user interface.",
+            "title": "New Application - Qualys TruConfirm"
+          },
+          {
+            "description": "We introduced a new tab,Additional Settings,in Cloud Agent user interface. The Additional Settings tab provides you with the following options:",
+            "title": "Configure Additional Cloud Agent Settings in New Tab"
+          },
+          {
+            "description": "Cloud Agent now gives you control over secondary binary updates, such as SwCA, Cloud Agent Passive Sensor (CAPS), and Deep Scan. This prevents unplanned changes in sensitive environments and keeps binary updates aligned with your maintenance schedule. This enhancement also offers a test window for newly released binary versions before deploying them on critical assets.",
+            "title": "Control Secondary Binary Updates"
+          },
+          {
+            "description": "We have updated the ETM Identity activation workflow to support independent activation. You can now activate ETM Identity without activating the dependent Qualys applications, such as Vulnerability Management (VM) and Policy Audit (PA). This removes dependency on the other applications to use ETM Identity features.",
+            "title": "Independent Activation for ETM Identity"
+          },
+          {
+            "description": "We have updated the default transfer and admin ports for peer-to-peer distribution to 7400 and 7401, respectively. These new ports avoid security conflicts in user environments and provide a clean, risk-free gateway for peer-to-peer content distribution.",
+            "title": "Updated Default Ports for Peer-to-Peer Distribution"
+          },
+          {
+            "description": "You can now preview the custom logo before applying it to a Cloud Agent. This enhancement helps you test the custom logo during upload and ensures the correct logo is applied to the asset.",
+            "title": "Preview Cloud Agent Custom Logo"
+          },
+          {
+            "description": "We have optimized the CPU usage limits for SwCA scans on Linux assets. The new CPU limit range for Linux assets is 10-99%. The optimized CPU limit provides smoother scan performance and reduces scan failures by preventing users from setting CPU usage to very low or very high levels.",
+            "title": "Optimized CPU Limits for SwCA Scans"
+          },
+          {
+            "description": "To learn more about Cloud Agent API updates, refer toCloud Agent Application 2.8 Release API.",
+            "title": "Cloud Agent API Release Notes"
+          }
+        ],
+        "release_date": null,
+        "title": "Cloud Agent Application Release 2.8",
+        "url": "https://docs.qualys.com/en/ca/release-notes/ca_application/release_2_8.htm",
+        "version": "2.8"
+      },
+      "retrieved_at": "2026-09-22T12:03:11Z"
+    },
+    "CERTVIEW": {
+      "release": {
+        "features": [
+          {
+            "description": "The newQuantum Readiness custom widgetis now available in the Certificate View dashboard to help assess asset readiness for Post-Quantum Cryptography (PQC). It provides a color-coded view of internal and external assets, highlighting PQC-supported and unsupported assets, TLS 1.3-enabled assets with and without PQC support, and assets using the older TLS protocols.",
+            "title": "Introducing the newPQC Asset Readiness Widget"
+          },
+          {
+            "description": "The following reported and notable customer issue is fixed in this release:",
+            "title": "Issue Addressed"
+          }
+        ],
+        "release_date": null,
+        "title": "Certificate View Release 4.8.1",
+        "url": "https://docs.qualys.com/en/certview/release-notes/certview/release_4_8_1.htm",
+        "version": "4.8.1"
+      },
+      "retrieved_at": "2026-09-22T12:03:11Z"
+    },
+    "CLOUDVIEW": {
+      "release": {
+        "features": [
+          {
+            "description": "TotalCloud now supports granular, action-level permissions (view / create-clone / edit / delete) for Policy, Control, and Exception management, as well as tag-based scope, which extends scoping to Policies and Controls. Today, scope is derived from connectors only; going forward, you can choose to derive scope from connectors only (connector-based scope) or from connectors + policy (connectors +\u2026",
+            "title": "Granular Access Control for Policies and Controls"
+          },
+          {
+            "description": "You can now use Azure EventGrid to enable event-driven processing for Azure cloud connectors. Like AWS EventBridge,AzureEventGridprocesses only the resources affected by detected changes, rather than performing full scans for every connector run, reducing unnecessary API calls and improving processing efficiency.",
+            "title": "Event-Driven Connector processing via Azure EventGrid"
+          },
+          {
+            "description": "TotalCloud now surfaces Attack Path insights directly at the instance level, so you no longer need to leave the instance view to understand a resource's risk exposure. Previously, attack paths were visible only on the Insights tab, with no way to search or filter for them elsewhere. With this release, VMs and other assets across AWS, Azure, and GCP display attack path context directly on the\u2026",
+            "title": "Attack Path Visibility at the Instance Level"
+          },
+          {
+            "description": "You can now use the wildcard character (*) in tag searches to match tags by pattern rather than exact text across the Posture, Inventory, and Connectors pages, as well as other pages that support tag-based search.",
+            "title": "Wildcard (*) Support for Tag-Based Search"
+          },
+          {
+            "description": "You can now create a new policy by copying an existing one, system-defined or user-defined, right from the Policy listing page.",
+            "title": "Copy and Create new Policy from an existing one"
+          },
+          {
+            "description": "The Policy menu now includes aFunction Catalogtab, providing direct in-product visibility into the functions used in custom investigation queries and controls.",
+            "title": "Look up Query Functions"
+          },
+          {
+            "description": "We have expanded our cloud security coverage by adding support for additional AWS, Azure, GCP and\u00a0 OCI resource types in Cloud Inventory, enabling discovery, inventory, and security posture assessment across a broader range of cloud services.",
+            "title": "Extended Inventory Coverage"
+          },
+          {
+            "description": "You can now directly access impacted Azure resources from the Evidence Details section usingView in Azure Console.This enhancement enables faster investigation and remediation of resources flagged during control evaluations.",
+            "title": "Navigate to Azure Cloud directly from Posture"
+          },
+          {
+            "description": "You can now filter results on theAll Inventorypage by date range. This makes it easier to narrow your asset view to a specific time window, which is useful for investigating recently discovered or updated assets and for\u00a0more targeted inventory analysis.",
+            "title": "Date Range Filtering for All Inventory"
+          },
+          {
+            "description": "On the Inventory page, the inventory type filter dropdown now lists the most commonly used resource types at the top of the list for each cloud provider. Previously, all resource types were listed together, making it harder to quickly locate the right one, given that naming conventions differ across providers. For example, anInstancein AWS is aVirtual Machinein Azure, aVM Instancein GCP, and\u2026",
+            "title": "Smarter Inventory Filter Dropdown"
+          },
+          {
+            "description": "We have added a new Overall Compliance Score field to CSPM assessment report CSV exports (AWS, Azure, GCP, and OCI). This score reflects resource-level compliance, using the same methodology as the dashboard and posture views, ensuring consistency across all reporting surfaces.",
+            "title": "View Overall Compliance Score in Assessment Report"
+          },
+          {
+            "description": "You can now set a default time period for TotalCloud pages directly fromConfigure>Preferencestab, so you no longer need to manually select your preferred time filter every time you visit a page.",
+            "title": "Set a Default Time Period in Preferences"
+          }
+        ],
+        "release_date": null,
+        "title": "TotalCloud Release 2.27",
+        "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_27.htm",
+        "version": "2.27"
+      },
+      "retrieved_at": "2026-09-22T12:03:11Z"
+    },
     "CONN": {
       "release": {
         "features": [
           {
-            "description": "Applicable for:",
+            "description": "This release introducesDelta Sync, a new inventory synchronization option for Microsoft Azure connectors.",
             "title": "EventGrid Support for Azure Connectors"
           },
           {
-            "description": "Applicable for:",
+            "description": "Qualys TotalCloud now extendsCloud Perimeter Scan (CPS)support toOracle Cloud Infrastructure (OCI), bringing OCI in line with the CPS support already available for AWS, Azure, and GCP.",
             "title": "Cloud Perimeter Scan (CPS) Support for OCI Cloud"
           },
           {
-            "description": "Applicable for:",
+            "description": "To better reflect what this data actually contains, we have renamed \"Errors\" to \"Logs\" across the Connectors experience:",
             "title": "Connector Errors is now Connector Logs"
           }
         ],
@@ -21,85 +154,66 @@
         "url": "https://docs.qualys.com/en/conn/release-notes/connector/release_2_20.htm",
         "version": "2.20"
       },
-      "retrieved_at": "2026-09-22T07:12:34Z"
+      "retrieved_at": "2026-09-22T12:03:11Z"
     },
     "CS": {
       "release": {
         "features": [
           {
-            "description": "Organizations increasingly rely on serverless architectures but lack a unified security-scanning solution for containerized and serverless workloads. This often leads to security blind spots and inconsistent risk assessments.",
-            "title": "Support for Serverless\u00a0Lambda Function Scanning"
+            "description": "",
+            "title": "Introduced AWS Fargate Container QLP: Workload-Level Vulnerability Tracking"
           },
           {
-            "description": "With this release, QScanner introduces thecodecommand, enabling security scanning of source code repositories before they are built and packaged. The command supports scanning both local source code and remote repositories, helping organizations identify vulnerable dependencies early in the software development lifecycle.Traditional container image scanning identifies security issues after the\u2026",
-            "title": "Support for Code Scanning"
+            "description": "",
+            "title": "Introduced Azure Function Scanning: Vulnerability and SCA Detection for Serverless Functions"
           },
           {
-            "description": "While traditional security tools focus on containers, infrastructure, and application vulnerabilities, they provide limited visibility into AI agent implementations. As a result, organizations struggle to assess whether their AI systems comply with governance, security, and regulatory requirements before deployment.",
-            "title": "AI Workload Compliance Scanning for Code Assets"
+            "description": "",
+            "title": "Enhanced Lambda Function Scanning: Image Association and Scan Data Retention"
           },
           {
-            "description": "QScanner 5.1.0 introduces multiple enhancements to improve secret detection accuracy, coverage, and usability.\u00a0Together, these enhancements help organizations identify genuine secrets more effectively while reducing noise from benign matches.",
-            "title": "Enhanced Secret Detection"
+            "description": "",
+            "title": "Introduced Active Package Detection: Runtime Package-in-Use Visibility"
           },
           {
-            "description": "QScanner now supportsCycloneDXas a report format using the--report-format cyclonedxcommand. Previously, SARIF was the only industry-standard report format supported by QScanner and was primarily focused on vulnerability reporting. With this enhancement, you can now generate a single industry-standard report containing both software inventory information and associated vulnerabilities.",
-            "title": "CycloneDX Report Format Support"
+            "description": "",
+            "title": "Extended JAR SCA in Offline Mode: JAVADB Resolution Without Network Access"
           },
           {
-            "description": "Alibaba Cloud Linux is a Linux server operating system developed and maintained by Alibaba Cloud. It is designed and optimized for Alibaba Cloud infrastructure, including ECS (Elastic Compute Service) instances and cloud-native applications.QScanner now supports vulnerability and security scanning of images based on Alibaba Cloud Linux OS. With this enhancement, QScanner enables you to leverage\u2026",
-            "title": "Support for Alibaba Cloud Linux OS"
+            "description": "",
+            "title": "Introduced Network Events Monitoring: Bi-Directional Traffic Visibility for Running Containers"
           },
           {
-            "description": "QScanner 5.1.0 introduces support for scanning images built using Chisel manifests. Chisel is commonly used to create minimal Debian/Ubuntu-based container images by extracting only the files required for an application, resulting in smaller and more efficient deployment artifacts.Traditional vulnerability scanners often rely on package manager metadata, such as dpkg, to identify installed\u2026",
-            "title": "Support for Chisel-based Images"
+            "description": "",
+            "title": "Introduced Subscription-Level OAuth for QScanner: Centralized Token Authentication"
           },
           {
-            "description": "Modern applications are increasingly deployed across heterogeneous environments that require support for multiple CPU architectures. Security teams often need to validate each platform-specific image separately, making vulnerability assessment more complex and time-consuming.With this release, QScanner supports scanning locally built multi-architecture container images created using Docker Buildx\u2026",
-            "title": "Support for Scanning of Locally built Multiarch images using Buildx on Docker v29"
+            "description": "",
+            "title": "Enhancements in Vulnerability and Compliance Reports: New Attributes and Renamed CSV Columns"
           },
           {
-            "description": "The following issue\u00a0has\u00a0been fixed with this release.",
-            "title": "Issue Addressed"
+            "description": "",
+            "title": "Enhancements in KSPM Controls: Ability to Filter Controls based on Policy Name"
+          },
+          {
+            "description": "",
+            "title": "Vulnerability Count Filter: Faster Risk Prioritization in Images and Containers"
+          },
+          {
+            "description": "",
+            "title": "Introduced On-Demand Repository Refresh: Instant Repository Discovery for Registries"
+          },
+          {
+            "description": "",
+            "title": "Extended JFrog Artifactory Scanning: Support for Subdomain-Based Registry URLs"
           }
         ],
         "release_date": null,
-        "title": "QScanner Release 5.1.0",
-        "url": "https://docs.qualys.com/en/qscanner/release-notes/qscanner/release_5_1_0.htm",
-        "version": "5.1"
+        "title": "Container Security Release 1.45",
+        "url": "https://docs.qualys.com/en/cs/release-notes/container_security/release_1_45.htm",
+        "version": "1.45"
       },
-      "retrieved_at": "2026-09-22T07:12:34Z"
-    },
-    "ETM": {
-      "release": {
-        "features": [
-          {
-            "description": "We have introducedAI-Powered Attack Path Overviewto provide contextual and actionable insights for attack paths identified within ETM Identity.",
-            "title": "AI-Powered Attack Path Overview"
-          },
-          {
-            "description": "We have introducedDomain Trust\u00a0Findingsto help identify misconfigurations in the Domain Trust Map (DTM).",
-            "title": "Domain Trust Findings"
-          },
-          {
-            "description": "We have extended\u00a0support forRisk Factor Insightsto help organizations measure and prioritize identity risks with ETM risk scoring.",
-            "title": "Risk Factor Insights for Identity Weaknesses"
-          },
-          {
-            "description": "We enhanced ETM Identity Role-Based Access Control (RBAC) with tag-based scoping. You can control access to identity assets and findings based on assigned tags. This allows users to view only the data that falls within their authorized scope.",
-            "title": "Introduced Tag-Based Scoping in Role-Based Access Control (RBAC)"
-          },
-          {
-            "description": "There are no notable customer issues in this release.",
-            "title": "Issues Addressed"
-          }
-        ],
-        "release_date": null,
-        "title": "ETM Identity Release 1.4.0",
-        "url": "https://docs.qualys.com/en/etm-identity/release-notes/etm_identity/release_1_4.htm",
-        "version": "1.4"
-      },
-      "retrieved_at": "2026-09-22T07:12:34Z"
+      "retrieved_at": "2026-09-22T12:03:11Z"
     },
     "FIM": {
       "release": {
@@ -130,7 +244,92 @@
         "url": "https://docs.qualys.com/en/fim/release-notes/file_integrity_monitoring/release_4_9_4.htm",
         "version": "4.9.4"
       },
-      "retrieved_at": "2026-09-22T07:12:34Z"
+      "retrieved_at": "2026-09-22T12:03:11Z"
+    },
+    "ISL": {
+      "release": {
+        "features": [
+          {
+            "description": "",
+            "title": "TruRisk\u2122 Eliminate Unifies Patch Management, Mitigate, and Isolate"
+          },
+          {
+            "description": "",
+            "title": "Get a Complete View of Risk and Remediation Opportunities"
+          },
+          {
+            "description": "",
+            "title": "Track Operational Status of Remediation in One View"
+          },
+          {
+            "description": "",
+            "title": "Improved Asset Status in Job Progress"
+          },
+          {
+            "description": "The following reported and notable customer issues are fixed in this release.",
+            "title": "Issues Addressed"
+          }
+        ],
+        "release_date": null,
+        "title": "TruRisk\u2122 Eliminate Release 4.1",
+        "url": "https://docs.qualys.com/en/pm/release-notes/patch_management/release_4_1.htm",
+        "version": "4.1"
+      },
+      "retrieved_at": "2026-09-22T12:03:11Z"
+    },
+    "ITAM": {
+      "release": {
+        "features": [
+          {
+            "description": "You can now leverage Artificial Intelligence (AI) to calculate the\u00a0criticality scores of your assets.\u00a0This helps you identify potential high-criticality assets in your environment and prioritize remediation.",
+            "title": "AI-powered Asset Criticality Score"
+          },
+          {
+            "description": "The Asset Activation workflow now includes support forIP with Virtual Hosttracking method. This enables the system to create virtual hosts for IP addresses that host multiple websites or services and make them available for scanning.\u00a0As a result, Qualys scanners can scan both the IP address and its associated virtual hosts to detect more vulnerabilities on the EASM assets.",
+            "title": "Support for IP with Virtual Host Tracking in Asset Activation"
+          },
+          {
+            "description": "You can now easily find, view, and manage both system-defined and user-defined asset identification rules with the newQualys SensorsandConnectorstabs underRules > Asset Identification > Rules. This enhancement helps you quickly differentiate system-generated and user-defined rules. The categories are as follows:",
+            "title": "Categorization for Asset Identification Rules"
+          },
+          {
+            "description": "You can now track actions performed on tags and alerts in the CSAM application. This provides better visibility into user activities across tagging and alerting workflows. These actions are captured and displayed in theAdministratorapplication under theActivity Logstab.",
+            "title": "Activity Logs for Tagging and Alerting Actions"
+          },
+          {
+            "description": "",
+            "title": "New Tokens in CSAM"
+          },
+          {
+            "description": "",
+            "title": "New Tokens in CSAM and GAV"
+          },
+          {
+            "description": "The following reported and notable customer issues are fixed in this release:",
+            "title": "Issues Addressed"
+          }
+        ],
+        "release_date": null,
+        "title": "CyberSecurity Asset Management/Global AssetView Release 3.7.2.0",
+        "url": "https://docs.qualys.com/en/csam/release-notes/cybersecurity_asset_management/release_3_7_2.htm",
+        "version": "3.7.2"
+      },
+      "retrieved_at": "2026-09-22T12:03:11Z"
+    },
+    "OCA": {
+      "release": {
+        "features": [
+          {
+            "description": "We have now implemented Qualys Query Language (QQL) token standardization across all Qualys applications. As part of this enhancement, both common and Out-of-band Configuration Assessment specific tokens are updated with new token names that follow a standard, consistent nomenclature.The new token format follows the syntax:<entity>.<attribute>For example, in the new\u2026",
+            "title": "Implementation of QQL Token Standardization"
+          }
+        ],
+        "release_date": null,
+        "title": "Release 1.13",
+        "url": "https://docs.qualys.com/en/oca/release-notes/oca/release_1_13.htm",
+        "version": "1.13"
+      },
+      "retrieved_at": "2026-09-22T12:03:11Z"
     },
     "PM": {
       "release": {
@@ -149,7 +348,7 @@
         "url": " https://docs.qualys.com/en/pm/release-notes/patch_management/release_3_6.htm",
         "version": "3.6"
       },
-      "retrieved_at": "2026-09-22T07:12:34Z"
+      "retrieved_at": "2026-09-22T12:03:11Z"
     },
     "PS": {
       "release": {
@@ -164,7 +363,7 @@
         "url": "https://docs.qualys.com/en/ps/release-notes/ps/release_2_6.htm",
         "version": "2.6"
       },
-      "retrieved_at": "2026-09-22T07:12:34Z"
+      "retrieved_at": "2026-09-22T12:03:11Z"
     },
     "QFLOW": {
       "release": {
@@ -191,7 +390,7 @@
         "url": "https://docs.qualys.com/en/qflow/release-notes/qflow/release_1_24.htm",
         "version": "1.24"
       },
-      "retrieved_at": "2026-09-22T07:12:34Z"
+      "retrieved_at": "2026-09-22T12:03:11Z"
     },
     "QGS": {
       "release": {
@@ -210,147 +409,228 @@
         "url": "https://docs.qualys.com/en/qgs/release-notes/qgs/release_3_16_1.htm",
         "version": "3.16.1"
       },
-      "retrieved_at": "2026-09-22T07:12:34Z"
+      "retrieved_at": "2026-09-22T12:03:11Z"
+    },
+    "QWEB_PC": {
+      "release": {
+        "features": [
+          {
+            "description": "We have now introduced a new Policy Audit Home page that provides a tailored experience based on your onboarding status.",
+            "title": "New Policy Audit Home Page"
+          },
+          {
+            "description": "Access to remediation jobs and schedules created through the Policy Audit Fix (PAF) feature can now be restricted by each users assigned asset tags, in addition to their existing role and permissions. This is referred to as Tag-Based User Scoping (TBUS).",
+            "title": "Granular Access Control for Audit Fix Using Tag-Based User Scoping"
+          },
+          {
+            "description": "With this release, we support the following 2 new Qualys Query Language (QQL) tokens:",
+            "title": "Support for new QQL Tokens to Manage CVE IDs"
+          },
+          {
+            "description": "The enhancement is temporarily rolled back to ensure a stable user experience and will be reintroduced in an upcoming release.",
+            "title": "Enhanced User Interface"
+          },
+          {
+            "description": "While creating a policy from a framework, you can now download the list of Additional Controls,\u00a0 the controls not mapped to any of the selected benchmarks, such as CIS, Qualys Vendor, and DISA STIG in a CSV report for offline reference.",
+            "title": "View Additional Controls Anytime with the New CSV Download Option"
+          },
+          {
+            "description": "You can now view framework policy details directly in the Activity Log tab.",
+            "title": "Track Framework Policy Creation Activity Like Any Other Policy"
+          },
+          {
+            "description": "You can now selectUbuntu 26.x,\u00a0Debian GNU/Linux 13.x, and\u00a0Oracle Enterprise Linux 10.x technologieswhen creating a new control for Unix Control types.",
+            "title": "UDC Support for Ubuntu 26.x, Debian 13.x, and Oracle Linux 10.x Technologies"
+          },
+          {
+            "description": "You can now scan and report Oracle databases for User-Defined Controls (UDCs)\u00a0using Linux Intel Cloud Agent.",
+            "title": "Oracle Database UDC Support for Linux Agent-based Compliance Scans"
+          },
+          {
+            "description": "We previously introduced the Alerting feature that allowed you to receive real time updates of the events or incidents related to your configurations.",
+            "title": "Update - Policy Audit Alerting"
+          },
+          {
+            "description": "The following reported and notable customer issues are fixed in this release:",
+            "title": "Issues Addressed"
+          }
+        ],
+        "release_date": null,
+        "title": "Policy Audit Release 1.16",
+        "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_pa/pa/release_1_16.htm",
+        "version": "1.16"
+      },
+      "retrieved_at": "2026-09-22T12:03:11Z"
+    },
+    "QWEB_VM": {
+      "release": {
+        "features": [
+          {
+            "description": "With this release, we have introduced an improved user experience across all the VMDR application pages. You can view updates across fonts, colors, typography, and buttons, making the interface more intuitive and easier to use. This release features User Interface (UI) and design system enhancements that improve visual consistency, readability, and usability across the application, resulting in a\u2026",
+            "title": "Enhanced VMDR User Interface"
+          },
+          {
+            "description": "The following reported and notable customer issues are fixed in this release:",
+            "title": "Issues Addressed"
+          }
+        ],
+        "release_date": null,
+        "title": "VMDR Release 2.13",
+        "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_vmdr_rn/vmdr/release_2_13.htm",
+        "version": "2.13"
+      },
+      "retrieved_at": "2026-09-22T12:03:11Z"
+    },
+    "SEM": {
+      "release": {
+        "features": [
+          {
+            "description": "We have now implemented Qualys Query Language (QQL) token standardization across all Qualys applications. As part of this enhancement, both common and VMDR Mobile-specific tokens are updated with new token names that follow a standard, consistent nomenclature.The new token format follows the syntax:entity.attributeFor example, in the new token,policy.createdDate, policyis the entity,\u2026",
+            "title": "Implementation of QQL Token Standardization"
+          },
+          {
+            "description": "The following new Finding tokens are added to\u00a0theVulnerabilitytab:",
+            "title": "New Tokens"
+          },
+          {
+            "description": "With this release, we have extended our support for OpenID Connect Authentication Client Management capabilities from the UI. This update enables secure authentication and authorization for API access directly from the user interface. Our API interactions are now authenticated with enhanced security measures.",
+            "title": "Support for Auth ID Client Management from UI"
+          }
+        ],
+        "release_date": null,
+        "title": "VMDR Mobile Release 1.6.1",
+        "url": "https://docs.qualys.com/en/vmdr-mobile/release-notes/vmdr_mobile/release_1_6_1.htm",
+        "version": "1.6.1"
+      },
+      "retrieved_at": "2026-09-22T12:03:11Z"
     },
     "SM": {
       "release": {
         "features": [
           {
-            "description": "We updated theHost Isolationfeature to support an allowed list for IPv6 assets. Earlier, the allowed list support was available only for IPv4 assets.",
-            "title": "Add IPv6 Addresses to Allowed List"
+            "description": "You can now upload a CSV file containing asset names to quickly select up to 5,000 assets when testing, running, or scheduling a script. This feature eliminates the need for manual asset selection, making it easier to target large sets of assets at once.",
+            "title": "Import Assets from a CSV File to Run Scripts and Schedule at Scale"
           },
           {
-            "description": "We enhanced the Command Execution Pipeline (CEP) to optimize the default privileges.",
-            "title": "Privilege Management for CEP Processes"
+            "description": "You can now use theAutomated Asset Selectionoption to search and filter assets for script execution using a QQL query. This enhancement helps you quickly target the required assets while reducing manual selection effort.",
+            "title": "Target the Right Assets for Script Execution Using a\u00a0QQL Query"
           },
           {
-            "description": "We have upgraded the Linux Cloud Agent to support Runtime and Static analysis during SwCA scans.\u00a0In theRuntimeanalysis, SwCA scans application components in production environments, which are detected during the scan execution. In theStaticanalysis, SwCA scans the application components that are under development.",
-            "title": "Runtime and Static Analysis for SwCA Scans"
+            "description": "You can now edit theTechnologieslist for approved Control ID Remediation scripts created directly in CAR or imported from the Library. This enhancement lets you update the technologies associated with an approved script without creating a duplicate script.",
+            "title": "Edit Technologies\u00a0for Approved Control ID Remediation Scripts"
           },
           {
-            "description": "We updated the Linux Cloud Agent to support uploading client certificate files for database authentication. You can upload the client certificate file in.pfxformat to fetch the vault connection profiles. The client certificate file also needs a passphrase to ensure that only authenticated users can access the request databases.",
-            "title": "Client Certificate Support for Database Authentication"
-          },
-          {
-            "description": "There are no behavior changes in this release.",
-            "title": "Behavior Change"
-          },
-          {
-            "description": "No new platform coverage added in this release.",
-            "title": "Platform Coverage Support"
-          },
-          {
-            "description": "The following important and notable issues are fixed in this release:",
-            "title": "Issues Addressed"
-          },
-          {
-            "description": "There are no known issues and limitations for this release.",
-            "title": "Known Issues, Limitations, and Workarounds"
+            "description": "With this release, we have introduced an improved user experience across all CAR pages. You can see updates across fonts, colors, typography, and buttons, making the interface more intuitive and easier to use.",
+            "title": "Enhanced Readability and Visual Clarity"
           }
         ],
         "release_date": null,
-        "title": "Qualys Cloud Agent for Linux Intel Release 7.3",
-        "url": "https://docs.qualys.com/en/ca/release-notes/cloud_agent/linux_intel/release_7_3.htm",
-        "version": "7.3"
+        "title": "Custom Assessment and Remediation Release 2.9.2",
+        "url": "https://docs.qualys.com/en/car/release-notes/car/release_2_9_2.htm",
+        "version": "2.9.2"
       },
-      "retrieved_at": "2026-09-22T07:12:34Z"
+      "retrieved_at": "2026-09-22T12:03:11Z"
     },
     "TA": {
       "release": {
         "features": [
           {
-            "description": "Organizations increasingly rely on serverless architectures but lack a unified security-scanning solution for containerized and serverless workloads. This often leads to security blind spots and inconsistent risk assessments.",
-            "title": "Support for Serverless\u00a0Lambda Function Scanning"
+            "description": "",
+            "title": "Get a Unified View of Your AI Estate"
           },
           {
-            "description": "With this release, QScanner introduces thecodecommand, enabling security scanning of source code repositories before they are built and packaged. The command supports scanning both local source code and remote repositories, helping organizations identify vulnerable dependencies early in the software development lifecycle.Traditional container image scanning identifies security issues after the\u2026",
-            "title": "Support for Code Scanning"
+            "description": "",
+            "title": "Identify AI Workloads and Prioritize Risk"
           },
           {
-            "description": "While traditional security tools focus on containers, infrastructure, and application vulnerabilities, they provide limited visibility into AI agent implementations. As a result, organizations struggle to assess whether their AI systems comply with governance, security, and regulatory requirements before deployment.",
-            "title": "AI Workload Compliance Scanning for Code Assets"
+            "description": "",
+            "title": "Track AI SaaS Usage Across Your Organization"
           },
           {
-            "description": "QScanner 5.1.0 introduces multiple enhancements to improve secret detection accuracy, coverage, and usability.\u00a0Together, these enhancements help organizations identify genuine secrets more effectively while reducing noise from benign matches.",
-            "title": "Enhanced Secret Detection"
+            "description": "",
+            "title": "Identify AI-Related Code and Prioritize Remediation"
           },
           {
-            "description": "QScanner now supportsCycloneDXas a report format using the--report-format cyclonedxcommand. Previously, SARIF was the only industry-standard report format supported by QScanner and was primarily focused on vulnerability reporting. With this enhancement, you can now generate a single industry-standard report containing both software inventory information and associated vulnerabilities.",
-            "title": "CycloneDX Report Format Support"
+            "description": "",
+            "title": "Discover AI Applications on Windows Hosts"
           },
           {
-            "description": "Alibaba Cloud Linux is a Linux server operating system developed and maintained by Alibaba Cloud. It is designed and optimized for Alibaba Cloud infrastructure, including ECS (Elastic Compute Service) instances and cloud-native applications.QScanner now supports vulnerability and security scanning of images based on Alibaba Cloud Linux OS. With this enhancement, QScanner enables you to leverage\u2026",
-            "title": "Support for Alibaba Cloud Linux OS"
+            "description": "",
+            "title": "Align AI Security Policies"
           },
           {
-            "description": "QScanner 5.1.0 introduces support for scanning images built using Chisel manifests. Chisel is commonly used to create minimal Debian/Ubuntu-based container images by extracting only the files required for an application, resulting in smaller and more efficient deployment artifacts.Traditional vulnerability scanners often rely on package manager metadata, such as dpkg, to identify installed\u2026",
-            "title": "Support for Chisel-based Images"
+            "description": "",
+            "title": "Strengthen Your Security Posture"
           },
           {
-            "description": "Modern applications are increasingly deployed across heterogeneous environments that require support for multiple CPU architectures. Security teams often need to validate each platform-specific image separately, making vulnerability assessment more complex and time-consuming.With this release, QScanner supports scanning locally built multi-architecture container images created using Docker Buildx\u2026",
-            "title": "Support for Scanning of Locally built Multiarch images using Buildx on Docker v29"
+            "description": "",
+            "title": "Block LLM Exploits with Guardrails"
           },
           {
-            "description": "The following issue\u00a0has\u00a0been fixed with this release.",
-            "title": "Issue Addressed"
+            "description": "",
+            "title": "Simplify AI Model Authentication"
+          },
+          {
+            "description": "",
+            "title": "Test for Vector Embedding Attacks"
           }
         ],
         "release_date": null,
-        "title": "QScanner Release 5.1.0",
-        "url": "https://docs.qualys.com/en/qscanner/release-notes/qscanner/release_5_1_0.htm",
-        "version": "5.1"
+        "title": "TotalAI Release 2.0",
+        "url": "https://docs.qualys.com/en/ta/release-notes/total_ai/release_2_0.htm",
+        "version": "2.0"
       },
-      "retrieved_at": "2026-09-22T07:12:34Z"
+      "retrieved_at": "2026-09-22T12:03:11Z"
     },
     "TC": {
       "release": {
         "features": [
           {
-            "description": "Applicable for:",
+            "description": "TotalCloud now supports granular, action-level permissions (view / create-clone / edit / delete) for Policy, Control, and Exception management, as well as tag-based scope, which extends scoping to Policies and Controls. Today, scope is derived from connectors only; going forward, you can choose to derive scope from connectors only (connector-based scope) or from connectors + policy (connectors +\u2026",
             "title": "Granular Access Control for Policies and Controls"
           },
           {
-            "description": "Applicable for:",
+            "description": "You can now use Azure EventGrid to enable event-driven processing for Azure cloud connectors. Like AWS EventBridge,AzureEventGridprocesses only the resources affected by detected changes, rather than performing full scans for every connector run, reducing unnecessary API calls and improving processing efficiency.",
             "title": "Event-Driven Connector processing via Azure EventGrid"
           },
           {
-            "description": "Applicable for:",
+            "description": "TotalCloud now surfaces Attack Path insights directly at the instance level, so you no longer need to leave the instance view to understand a resource's risk exposure. Previously, attack paths were visible only on the Insights tab, with no way to search or filter for them elsewhere. With this release, VMs and other assets across AWS, Azure, and GCP display attack path context directly on the\u2026",
             "title": "Attack Path Visibility at the Instance Level"
           },
           {
-            "description": "Applicable for:",
+            "description": "You can now use the wildcard character (*) in tag searches to match tags by pattern rather than exact text across the Posture, Inventory, and Connectors pages, as well as other pages that support tag-based search.",
             "title": "Wildcard (*) Support for Tag-Based Search"
           },
           {
-            "description": "Applicable for:",
+            "description": "You can now create a new policy by copying an existing one, system-defined or user-defined, right from the Policy listing page.",
             "title": "Copy and Create new Policy from an existing one"
           },
           {
-            "description": "Applicable for:",
+            "description": "The Policy menu now includes aFunction Catalogtab, providing direct in-product visibility into the functions used in custom investigation queries and controls.",
             "title": "Look up Query Functions"
           },
           {
-            "description": "Applicable for:",
+            "description": "We have expanded our cloud security coverage by adding support for additional AWS, Azure, GCP and\u00a0 OCI resource types in Cloud Inventory, enabling discovery, inventory, and security posture assessment across a broader range of cloud services.",
             "title": "Extended Inventory Coverage"
           },
           {
-            "description": "Applicable for:",
+            "description": "You can now directly access impacted Azure resources from the Evidence Details section usingView in Azure Console.This enhancement enables faster investigation and remediation of resources flagged during control evaluations.",
             "title": "Navigate to Azure Cloud directly from Posture"
           },
           {
-            "description": "Applicable for:",
+            "description": "You can now filter results on theAll Inventorypage by date range. This makes it easier to narrow your asset view to a specific time window, which is useful for investigating recently discovered or updated assets and for\u00a0more targeted inventory analysis.",
             "title": "Date Range Filtering for All Inventory"
           },
           {
-            "description": "Applicable for:",
+            "description": "On the Inventory page, the inventory type filter dropdown now lists the most commonly used resource types at the top of the list for each cloud provider. Previously, all resource types were listed together, making it harder to quickly locate the right one, given that naming conventions differ across providers. For example, anInstancein AWS is aVirtual Machinein Azure, aVM Instancein GCP, and\u2026",
             "title": "Smarter Inventory Filter Dropdown"
           },
           {
-            "description": "Applicable for:",
+            "description": "We have added a new Overall Compliance Score field to CSPM assessment report CSV exports (AWS, Azure, GCP, and OCI). This score reflects resource-level compliance, using the same methodology as the dashboard and posture views, ensuring consistency across all reporting surfaces.",
             "title": "View Overall Compliance Score in Assessment Report"
           },
           {
-            "description": "Applicable for:",
+            "description": "You can now set a default time period for TotalCloud pages directly fromConfigure>Preferencestab, so you no longer need to manually select your preferred time filter every time you visit a page.",
             "title": "Set a Default Time Period in Preferences"
           }
         ],
@@ -359,7 +639,7 @@
         "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_27.htm",
         "version": "2.27"
       },
-      "retrieved_at": "2026-09-22T07:12:34Z"
+      "retrieved_at": "2026-09-22T12:03:11Z"
     },
     "UD": {
       "release": {
@@ -386,8 +666,36 @@
         "url": "https://docs.qualys.com/en/ud/release-notes/unified_dashboard/release_2_15_1.htm",
         "version": "2.15.1"
       },
-      "retrieved_at": "2026-09-22T07:12:34Z"
+      "retrieved_at": "2026-09-22T12:03:11Z"
+    },
+    "WAS": {
+      "release": {
+        "features": [
+          {
+            "description": "With the MuleSoft API Connectors, TotalAppSec can discover Swagger files with all endpoints exposed in your environment. This enhances the TotalAppSec's discovery feature and strengthens your organization's security posture.",
+            "title": "Discover APIs using\u00a0MuleSoft\u00a0API Connectors"
+          },
+          {
+            "description": "With the Azure API Connectors, TotalAppSec can now discover Swagger files with all endpoints exposed in your Azure environment. This enhances the TotalAppSec's discovery feature and strengthens your organization's security posture.",
+            "title": "Discover APIs using Azure API Connectors"
+          },
+          {
+            "description": "You can create new widgets to display discovered application data, which includes discovered web applications and discovered APIs.",
+            "title": "Support for Discovery Widgets in Dashboard"
+          },
+          {
+            "description": "You can now view and download the report for the API collection.",
+            "title": "View and Download API Reports"
+          }
+        ],
+        "release_date": null,
+        "title": "TotalAppSec Release 2.1",
+        "url": "https://docs.qualys.com/en/tas/release-notes/total_app_sec/release_2_1.htm",
+        "version": "2.1"
+      },
+      "retrieved_at": "2026-09-22T12:03:11Z"
     }
   },
+  "parse_format_version": 3,
   "releases": {}
 }
