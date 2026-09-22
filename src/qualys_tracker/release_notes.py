@@ -94,6 +94,114 @@ MODULE_NAME_HINTS: dict[str, list[str]] = {
 }
 
 
+# --- Authoritative module map (supplied by the tenant owner) -----------
+#
+# Matching a module to its release notes by product-name substring is not
+# reliable: "Cloud Agent" names BOTH the agent binary notes
+# (/en/ca/.../cloud_agent/, at 6.x) and the Cloud Agent application notes
+# (/en/ca/.../ca_application/, at 2.x, which is what a tenant's CA module
+# actually reports). Likewise "Patch Management" appears under several
+# paths. The URL path is the thing that disambiguates, so a module is
+# located by path first and only narrowed by product name where one path
+# genuinely hosts several products (pm/patch_management carries both
+# Isolation and Patch Management).
+#
+# A module absent from this table falls back to MODULE_NAME_HINTS and then
+# to its own code, and finally to "release notes: not found" -- which is
+# the correct outcome for the modules that have no public notes at all
+# (verified: Threat Protect, WAF, Web Malware Detection and Continuous
+# Monitoring publish none).
+
+
+@dataclass(frozen=True)
+class ModuleSource:
+    """Where one module's public release notes live.
+
+    `url_contains` is matched against the index entry's URL.
+    `product_name`, when set, further narrows to one product on a path
+    that hosts more than one.
+    """
+
+    url_contains: str
+    product_name: str | None = None
+
+
+MODULE_SOURCES: dict[str, list[ModuleSource]] = {
+    "CA": [ModuleSource("/ca/release-notes/ca_application/")],
+    "CERTVIEW": [ModuleSource("/certview/release-notes/certview/")],
+    "CLOUDVIEW": [ModuleSource("/tc/release-notes/totalcloud/")],
+    "CONN": [ModuleSource("/conn/release-notes/connector/")],
+    "CS": [ModuleSource("/cs/release-notes/container_security/")],
+    "EDR": [ModuleSource("/edr/release-notes/endpoint_detection_and_response/")],
+    "ETM": [ModuleSource("/etm/release-notes/etm/")],
+    "FIM": [ModuleSource("/fim/release-notes/file_integrity_monitoring/")],
+    # One path, two products -- narrow by name or ISL and PM collide.
+    "ISL": [ModuleSource("/pm/release-notes/patch_management/", "Isolation")],
+    "PM": [ModuleSource("/pm/release-notes/patch_management/", "Patch Management")],
+    "ITAM": [ModuleSource("/csam/release-notes/cybersecurity_asset_management/")],
+    "MROC": [ModuleSource("/mroc/release-notes/managed_risk_operations_center/")],
+    "OCA": [ModuleSource("/oca/release-notes/oca/")],
+    "PA": [ModuleSource("/vm/release-notes/mergedProjects/qualys_pa/")],
+    "PS": [ModuleSource("/ps/release-notes/ps/")],
+    "QFLOW": [ModuleSource("/qflow/release-notes/qflow/")],
+    "QGS": [ModuleSource("/qgs/release-notes/qgs/")],
+    "QWEB_PC": [ModuleSource("/vm/release-notes/mergedProjects/qualys_pa/")],
+    "QWEB_VM": [ModuleSource("/vm/release-notes/mergedProjects/qualys_vmdr_rn/")],
+    "SA": [ModuleSource("/scanner/release-notes/virtual_scanner/")],
+    "SEM": [ModuleSource("/vmdr-mobile/release-notes/vmdr_mobile/")],
+    "SM": [ModuleSource("/car/release-notes/car/")],
+    "TA": [ModuleSource("/ta/release-notes/total_ai/")],
+    "TC": [ModuleSource("/tc/release-notes/totalcloud/")],
+    "UD": [ModuleSource("/ud/release-notes/unified_dashboard/")],
+    "WAS": [ModuleSource("/tas/release-notes/total_app_sec/")],
+}
+
+# Display names for the email ("TC (TotalCloud)"). Includes modules with
+# no public release notes -- naming a module and locating its notes are
+# separate concerns.
+MODULE_FULL_NAMES: dict[str, str] = {
+    "AV2": "VMDR",
+    "CA": "Cloud Agent",
+    "CERTVIEW": "Certificate View",
+    "CLOUDVIEW": "TotalCloud",
+    "CM": "Continuous Monitoring",
+    "CONN": "Connectors",
+    "CS": "Container Security",
+    "EDR": "Endpoint Protection and Response",
+    "ETM": "Enterprise TruRisk Management",
+    "FIM": "File Integrity Monitoring",
+    "ICS": "Industrial Control System",
+    "IOC": "Indicator of Compromise",
+    "ISL": "Isolation (part of Cloud Agent)",
+    "ISPM": "Identity Security Posture Management",
+    "ITAM": "CyberSecurity Asset Management",
+    "MDS": "Web Malware Detection",
+    "MROC": "Managed Risk Operations Center",
+    "MTG": "Mitigation (part of Cloud Agent)",
+    "OCA": "Industrial OCA",
+    "PA": "Policy Audit",
+    "PM": "Patch Management",
+    "PS": "Network Passive Sensor",
+    "QFLOW": "Qualys Flow",
+    "QGS": "Qualys Gateway Service",
+    "QUESTIONNAIRE": "Security Assessment Questionnaire",
+    "QUESTIONNAIRE_V2": "Security Assessment Questionnaire",
+    "QWEB_PC": "Policy Audit",
+    "QWEB_VM": "Vulnerability Management",
+    "SA": "Virtual Scanner Appliance",
+    "SEM": "Secure Enterprise Mobility",
+    "SM": "Script Manager",
+    "SSC": "PCI SSC",
+    "TA": "Total AI",
+    "TC": "TotalCloud",
+    "THREAT_PROTECT": "Threat Protect",
+    "UD": "Unified Dashboard",
+    "WAF": "Web Application Firewall",
+    "WAF_V3": "Web Application Firewall",
+    "WAS": "Total Application Security",
+}
+
+
 class ReleaseNotesError(Exception):
     """A release-note lookup could not be completed.
 
@@ -125,6 +233,19 @@ def candidate_product_names(module: str) -> list[str]:
 
 
 def _matches_module(entry: IndexEntry, module: str) -> bool:
+    sources = MODULE_SOURCES.get(module.upper())
+    if sources:
+        # An explicitly mapped module is located ONLY by its mapped path.
+        # Falling back to name matching here would reintroduce exactly the
+        # collisions the path mapping exists to prevent.
+        return any(
+            source.url_contains in entry.url
+            and (
+                source.product_name is None
+                or source.product_name.lower() == entry.product_name.lower()
+            )
+            for source in sources
+        )
     names = [n.lower() for n in candidate_product_names(module)]
     product = entry.product_name.lower()
     return any(name in product or product in name for name in names)
@@ -184,7 +305,7 @@ def parse_index(html: str) -> list[IndexEntry]:
 # change), so without this a parser fix would never reach an already-cached
 # module: the "Applicable for:" descriptions survived the parser fix until
 # this invalidation was added. See release_cache.load_cache.
-PARSE_FORMAT_VERSION = 2
+PARSE_FORMAT_VERSION = 3
 
 
 def _is_label_paragraph(text: str) -> bool:
@@ -201,10 +322,13 @@ def full_product_name(module: str) -> str | None:
     Returns None for a module with no curated mapping, so callers render
     the bare code rather than inventing an expansion.
     """
-    hints = MODULE_NAME_HINTS.get(module.upper())
-    if not hints:
-        return None
-    name = hints[0].strip()
+    name = MODULE_FULL_NAMES.get(module.upper())
+    if not name:
+        hints = MODULE_NAME_HINTS.get(module.upper())
+        if not hints:
+            return None
+        name = hints[0]
+    name = name.strip()
     # An "expansion" identical to the code itself tells the reader nothing.
     return name if name.upper() != module.upper() else None
 

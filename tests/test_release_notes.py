@@ -247,3 +247,77 @@ def test_full_product_name_expands_known_codes():
     assert full_product_name("FIM") == "File Integrity Monitoring"
     # No curated mapping -> no invented expansion.
     assert full_product_name("PortalApplication") is None
+
+
+# --- Module source map (tenant-owner supplied, validated against the live
+# --- index) ------------------------------------------------------------
+
+def _entry(product_name, version, url):
+    from qualys_tracker.release_notes import IndexEntry
+
+    return IndexEntry(product_name=product_name, version_text=version, url=url)
+
+
+CA_APPLICATION = _entry(
+    "Cloud Agent", "2.8", "https://docs.qualys.com/en/ca/release-notes/ca_application/release_2_8.htm"
+)
+CA_BINARY = _entry(
+    "Cloud Agent", "6.7.2",
+    "https://docs.qualys.com/en/ca/release-notes/cloud_agent/windows/release_6_7_2.htm",
+)
+ISOLATION = _entry(
+    "Isolation", "4.1", "https://docs.qualys.com/en/pm/release-notes/patch_management/release_4_1.htm"
+)
+PATCH_MGMT = _entry(
+    "Patch Management", "3.6",
+    "https://docs.qualys.com/en/pm/release-notes/patch_management/release_3_6.htm",
+)
+
+
+def test_cloud_agent_module_resolves_to_the_application_not_the_agent_binary():
+    """Both are literally named "Cloud Agent"; only the path separates them.
+
+    A tenant's CA module reports 2.x (the application). Name matching alone
+    picked up the 6.x agent-binary notes, so CA was mapped to the wrong
+    product entirely.
+    """
+    entries = [CA_APPLICATION, CA_BINARY]
+    matched = find_entries_for_module(entries, "CA")
+    assert [e.version_text for e in matched] == ["2.8"]
+
+
+def test_modules_sharing_one_path_are_separated_by_product_name():
+    # ISL and PM both live under /pm/release-notes/patch_management/.
+    entries = [ISOLATION, PATCH_MGMT]
+    assert [e.version_text for e in find_entries_for_module(entries, "ISL")] == ["4.1"]
+    assert [e.version_text for e in find_entries_for_module(entries, "PM")] == ["3.6"]
+
+
+def test_mapped_module_does_not_fall_back_to_name_matching():
+    """A mapped module must not pick up a same-named product elsewhere --
+    that is the collision the path map exists to prevent."""
+    stray = _entry(
+        "Container Security", "9.9",
+        "https://docs.qualys.com/en/cs-sensor/release-notes/cs_sensor/release_9_9.htm",
+    )
+    assert find_entries_for_module([stray], "CS") == []
+
+
+def test_unmapped_module_still_uses_the_name_hint_table():
+    saq = _entry(
+        "Security Assessment Questionnaire", "2.33",
+        "https://docs.qualys.com/en/saq/release-notes/saq/release_2_33.htm",
+    )
+    assert find_entries_for_module([saq], "QUESTIONNAIRE") == [saq]
+
+
+def test_full_names_come_from_the_authoritative_table():
+    from qualys_tracker.release_notes import full_product_name
+
+    assert full_product_name("QWEB_VM") == "Vulnerability Management"
+    assert full_product_name("SEM") == "Secure Enterprise Mobility"
+    assert full_product_name("SM") == "Script Manager"
+    assert full_product_name("ISL") == "Isolation (part of Cloud Agent)"
+    assert full_product_name("WAS") == "Total Application Security"
+    # Still no invented expansion for a code with no entry.
+    assert full_product_name("PortalApplication") is None
