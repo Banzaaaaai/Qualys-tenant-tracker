@@ -212,5 +212,37 @@
     "success": true,
     "timestamp": "2026-09-22T18:18:47Z",
     "total_modules": 37
+  },
+  {
+    "api_success": true,
+    "changed": true,
+    "changed_modules": 5,
+    "duration_seconds": 12.03,
+    "email_sent": true,
+    "error": null,
+    "github_run": "35859066220:1",
+    "heartbeat_success": null,
+    "new_modules": 0,
+    "notifications": {
+      "by_kind": {
+        "change": {
+          "failed": 0,
+          "sent": 1
+        },
+        "public_release": {
+          "failed": 0,
+          "sent": 1
+        }
+      },
+      "failed": 0,
+      "sent": 2
+    },
+    "release_notes_lookup_success": true,
+    "removed_modules": 0,
+    "schedule_slot": "Europe/Amsterdam:2026-09-23T08:45",
+    "stale_alert": false,
+    "success": true,
+    "timestamp": "2026-09-23T12:12:53Z",
+    "total_modules": 37
   }
 ]

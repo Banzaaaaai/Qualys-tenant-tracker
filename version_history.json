@@ -430,5 +430,45 @@
     "new_version": "1.13.0-260",
     "old_version": "1.12.0-308",
     "timestamp": "2026-09-22T14:50:36Z"
+  },
+  {
+    "api_field": "MTG-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "MTG",
+    "new_version": "4.1.0.0-282",
+    "old_version": "4.1.0.0-281",
+    "timestamp": "2026-09-23T12:12:53Z"
+  },
+  {
+    "api_field": "ISL-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "ISL",
+    "new_version": "4.1.0.0-282",
+    "old_version": "4.1.0.0-281",
+    "timestamp": "2026-09-23T12:12:53Z"
+  },
+  {
+    "api_field": "CA-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "CA",
+    "new_version": "2.8.0",
+    "old_version": "2.7.0-79",
+    "timestamp": "2026-09-23T12:12:53Z"
+  },
+  {
+    "api_field": "QGS-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "QGS",
+    "new_version": "2.10.0-15",
+    "old_version": "2.9.0-16",
+    "timestamp": "2026-09-23T12:12:53Z"
+  },
+  {
+    "api_field": "PM-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "PM",
+    "new_version": "4.1.0.0-282",
+    "old_version": "4.1.0.0-281",
+    "timestamp": "2026-09-23T12:12:53Z"
   }
 ]
