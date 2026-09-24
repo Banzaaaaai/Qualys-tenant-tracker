@@ -212,6 +212,21 @@ def test_check_public_release_announcements_detects_new_version(fake_site):
     assert results[0].latest_public_release.version == "4.9.4"
 
 
+def test_check_public_release_announcements_includes_tenant_release_notes(fake_site):
+    """The announcement email lists what the tenant runs now, so the
+    tenant version's (older) release note must be resolved too -- not
+    reported as "Not found" just because the scan skipped the lookup."""
+    client = QualysReleaseNotesClient()
+    cache = release_cache.load_cache("/nonexistent")
+    modules = {"FIM": {"version": "4.9.3"}}
+    results = release_intelligence.check_public_release_announcements(
+        client, cache, {}, modules, 1, NOW
+    )
+    assert results[0].tenant_release is not None
+    assert results[0].tenant_release.version == "4.9.3"
+    assert results[0].tenant_release.url.endswith("release_4_9_3.htm")
+
+
 def test_check_public_release_announcements_suppresses_duplicate(fake_site):
     client = QualysReleaseNotesClient()
     cache = release_cache.load_cache("/nonexistent")

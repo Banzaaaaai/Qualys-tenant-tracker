@@ -232,5 +232,15 @@ def check_public_release_announcements(
         already_notified = notified_state.get(module)
         if already_notified == intel.latest_public_release.version:
             continue
+        # The scan above skips the tenant-version lookup to stay cheap for
+        # the many modules that won't be announced. A module that WILL be
+        # announced needs it, or the email's "capabilities available on
+        # this tenant now" section says "Not found" for notes that exist
+        # (the tenant's release is usually older than the latest, and the
+        # index lists every past release, not just the newest).
+        try:
+            intel.tenant_release = resolve_tenant_release(client, cache, module, tenant_version, now_iso)
+        except ReleaseNotesError:
+            pass  # the announcement itself is still valid without it
         results.append(intel)
     return results
