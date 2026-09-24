@@ -53,7 +53,7 @@
         "url": "https://docs.qualys.com/en/ca/release-notes/ca_application/release_2_8.htm",
         "version": "2.8"
       },
-      "retrieved_at": "2026-09-23T12:12:53Z"
+      "retrieved_at": "2026-09-24T18:41:31Z"
     },
     "CERTVIEW": {
       "release": {
@@ -72,7 +72,7 @@
         "url": "https://docs.qualys.com/en/certview/release-notes/certview/release_4_8_1.htm",
         "version": "4.8.1"
       },
-      "retrieved_at": "2026-09-23T12:12:53Z"
+      "retrieved_at": "2026-09-24T18:41:31Z"
     },
     "CLOUDVIEW": {
       "release": {
@@ -131,7 +131,7 @@
         "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_27.htm",
         "version": "2.27"
       },
-      "retrieved_at": "2026-09-23T12:12:53Z"
+      "retrieved_at": "2026-09-24T18:41:31Z"
     },
     "CONN": {
       "release": {
@@ -154,7 +154,7 @@
         "url": "https://docs.qualys.com/en/conn/release-notes/connector/release_2_20.htm",
         "version": "2.20"
       },
-      "retrieved_at": "2026-09-23T12:12:53Z"
+      "retrieved_at": "2026-09-24T18:41:31Z"
     },
     "CS": {
       "release": {
@@ -213,7 +213,7 @@
         "url": "https://docs.qualys.com/en/cs/release-notes/container_security/release_1_45.htm",
         "version": "1.45"
       },
-      "retrieved_at": "2026-09-23T12:12:53Z"
+      "retrieved_at": "2026-09-24T18:41:31Z"
     },
     "ETM": {
       "release": {
@@ -252,7 +252,7 @@
         "url": "https://docs.qualys.com/en/etm/release-notes/etm/release_1_12.htm",
         "version": "1.12"
       },
-      "retrieved_at": "2026-09-23T18:39:53Z"
+      "retrieved_at": "2026-09-24T18:41:31Z"
     },
     "FIM": {
       "release": {
@@ -283,7 +283,7 @@
         "url": "https://docs.qualys.com/en/fim/release-notes/file_integrity_monitoring/release_4_9_4.htm",
         "version": "4.9.4"
       },
-      "retrieved_at": "2026-09-23T12:12:53Z"
+      "retrieved_at": "2026-09-24T18:41:31Z"
     },
     "ISL": {
       "release": {
@@ -310,7 +310,7 @@
         "url": "https://docs.qualys.com/en/pm/release-notes/patch_management/release_4_2.htm",
         "version": "4.2"
       },
-      "retrieved_at": "2026-09-23T12:12:53Z"
+      "retrieved_at": "2026-09-24T18:41:31Z"
     },
     "ITAM": {
       "release": {
@@ -341,7 +341,7 @@
         "url": "https://docs.qualys.com/en/csam/release-notes/cybersecurity_asset_management/release_3_7_3.htm",
         "version": "3.7.3"
       },
-      "retrieved_at": "2026-09-23T12:12:53Z"
+      "retrieved_at": "2026-09-24T18:41:31Z"
     },
     "OCA": {
       "release": {
@@ -356,7 +356,7 @@
         "url": "https://docs.qualys.com/en/oca/release-notes/oca/release_1_13.htm",
         "version": "1.13"
       },
-      "retrieved_at": "2026-09-23T12:12:53Z"
+      "retrieved_at": "2026-09-24T18:41:31Z"
     },
     "PM": {
       "release": {
@@ -375,7 +375,7 @@
         "url": " https://docs.qualys.com/en/pm/release-notes/patch_management/release_3_6.htm",
         "version": "3.6"
       },
-      "retrieved_at": "2026-09-23T12:12:53Z"
+      "retrieved_at": "2026-09-24T18:41:31Z"
     },
     "PS": {
       "release": {
@@ -390,7 +390,7 @@
         "url": "https://docs.qualys.com/en/ps/release-notes/ps/release_2_6.htm",
         "version": "2.6"
       },
-      "retrieved_at": "2026-09-23T12:12:53Z"
+      "retrieved_at": "2026-09-24T18:41:31Z"
     },
     "QFLOW": {
       "release": {
@@ -417,7 +417,7 @@
         "url": "https://docs.qualys.com/en/qflow/release-notes/qflow/release_1_24.htm",
         "version": "1.24"
       },
-      "retrieved_at": "2026-09-23T12:12:53Z"
+      "retrieved_at": "2026-09-24T18:41:31Z"
     },
     "QGS": {
       "release": {
@@ -436,7 +436,7 @@
         "url": "https://docs.qualys.com/en/qgs/release-notes/qgs/release_3_16_1.htm",
         "version": "3.16.1"
       },
-      "retrieved_at": "2026-09-23T12:12:53Z"
+      "retrieved_at": "2026-09-24T18:41:31Z"
     },
     "QWEB_PC": {
       "release": {
@@ -487,7 +487,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_pa/pa/release_1_16.htm",
         "version": "1.16"
       },
-      "retrieved_at": "2026-09-23T12:12:53Z"
+      "retrieved_at": "2026-09-24T18:41:31Z"
     },
     "QWEB_VM": {
       "release": {
@@ -506,7 +506,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_vmdr_rn/vmdr/release_2_13.htm",
         "version": "2.13"
       },
-      "retrieved_at": "2026-09-23T12:12:53Z"
+      "retrieved_at": "2026-09-24T18:41:31Z"
     },
     "SEM": {
       "release": {
@@ -529,7 +529,7 @@
         "url": "https://docs.qualys.com/en/vmdr-mobile/release-notes/vmdr_mobile/release_1_6_1.htm",
         "version": "1.6.1"
       },
-      "retrieved_at": "2026-09-23T12:12:53Z"
+      "retrieved_at": "2026-09-24T18:41:31Z"
     },
     "SM": {
       "release": {
@@ -556,7 +556,7 @@
         "url": "https://docs.qualys.com/en/car/release-notes/car/release_2_9_2.htm",
         "version": "2.9.2"
       },
-      "retrieved_at": "2026-09-23T12:12:53Z"
+      "retrieved_at": "2026-09-24T18:41:31Z"
     },
     "TA": {
       "release": {
@@ -607,7 +607,7 @@
         "url": "https://docs.qualys.com/en/ta/release-notes/total_ai/release_2_0.htm",
         "version": "2.0"
       },
-      "retrieved_at": "2026-09-23T12:12:53Z"
+      "retrieved_at": "2026-09-24T18:41:31Z"
     },
     "TC": {
       "release": {
@@ -666,34 +666,22 @@
         "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_27.htm",
         "version": "2.27"
       },
-      "retrieved_at": "2026-09-23T12:12:53Z"
+      "retrieved_at": "2026-09-24T18:41:31Z"
     },
     "UD": {
       "release": {
         "features": [
           {
-            "description": "You can now scope your dashboard data to a specific sub-user under your account, so you can view the dashboard exactly as that sub-user sees it without creating a separate dashboard for each user.",
-            "title": "Introducing the User Scope Filter: See What Your Sub-Users See"
-          },
-          {
-            "description": "You can now add anAsset Tagscolumn toSimple Listtable widgets built on vulnerability data, so you can see which asset tags a detection belongs to directly in the widget, without opening each asset. Previously, theAsset Tagsoption was available only when theDisplay Results Asoption was set toAsset. When you displayed results as vulnerabilities, there was no option to view the asset\u2026",
-            "title": "Asset Tag Column Support in Vulnerability Simple List Widgets"
-          },
-          {
-            "description": "You can now filter dashboard data byYear to DateorThis Year, so you can report on a full year of activity, such as an annual audit, without defining a custom date range each time. Previously, the time filter offered only week-level and month-level options, such asLast 7 Days,Last 30 Days,This Month, andLast Month. To view data for the current year, you had to selectSpecific Rangeand set the start\u2026",
-            "title": "Year to Date and This Year Options in the Dashboard Time Filter"
-          },
-          {
-            "description": "You can now sort the results of a table widget that displays tags, so you can order tags by the value that matters to you, such as the highest TruRisk\u2122 Score or the largest asset count, instead of reading through them in the order they were added.",
-            "title": "Sorting and Display Limit for Tags in Table Widgets"
+            "description": "",
+            "title": "Issues Addressed"
           }
         ],
         "release_date": null,
-        "title": "Unified Dashboard Release 2.15.1",
-        "url": "https://docs.qualys.com/en/ud/release-notes/unified_dashboard/release_2_15_1.htm",
-        "version": "2.15.1"
+        "title": "Unified Dashboard Release 2.16",
+        "url": "https://docs.qualys.com/en/ud/release-notes/unified_dashboard/release_2_16.htm",
+        "version": "2.16"
       },
-      "retrieved_at": "2026-09-23T12:12:53Z"
+      "retrieved_at": "2026-09-24T18:41:31Z"
     },
     "WAS": {
       "release": {
@@ -720,7 +708,7 @@
         "url": "https://docs.qualys.com/en/tas/release-notes/total_app_sec/release_2_1.htm",
         "version": "2.1"
       },
-      "retrieved_at": "2026-09-23T12:12:53Z"
+      "retrieved_at": "2026-09-24T18:41:31Z"
     }
   },
   "parse_format_version": 3,
@@ -816,6 +804,60 @@
       "retrieved_at": "2026-09-23T12:12:53Z",
       "source": "qualys_release_notes_index",
       "version": "4.1.0.0-282"
+    },
+    "QWEB_PC|1.16.0": {
+      "module": "QWEB_PC",
+      "release": {
+        "features": [
+          {
+            "description": "We have now introduced a new Policy Audit Home page that provides a tailored experience based on your onboarding status.",
+            "title": "New Policy Audit Home Page"
+          },
+          {
+            "description": "Access to remediation jobs and schedules created through the Policy Audit Fix (PAF) feature can now be restricted by each users assigned asset tags, in addition to their existing role and permissions. This is referred to as Tag-Based User Scoping (TBUS).",
+            "title": "Granular Access Control for Audit Fix Using Tag-Based User Scoping"
+          },
+          {
+            "description": "With this release, we support the following 2 new Qualys Query Language (QQL) tokens:",
+            "title": "Support for new QQL Tokens to Manage CVE IDs"
+          },
+          {
+            "description": "The enhancement is temporarily rolled back to ensure a stable user experience and will be reintroduced in an upcoming release.",
+            "title": "Enhanced User Interface"
+          },
+          {
+            "description": "While creating a policy from a framework, you can now download the list of Additional Controls,\u00a0 the controls not mapped to any of the selected benchmarks, such as CIS, Qualys Vendor, and DISA STIG in a CSV report for offline reference.",
+            "title": "View Additional Controls Anytime with the New CSV Download Option"
+          },
+          {
+            "description": "You can now view framework policy details directly in the Activity Log tab.",
+            "title": "Track Framework Policy Creation Activity Like Any Other Policy"
+          },
+          {
+            "description": "You can now selectUbuntu 26.x,\u00a0Debian GNU/Linux 13.x, and\u00a0Oracle Enterprise Linux 10.x technologieswhen creating a new control for Unix Control types.",
+            "title": "UDC Support for Ubuntu 26.x, Debian 13.x, and Oracle Linux 10.x Technologies"
+          },
+          {
+            "description": "You can now scan and report Oracle databases for User-Defined Controls (UDCs)\u00a0using Linux Intel Cloud Agent.",
+            "title": "Oracle Database UDC Support for Linux Agent-based Compliance Scans"
+          },
+          {
+            "description": "We previously introduced the Alerting feature that allowed you to receive real time updates of the events or incidents related to your configurations.",
+            "title": "Update - Policy Audit Alerting"
+          },
+          {
+            "description": "The following reported and notable customer issues are fixed in this release:",
+            "title": "Issues Addressed"
+          }
+        ],
+        "release_date": null,
+        "title": "Policy Audit Release 1.16",
+        "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_pa/pa/release_1_16.htm",
+        "version": "1.16.0"
+      },
+      "retrieved_at": "2026-09-24T18:41:31Z",
+      "source": "qualys_release_notes_index",
+      "version": "1.16.0"
     }
   }
 }

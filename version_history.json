@@ -470,5 +470,13 @@
     "new_version": "4.1.0.0-282",
     "old_version": "4.1.0.0-281",
     "timestamp": "2026-09-23T12:12:53Z"
+  },
+  {
+    "api_field": "QWEB_PC-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "QWEB_PC",
+    "new_version": "1.16.0",
+    "old_version": "1.14.0",
+    "timestamp": "2026-09-24T18:41:31Z"
   }
 ]
