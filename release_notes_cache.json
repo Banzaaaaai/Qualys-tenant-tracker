@@ -53,7 +53,7 @@
         "url": "https://docs.qualys.com/en/ca/release-notes/ca_application/release_2_8.htm",
         "version": "2.8"
       },
-      "retrieved_at": "2026-09-24T18:41:31Z"
+      "retrieved_at": "2026-09-25T18:55:22Z"
     },
     "CERTVIEW": {
       "release": {
@@ -72,7 +72,7 @@
         "url": "https://docs.qualys.com/en/certview/release-notes/certview/release_4_8_1.htm",
         "version": "4.8.1"
       },
-      "retrieved_at": "2026-09-24T18:41:31Z"
+      "retrieved_at": "2026-09-25T18:55:22Z"
     },
     "CLOUDVIEW": {
       "release": {
@@ -131,7 +131,7 @@
         "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_27.htm",
         "version": "2.27"
       },
-      "retrieved_at": "2026-09-24T18:41:31Z"
+      "retrieved_at": "2026-09-25T18:55:22Z"
     },
     "CONN": {
       "release": {
@@ -154,7 +154,7 @@
         "url": "https://docs.qualys.com/en/conn/release-notes/connector/release_2_20.htm",
         "version": "2.20"
       },
-      "retrieved_at": "2026-09-24T18:41:31Z"
+      "retrieved_at": "2026-09-25T18:55:22Z"
     },
     "CS": {
       "release": {
@@ -213,46 +213,46 @@
         "url": "https://docs.qualys.com/en/cs/release-notes/container_security/release_1_45.htm",
         "version": "1.45"
       },
-      "retrieved_at": "2026-09-24T18:41:31Z"
+      "retrieved_at": "2026-09-25T18:55:22Z"
     },
     "ETM": {
       "release": {
         "features": [
           {
-            "description": "We introduced Agent Insta, which powers InstaScan, the industry's first scanless detection capability. InstaScan continuously correlates every new vendor advisory against the software and asset telemetry, exposure, and threat context that Qualys already holds (collected from Qualys and 3rd-party tools), detecting new vulnerabilities at AI speed with no scan window and no dependence on which\u2026",
-            "title": "Meet Agent Insta: Know your Exposed Assets Within Minutes of a New Advisory"
+            "description": "",
+            "title": "Trace Attack Paths to Your Critical Assets"
           },
           {
-            "description": "You can now see what ROCky is doing behind the scenes while it processes your complex queries. This release adds real-time reasoning transparency to the Cyber Assistant Chatbot, showing you each processing stage, tool call, and execution status as it happens, along with the ability to interact with those steps directly.",
-            "title": "Watch ROCky Think in Real Time"
+            "description": "CISA BOD 26-04 support is a subscription-level feature. Contact Qualys Support or your Technical Account Manager (TAM) to have it enabled for your subscription.",
+            "title": "Prioritize Remediation Using CISA BOD 26-04"
           },
           {
-            "description": "We introduced the AI-based Findings Consolidation Engine 2.0, which uniquely identifies, deduplicates, and normalizes vulnerability data reported across all your connected sources, such as Qualys VMDR, CrowdStrike, Microsoft Defender, Tenable, and other scanners and agents. Instead of one vulnerability generating a separate console record for every tool that happens to see it, the engine\u2026",
-            "title": "Eliminate Duplicate Findings Automatically with Consolidation Engine 2.0"
+            "description": "Prerequisite",
+            "title": "TruLens Enhancements"
           },
           {
-            "description": "This release introduces several enhancements to Unified Asset Inventory (UAI),\u00a0making it easier to organize and manage your assets. One key feature is the expansion of asset tagging options, which now include new types of dynamic tags. You can now assess an asset's importance using consistent Asset Criticality Scoring and improve auditing through the Action Log for both tags and tag sets.",
-            "title": "Unified Asset Inventory: Organize Assets More Efficiently"
+            "description": "Prerequisite",
+            "title": "Select Multiple Scanners for TruConfirm Scans"
           },
           {
-            "description": "You now have more flexibility when validating vulnerabilities with TruConfirm. With this release, the ETM platform supports Cloud Agent-based TruConfirm scans, giving you another way to confirm real, exploitable risk across your environment.",
-            "title": "TruConfirm Now Validates Findings Using Cloud Agent"
+            "description": "You can use the following tokens to search attack paths and rules in theAttack Pathtab:",
+            "title": "New Tokens for Attack Path"
           },
           {
-            "description": "We added new tokens to help you refine your searches.",
-            "title": "New Search Tokens"
+            "description": "You can usethese Qualys Query Language (QQL) tokens to build CISA BOD 26-04 worklists:",
+            "title": "New Tokens to Build CISA BOD 26-04 Worklists"
           },
           {
-            "description": "The following reported issues are fixed in this release.",
-            "title": "Issues Addressed"
+            "description": "The following reported and notable customer issues are fixed in this release:",
+            "title": "Fixes"
           }
         ],
         "release_date": null,
-        "title": "Enterprise TruRisk Management Release 1.12",
-        "url": "https://docs.qualys.com/en/etm/release-notes/etm/release_1_12.htm",
-        "version": "1.12"
+        "title": "ETM Release 1.13",
+        "url": "https://docs.qualys.com/en/etm/release-notes/etm/release_1_13.htm",
+        "version": "1.13"
       },
-      "retrieved_at": "2026-09-24T18:41:31Z"
+      "retrieved_at": "2026-09-25T18:55:22Z"
     },
     "FIM": {
       "release": {
@@ -283,7 +283,7 @@
         "url": "https://docs.qualys.com/en/fim/release-notes/file_integrity_monitoring/release_4_9_4.htm",
         "version": "4.9.4"
       },
-      "retrieved_at": "2026-09-24T18:41:31Z"
+      "retrieved_at": "2026-09-25T18:55:22Z"
     },
     "ISL": {
       "release": {
@@ -310,7 +310,7 @@
         "url": "https://docs.qualys.com/en/pm/release-notes/patch_management/release_4_2.htm",
         "version": "4.2"
       },
-      "retrieved_at": "2026-09-24T18:41:31Z"
+      "retrieved_at": "2026-09-25T18:55:22Z"
     },
     "ITAM": {
       "release": {
@@ -341,7 +341,7 @@
         "url": "https://docs.qualys.com/en/csam/release-notes/cybersecurity_asset_management/release_3_7_3.htm",
         "version": "3.7.3"
       },
-      "retrieved_at": "2026-09-24T18:41:31Z"
+      "retrieved_at": "2026-09-25T18:55:22Z"
     },
     "OCA": {
       "release": {
@@ -356,7 +356,7 @@
         "url": "https://docs.qualys.com/en/oca/release-notes/oca/release_1_13.htm",
         "version": "1.13"
       },
-      "retrieved_at": "2026-09-24T18:41:31Z"
+      "retrieved_at": "2026-09-25T18:55:22Z"
     },
     "PM": {
       "release": {
@@ -375,7 +375,7 @@
         "url": " https://docs.qualys.com/en/pm/release-notes/patch_management/release_3_6.htm",
         "version": "3.6"
       },
-      "retrieved_at": "2026-09-24T18:41:31Z"
+      "retrieved_at": "2026-09-25T18:55:22Z"
     },
     "PS": {
       "release": {
@@ -390,7 +390,7 @@
         "url": "https://docs.qualys.com/en/ps/release-notes/ps/release_2_6.htm",
         "version": "2.6"
       },
-      "retrieved_at": "2026-09-24T18:41:31Z"
+      "retrieved_at": "2026-09-25T18:55:22Z"
     },
     "QFLOW": {
       "release": {
@@ -417,7 +417,7 @@
         "url": "https://docs.qualys.com/en/qflow/release-notes/qflow/release_1_24.htm",
         "version": "1.24"
       },
-      "retrieved_at": "2026-09-24T18:41:31Z"
+      "retrieved_at": "2026-09-25T18:55:22Z"
     },
     "QGS": {
       "release": {
@@ -436,7 +436,7 @@
         "url": "https://docs.qualys.com/en/qgs/release-notes/qgs/release_3_16_1.htm",
         "version": "3.16.1"
       },
-      "retrieved_at": "2026-09-24T18:41:31Z"
+      "retrieved_at": "2026-09-25T18:55:22Z"
     },
     "QWEB_PC": {
       "release": {
@@ -487,7 +487,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_pa/pa/release_1_16.htm",
         "version": "1.16"
       },
-      "retrieved_at": "2026-09-24T18:41:31Z"
+      "retrieved_at": "2026-09-25T18:55:22Z"
     },
     "QWEB_VM": {
       "release": {
@@ -506,7 +506,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_vmdr_rn/vmdr/release_2_13.htm",
         "version": "2.13"
       },
-      "retrieved_at": "2026-09-24T18:41:31Z"
+      "retrieved_at": "2026-09-25T18:55:22Z"
     },
     "SEM": {
       "release": {
@@ -529,7 +529,7 @@
         "url": "https://docs.qualys.com/en/vmdr-mobile/release-notes/vmdr_mobile/release_1_6_1.htm",
         "version": "1.6.1"
       },
-      "retrieved_at": "2026-09-24T18:41:31Z"
+      "retrieved_at": "2026-09-25T18:55:22Z"
     },
     "SM": {
       "release": {
@@ -556,7 +556,7 @@
         "url": "https://docs.qualys.com/en/car/release-notes/car/release_2_9_2.htm",
         "version": "2.9.2"
       },
-      "retrieved_at": "2026-09-24T18:41:31Z"
+      "retrieved_at": "2026-09-25T18:55:22Z"
     },
     "TA": {
       "release": {
@@ -607,7 +607,7 @@
         "url": "https://docs.qualys.com/en/ta/release-notes/total_ai/release_2_0.htm",
         "version": "2.0"
       },
-      "retrieved_at": "2026-09-24T18:41:31Z"
+      "retrieved_at": "2026-09-25T18:55:22Z"
     },
     "TC": {
       "release": {
@@ -666,7 +666,7 @@
         "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_27.htm",
         "version": "2.27"
       },
-      "retrieved_at": "2026-09-24T18:41:31Z"
+      "retrieved_at": "2026-09-25T18:55:22Z"
     },
     "UD": {
       "release": {
@@ -681,7 +681,7 @@
         "url": "https://docs.qualys.com/en/ud/release-notes/unified_dashboard/release_2_16.htm",
         "version": "2.16"
       },
-      "retrieved_at": "2026-09-24T18:41:31Z"
+      "retrieved_at": "2026-09-25T18:55:22Z"
     },
     "WAS": {
       "release": {
@@ -708,7 +708,7 @@
         "url": "https://docs.qualys.com/en/tas/release-notes/total_app_sec/release_2_1.htm",
         "version": "2.1"
       },
-      "retrieved_at": "2026-09-24T18:41:31Z"
+      "retrieved_at": "2026-09-25T18:55:22Z"
     }
   },
   "parse_format_version": 3,
@@ -838,6 +838,40 @@
       "retrieved_at": "2026-09-25T12:15:33Z",
       "source": "qualys_release_notes_index",
       "version": "3.7.3.0-23"
+    },
+    "ITAM|3.7.3.0-24": {
+      "module": "ITAM",
+      "release": {
+        "features": [
+          {
+            "description": "",
+            "title": "Merge Duplicate Assets using Qualys Scanner Rules"
+          },
+          {
+            "description": "",
+            "title": "Prevent Incorrect Asset Merging with Custom Exclusions"
+          },
+          {
+            "description": "",
+            "title": "Access Public and Private IPv6 Details for OCI Assets"
+          },
+          {
+            "description": "The following are the new features and updates available with the CSAM and GAV subscription.",
+            "title": "View DNS Records for Unresolved Domains"
+          },
+          {
+            "description": "The following reported and notable customer issues are fixed in this release:",
+            "title": "Fixes"
+          }
+        ],
+        "release_date": null,
+        "title": "CyberSecurity Asset Management/Global AssetView Release 3.7.3.0",
+        "url": "https://docs.qualys.com/en/csam/release-notes/cybersecurity_asset_management/release_3_7_3.htm",
+        "version": "3.7.3.0-24"
+      },
+      "retrieved_at": "2026-09-25T18:55:22Z",
+      "source": "qualys_release_notes_index",
+      "version": "3.7.3.0-24"
     },
     "QWEB_PC|1.16.0": {
       "module": "QWEB_PC",

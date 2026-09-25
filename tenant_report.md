@@ -1,7 +1,7 @@
 # Qualys Tenant Version Report
 
 - **Tenant identifier:** qualysapi.qg2.apps.qualys.eu
-- **Last checked:** 2026-09-25T12:15:33Z
+- **Last checked:** 2026-09-25T18:55:22Z
 - **Total modules:** 37
 
 | Module | API Field | Current Version | First Seen | Last Changed |
@@ -19,7 +19,7 @@
 | IOC | IOC-VERSION | 3.8.4 | 2026-09-10T15:39:50Z | 2026-09-10T15:39:50Z |
 | ISL | ISL-VERSION | 4.1.0.0-282 | 2026-09-10T15:39:50Z | 2026-09-23T12:12:53Z |
 | ISPM | ISPM-VERSION | 1.4.0-51 | 2026-09-10T15:39:50Z | 2026-09-10T15:39:50Z |
-| ITAM | ITAM-VERSION | 3.7.3.0-23 | 2026-09-10T15:39:50Z | 2026-09-25T12:15:33Z |
+| ITAM | ITAM-VERSION | 3.7.3.0-24 | 2026-09-10T15:39:50Z | 2026-09-25T18:55:22Z |
 | MDS | MDS-VERSION | 2.24.0.0-17 | 2026-09-10T15:39:50Z | 2026-09-10T15:39:50Z |
 | MTG | MTG-VERSION | 4.1.0.0-282 | 2026-09-10T15:39:50Z | 2026-09-23T12:12:53Z |
 | OCA | OCA-VERSION | 1.13.3.0-2 | 2026-09-10T15:39:50Z | 2026-09-10T15:39:50Z |
