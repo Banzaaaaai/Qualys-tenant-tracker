@@ -251,7 +251,7 @@ def _badge_line(text: str, color: str) -> str:
 def _build_tenant_capabilities_block(module: str, intel: ModuleReleaseIntelligence) -> str:
     version = intel.tenant_version
     heading = _subhead(
-        f"Capabilities available on this tenant now &mdash; {_module_label(module)} {version}"
+        f"Capabilities available on your tenant now &mdash; {_module_label(module)} {version}"
     )
     if intel.tenant_release is not None:
         return (
@@ -264,10 +264,10 @@ def _build_tenant_capabilities_block(module: str, intel: ModuleReleaseIntelligen
         return (
             heading
             + _badge_line(
-                "CAPABILITIES AVAILABLE ON TENANT &mdash; NOT PUBLICLY ANNOUNCED YET", AMBER
+                "CAPABILITIES AVAILABLE ON YOUR TENANT &mdash; NOT PUBLICLY ANNOUNCED YET", AMBER
             )
             + _para(
-                f"This tenant is running {version}, but Qualys has not published release "
+                f"Your tenant is running {version}, but Qualys has not published release "
                 f"notes for it yet &mdash; the latest publicly announced version is "
                 f"{latest.version}. The new capabilities in {version} cannot be listed "
                 "until Qualys publishes them."
@@ -285,7 +285,7 @@ def _build_latest_public_block(module: str, intel: ModuleReleaseIntelligence) ->
             + _badge_line("TEMPORARILY UNAVAILABLE", MUTED_TEXT)
             + _para(
                 "Public release-note correlation: Temporarily unavailable. "
-                "Tenant version tracking was still successful."
+                "Your tenant version tracking was still successful."
             )
         )
 
@@ -313,9 +313,9 @@ def _build_latest_public_block(module: str, intel: ModuleReleaseIntelligence) ->
             )
             + released
             + _para(
-                f"The tenant version ({intel.tenant_version}) is ahead of the latest "
+                f"Your tenant version ({intel.tenant_version}) is ahead of the latest "
                 f"publicly announced version ({latest.version}). Qualys may publish the "
-                "release notes for the tenant version later."
+                "release notes for your tenant version later."
             )
             + _release_link(latest)
         )
@@ -326,7 +326,7 @@ def _build_latest_public_block(module: str, intel: ModuleReleaseIntelligence) ->
                 f"Latest publicly announced version &mdash; {_module_label(module)} {latest.version}"
             )
             + _badge_line("CURRENT", GREEN)
-            + _para("This tenant is already running the latest publicly announced version.")
+            + _para("Your tenant is already running the latest publicly announced version.")
             + released
             + _release_link(latest)
         )
@@ -337,11 +337,11 @@ def _build_latest_public_block(module: str, intel: ModuleReleaseIntelligence) ->
             f"Latest publicly announced version &mdash; {_module_label(module)} {latest.version}"
         )
         + released
-        + _badge_line("PUBLICLY ANNOUNCED &mdash; NOT YET DETECTED ON THIS TENANT", AMBER)
+        + _badge_line("PUBLICLY ANNOUNCED &mdash; NOT YET DETECTED ON YOUR TENANT", AMBER)
         + _para(
             f"Qualys has publicly announced version {latest.version}, but version "
-            f"{latest.version} has not yet been detected on this tenant "
-            f"(tenant currently reports {intel.tenant_version}). Qualys may perform "
+            f"{latest.version} has not yet been detected on your tenant "
+            f"(your tenant currently reports {intel.tenant_version}). Qualys may perform "
             "phased tenant rollouts, so this does not necessarily indicate a problem."
         )
         + _release_link(latest)
@@ -358,7 +358,7 @@ def _build_module_intelligence_block(
         f'border="0" style="{CARD_STYLE}">'
         f'<tr><td style="padding:16px;font-family:{FONT};">'
         f'<p style="{CARD_TITLE_STYLE}">{index}. {_module_label(module)}</p>'
-        f'<p style="{DATE_STYLE}">Tenant version {intel.tenant_version}</p>'
+        f'<p style="{DATE_STYLE}">Your tenant version {intel.tenant_version}</p>'
         f"{_build_tenant_capabilities_block(module, intel)}"
         f"{_build_latest_public_block(module, intel)}"
         f"</td></tr></table>"
@@ -458,12 +458,12 @@ class EmailNotifier:
             intel = announcements[0]
             subject = (
                 f"[Qualys Tenant] {intel.module} {intel.latest_public_release.version} "
-                "publicly announced (not yet on this tenant)"
+                "publicly announced (not yet on your tenant)"
             )
         else:
             subject = (
                 f"[Qualys Tenant] {len(announcements)} new public releases announced "
-                "(not yet on this tenant)"
+                "(not yet on your tenant)"
             )
 
         blocks = "".join(
@@ -475,7 +475,7 @@ class EmailNotifier:
             _subtitle(tenant_identifier, timestamp),
             f'<p style="{NOTICE_STYLE}">Your tenant\'s reported version has not changed, '
             "but Qualys has publicly announced a newer version for the module(s) below. "
-            "This does not necessarily mean the tenant is overdue &mdash; Qualys may "
+            "This does not necessarily mean your tenant is overdue &mdash; Qualys may "
             "perform phased rollouts across tenants.</p>"
             f"{blocks}"
             f"{_footer(run_url)}",
@@ -525,7 +525,7 @@ class EmailNotifier:
         body = _shell(
             "&#128993; Qualys Tenant Version Tracker &mdash; Staleness Alert",
             tenant_identifier,
-            f'<p style="{NOTICE_STYLE}">The tracker has not successfully retrieved tenant '
+            f'<p style="{NOTICE_STYLE}">The tracker has not successfully retrieved your tenant '
             f"version information for more than {stale_after_days} day(s).</p>"
             + _meta(
                 [

@@ -183,7 +183,7 @@ def test_tenant_change_with_newer_public_version_available(base_env, monkeypatch
 
     assert exit_code == 0
     message = FakeSMTP.sent[0]
-    assert "NOT YET DETECTED ON THIS TENANT" in message
+    assert "NOT YET DETECTED ON YOUR TENANT" in message
     assert "Create Incident for Individual Events" in message  # a real 4.9.4 feature
 
 

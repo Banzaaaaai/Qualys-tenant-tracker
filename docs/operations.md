@@ -295,7 +295,7 @@ zero-padding on a purely-numeric trailing segment); anything else
 "your tenant is behind." Per the spec this was built against: Qualys
 may perform phased rollouts, so a newer public version simply means
 *"Qualys has publicly announced version X, but X has not yet been
-detected on this tenant"* -- not that anything is wrong or overdue.
+detected on your tenant"* -- not that anything is wrong or overdue.
 
 **A lookup failure never blocks tenant tracking.** If the release-notes
 site is unreachable, the module's snapshot/history update is
@@ -394,7 +394,7 @@ a baseline reset.
 | `[Qualys Tenant] N module versions changed` | Multiple modules changed (new/changed/removed combined) |
 | `[Qualys Tenant] Initial baseline created (...)` | First run, `INITIAL_RUN_NOTIFY=true` |
 | `[Qualys Tenant] Manual / forced notification (...)` | You (or a teammate) ran `force_notify` -- **not** a real change |
-| `[Qualys Tenant] <Module> <version> publicly announced (not yet on this tenant)` | Tenant version unchanged; Qualys announced something newer (see [Public release-notes correlation](#public-release-notes-correlation)) |
+| `[Qualys Tenant] <Module> <version> publicly announced (not yet on your tenant)` | Tenant version unchanged; Qualys announced something newer (see [Public release-notes correlation](#public-release-notes-correlation)) |
 | `[Qualys Tenant] Tracker has not succeeded in over N day(s)` | The tracker itself is unhealthy -- Qualys API has been failing, not that your tenant is fine |
 
 Within a change-notification email, look for the badge next to each
@@ -403,8 +403,8 @@ module's "Latest publicly announced version" section:
 | Badge | Meaning |
 | --- | --- |
 | `CURRENT` | The tenant is already on the latest publicly announced version |
-| `PUBLICLY ANNOUNCED — NOT YET DETECTED ON THIS TENANT` | Qualys has announced a newer version; this tenant hasn't received it (phased rollouts are normal -- this is not a fault) |
-| `CAPABILITIES AVAILABLE ON TENANT — NOT PUBLICLY ANNOUNCED YET` | The tenant is running a version Qualys has not published release notes for yet. The capabilities are live on the tenant but cannot be listed |
+| `PUBLICLY ANNOUNCED — NOT YET DETECTED ON YOUR TENANT` | Qualys has announced a newer version; your tenant hasn't received it (phased rollouts are normal -- this is not a fault) |
+| `CAPABILITIES AVAILABLE ON YOUR TENANT — NOT PUBLICLY ANNOUNCED YET` | The tenant is running a version Qualys has not published release notes for yet. The capabilities are live on the tenant but cannot be listed |
 | `NOT FOUND` | The module couldn't be matched against the release-notes site at all (see `MODULE_NAME_HINTS`) |
 | `ORDERING UNKNOWN` | Multiple public versions were found but couldn't be safely ordered -- reported honestly rather than guessed |
 | `TEMPORARILY UNAVAILABLE` | The release-notes site couldn't be reached this run; tenant tracking above was unaffected |

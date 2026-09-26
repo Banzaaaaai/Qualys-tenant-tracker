@@ -18,6 +18,17 @@ The tracker runs locally or through GitHub Actions. It keeps a tenant snapshot, 
    | `SMTP_USERNAME`, `SMTP_PASSWORD` | Relay credentials, if required |
    | `SMTP_PORT` | Optional; defaults to 587 with STARTTLS |
 
+   Optional behaviour is set under **... > Variables**; defaults suit most tenants:
+
+   | Variable | Default | Purpose |
+   | --- | --- | --- |
+   | `TENANT_IDENTIFIER` | derived from `QUALYS_API_URL` | Friendly tenant label shown in emails |
+   | `INITIAL_RUN_NOTIFY` | `false` | Email the inventory on the baseline run |
+   | `CHECK_PUBLIC_RELEASES` | `false` | Also scan *unchanged* modules for newly announced public versions |
+   | `STALE_AFTER_DAYS` | `3` | Days without a successful check before alerting |
+
+   The [operations reference](docs/operations.md#configuration) lists every variable.
+
 3. Enable Actions and allow the tracker workflow to write repository contents. Branch rules must allow its state commits.
 4. Run **Qualys Tenant Version Tracker** manually with `send_test_email` enabled to check SMTP.
 5. Run normally to establish the baseline. The first run records inventory without sending email by default.
@@ -53,6 +64,21 @@ qualys-tracker --preview-email email-preview.html --snapshot tenant_snapshot.jso
 ```
 
 Open the generated HTML file in a browser. It contains tenant inventory.
+
+## What the email says
+
+An email is sent when a module version changes on your tenant. Each module gets a card addressed to you in the second person -- *your tenant*, not *this tenant* -- with two sections:
+
+- **Capabilities available on your tenant now.** Features Qualys documents for the version your tenant actually reports, with a link to the official release note.
+- **Latest publicly announced version.** What Qualys has published, and a badge relating it to your tenant.
+
+The wording is deliberately careful: the tracker never says your tenant is behind. Qualys performs phased rollouts, so a newer public version only means *"Qualys has publicly announced version X, but X has not yet been detected on your tenant."* A tenant running a version Qualys has not documented yet is reported as its own state rather than being called current.
+
+Public release notes are labelled more coarsely than the portal API reports versions -- `FIM 4.9.4` against a tenant's `4.9.4.0-38`. A tenant version that extends a published label is treated as the same release, so modules are not reported as running ahead of the very release they are on.
+
+Standalone *"Qualys announced X"* emails for modules whose tenant version has **not** moved are opt-in via `CHECK_PUBLIC_RELEASES=true`. By default this tracker reports tenant changes only.
+
+Sample output: [change notification](docs/sample-email-change-notification.html), [public-release announcement](docs/sample-email-public-release-announcement.html). Badge meanings and every email type are in the [operations reference](docs/operations.md#how-email-works).
 
 ## Module map
 

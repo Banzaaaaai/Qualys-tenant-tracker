@@ -235,7 +235,7 @@ def check_public_release_announcements(
         # The scan above skips the tenant-version lookup to stay cheap for
         # the many modules that won't be announced. A module that WILL be
         # announced needs it, or the email's "capabilities available on
-        # this tenant now" section says "Not found" for notes that exist
+        # your tenant now" section says "Not found" for notes that exist
         # (the tenant's release is usually older than the latest, and the
         # index lists every past release, not just the newest).
         try:

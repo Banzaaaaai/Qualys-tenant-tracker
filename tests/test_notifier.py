@@ -166,9 +166,9 @@ def test_change_notification_with_newer_public_version(email_config):
     )
 
     _, _, message = FakeSMTP.sent[0]
-    assert "NOT YET DETECTED ON THIS TENANT" in message
+    assert "NOT YET DETECTED ON YOUR TENANT" in message
     assert "New capability X" in message
-    assert "has not yet been detected on this tenant" in message
+    assert "has not yet been detected on your tenant" in message
     assert "behind" not in message.lower()  # spec section 15: precise wording only
 
 
