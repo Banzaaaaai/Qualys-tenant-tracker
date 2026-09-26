@@ -1,5 +1,24 @@
 {
   "latest_public": {
+    "AV2": {
+      "release": {
+        "features": [
+          {
+            "description": "With this release, we have introduced an improved user experience across all the VMDR application pages. You can view updates across fonts, colors, typography, and buttons, making the interface more intuitive and easier to use. This release features User Interface (UI) and design system enhancements that improve visual consistency, readability, and usability across the application, resulting in a\u2026",
+            "title": "Enhanced VMDR User Interface"
+          },
+          {
+            "description": "The following reported and notable customer issues are fixed in this release:",
+            "title": "Issues Addressed"
+          }
+        ],
+        "release_date": null,
+        "title": "VMDR Release 2.13",
+        "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_vmdr_rn/vmdr/release_2_13.htm",
+        "version": "2.13"
+      },
+      "retrieved_at": "2026-09-26T11:48:38Z"
+    },
     "CA": {
       "release": {
         "features": [

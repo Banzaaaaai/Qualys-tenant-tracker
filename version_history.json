@@ -502,5 +502,13 @@
     "new_version": "3.7.3.0-24",
     "old_version": "3.7.3.0-23",
     "timestamp": "2026-09-25T18:55:22Z"
+  },
+  {
+    "api_field": "ISPM-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "ISPM",
+    "new_version": "1.5.0-32",
+    "old_version": "1.4.0-51",
+    "timestamp": "2026-09-26T11:48:38Z"
   }
 ]
