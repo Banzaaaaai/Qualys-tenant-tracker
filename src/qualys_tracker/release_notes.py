@@ -129,6 +129,10 @@ class ModuleSource:
 
 
 MODULE_SOURCES: dict[str, list[ModuleSource]] = {
+    # AV2 and QWEB_VM both report VMDR and share its notes. The version
+    # lines differ, though: QWEB_VM tracks the published 2.x line, while
+    # AV2 reports its own (0.1.0), which matches no published label.
+    "AV2": [ModuleSource("/vm/release-notes/mergedProjects/qualys_vmdr_rn/")],
     "CA": [ModuleSource("/ca/release-notes/ca_application/")],
     "CERTVIEW": [ModuleSource("/certview/release-notes/certview/")],
     "CLOUDVIEW": [ModuleSource("/tc/release-notes/totalcloud/")],

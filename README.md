@@ -94,7 +94,7 @@ The table lives in `src/qualys_tracker/release_notes.py` as `MODULE_SOURCES` and
 
 | Code | Product name | Release-notes path | Notes |
 | --- | --- | --- | --- |
-| `AV2` | VMDR | - | Unmapped. Tenant reports `0.1.0`; no matching public line identified. |
+| `AV2` | VMDR | `/vm/release-notes/mergedProjects/qualys_vmdr_rn/` | Shares the VMDR notes with `QWEB_VM`. **Version line unconfirmed:** the tenant reports `0.1.0` against a published 2.x line, so its own release note will not be found. |
 | `CA` | Cloud Agent | `/ca/release-notes/ca_application/` |  |
 | `CERTVIEW` | Certificate View | `/certview/release-notes/certview/` |  |
 | `CLOUDVIEW` | TotalCloud | `/tc/release-notes/totalcloud/` |  |
