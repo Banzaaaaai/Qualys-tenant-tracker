@@ -526,5 +526,21 @@
     "new_version": "2.13.0-3-65",
     "old_version": "2.12.0-12-101",
     "timestamp": "2026-09-29T13:20:19Z"
+  },
+  {
+    "api_field": "ETM-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "ETM",
+    "new_version": "1.13.0-283",
+    "old_version": "1.13.0-280",
+    "timestamp": "2026-09-30T13:00:57Z"
+  },
+  {
+    "api_field": "IOC-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "IOC",
+    "new_version": "3.8.5",
+    "old_version": "3.8.4",
+    "timestamp": "2026-09-30T13:00:57Z"
   }
 ]
