@@ -17,7 +17,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_vmdr_rn/vmdr/release_2_13.htm",
         "version": "2.13"
       },
-      "retrieved_at": "2026-09-29T19:40:07Z"
+      "retrieved_at": "2026-10-01T13:54:56Z"
     },
     "CA": {
       "release": {
@@ -72,7 +72,7 @@
         "url": "https://docs.qualys.com/en/ca/release-notes/ca_application/release_2_8.htm",
         "version": "2.8"
       },
-      "retrieved_at": "2026-09-29T19:40:07Z"
+      "retrieved_at": "2026-10-01T13:54:56Z"
     },
     "CERTVIEW": {
       "release": {
@@ -91,89 +91,69 @@
         "url": "https://docs.qualys.com/en/certview/release-notes/certview/release_4_8_1.htm",
         "version": "4.8.1"
       },
-      "retrieved_at": "2026-09-29T19:40:07Z"
+      "retrieved_at": "2026-10-01T13:54:56Z"
     },
     "CLOUDVIEW": {
       "release": {
         "features": [
           {
-            "description": "TotalCloud now supports granular, action-level permissions (view / create-clone / edit / delete) for Policy, Control, and Exception management, as well as tag-based scope, which extends scoping to Policies and Controls. Today, scope is derived from connectors only; going forward, you can choose to derive scope from connectors only (connector-based scope) or from connectors + policy (connectors +\u2026",
-            "title": "Granular Access Control for Policies and Controls"
+            "description": "TotalCloud now supports dynamic tagging across all inventory resources, using the same tag-rule workflow available in other Qualys products. A dynamic tag is driven by a query rather than a fixed value, so as your cloud environment changes, TotalCloud automatically tags every matching resource\u00a0with no manual re-tagging.",
+            "title": "Dynamic Tagging across Inventory and Posture"
           },
           {
-            "description": "You can now use Azure EventGrid to enable event-driven processing for Azure cloud connectors. Like AWS EventBridge,AzureEventGridprocesses only the resources affected by detected changes, rather than performing full scans for every connector run, reducing unnecessary API calls and improving processing efficiency.",
-            "title": "Event-Driven Connector processing via Azure EventGrid"
+            "description": "TotalCloud now offers flexibility on CSPM reporting by enhancing the entire report generation process. You can now select which section to add to the downloaded report and also choose the exact attributes you need as columns on csv file, hence avoiding download of non-relevant section and information. A newReport Displaystep lets you turn sections and individual columns on or off, so the report\u2026",
+            "title": "Streamline Your CSPM Reports with Custom Column Selection"
           },
           {
-            "description": "TotalCloud now surfaces Attack Path insights directly at the instance level, so you no longer need to leave the instance view to understand a resource's risk exposure. Previously, attack paths were visible only on the Insights tab, with no way to search or filter for them elsewhere. With this release, VMs and other assets across AWS, Azure, and GCP display attack path context directly on the\u2026",
-            "title": "Attack Path Visibility at the Instance Level"
+            "description": "TheCloud Inventory Overviewnow visualizes posture issues for each connected cloud platform, AWS, Azure, GCP, and Oracle Cloud Infrastructure, as a color-coded donut chart, replacing the previous plain summary card. This gives you an immediate visual read on the posture health of all your connected clouds from a single page.",
+            "title": "Interactive Visual Charts for Instant Posture Health Visibility"
           },
           {
-            "description": "You can now use the wildcard character (*) in tag searches to match tags by pattern rather than exact text across the Posture, Inventory, and Connectors pages, as well as other pages that support tag-based search.",
-            "title": "Wildcard (*) Support for Tag-Based Search"
-          },
-          {
-            "description": "You can now create a new policy by copying an existing one, system-defined or user-defined, right from the Policy listing page.",
-            "title": "Copy and Create new Policy from an existing one"
-          },
-          {
-            "description": "The Policy menu now includes aFunction Catalogtab, providing direct in-product visibility into the functions used in custom investigation queries and controls.",
-            "title": "Look up Query Functions"
-          },
-          {
-            "description": "We have expanded our cloud security coverage by adding support for additional AWS, Azure, GCP and\u00a0 OCI resource types in Cloud Inventory, enabling discovery, inventory, and security posture assessment across a broader range of cloud services.",
+            "description": "We have expanded our cloud security coverage by adding support for additional AWS resource types in Cloud Inventory, enabling discovery, inventory, and security posture assessment across a broader range of cloud services.",
             "title": "Extended Inventory Coverage"
           },
           {
-            "description": "You can now directly access impacted Azure resources from the Evidence Details section usingView in Azure Console.This enhancement enables faster investigation and remediation of resources flagged during control evaluations.",
-            "title": "Navigate to Azure Cloud directly from Posture"
+            "description": "TotalCloud now extends compliance coverage with support for the following CIS Amazon Web Services Benchmarks:",
+            "title": "Extended\u00a0CIS Benchmark Coverage"
           },
           {
-            "description": "You can now filter results on theAll Inventorypage by date range. This makes it easier to narrow your asset view to a specific time window, which is useful for investigating recently discovered or updated assets and for\u00a0more targeted inventory analysis.",
-            "title": "Date Range Filtering for All Inventory"
+            "description": "SeeControl Permissions for AWSto understand the permissions needed for the new controls.",
+            "title": "Control Updates"
           },
           {
-            "description": "On the Inventory page, the inventory type filter dropdown now lists the most commonly used resource types at the top of the list for each cloud provider. Previously, all resource types were listed together, making it harder to quickly locate the right one, given that naming conventions differ across providers. For example, anInstancein AWS is aVirtual Machinein Azure, aVM Instancein GCP, and\u2026",
-            "title": "Smarter Inventory Filter Dropdown"
-          },
-          {
-            "description": "We have added a new Overall Compliance Score field to CSPM assessment report CSV exports (AWS, Azure, GCP, and OCI). This score reflects resource-level compliance, using the same methodology as the dashboard and posture views, ensuring consistency across all reporting surfaces.",
-            "title": "View Overall Compliance Score in Assessment Report"
-          },
-          {
-            "description": "You can now set a default time period for TotalCloud pages directly fromConfigure>Preferencestab, so you no longer need to manually select your preferred time filter every time you visit a page.",
-            "title": "Set a Default Time Period in Preferences"
+            "description": "We fixed the following important and notable issues in this release.",
+            "title": "Issues Addressed"
           }
         ],
         "release_date": null,
-        "title": "TotalCloud Release 2.27",
-        "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_27.htm",
-        "version": "2.27"
+        "title": "TotalCloud Release 2.28",
+        "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_28.htm",
+        "version": "2.28"
       },
-      "retrieved_at": "2026-09-29T19:40:07Z"
+      "retrieved_at": "2026-10-01T13:54:56Z"
     },
     "CONN": {
       "release": {
         "features": [
           {
-            "description": "This release introducesDelta Sync, a new inventory synchronization option for Microsoft Azure connectors.",
-            "title": "EventGrid Support for Azure Connectors"
+            "description": "When creating a new connector, Cloud Security Posture Management (CSPM) is no longer selected by default, and AssetView is no longer locked. Previously, AssetView was preselected and locked, and CSPM was enabled by default, even for Community Edition (free) accounts.",
+            "title": "Default Capability Selection Updated for New Connectors"
           },
           {
-            "description": "Qualys TotalCloud now extendsCloud Perimeter Scan (CPS)support toOracle Cloud Infrastructure (OCI), bringing OCI in line with the CPS support already available for AWS, Azure, and GCP.",
-            "title": "Cloud Perimeter Scan (CPS) Support for OCI Cloud"
+            "description": "Delta Sync, the event-based inventory sync option already available for individual AWS and Azure connectors, is now also available to Organization connectors.",
+            "title": "Delta Sync Support for Organization Connectors"
           },
           {
-            "description": "To better reflect what this data actually contains, we have renamed \"Errors\" to \"Logs\" across the Connectors experience:",
-            "title": "Connector Errors is now Connector Logs"
+            "description": "We\u00a0have introduced a limit on the number of AssetView (AV)-only member connectors an Organization Connector can create, to help keep inventory updates and assessments running on time.",
+            "title": "AV Connector Limit for Organization Connectors"
           }
         ],
         "release_date": null,
-        "title": "Connector Release 2.20",
-        "url": "https://docs.qualys.com/en/conn/release-notes/connector/release_2_20.htm",
-        "version": "2.20"
+        "title": "Connector Release 2.21",
+        "url": "https://docs.qualys.com/en/conn/release-notes/connector/release_2_21.htm",
+        "version": "2.21"
       },
-      "retrieved_at": "2026-09-29T19:40:07Z"
+      "retrieved_at": "2026-10-01T13:54:56Z"
     },
     "CS": {
       "release": {
@@ -232,7 +212,7 @@
         "url": "https://docs.qualys.com/en/cs/release-notes/container_security/release_1_45.htm",
         "version": "1.45"
       },
-      "retrieved_at": "2026-09-29T19:40:07Z"
+      "retrieved_at": "2026-10-01T13:54:56Z"
     },
     "ETM": {
       "release": {
@@ -271,7 +251,7 @@
         "url": "https://docs.qualys.com/en/etm/release-notes/etm/release_1_13.htm",
         "version": "1.13"
       },
-      "retrieved_at": "2026-09-29T19:40:07Z"
+      "retrieved_at": "2026-10-01T13:54:56Z"
     },
     "FIM": {
       "release": {
@@ -302,7 +282,7 @@
         "url": "https://docs.qualys.com/en/fim/release-notes/file_integrity_monitoring/release_4_9_4.htm",
         "version": "4.9.4"
       },
-      "retrieved_at": "2026-09-29T19:40:07Z"
+      "retrieved_at": "2026-10-01T13:54:56Z"
     },
     "ISL": {
       "release": {
@@ -329,7 +309,7 @@
         "url": "https://docs.qualys.com/en/pm/release-notes/patch_management/release_4_2.htm",
         "version": "4.2"
       },
-      "retrieved_at": "2026-09-29T19:40:07Z"
+      "retrieved_at": "2026-10-01T13:54:56Z"
     },
     "ITAM": {
       "release": {
@@ -360,7 +340,7 @@
         "url": "https://docs.qualys.com/en/csam/release-notes/cybersecurity_asset_management/release_3_7_3.htm",
         "version": "3.7.3"
       },
-      "retrieved_at": "2026-09-29T19:40:07Z"
+      "retrieved_at": "2026-10-01T13:54:56Z"
     },
     "OCA": {
       "release": {
@@ -375,7 +355,7 @@
         "url": "https://docs.qualys.com/en/oca/release-notes/oca/release_1_13.htm",
         "version": "1.13"
       },
-      "retrieved_at": "2026-09-29T19:40:07Z"
+      "retrieved_at": "2026-10-01T13:54:56Z"
     },
     "PM": {
       "release": {
@@ -394,7 +374,7 @@
         "url": " https://docs.qualys.com/en/pm/release-notes/patch_management/release_3_6.htm",
         "version": "3.6"
       },
-      "retrieved_at": "2026-09-29T19:40:07Z"
+      "retrieved_at": "2026-10-01T13:54:56Z"
     },
     "PS": {
       "release": {
@@ -409,7 +389,7 @@
         "url": "https://docs.qualys.com/en/ps/release-notes/ps/release_2_6.htm",
         "version": "2.6"
       },
-      "retrieved_at": "2026-09-29T19:40:07Z"
+      "retrieved_at": "2026-10-01T13:54:56Z"
     },
     "QFLOW": {
       "release": {
@@ -436,7 +416,7 @@
         "url": "https://docs.qualys.com/en/qflow/release-notes/qflow/release_1_24.htm",
         "version": "1.24"
       },
-      "retrieved_at": "2026-09-29T19:40:07Z"
+      "retrieved_at": "2026-10-01T13:54:56Z"
     },
     "QGS": {
       "release": {
@@ -455,7 +435,7 @@
         "url": "https://docs.qualys.com/en/qgs/release-notes/qgs/release_3_16_1.htm",
         "version": "3.16.1"
       },
-      "retrieved_at": "2026-09-29T19:40:07Z"
+      "retrieved_at": "2026-10-01T13:54:56Z"
     },
     "QWEB_PC": {
       "release": {
@@ -506,7 +486,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_pa/pa/release_1_16.htm",
         "version": "1.16"
       },
-      "retrieved_at": "2026-09-29T19:40:07Z"
+      "retrieved_at": "2026-10-01T13:54:56Z"
     },
     "QWEB_VM": {
       "release": {
@@ -525,7 +505,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_vmdr_rn/vmdr/release_2_13.htm",
         "version": "2.13"
       },
-      "retrieved_at": "2026-09-29T19:40:07Z"
+      "retrieved_at": "2026-10-01T13:54:56Z"
     },
     "SEM": {
       "release": {
@@ -548,7 +528,7 @@
         "url": "https://docs.qualys.com/en/vmdr-mobile/release-notes/vmdr_mobile/release_1_6_1.htm",
         "version": "1.6.1"
       },
-      "retrieved_at": "2026-09-29T19:40:07Z"
+      "retrieved_at": "2026-10-01T13:54:56Z"
     },
     "SM": {
       "release": {
@@ -575,7 +555,7 @@
         "url": "https://docs.qualys.com/en/car/release-notes/car/release_2_9_2.htm",
         "version": "2.9.2"
       },
-      "retrieved_at": "2026-09-29T19:40:07Z"
+      "retrieved_at": "2026-10-01T13:54:56Z"
     },
     "TA": {
       "release": {
@@ -626,66 +606,46 @@
         "url": "https://docs.qualys.com/en/ta/release-notes/total_ai/release_2_0.htm",
         "version": "2.0"
       },
-      "retrieved_at": "2026-09-29T19:40:07Z"
+      "retrieved_at": "2026-10-01T13:54:56Z"
     },
     "TC": {
       "release": {
         "features": [
           {
-            "description": "TotalCloud now supports granular, action-level permissions (view / create-clone / edit / delete) for Policy, Control, and Exception management, as well as tag-based scope, which extends scoping to Policies and Controls. Today, scope is derived from connectors only; going forward, you can choose to derive scope from connectors only (connector-based scope) or from connectors + policy (connectors +\u2026",
-            "title": "Granular Access Control for Policies and Controls"
+            "description": "TotalCloud now supports dynamic tagging across all inventory resources, using the same tag-rule workflow available in other Qualys products. A dynamic tag is driven by a query rather than a fixed value, so as your cloud environment changes, TotalCloud automatically tags every matching resource\u00a0with no manual re-tagging.",
+            "title": "Dynamic Tagging across Inventory and Posture"
           },
           {
-            "description": "You can now use Azure EventGrid to enable event-driven processing for Azure cloud connectors. Like AWS EventBridge,AzureEventGridprocesses only the resources affected by detected changes, rather than performing full scans for every connector run, reducing unnecessary API calls and improving processing efficiency.",
-            "title": "Event-Driven Connector processing via Azure EventGrid"
+            "description": "TotalCloud now offers flexibility on CSPM reporting by enhancing the entire report generation process. You can now select which section to add to the downloaded report and also choose the exact attributes you need as columns on csv file, hence avoiding download of non-relevant section and information. A newReport Displaystep lets you turn sections and individual columns on or off, so the report\u2026",
+            "title": "Streamline Your CSPM Reports with Custom Column Selection"
           },
           {
-            "description": "TotalCloud now surfaces Attack Path insights directly at the instance level, so you no longer need to leave the instance view to understand a resource's risk exposure. Previously, attack paths were visible only on the Insights tab, with no way to search or filter for them elsewhere. With this release, VMs and other assets across AWS, Azure, and GCP display attack path context directly on the\u2026",
-            "title": "Attack Path Visibility at the Instance Level"
+            "description": "TheCloud Inventory Overviewnow visualizes posture issues for each connected cloud platform, AWS, Azure, GCP, and Oracle Cloud Infrastructure, as a color-coded donut chart, replacing the previous plain summary card. This gives you an immediate visual read on the posture health of all your connected clouds from a single page.",
+            "title": "Interactive Visual Charts for Instant Posture Health Visibility"
           },
           {
-            "description": "You can now use the wildcard character (*) in tag searches to match tags by pattern rather than exact text across the Posture, Inventory, and Connectors pages, as well as other pages that support tag-based search.",
-            "title": "Wildcard (*) Support for Tag-Based Search"
-          },
-          {
-            "description": "You can now create a new policy by copying an existing one, system-defined or user-defined, right from the Policy listing page.",
-            "title": "Copy and Create new Policy from an existing one"
-          },
-          {
-            "description": "The Policy menu now includes aFunction Catalogtab, providing direct in-product visibility into the functions used in custom investigation queries and controls.",
-            "title": "Look up Query Functions"
-          },
-          {
-            "description": "We have expanded our cloud security coverage by adding support for additional AWS, Azure, GCP and\u00a0 OCI resource types in Cloud Inventory, enabling discovery, inventory, and security posture assessment across a broader range of cloud services.",
+            "description": "We have expanded our cloud security coverage by adding support for additional AWS resource types in Cloud Inventory, enabling discovery, inventory, and security posture assessment across a broader range of cloud services.",
             "title": "Extended Inventory Coverage"
           },
           {
-            "description": "You can now directly access impacted Azure resources from the Evidence Details section usingView in Azure Console.This enhancement enables faster investigation and remediation of resources flagged during control evaluations.",
-            "title": "Navigate to Azure Cloud directly from Posture"
+            "description": "TotalCloud now extends compliance coverage with support for the following CIS Amazon Web Services Benchmarks:",
+            "title": "Extended\u00a0CIS Benchmark Coverage"
           },
           {
-            "description": "You can now filter results on theAll Inventorypage by date range. This makes it easier to narrow your asset view to a specific time window, which is useful for investigating recently discovered or updated assets and for\u00a0more targeted inventory analysis.",
-            "title": "Date Range Filtering for All Inventory"
+            "description": "SeeControl Permissions for AWSto understand the permissions needed for the new controls.",
+            "title": "Control Updates"
           },
           {
-            "description": "On the Inventory page, the inventory type filter dropdown now lists the most commonly used resource types at the top of the list for each cloud provider. Previously, all resource types were listed together, making it harder to quickly locate the right one, given that naming conventions differ across providers. For example, anInstancein AWS is aVirtual Machinein Azure, aVM Instancein GCP, and\u2026",
-            "title": "Smarter Inventory Filter Dropdown"
-          },
-          {
-            "description": "We have added a new Overall Compliance Score field to CSPM assessment report CSV exports (AWS, Azure, GCP, and OCI). This score reflects resource-level compliance, using the same methodology as the dashboard and posture views, ensuring consistency across all reporting surfaces.",
-            "title": "View Overall Compliance Score in Assessment Report"
-          },
-          {
-            "description": "You can now set a default time period for TotalCloud pages directly fromConfigure>Preferencestab, so you no longer need to manually select your preferred time filter every time you visit a page.",
-            "title": "Set a Default Time Period in Preferences"
+            "description": "We fixed the following important and notable issues in this release.",
+            "title": "Issues Addressed"
           }
         ],
         "release_date": null,
-        "title": "TotalCloud Release 2.27",
-        "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_27.htm",
-        "version": "2.27"
+        "title": "TotalCloud Release 2.28",
+        "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_28.htm",
+        "version": "2.28"
       },
-      "retrieved_at": "2026-09-29T19:40:07Z"
+      "retrieved_at": "2026-10-01T13:54:56Z"
     },
     "UD": {
       "release": {
@@ -700,7 +660,7 @@
         "url": "https://docs.qualys.com/en/ud/release-notes/unified_dashboard/release_2_16.htm",
         "version": "2.16"
       },
-      "retrieved_at": "2026-09-29T19:40:07Z"
+      "retrieved_at": "2026-10-01T13:54:56Z"
     },
     "WAS": {
       "release": {
@@ -727,7 +687,7 @@
         "url": "https://docs.qualys.com/en/tas/release-notes/total_app_sec/release_2_1.htm",
         "version": "2.1"
       },
-      "retrieved_at": "2026-09-29T19:40:07Z"
+      "retrieved_at": "2026-10-01T13:54:56Z"
     }
   },
   "parse_format_version": 3,
@@ -789,6 +749,94 @@
       "retrieved_at": "2026-09-23T12:12:53Z",
       "source": "qualys_release_notes_index",
       "version": "2.8.0"
+    },
+    "CLOUDVIEW|2.27.1-23": {
+      "module": "CLOUDVIEW",
+      "release": {
+        "features": [
+          {
+            "description": "TotalCloud now supports granular, action-level permissions (view / create-clone / edit / delete) for Policy, Control, and Exception management, as well as tag-based scope, which extends scoping to Policies and Controls. Today, scope is derived from connectors only; going forward, you can choose to derive scope from connectors only (connector-based scope) or from connectors + policy (connectors +\u2026",
+            "title": "Granular Access Control for Policies and Controls"
+          },
+          {
+            "description": "You can now use Azure EventGrid to enable event-driven processing for Azure cloud connectors. Like AWS EventBridge,AzureEventGridprocesses only the resources affected by detected changes, rather than performing full scans for every connector run, reducing unnecessary API calls and improving processing efficiency.",
+            "title": "Event-Driven Connector processing via Azure EventGrid"
+          },
+          {
+            "description": "TotalCloud now surfaces Attack Path insights directly at the instance level, so you no longer need to leave the instance view to understand a resource's risk exposure. Previously, attack paths were visible only on the Insights tab, with no way to search or filter for them elsewhere. With this release, VMs and other assets across AWS, Azure, and GCP display attack path context directly on the\u2026",
+            "title": "Attack Path Visibility at the Instance Level"
+          },
+          {
+            "description": "You can now use the wildcard character (*) in tag searches to match tags by pattern rather than exact text across the Posture, Inventory, and Connectors pages, as well as other pages that support tag-based search.",
+            "title": "Wildcard (*) Support for Tag-Based Search"
+          },
+          {
+            "description": "You can now create a new policy by copying an existing one, system-defined or user-defined, right from the Policy listing page.",
+            "title": "Copy and Create new Policy from an existing one"
+          },
+          {
+            "description": "The Policy menu now includes aFunction Catalogtab, providing direct in-product visibility into the functions used in custom investigation queries and controls.",
+            "title": "Look up Query Functions"
+          },
+          {
+            "description": "We have expanded our cloud security coverage by adding support for additional AWS, Azure, GCP and\u00a0 OCI resource types in Cloud Inventory, enabling discovery, inventory, and security posture assessment across a broader range of cloud services.",
+            "title": "Extended Inventory Coverage"
+          },
+          {
+            "description": "You can now directly access impacted Azure resources from the Evidence Details section usingView in Azure Console.This enhancement enables faster investigation and remediation of resources flagged during control evaluations.",
+            "title": "Navigate to Azure Cloud directly from Posture"
+          },
+          {
+            "description": "You can now filter results on theAll Inventorypage by date range. This makes it easier to narrow your asset view to a specific time window, which is useful for investigating recently discovered or updated assets and for\u00a0more targeted inventory analysis.",
+            "title": "Date Range Filtering for All Inventory"
+          },
+          {
+            "description": "On the Inventory page, the inventory type filter dropdown now lists the most commonly used resource types at the top of the list for each cloud provider. Previously, all resource types were listed together, making it harder to quickly locate the right one, given that naming conventions differ across providers. For example, anInstancein AWS is aVirtual Machinein Azure, aVM Instancein GCP, and\u2026",
+            "title": "Smarter Inventory Filter Dropdown"
+          },
+          {
+            "description": "We have added a new Overall Compliance Score field to CSPM assessment report CSV exports (AWS, Azure, GCP, and OCI). This score reflects resource-level compliance, using the same methodology as the dashboard and posture views, ensuring consistency across all reporting surfaces.",
+            "title": "View Overall Compliance Score in Assessment Report"
+          },
+          {
+            "description": "You can now set a default time period for TotalCloud pages directly fromConfigure>Preferencestab, so you no longer need to manually select your preferred time filter every time you visit a page.",
+            "title": "Set a Default Time Period in Preferences"
+          }
+        ],
+        "release_date": null,
+        "title": "TotalCloud Release 2.27",
+        "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_27.htm",
+        "version": "2.27.1-23"
+      },
+      "retrieved_at": "2026-10-01T13:54:56Z",
+      "source": "qualys_release_notes_index",
+      "version": "2.27.1-23"
+    },
+    "CONN|2.20.1-8": {
+      "module": "CONN",
+      "release": {
+        "features": [
+          {
+            "description": "This release introducesDelta Sync, a new inventory synchronization option for Microsoft Azure connectors.",
+            "title": "EventGrid Support for Azure Connectors"
+          },
+          {
+            "description": "Qualys TotalCloud now extendsCloud Perimeter Scan (CPS)support toOracle Cloud Infrastructure (OCI), bringing OCI in line with the CPS support already available for AWS, Azure, and GCP.",
+            "title": "Cloud Perimeter Scan (CPS) Support for OCI Cloud"
+          },
+          {
+            "description": "To better reflect what this data actually contains, we have renamed \"Errors\" to \"Logs\" across the Connectors experience:",
+            "title": "Connector Errors is now Connector Logs"
+          }
+        ],
+        "release_date": null,
+        "title": "Connector Release 2.20",
+        "url": "https://docs.qualys.com/en/conn/release-notes/connector/release_2_20.htm",
+        "version": "2.20.1-8"
+      },
+      "retrieved_at": "2026-10-01T13:54:56Z",
+      "source": "qualys_release_notes_index",
+      "version": "2.20.1-8"
     },
     "ETM|1.13.0-280": {
       "module": "ETM",
