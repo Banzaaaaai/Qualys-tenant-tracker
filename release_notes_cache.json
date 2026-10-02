@@ -922,6 +922,48 @@
       "source": "qualys_release_notes_index",
       "version": "1.13.0-283"
     },
+    "ETM|1.13.0-287": {
+      "module": "ETM",
+      "release": {
+        "features": [
+          {
+            "description": "",
+            "title": "Trace Attack Paths to Your Critical Assets"
+          },
+          {
+            "description": "CISA BOD 26-04 support is a subscription-level feature. Contact Qualys Support or your Technical Account Manager (TAM) to have it enabled for your subscription.",
+            "title": "Prioritize Remediation Using CISA BOD 26-04"
+          },
+          {
+            "description": "Prerequisite",
+            "title": "TruLens Enhancements"
+          },
+          {
+            "description": "Prerequisite",
+            "title": "Select Multiple Scanners for TruConfirm Scans"
+          },
+          {
+            "description": "You can use the following tokens to search attack paths and rules in theAttack Pathtab:",
+            "title": "New Tokens for Attack Path"
+          },
+          {
+            "description": "You can usethese Qualys Query Language (QQL) tokens to build CISA BOD 26-04 worklists:",
+            "title": "New Tokens to Build CISA BOD 26-04 Worklists"
+          },
+          {
+            "description": "The following reported and notable customer issues are fixed in this release:",
+            "title": "Fixes"
+          }
+        ],
+        "release_date": null,
+        "title": "ETM Release 1.13",
+        "url": "https://docs.qualys.com/en/etm/release-notes/etm/release_1_13.htm",
+        "version": "1.13.0-287"
+      },
+      "retrieved_at": "2026-10-02T13:12:02Z",
+      "source": "qualys_release_notes_index",
+      "version": "1.13.0-287"
+    },
     "ISL|4.1.0.0-282": {
       "module": "ISL",
       "release": {
