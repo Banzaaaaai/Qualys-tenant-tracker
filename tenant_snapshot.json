@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-10-05T15:17:32Z",
+  "last_checked": "2026-10-06T13:38:08Z",
   "modules": {
     "AV2": {
       "api_field": "AV2-VERSION",
@@ -76,8 +76,8 @@
     "ISPM": {
       "api_field": "ISPM-VERSION",
       "first_seen": "2026-09-10T15:39:50Z",
-      "last_changed": "2026-09-26T11:48:38Z",
-      "version": "1.5.0-32"
+      "last_changed": "2026-10-06T13:38:08Z",
+      "version": "1.5.0-41"
     },
     "ITAM": {
       "api_field": "ITAM-VERSION",
@@ -118,8 +118,8 @@
     "PortalApplication": {
       "api_field": "PortalApplication-VERSION",
       "first_seen": "2026-09-10T15:39:50Z",
-      "last_changed": "2026-09-22T07:09:04Z",
-      "version": "3.25.0.0-9 DEVELOP #85 (2026-09-10T13:18:14Z)"
+      "last_changed": "2026-10-06T13:38:08Z",
+      "version": "3.25.0.0-11 DEVELOP #87 (2026-09-30T15:31:34Z)"
     },
     "QFLOW": {
       "api_field": "QFLOW-VERSION",
