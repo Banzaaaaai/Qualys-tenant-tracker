@@ -838,6 +838,68 @@
       "source": "qualys_release_notes_index",
       "version": "2.20.1-8"
     },
+    "CS|1.45.5-16": {
+      "module": "CS",
+      "release": {
+        "features": [
+          {
+            "description": "",
+            "title": "Introduced AWS Fargate Container QLP: Workload-Level Vulnerability Tracking"
+          },
+          {
+            "description": "",
+            "title": "Introduced Azure Function Scanning: Vulnerability and SCA Detection for Serverless Functions"
+          },
+          {
+            "description": "",
+            "title": "Enhanced Lambda Function Scanning: Image Association and Scan Data Retention"
+          },
+          {
+            "description": "",
+            "title": "Introduced Active Package Detection: Runtime Package-in-Use Visibility"
+          },
+          {
+            "description": "",
+            "title": "Extended JAR SCA in Offline Mode: JAVADB Resolution Without Network Access"
+          },
+          {
+            "description": "",
+            "title": "Introduced Network Events Monitoring: Bi-Directional Traffic Visibility for Running Containers"
+          },
+          {
+            "description": "",
+            "title": "Introduced Subscription-Level OAuth for QScanner: Centralized Token Authentication"
+          },
+          {
+            "description": "",
+            "title": "Enhancements in Vulnerability and Compliance Reports: New Attributes and Renamed CSV Columns"
+          },
+          {
+            "description": "",
+            "title": "Enhancements in KSPM Controls: Ability to Filter Controls based on Policy Name"
+          },
+          {
+            "description": "",
+            "title": "Vulnerability Count Filter: Faster Risk Prioritization in Images and Containers"
+          },
+          {
+            "description": "",
+            "title": "Introduced On-Demand Repository Refresh: Instant Repository Discovery for Registries"
+          },
+          {
+            "description": "",
+            "title": "Extended JFrog Artifactory Scanning: Support for Subdomain-Based Registry URLs"
+          }
+        ],
+        "release_date": null,
+        "title": "Container Security Release 1.45",
+        "url": "https://docs.qualys.com/en/cs/release-notes/container_security/release_1_45.htm",
+        "version": "1.45.5-16"
+      },
+      "retrieved_at": "2026-10-07T13:57:10Z",
+      "source": "qualys_release_notes_index",
+      "version": "1.45.5-16"
+    },
     "ETM|1.13.0-280": {
       "module": "ETM",
       "release": {
@@ -964,6 +1026,48 @@
       "source": "qualys_release_notes_index",
       "version": "1.13.0-287"
     },
+    "ETM|1.13.0-290": {
+      "module": "ETM",
+      "release": {
+        "features": [
+          {
+            "description": "",
+            "title": "Trace Attack Paths to Your Critical Assets"
+          },
+          {
+            "description": "CISA BOD 26-04 support is a subscription-level feature. Contact Qualys Support or your Technical Account Manager (TAM) to have it enabled for your subscription.",
+            "title": "Prioritize Remediation Using CISA BOD 26-04"
+          },
+          {
+            "description": "Prerequisite",
+            "title": "TruLens Enhancements"
+          },
+          {
+            "description": "Prerequisite",
+            "title": "Select Multiple Scanners for TruConfirm Scans"
+          },
+          {
+            "description": "You can use the following tokens to search attack paths and rules in theAttack Pathtab:",
+            "title": "New Tokens for Attack Path"
+          },
+          {
+            "description": "You can usethese Qualys Query Language (QQL) tokens to build CISA BOD 26-04 worklists:",
+            "title": "New Tokens to Build CISA BOD 26-04 Worklists"
+          },
+          {
+            "description": "The following reported and notable customer issues are fixed in this release:",
+            "title": "Fixes"
+          }
+        ],
+        "release_date": null,
+        "title": "ETM Release 1.13",
+        "url": "https://docs.qualys.com/en/etm/release-notes/etm/release_1_13.htm",
+        "version": "1.13.0-290"
+      },
+      "retrieved_at": "2026-10-07T13:57:10Z",
+      "source": "qualys_release_notes_index",
+      "version": "1.13.0-290"
+    },
     "ISL|4.1.0.0-282": {
       "module": "ISL",
       "release": {
@@ -997,6 +1101,36 @@
       "retrieved_at": "2026-09-23T12:12:53Z",
       "source": "qualys_release_notes_index",
       "version": "4.1.0.0-282"
+    },
+    "ISL|4.2.0.0-142": {
+      "module": "ISL",
+      "release": {
+        "features": [
+          {
+            "description": "",
+            "title": "Stop Specific Patches from Deployment with Patch Blocking Rules"
+          },
+          {
+            "description": "",
+            "title": "Control Deployments with Built-In Approvals"
+          },
+          {
+            "description": "The following reported and notable customer issues are fixed in this release.",
+            "title": "Issues Addressed"
+          },
+          {
+            "description": "For more details on the API updates for this release, seePatch Management API Release 4.2.",
+            "title": "API Release Updates"
+          }
+        ],
+        "release_date": null,
+        "title": "TruRisk\u2122 Eliminate Release 4.2",
+        "url": "https://docs.qualys.com/en/pm/release-notes/patch_management/release_4_2.htm",
+        "version": "4.2.0.0-142"
+      },
+      "retrieved_at": "2026-10-07T13:57:10Z",
+      "source": "qualys_release_notes_index",
+      "version": "4.2.0.0-142"
     },
     "ITAM|3.7.3.0-23": {
       "module": "ITAM",
