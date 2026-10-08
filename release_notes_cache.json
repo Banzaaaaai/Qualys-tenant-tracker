@@ -17,7 +17,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_vmdr_rn/vmdr/release_2_13.htm",
         "version": "2.13"
       },
-      "retrieved_at": "2026-10-06T19:51:30Z"
+      "retrieved_at": "2026-10-08T14:02:45Z"
     },
     "CA": {
       "release": {
@@ -72,7 +72,7 @@
         "url": "https://docs.qualys.com/en/ca/release-notes/ca_application/release_2_8.htm",
         "version": "2.8"
       },
-      "retrieved_at": "2026-10-06T19:51:30Z"
+      "retrieved_at": "2026-10-08T14:02:45Z"
     },
     "CERTVIEW": {
       "release": {
@@ -91,7 +91,7 @@
         "url": "https://docs.qualys.com/en/certview/release-notes/certview/release_4_8_1.htm",
         "version": "4.8.1"
       },
-      "retrieved_at": "2026-10-06T19:51:30Z"
+      "retrieved_at": "2026-10-08T14:02:45Z"
     },
     "CLOUDVIEW": {
       "release": {
@@ -130,7 +130,7 @@
         "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_28.htm",
         "version": "2.28"
       },
-      "retrieved_at": "2026-10-06T19:51:30Z"
+      "retrieved_at": "2026-10-08T14:02:45Z"
     },
     "CONN": {
       "release": {
@@ -153,7 +153,7 @@
         "url": "https://docs.qualys.com/en/conn/release-notes/connector/release_2_21.htm",
         "version": "2.21"
       },
-      "retrieved_at": "2026-10-06T19:51:30Z"
+      "retrieved_at": "2026-10-08T14:02:45Z"
     },
     "CS": {
       "release": {
@@ -212,7 +212,7 @@
         "url": "https://docs.qualys.com/en/cs/release-notes/container_security/release_1_45.htm",
         "version": "1.45"
       },
-      "retrieved_at": "2026-10-06T19:51:30Z"
+      "retrieved_at": "2026-10-08T14:02:45Z"
     },
     "ETM": {
       "release": {
@@ -251,7 +251,7 @@
         "url": "https://docs.qualys.com/en/etm/release-notes/etm/release_1_13.htm",
         "version": "1.13"
       },
-      "retrieved_at": "2026-10-06T19:51:30Z"
+      "retrieved_at": "2026-10-08T14:02:45Z"
     },
     "FIM": {
       "release": {
@@ -282,7 +282,7 @@
         "url": "https://docs.qualys.com/en/fim/release-notes/file_integrity_monitoring/release_4_9_4.htm",
         "version": "4.9.4"
       },
-      "retrieved_at": "2026-10-06T19:51:30Z"
+      "retrieved_at": "2026-10-08T14:02:45Z"
     },
     "ISL": {
       "release": {
@@ -309,7 +309,7 @@
         "url": "https://docs.qualys.com/en/pm/release-notes/patch_management/release_4_2.htm",
         "version": "4.2"
       },
-      "retrieved_at": "2026-10-06T19:51:30Z"
+      "retrieved_at": "2026-10-08T14:02:45Z"
     },
     "ITAM": {
       "release": {
@@ -340,7 +340,7 @@
         "url": "https://docs.qualys.com/en/csam/release-notes/cybersecurity_asset_management/release_3_7_3.htm",
         "version": "3.7.3"
       },
-      "retrieved_at": "2026-10-06T19:51:30Z"
+      "retrieved_at": "2026-10-08T14:02:45Z"
     },
     "OCA": {
       "release": {
@@ -355,7 +355,7 @@
         "url": "https://docs.qualys.com/en/oca/release-notes/oca/release_1_13.htm",
         "version": "1.13"
       },
-      "retrieved_at": "2026-10-06T19:51:30Z"
+      "retrieved_at": "2026-10-08T14:02:45Z"
     },
     "PM": {
       "release": {
@@ -374,7 +374,7 @@
         "url": " https://docs.qualys.com/en/pm/release-notes/patch_management/release_3_6.htm",
         "version": "3.6"
       },
-      "retrieved_at": "2026-10-06T19:51:30Z"
+      "retrieved_at": "2026-10-08T14:02:45Z"
     },
     "PS": {
       "release": {
@@ -389,7 +389,7 @@
         "url": "https://docs.qualys.com/en/ps/release-notes/ps/release_2_6.htm",
         "version": "2.6"
       },
-      "retrieved_at": "2026-10-06T19:51:30Z"
+      "retrieved_at": "2026-10-08T14:02:45Z"
     },
     "QFLOW": {
       "release": {
@@ -416,7 +416,7 @@
         "url": "https://docs.qualys.com/en/qflow/release-notes/qflow/release_1_24.htm",
         "version": "1.24"
       },
-      "retrieved_at": "2026-10-06T19:51:30Z"
+      "retrieved_at": "2026-10-08T14:02:45Z"
     },
     "QGS": {
       "release": {
@@ -435,7 +435,7 @@
         "url": "https://docs.qualys.com/en/qgs/release-notes/qgs/release_3_16_1.htm",
         "version": "3.16.1"
       },
-      "retrieved_at": "2026-10-06T19:51:30Z"
+      "retrieved_at": "2026-10-08T14:02:45Z"
     },
     "QWEB_PC": {
       "release": {
@@ -486,7 +486,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_pa/pa/release_1_16.htm",
         "version": "1.16"
       },
-      "retrieved_at": "2026-10-06T19:51:30Z"
+      "retrieved_at": "2026-10-08T14:02:45Z"
     },
     "QWEB_VM": {
       "release": {
@@ -505,7 +505,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_vmdr_rn/vmdr/release_2_13.htm",
         "version": "2.13"
       },
-      "retrieved_at": "2026-10-06T19:51:30Z"
+      "retrieved_at": "2026-10-08T14:02:45Z"
     },
     "SEM": {
       "release": {
@@ -528,7 +528,7 @@
         "url": "https://docs.qualys.com/en/vmdr-mobile/release-notes/vmdr_mobile/release_1_6_1.htm",
         "version": "1.6.1"
       },
-      "retrieved_at": "2026-10-06T19:51:30Z"
+      "retrieved_at": "2026-10-08T14:02:45Z"
     },
     "SM": {
       "release": {
@@ -555,7 +555,7 @@
         "url": "https://docs.qualys.com/en/car/release-notes/car/release_2_9_2.htm",
         "version": "2.9.2"
       },
-      "retrieved_at": "2026-10-06T19:51:30Z"
+      "retrieved_at": "2026-10-08T14:02:45Z"
     },
     "TA": {
       "release": {
@@ -606,7 +606,7 @@
         "url": "https://docs.qualys.com/en/ta/release-notes/total_ai/release_2_0.htm",
         "version": "2.0"
       },
-      "retrieved_at": "2026-10-06T19:51:30Z"
+      "retrieved_at": "2026-10-08T14:02:45Z"
     },
     "TC": {
       "release": {
@@ -645,7 +645,7 @@
         "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_28.htm",
         "version": "2.28"
       },
-      "retrieved_at": "2026-10-06T19:51:30Z"
+      "retrieved_at": "2026-10-08T14:02:45Z"
     },
     "UD": {
       "release": {
@@ -660,7 +660,7 @@
         "url": "https://docs.qualys.com/en/ud/release-notes/unified_dashboard/release_2_16_1.htm",
         "version": "2.16.1"
       },
-      "retrieved_at": "2026-10-06T19:51:30Z"
+      "retrieved_at": "2026-10-08T14:02:45Z"
     },
     "WAS": {
       "release": {
@@ -687,7 +687,7 @@
         "url": "https://docs.qualys.com/en/tas/release-notes/total_app_sec/release_2_1.htm",
         "version": "2.1"
       },
-      "retrieved_at": "2026-10-06T19:51:30Z"
+      "retrieved_at": "2026-10-08T14:02:45Z"
     }
   },
   "parse_format_version": 3,
@@ -812,6 +812,48 @@
       "source": "qualys_release_notes_index",
       "version": "2.27.1-23"
     },
+    "CLOUDVIEW|2.28.0-212": {
+      "module": "CLOUDVIEW",
+      "release": {
+        "features": [
+          {
+            "description": "TotalCloud now supports dynamic tagging across all inventory resources, using the same tag-rule workflow available in other Qualys products. A dynamic tag is driven by a query rather than a fixed value, so as your cloud environment changes, TotalCloud automatically tags every matching resource\u00a0with no manual re-tagging.",
+            "title": "Dynamic Tagging across Inventory and Posture"
+          },
+          {
+            "description": "TotalCloud now offers flexibility on CSPM reporting by enhancing the entire report generation process. You can now select which section to add to the downloaded report and also choose the exact attributes you need as columns on csv file, hence avoiding download of non-relevant section and information. A newReport Displaystep lets you turn sections and individual columns on or off, so the report\u2026",
+            "title": "Streamline Your CSPM Reports with Custom Column Selection"
+          },
+          {
+            "description": "TheCloud Inventory Overviewnow visualizes posture issues for each connected cloud platform, AWS, Azure, GCP, and Oracle Cloud Infrastructure, as a color-coded donut chart, replacing the previous plain summary card. This gives you an immediate visual read on the posture health of all your connected clouds from a single page.",
+            "title": "Interactive Visual Charts for Instant Posture Health Visibility"
+          },
+          {
+            "description": "We have expanded our cloud security coverage by adding support for additional AWS resource types in Cloud Inventory, enabling discovery, inventory, and security posture assessment across a broader range of cloud services.",
+            "title": "Extended Inventory Coverage"
+          },
+          {
+            "description": "TotalCloud now extends compliance coverage with support for the following CIS Amazon Web Services Benchmarks:",
+            "title": "Extended\u00a0CIS Benchmark Coverage"
+          },
+          {
+            "description": "SeeControl Permissions for AWSto understand the permissions needed for the new controls.",
+            "title": "Control Updates"
+          },
+          {
+            "description": "We fixed the following important and notable issues in this release.",
+            "title": "Issues Addressed"
+          }
+        ],
+        "release_date": null,
+        "title": "TotalCloud Release 2.28",
+        "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_28.htm",
+        "version": "2.28.0-212"
+      },
+      "retrieved_at": "2026-10-08T14:02:45Z",
+      "source": "qualys_release_notes_index",
+      "version": "2.28.0-212"
+    },
     "CONN|2.20.1-8": {
       "module": "CONN",
       "release": {
@@ -837,6 +879,32 @@
       "retrieved_at": "2026-10-01T13:54:56Z",
       "source": "qualys_release_notes_index",
       "version": "2.20.1-8"
+    },
+    "CONN|2.21.0-26": {
+      "module": "CONN",
+      "release": {
+        "features": [
+          {
+            "description": "When creating a new connector, Cloud Security Posture Management (CSPM) is no longer selected by default, and AssetView is no longer locked. Previously, AssetView was preselected and locked, and CSPM was enabled by default, even for Community Edition (free) accounts.",
+            "title": "Default Capability Selection Updated for New Connectors"
+          },
+          {
+            "description": "Delta Sync, the event-based inventory sync option already available for individual AWS and Azure connectors, is now also available to Organization connectors.",
+            "title": "Delta Sync Support for Organization Connectors"
+          },
+          {
+            "description": "We\u00a0have introduced a limit on the number of AssetView (AV)-only member connectors an Organization Connector can create, to help keep inventory updates and assessments running on time.",
+            "title": "AV Connector Limit for Organization Connectors"
+          }
+        ],
+        "release_date": null,
+        "title": "Connector Release 2.21",
+        "url": "https://docs.qualys.com/en/conn/release-notes/connector/release_2_21.htm",
+        "version": "2.21.0-26"
+      },
+      "retrieved_at": "2026-10-08T14:02:45Z",
+      "source": "qualys_release_notes_index",
+      "version": "2.21.0-26"
     },
     "CS|1.45.5-16": {
       "module": "CS",
@@ -1359,6 +1427,68 @@
       "retrieved_at": "2026-10-05T15:17:32Z",
       "source": "qualys_release_notes_index",
       "version": "2.15.1-37"
+    },
+    "WAS|1.31.0.0-4": {
+      "module": "WAS",
+      "release": {
+        "features": [
+          {
+            "description": "",
+            "title": "CyberArk Central Credential Provider Support for Authentication Records"
+          },
+          {
+            "description": "",
+            "title": "Duplicate URL Validation for Discovered Applications"
+          },
+          {
+            "description": "",
+            "title": "Auto-Apply Detected Redundant Link Patterns"
+          },
+          {
+            "description": "",
+            "title": "PCI Compliance Coverage Improvements"
+          },
+          {
+            "description": "",
+            "title": "OWASP Top 10 (2021) Category Removed from Option Profile"
+          },
+          {
+            "description": "",
+            "title": "Discover APIs using Source Code API Connectors"
+          },
+          {
+            "description": "",
+            "title": "Trending Widget Support for WAS"
+          },
+          {
+            "description": "",
+            "title": "PPT Format Disabled for Unsupported Reports"
+          },
+          {
+            "description": "",
+            "title": "Clear App Data Now Completely Removes Associated Scans and Detections"
+          },
+          {
+            "description": "",
+            "title": "Custom Attributes Toggle for Web Applications"
+          },
+          {
+            "description": "",
+            "title": "CSV and XML Report Enhancements for Scorecard Reports"
+          },
+          {
+            "description": "The following reported issues are fixed in this release.",
+            "title": "Issues Addressed"
+          }
+        ],
+        "release_date": null,
+        "title": "TotalAppSec Release 2.11 | Web Application Scanning Release 1.31",
+        "url": "https://docs.qualys.com/en/tas/release-notes/total_app_sec/tas_2_11_was_1_31.htm",
+        "version": "1.31.0.0-4"
+      },
+      "retrieved_at": "2026-10-08T14:02:45Z",
+      "source": "qualys_release_notes_index",
+      "version": "1.31.0.0-4"
     }
   }
 }
