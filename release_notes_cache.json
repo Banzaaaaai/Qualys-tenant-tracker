@@ -4,20 +4,16 @@
       "release": {
         "features": [
           {
-            "description": "With this release, we have introduced an improved user experience across all the VMDR application pages. You can view updates across fonts, colors, typography, and buttons, making the interface more intuitive and easier to use. This release features User Interface (UI) and design system enhancements that improve visual consistency, readability, and usability across the application, resulting in a\u2026",
-            "title": "Enhanced VMDR User Interface"
-          },
-          {
-            "description": "The following reported and notable customer issues are fixed in this release:",
-            "title": "Issues Addressed"
+            "description": "The following reported and notable customer issue is\u00a0fixed in this release:",
+            "title": "Fix"
           }
         ],
         "release_date": null,
-        "title": "VMDR Release 2.13",
-        "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_vmdr_rn/vmdr/release_2_13.htm",
-        "version": "2.13"
+        "title": "VMDR Release 2.14",
+        "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_vmdr_rn/vmdr/release_2_14.htm",
+        "version": "2.14"
       },
-      "retrieved_at": "2026-10-11T13:32:35Z"
+      "retrieved_at": "2026-10-12T16:08:20Z"
     },
     "CA": {
       "release": {
@@ -72,7 +68,7 @@
         "url": "https://docs.qualys.com/en/ca/release-notes/ca_application/release_2_8.htm",
         "version": "2.8"
       },
-      "retrieved_at": "2026-10-11T13:32:35Z"
+      "retrieved_at": "2026-10-12T16:08:20Z"
     },
     "CERTVIEW": {
       "release": {
@@ -91,7 +87,7 @@
         "url": "https://docs.qualys.com/en/certview/release-notes/certview/release_4_8_1.htm",
         "version": "4.8.1"
       },
-      "retrieved_at": "2026-10-11T13:32:35Z"
+      "retrieved_at": "2026-10-12T16:08:20Z"
     },
     "CLOUDVIEW": {
       "release": {
@@ -130,7 +126,7 @@
         "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_28.htm",
         "version": "2.28"
       },
-      "retrieved_at": "2026-10-11T13:32:35Z"
+      "retrieved_at": "2026-10-12T16:08:20Z"
     },
     "CONN": {
       "release": {
@@ -153,7 +149,7 @@
         "url": "https://docs.qualys.com/en/conn/release-notes/connector/release_2_21.htm",
         "version": "2.21"
       },
-      "retrieved_at": "2026-10-11T13:32:35Z"
+      "retrieved_at": "2026-10-12T16:08:20Z"
     },
     "CS": {
       "release": {
@@ -212,7 +208,7 @@
         "url": "https://docs.qualys.com/en/cs/release-notes/container_security/release_1_45.htm",
         "version": "1.45"
       },
-      "retrieved_at": "2026-10-11T13:32:35Z"
+      "retrieved_at": "2026-10-12T16:08:20Z"
     },
     "ETM": {
       "release": {
@@ -251,7 +247,7 @@
         "url": "https://docs.qualys.com/en/etm/release-notes/etm/release_1_13.htm",
         "version": "1.13"
       },
-      "retrieved_at": "2026-10-11T13:32:35Z"
+      "retrieved_at": "2026-10-12T16:08:20Z"
     },
     "FIM": {
       "release": {
@@ -282,7 +278,7 @@
         "url": "https://docs.qualys.com/en/fim/release-notes/file_integrity_monitoring/release_4_9_4.htm",
         "version": "4.9.4"
       },
-      "retrieved_at": "2026-10-11T13:32:35Z"
+      "retrieved_at": "2026-10-12T16:08:20Z"
     },
     "ISL": {
       "release": {
@@ -309,7 +305,7 @@
         "url": "https://docs.qualys.com/en/pm/release-notes/patch_management/release_4_2.htm",
         "version": "4.2"
       },
-      "retrieved_at": "2026-10-11T13:32:35Z"
+      "retrieved_at": "2026-10-12T16:08:20Z"
     },
     "ITAM": {
       "release": {
@@ -340,7 +336,7 @@
         "url": "https://docs.qualys.com/en/csam/release-notes/cybersecurity_asset_management/release_3_7_3.htm",
         "version": "3.7.3"
       },
-      "retrieved_at": "2026-10-11T13:32:35Z"
+      "retrieved_at": "2026-10-12T16:08:20Z"
     },
     "OCA": {
       "release": {
@@ -355,7 +351,7 @@
         "url": "https://docs.qualys.com/en/oca/release-notes/oca/release_1_13.htm",
         "version": "1.13"
       },
-      "retrieved_at": "2026-10-11T13:32:35Z"
+      "retrieved_at": "2026-10-12T16:08:20Z"
     },
     "PM": {
       "release": {
@@ -374,7 +370,7 @@
         "url": " https://docs.qualys.com/en/pm/release-notes/patch_management/release_3_6.htm",
         "version": "3.6"
       },
-      "retrieved_at": "2026-10-11T13:32:35Z"
+      "retrieved_at": "2026-10-12T16:08:20Z"
     },
     "PS": {
       "release": {
@@ -389,7 +385,7 @@
         "url": "https://docs.qualys.com/en/ps/release-notes/ps/release_2_6.htm",
         "version": "2.6"
       },
-      "retrieved_at": "2026-10-11T13:32:35Z"
+      "retrieved_at": "2026-10-12T16:08:20Z"
     },
     "QFLOW": {
       "release": {
@@ -416,7 +412,7 @@
         "url": "https://docs.qualys.com/en/qflow/release-notes/qflow/release_1_24.htm",
         "version": "1.24"
       },
-      "retrieved_at": "2026-10-11T13:32:35Z"
+      "retrieved_at": "2026-10-12T16:08:20Z"
     },
     "QGS": {
       "release": {
@@ -435,7 +431,7 @@
         "url": "https://docs.qualys.com/en/qgs/release-notes/qgs/release_3_16_1.htm",
         "version": "3.16.1"
       },
-      "retrieved_at": "2026-10-11T13:32:35Z"
+      "retrieved_at": "2026-10-12T16:08:20Z"
     },
     "QWEB_PC": {
       "release": {
@@ -486,26 +482,22 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_pa/pa/release_1_16.htm",
         "version": "1.16"
       },
-      "retrieved_at": "2026-10-11T13:32:35Z"
+      "retrieved_at": "2026-10-12T16:08:20Z"
     },
     "QWEB_VM": {
       "release": {
         "features": [
           {
-            "description": "With this release, we have introduced an improved user experience across all the VMDR application pages. You can view updates across fonts, colors, typography, and buttons, making the interface more intuitive and easier to use. This release features User Interface (UI) and design system enhancements that improve visual consistency, readability, and usability across the application, resulting in a\u2026",
-            "title": "Enhanced VMDR User Interface"
-          },
-          {
-            "description": "The following reported and notable customer issues are fixed in this release:",
-            "title": "Issues Addressed"
+            "description": "The following reported and notable customer issue is\u00a0fixed in this release:",
+            "title": "Fix"
           }
         ],
         "release_date": null,
-        "title": "VMDR Release 2.13",
-        "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_vmdr_rn/vmdr/release_2_13.htm",
-        "version": "2.13"
+        "title": "VMDR Release 2.14",
+        "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_vmdr_rn/vmdr/release_2_14.htm",
+        "version": "2.14"
       },
-      "retrieved_at": "2026-10-11T13:32:35Z"
+      "retrieved_at": "2026-10-12T16:08:20Z"
     },
     "SEM": {
       "release": {
@@ -528,7 +520,7 @@
         "url": "https://docs.qualys.com/en/vmdr-mobile/release-notes/vmdr_mobile/release_1_6_1.htm",
         "version": "1.6.1"
       },
-      "retrieved_at": "2026-10-11T13:32:35Z"
+      "retrieved_at": "2026-10-12T16:08:20Z"
     },
     "SM": {
       "release": {
@@ -555,7 +547,7 @@
         "url": "https://docs.qualys.com/en/car/release-notes/car/release_2_9_2.htm",
         "version": "2.9.2"
       },
-      "retrieved_at": "2026-10-11T13:32:35Z"
+      "retrieved_at": "2026-10-12T16:08:20Z"
     },
     "TA": {
       "release": {
@@ -606,7 +598,7 @@
         "url": "https://docs.qualys.com/en/ta/release-notes/total_ai/release_2_0.htm",
         "version": "2.0"
       },
-      "retrieved_at": "2026-10-11T13:32:35Z"
+      "retrieved_at": "2026-10-12T16:08:20Z"
     },
     "TC": {
       "release": {
@@ -645,22 +637,26 @@
         "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_28.htm",
         "version": "2.28"
       },
-      "retrieved_at": "2026-10-11T13:32:35Z"
+      "retrieved_at": "2026-10-12T16:08:20Z"
     },
     "UD": {
       "release": {
         "features": [
           {
             "description": "",
+            "title": "Faster Access to Active Dashboards in the Frequently Used Tab"
+          },
+          {
+            "description": "",
             "title": "Issues Addressed"
           }
         ],
         "release_date": null,
-        "title": "Unified Dashboard Release 2.16.1",
-        "url": "https://docs.qualys.com/en/ud/release-notes/unified_dashboard/release_2_16_1.htm",
-        "version": "2.16.1"
+        "title": "Unified Dashboard Release 2.17",
+        "url": "https://docs.qualys.com/en/ud/release-notes/unified_dashboard/release_2_17.htm",
+        "version": "2.17"
       },
-      "retrieved_at": "2026-10-11T13:32:35Z"
+      "retrieved_at": "2026-10-12T16:08:20Z"
     },
     "WAS": {
       "release": {
@@ -687,7 +683,7 @@
         "url": "https://docs.qualys.com/en/tas/release-notes/total_app_sec/release_2_1.htm",
         "version": "2.1"
       },
-      "retrieved_at": "2026-10-11T13:32:35Z"
+      "retrieved_at": "2026-10-12T16:08:20Z"
     }
   },
   "parse_format_version": 3,
