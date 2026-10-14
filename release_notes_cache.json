@@ -13,7 +13,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_vmdr_rn/vmdr/release_2_14.htm",
         "version": "2.14"
       },
-      "retrieved_at": "2026-10-12T16:08:20Z"
+      "retrieved_at": "2026-10-14T12:23:53Z"
     },
     "CA": {
       "release": {
@@ -68,7 +68,7 @@
         "url": "https://docs.qualys.com/en/ca/release-notes/ca_application/release_2_8.htm",
         "version": "2.8"
       },
-      "retrieved_at": "2026-10-12T16:08:20Z"
+      "retrieved_at": "2026-10-14T12:23:53Z"
     },
     "CERTVIEW": {
       "release": {
@@ -87,7 +87,7 @@
         "url": "https://docs.qualys.com/en/certview/release-notes/certview/release_4_8_1.htm",
         "version": "4.8.1"
       },
-      "retrieved_at": "2026-10-12T16:08:20Z"
+      "retrieved_at": "2026-10-14T12:23:53Z"
     },
     "CLOUDVIEW": {
       "release": {
@@ -126,7 +126,7 @@
         "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_28.htm",
         "version": "2.28"
       },
-      "retrieved_at": "2026-10-12T16:08:20Z"
+      "retrieved_at": "2026-10-14T12:23:53Z"
     },
     "CONN": {
       "release": {
@@ -149,7 +149,7 @@
         "url": "https://docs.qualys.com/en/conn/release-notes/connector/release_2_21.htm",
         "version": "2.21"
       },
-      "retrieved_at": "2026-10-12T16:08:20Z"
+      "retrieved_at": "2026-10-14T12:23:53Z"
     },
     "CS": {
       "release": {
@@ -208,7 +208,7 @@
         "url": "https://docs.qualys.com/en/cs/release-notes/container_security/release_1_45.htm",
         "version": "1.45"
       },
-      "retrieved_at": "2026-10-12T16:08:20Z"
+      "retrieved_at": "2026-10-14T12:23:53Z"
     },
     "ETM": {
       "release": {
@@ -218,15 +218,15 @@
             "title": "Trace Attack Paths to Your Critical Assets"
           },
           {
-            "description": "CISA BOD 26-04 support is a subscription-level feature. Contact Qualys Support or your Technical Account Manager (TAM) to have it enabled for your subscription.",
+            "description": "ETM now supports two CISA-published risk factors alongside your existing finding data:",
             "title": "Prioritize Remediation Using CISA BOD 26-04"
           },
           {
-            "description": "Prerequisite",
+            "description": "Mitigation is different from remediation. Remediation fixes the underlying vulnerability, typically by patching it. Mitigation reduces the risk of exploitation using a compensating control such as a virtual patch or a WAF rule \u2014 delivered through Qualys TruRisk Eliminate, without changing the vulnerable software itself.",
             "title": "TruLens Enhancements"
           },
           {
-            "description": "Prerequisite",
+            "description": "",
             "title": "Select Multiple Scanners for TruConfirm Scans"
           },
           {
@@ -247,7 +247,7 @@
         "url": "https://docs.qualys.com/en/etm/release-notes/etm/release_1_13.htm",
         "version": "1.13"
       },
-      "retrieved_at": "2026-10-12T16:08:20Z"
+      "retrieved_at": "2026-10-14T12:23:53Z"
     },
     "FIM": {
       "release": {
@@ -278,34 +278,34 @@
         "url": "https://docs.qualys.com/en/fim/release-notes/file_integrity_monitoring/release_4_9_4.htm",
         "version": "4.9.4"
       },
-      "retrieved_at": "2026-10-12T16:08:20Z"
+      "retrieved_at": "2026-10-14T12:23:53Z"
     },
     "ISL": {
       "release": {
         "features": [
           {
             "description": "",
-            "title": "Stop Specific Patches from Deployment with Patch Blocking Rules"
+            "title": "With Agent Sara, Remediate Smarter, and Roll Out in Phased Rings"
           },
           {
             "description": "",
-            "title": "Control Deployments with Built-In Approvals"
+            "title": "Mitigate ETM Plan Findings to Reduce Risk When No Patch Is Available"
+          },
+          {
+            "description": "Refer to the following table to learn more about the new tokens in this release.",
+            "title": "New QQL Tokens"
           },
           {
             "description": "The following reported and notable customer issues are fixed in this release.",
             "title": "Issues Addressed"
-          },
-          {
-            "description": "For more details on the API updates for this release, seePatch Management API Release 4.2.",
-            "title": "API Release Updates"
           }
         ],
         "release_date": null,
-        "title": "TruRisk\u2122 Eliminate Release 4.2",
-        "url": "https://docs.qualys.com/en/pm/release-notes/patch_management/release_4_2.htm",
-        "version": "4.2"
+        "title": "TruRisk\u2122 Eliminate Release 4.2.1",
+        "url": "https://docs.qualys.com/en/pm/release-notes/patch_management/release_4_2_1.htm",
+        "version": "4.2.1"
       },
-      "retrieved_at": "2026-10-12T16:08:20Z"
+      "retrieved_at": "2026-10-14T12:23:53Z"
     },
     "ITAM": {
       "release": {
@@ -336,7 +336,7 @@
         "url": "https://docs.qualys.com/en/csam/release-notes/cybersecurity_asset_management/release_3_7_3.htm",
         "version": "3.7.3"
       },
-      "retrieved_at": "2026-10-12T16:08:20Z"
+      "retrieved_at": "2026-10-14T12:23:53Z"
     },
     "OCA": {
       "release": {
@@ -351,7 +351,7 @@
         "url": "https://docs.qualys.com/en/oca/release-notes/oca/release_1_13.htm",
         "version": "1.13"
       },
-      "retrieved_at": "2026-10-12T16:08:20Z"
+      "retrieved_at": "2026-10-14T12:23:53Z"
     },
     "PM": {
       "release": {
@@ -370,7 +370,7 @@
         "url": " https://docs.qualys.com/en/pm/release-notes/patch_management/release_3_6.htm",
         "version": "3.6"
       },
-      "retrieved_at": "2026-10-12T16:08:20Z"
+      "retrieved_at": "2026-10-14T12:23:53Z"
     },
     "PS": {
       "release": {
@@ -385,7 +385,7 @@
         "url": "https://docs.qualys.com/en/ps/release-notes/ps/release_2_6.htm",
         "version": "2.6"
       },
-      "retrieved_at": "2026-10-12T16:08:20Z"
+      "retrieved_at": "2026-10-14T12:23:53Z"
     },
     "QFLOW": {
       "release": {
@@ -412,7 +412,7 @@
         "url": "https://docs.qualys.com/en/qflow/release-notes/qflow/release_1_24.htm",
         "version": "1.24"
       },
-      "retrieved_at": "2026-10-12T16:08:20Z"
+      "retrieved_at": "2026-10-14T12:23:53Z"
     },
     "QGS": {
       "release": {
@@ -431,46 +431,42 @@
         "url": "https://docs.qualys.com/en/qgs/release-notes/qgs/release_3_16_1.htm",
         "version": "3.16.1"
       },
-      "retrieved_at": "2026-10-12T16:08:20Z"
+      "retrieved_at": "2026-10-14T12:23:53Z"
     },
     "QWEB_PC": {
       "release": {
         "features": [
           {
-            "description": "We have now introduced a new Policy Audit Home page that provides a tailored experience based on your onboarding status.",
-            "title": "New Policy Audit Home Page"
+            "description": "",
+            "title": "Improved Control Statements for SDCs"
           },
           {
-            "description": "Access to remediation jobs and schedules created through the Policy Audit Fix (PAF) feature can now be restricted by each users assigned asset tags, in addition to their existing role and permissions. This is referred to as Tag-Based User Scoping (TBUS).",
-            "title": "Granular Access Control for Audit Fix Using Tag-Based User Scoping"
+            "description": "",
+            "title": "Get Notified When a Compliance Scan Fails"
           },
           {
-            "description": "With this release, we support the following 2 new Qualys Query Language (QQL) tokens:",
-            "title": "Support for new QQL Tokens to Manage CVE IDs"
+            "description": "",
+            "title": "UDC Support for New Technologies"
           },
           {
-            "description": "The enhancement is temporarily rolled back to ensure a stable user experience and will be reintroduced in an upcoming release.",
-            "title": "Enhanced User Interface"
+            "description": "",
+            "title": "Import and Export Support for Network UDCs"
           },
           {
-            "description": "While creating a policy from a framework, you can now download the list of Additional Controls,\u00a0 the controls not mapped to any of the selected benchmarks, such as CIS, Qualys Vendor, and DISA STIG in a CSV report for offline reference.",
-            "title": "View Additional Controls Anytime with the New CSV Download Option"
+            "description": "",
+            "title": "Auto Discovery Support for IBM DB2 and PostgreSQL Database Authentication"
           },
           {
-            "description": "You can now view framework policy details directly in the Activity Log tab.",
-            "title": "Track Framework Policy Creation Activity Like Any Other Policy"
+            "description": "",
+            "title": "New Timeframe Options in Compliance Policy Report Templates"
           },
           {
-            "description": "You can now selectUbuntu 26.x,\u00a0Debian GNU/Linux 13.x, and\u00a0Oracle Enterprise Linux 10.x technologieswhen creating a new control for Unix Control types.",
-            "title": "UDC Support for Ubuntu 26.x, Debian 13.x, and Oracle Linux 10.x Technologies"
+            "description": "We have introduced the following new QQL tokens that help you search and filter policies more efficiently:",
+            "title": "New QQL Tokens to Search Policies"
           },
           {
-            "description": "You can now scan and report Oracle databases for User-Defined Controls (UDCs)\u00a0using Linux Intel Cloud Agent.",
-            "title": "Oracle Database UDC Support for Linux Agent-based Compliance Scans"
-          },
-          {
-            "description": "We previously introduced the Alerting feature that allowed you to receive real time updates of the events or incidents related to your configurations.",
-            "title": "Update - Policy Audit Alerting"
+            "description": "",
+            "title": "Support for New Technologies"
           },
           {
             "description": "The following reported and notable customer issues are fixed in this release:",
@@ -478,11 +474,11 @@
           }
         ],
         "release_date": null,
-        "title": "Policy Audit Release 1.16",
-        "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_pa/pa/release_1_16.htm",
-        "version": "1.16"
+        "title": "Policy Audit Release 1.17",
+        "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_pa/pa/release_1_17.htm",
+        "version": "1.17"
       },
-      "retrieved_at": "2026-10-12T16:08:20Z"
+      "retrieved_at": "2026-10-14T12:23:53Z"
     },
     "QWEB_VM": {
       "release": {
@@ -497,7 +493,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_vmdr_rn/vmdr/release_2_14.htm",
         "version": "2.14"
       },
-      "retrieved_at": "2026-10-12T16:08:20Z"
+      "retrieved_at": "2026-10-14T12:23:53Z"
     },
     "SEM": {
       "release": {
@@ -520,7 +516,7 @@
         "url": "https://docs.qualys.com/en/vmdr-mobile/release-notes/vmdr_mobile/release_1_6_1.htm",
         "version": "1.6.1"
       },
-      "retrieved_at": "2026-10-12T16:08:20Z"
+      "retrieved_at": "2026-10-14T12:23:53Z"
     },
     "SM": {
       "release": {
@@ -547,7 +543,7 @@
         "url": "https://docs.qualys.com/en/car/release-notes/car/release_2_9_2.htm",
         "version": "2.9.2"
       },
-      "retrieved_at": "2026-10-12T16:08:20Z"
+      "retrieved_at": "2026-10-14T12:23:53Z"
     },
     "TA": {
       "release": {
@@ -598,7 +594,7 @@
         "url": "https://docs.qualys.com/en/ta/release-notes/total_ai/release_2_0.htm",
         "version": "2.0"
       },
-      "retrieved_at": "2026-10-12T16:08:20Z"
+      "retrieved_at": "2026-10-14T12:23:53Z"
     },
     "TC": {
       "release": {
@@ -637,7 +633,7 @@
         "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_28.htm",
         "version": "2.28"
       },
-      "retrieved_at": "2026-10-12T16:08:20Z"
+      "retrieved_at": "2026-10-14T12:23:53Z"
     },
     "UD": {
       "release": {
@@ -656,7 +652,7 @@
         "url": "https://docs.qualys.com/en/ud/release-notes/unified_dashboard/release_2_17.htm",
         "version": "2.17"
       },
-      "retrieved_at": "2026-10-12T16:08:20Z"
+      "retrieved_at": "2026-10-14T12:23:53Z"
     },
     "WAS": {
       "release": {
@@ -683,7 +679,7 @@
         "url": "https://docs.qualys.com/en/tas/release-notes/total_app_sec/release_2_1.htm",
         "version": "2.1"
       },
-      "retrieved_at": "2026-10-12T16:08:20Z"
+      "retrieved_at": "2026-10-14T12:23:53Z"
     }
   },
   "parse_format_version": 3,
@@ -1423,6 +1419,28 @@
       "retrieved_at": "2026-10-05T15:17:32Z",
       "source": "qualys_release_notes_index",
       "version": "2.15.1-37"
+    },
+    "UD|2.17.0-2-29": {
+      "module": "UD",
+      "release": {
+        "features": [
+          {
+            "description": "",
+            "title": "Faster Access to Active Dashboards in the Frequently Used Tab"
+          },
+          {
+            "description": "",
+            "title": "Issues Addressed"
+          }
+        ],
+        "release_date": null,
+        "title": "Unified Dashboard Release 2.17",
+        "url": "https://docs.qualys.com/en/ud/release-notes/unified_dashboard/release_2_17.htm",
+        "version": "2.17.0-2-29"
+      },
+      "retrieved_at": "2026-10-14T12:23:53Z",
+      "source": "qualys_release_notes_index",
+      "version": "2.17.0-2-29"
     },
     "WAS|1.31.0.0-4": {
       "module": "WAS",
