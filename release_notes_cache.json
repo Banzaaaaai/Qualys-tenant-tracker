@@ -13,7 +13,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_vmdr_rn/vmdr/release_2_14.htm",
         "version": "2.14"
       },
-      "retrieved_at": "2026-10-14T12:23:53Z"
+      "retrieved_at": "2026-10-15T18:41:16Z"
     },
     "CA": {
       "release": {
@@ -68,7 +68,7 @@
         "url": "https://docs.qualys.com/en/ca/release-notes/ca_application/release_2_8.htm",
         "version": "2.8"
       },
-      "retrieved_at": "2026-10-14T12:23:53Z"
+      "retrieved_at": "2026-10-15T18:41:16Z"
     },
     "CERTVIEW": {
       "release": {
@@ -87,7 +87,7 @@
         "url": "https://docs.qualys.com/en/certview/release-notes/certview/release_4_8_1.htm",
         "version": "4.8.1"
       },
-      "retrieved_at": "2026-10-14T12:23:53Z"
+      "retrieved_at": "2026-10-15T18:41:16Z"
     },
     "CLOUDVIEW": {
       "release": {
@@ -126,7 +126,7 @@
         "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_28.htm",
         "version": "2.28"
       },
-      "retrieved_at": "2026-10-14T12:23:53Z"
+      "retrieved_at": "2026-10-15T18:41:16Z"
     },
     "CONN": {
       "release": {
@@ -149,7 +149,7 @@
         "url": "https://docs.qualys.com/en/conn/release-notes/connector/release_2_21.htm",
         "version": "2.21"
       },
-      "retrieved_at": "2026-10-14T12:23:53Z"
+      "retrieved_at": "2026-10-15T18:41:16Z"
     },
     "CS": {
       "release": {
@@ -208,34 +208,50 @@
         "url": "https://docs.qualys.com/en/cs/release-notes/container_security/release_1_45.htm",
         "version": "1.45"
       },
-      "retrieved_at": "2026-10-14T12:23:53Z"
+      "retrieved_at": "2026-10-15T18:41:16Z"
     },
     "ETM": {
       "release": {
         "features": [
           {
             "description": "",
-            "title": "Trace Attack Paths to Your Critical Assets"
-          },
-          {
-            "description": "ETM now supports two CISA-published risk factors alongside your existing finding data:",
-            "title": "Prioritize Remediation Using CISA BOD 26-04"
-          },
-          {
-            "description": "Mitigation is different from remediation. Remediation fixes the underlying vulnerability, typically by patching it. Mitigation reduces the risk of exploitation using a compensating control such as a virtual patch or a WAF rule \u2014 delivered through Qualys TruRisk Eliminate, without changing the vulnerable software itself.",
-            "title": "TruLens Enhancements"
+            "title": "Build Remediation Plans with Agent Sara Chat Now"
           },
           {
             "description": "",
-            "title": "Select Multiple Scanners for TruConfirm Scans"
+            "title": "View InstaScan Findings in Risk Management"
           },
           {
-            "description": "You can use the following tokens to search attack paths and rules in theAttack Pathtab:",
-            "title": "New Tokens for Attack Path"
+            "description": "",
+            "title": "Track CISA BOD 26-04 Remediation with New Dashboard Widgets"
           },
           {
-            "description": "You can usethese Qualys Query Language (QQL) tokens to build CISA BOD 26-04 worklists:",
-            "title": "New Tokens to Build CISA BOD 26-04 Worklists"
+            "description": "",
+            "title": "Mitigate Vulnerabilities Directly from ETM"
+          },
+          {
+            "description": "",
+            "title": "Create Alerts and Exceptions Using Mitigation and Patch Details"
+          },
+          {
+            "description": "Use the new tokens to search for findings by mitigation and patch details. You can also use all of these tokens when you create alert rules and exception rules.",
+            "title": "New Tokens for Mitigation and Patch Details"
+          },
+          {
+            "description": "",
+            "title": "See Template Coverage and Mitigation Counts in Risk Workbench Plans"
+          },
+          {
+            "description": "",
+            "title": "Evidence Section in TruConfirm Scan Results"
+          },
+          {
+            "description": "",
+            "title": "ErrorHandlingforSkippedFindingsandAssetsinTruConfirmScans"
+          },
+          {
+            "description": "Use these tokens to find the vulnerabilities from a specific Microsoft Patch Tuesday release, so you can track and fix them each month. You can use the following tokens to search for findings related to Patch Tuesday releases:",
+            "title": "New Tokens for Patch Tuesday"
           },
           {
             "description": "The following reported and notable customer issues are fixed in this release:",
@@ -243,11 +259,11 @@
           }
         ],
         "release_date": null,
-        "title": "ETM Release 1.13",
-        "url": "https://docs.qualys.com/en/etm/release-notes/etm/release_1_13.htm",
-        "version": "1.13"
+        "title": "ETM Release 1.14",
+        "url": "https://docs.qualys.com/en/etm/release-notes/etm/release_1_14.htm",
+        "version": "1.14"
       },
-      "retrieved_at": "2026-10-14T12:23:53Z"
+      "retrieved_at": "2026-10-15T18:41:16Z"
     },
     "FIM": {
       "release": {
@@ -278,7 +294,7 @@
         "url": "https://docs.qualys.com/en/fim/release-notes/file_integrity_monitoring/release_4_9_4.htm",
         "version": "4.9.4"
       },
-      "retrieved_at": "2026-10-14T12:23:53Z"
+      "retrieved_at": "2026-10-15T18:41:16Z"
     },
     "ISL": {
       "release": {
@@ -305,7 +321,7 @@
         "url": "https://docs.qualys.com/en/pm/release-notes/patch_management/release_4_2_1.htm",
         "version": "4.2.1"
       },
-      "retrieved_at": "2026-10-14T12:23:53Z"
+      "retrieved_at": "2026-10-15T18:41:16Z"
     },
     "ITAM": {
       "release": {
@@ -336,7 +352,7 @@
         "url": "https://docs.qualys.com/en/csam/release-notes/cybersecurity_asset_management/release_3_7_3.htm",
         "version": "3.7.3"
       },
-      "retrieved_at": "2026-10-14T12:23:53Z"
+      "retrieved_at": "2026-10-15T18:41:16Z"
     },
     "OCA": {
       "release": {
@@ -351,7 +367,7 @@
         "url": "https://docs.qualys.com/en/oca/release-notes/oca/release_1_13.htm",
         "version": "1.13"
       },
-      "retrieved_at": "2026-10-14T12:23:53Z"
+      "retrieved_at": "2026-10-15T18:41:16Z"
     },
     "PM": {
       "release": {
@@ -370,7 +386,7 @@
         "url": " https://docs.qualys.com/en/pm/release-notes/patch_management/release_3_6.htm",
         "version": "3.6"
       },
-      "retrieved_at": "2026-10-14T12:23:53Z"
+      "retrieved_at": "2026-10-15T18:41:16Z"
     },
     "PS": {
       "release": {
@@ -385,7 +401,7 @@
         "url": "https://docs.qualys.com/en/ps/release-notes/ps/release_2_6.htm",
         "version": "2.6"
       },
-      "retrieved_at": "2026-10-14T12:23:53Z"
+      "retrieved_at": "2026-10-15T18:41:16Z"
     },
     "QFLOW": {
       "release": {
@@ -412,7 +428,7 @@
         "url": "https://docs.qualys.com/en/qflow/release-notes/qflow/release_1_24.htm",
         "version": "1.24"
       },
-      "retrieved_at": "2026-10-14T12:23:53Z"
+      "retrieved_at": "2026-10-15T18:41:16Z"
     },
     "QGS": {
       "release": {
@@ -431,7 +447,7 @@
         "url": "https://docs.qualys.com/en/qgs/release-notes/qgs/release_3_16_1.htm",
         "version": "3.16.1"
       },
-      "retrieved_at": "2026-10-14T12:23:53Z"
+      "retrieved_at": "2026-10-15T18:41:16Z"
     },
     "QWEB_PC": {
       "release": {
@@ -478,7 +494,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_pa/pa/release_1_17.htm",
         "version": "1.17"
       },
-      "retrieved_at": "2026-10-14T12:23:53Z"
+      "retrieved_at": "2026-10-15T18:41:16Z"
     },
     "QWEB_VM": {
       "release": {
@@ -493,7 +509,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_vmdr_rn/vmdr/release_2_14.htm",
         "version": "2.14"
       },
-      "retrieved_at": "2026-10-14T12:23:53Z"
+      "retrieved_at": "2026-10-15T18:41:16Z"
     },
     "SEM": {
       "release": {
@@ -516,7 +532,7 @@
         "url": "https://docs.qualys.com/en/vmdr-mobile/release-notes/vmdr_mobile/release_1_6_1.htm",
         "version": "1.6.1"
       },
-      "retrieved_at": "2026-10-14T12:23:53Z"
+      "retrieved_at": "2026-10-15T18:41:16Z"
     },
     "SM": {
       "release": {
@@ -543,7 +559,7 @@
         "url": "https://docs.qualys.com/en/car/release-notes/car/release_2_9_2.htm",
         "version": "2.9.2"
       },
-      "retrieved_at": "2026-10-14T12:23:53Z"
+      "retrieved_at": "2026-10-15T18:41:16Z"
     },
     "TA": {
       "release": {
@@ -594,7 +610,7 @@
         "url": "https://docs.qualys.com/en/ta/release-notes/total_ai/release_2_0.htm",
         "version": "2.0"
       },
-      "retrieved_at": "2026-10-14T12:23:53Z"
+      "retrieved_at": "2026-10-15T18:41:16Z"
     },
     "TC": {
       "release": {
@@ -633,7 +649,7 @@
         "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_28.htm",
         "version": "2.28"
       },
-      "retrieved_at": "2026-10-14T12:23:53Z"
+      "retrieved_at": "2026-10-15T18:41:16Z"
     },
     "UD": {
       "release": {
@@ -652,7 +668,7 @@
         "url": "https://docs.qualys.com/en/ud/release-notes/unified_dashboard/release_2_17.htm",
         "version": "2.17"
       },
-      "retrieved_at": "2026-10-14T12:23:53Z"
+      "retrieved_at": "2026-10-15T18:41:16Z"
     },
     "WAS": {
       "release": {
@@ -679,7 +695,7 @@
         "url": "https://docs.qualys.com/en/tas/release-notes/total_app_sec/release_2_1.htm",
         "version": "2.1"
       },
-      "retrieved_at": "2026-10-14T12:23:53Z"
+      "retrieved_at": "2026-10-15T18:41:16Z"
     }
   },
   "parse_format_version": 3,
