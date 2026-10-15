@@ -1,7 +1,7 @@
 # Qualys Tenant Version Report
 
 - **Tenant identifier:** qualysapi.qg2.apps.qualys.eu
-- **Last checked:** 2026-10-14T18:56:59Z
+- **Last checked:** 2026-10-15T12:08:14Z
 - **Total modules:** 37
 
 | Module | API Field | Current Version | First Seen | Last Changed |
@@ -25,7 +25,7 @@
 | OCA | OCA-VERSION | 1.13.3.0-2 | 2026-09-10T15:39:50Z | 2026-09-10T15:39:50Z |
 | PM | PM-VERSION | 4.2.0.0-142 | 2026-09-10T15:39:50Z | 2026-10-07T13:57:10Z |
 | PS | PS-VERSION | 2.6.0.0-7 | 2026-09-10T15:39:50Z | 2026-09-22T07:09:04Z |
-| PortalApplication | PortalApplication-VERSION | 3.25.0.0-11 DEVELOP #87 (2026-09-30T15:31:34Z) | 2026-09-10T15:39:50Z | 2026-10-06T13:38:08Z |
+| PortalApplication | PortalApplication-VERSION | 3.25.0.0-13 DEVELOP #89 (2026-10-07T12:47:34Z) | 2026-09-10T15:39:50Z | 2026-10-15T12:08:14Z |
 | QFLOW | QFLOW-VERSION | 1.24.0 | 2026-09-10T15:39:50Z | 2026-09-10T15:39:50Z |
 | QGS | QGS-VERSION | 2.10.0-15 | 2026-09-10T15:39:50Z | 2026-09-23T12:12:53Z |
 | QUESTIONNAIRE | QUESTIONNAIRE-VERSION | 2.46.0.0 | 2026-09-10T15:39:50Z | 2026-09-22T07:09:04Z |

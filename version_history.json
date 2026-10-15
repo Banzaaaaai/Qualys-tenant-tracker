@@ -646,5 +646,13 @@
     "new_version": "2.17.0-2-29",
     "old_version": "2.15.1-37",
     "timestamp": "2026-10-14T12:23:53Z"
+  },
+  {
+    "api_field": "PortalApplication-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "PortalApplication",
+    "new_version": "3.25.0.0-13 DEVELOP #89 (2026-10-07T12:47:34Z)",
+    "old_version": "3.25.0.0-11 DEVELOP #87 (2026-09-30T15:31:34Z)",
+    "timestamp": "2026-10-15T12:08:14Z"
   }
 ]
