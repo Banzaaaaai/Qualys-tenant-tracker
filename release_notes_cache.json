@@ -13,7 +13,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_vmdr_rn/vmdr/release_2_14.htm",
         "version": "2.14"
       },
-      "retrieved_at": "2026-10-15T18:41:16Z"
+      "retrieved_at": "2026-10-17T11:10:51Z"
     },
     "CA": {
       "release": {
@@ -68,7 +68,7 @@
         "url": "https://docs.qualys.com/en/ca/release-notes/ca_application/release_2_8.htm",
         "version": "2.8"
       },
-      "retrieved_at": "2026-10-15T18:41:16Z"
+      "retrieved_at": "2026-10-17T11:10:51Z"
     },
     "CERTVIEW": {
       "release": {
@@ -87,7 +87,7 @@
         "url": "https://docs.qualys.com/en/certview/release-notes/certview/release_4_8_1.htm",
         "version": "4.8.1"
       },
-      "retrieved_at": "2026-10-15T18:41:16Z"
+      "retrieved_at": "2026-10-17T11:10:51Z"
     },
     "CLOUDVIEW": {
       "release": {
@@ -126,7 +126,7 @@
         "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_28.htm",
         "version": "2.28"
       },
-      "retrieved_at": "2026-10-15T18:41:16Z"
+      "retrieved_at": "2026-10-17T11:10:51Z"
     },
     "CONN": {
       "release": {
@@ -149,7 +149,7 @@
         "url": "https://docs.qualys.com/en/conn/release-notes/connector/release_2_21.htm",
         "version": "2.21"
       },
-      "retrieved_at": "2026-10-15T18:41:16Z"
+      "retrieved_at": "2026-10-17T11:10:51Z"
     },
     "CS": {
       "release": {
@@ -208,7 +208,7 @@
         "url": "https://docs.qualys.com/en/cs/release-notes/container_security/release_1_45.htm",
         "version": "1.45"
       },
-      "retrieved_at": "2026-10-15T18:41:16Z"
+      "retrieved_at": "2026-10-17T11:10:51Z"
     },
     "ETM": {
       "release": {
@@ -263,7 +263,7 @@
         "url": "https://docs.qualys.com/en/etm/release-notes/etm/release_1_14.htm",
         "version": "1.14"
       },
-      "retrieved_at": "2026-10-15T18:41:16Z"
+      "retrieved_at": "2026-10-17T11:10:51Z"
     },
     "FIM": {
       "release": {
@@ -294,7 +294,7 @@
         "url": "https://docs.qualys.com/en/fim/release-notes/file_integrity_monitoring/release_4_9_4.htm",
         "version": "4.9.4"
       },
-      "retrieved_at": "2026-10-15T18:41:16Z"
+      "retrieved_at": "2026-10-17T11:10:51Z"
     },
     "ISL": {
       "release": {
@@ -321,7 +321,7 @@
         "url": "https://docs.qualys.com/en/pm/release-notes/patch_management/release_4_2_1.htm",
         "version": "4.2.1"
       },
-      "retrieved_at": "2026-10-15T18:41:16Z"
+      "retrieved_at": "2026-10-17T11:10:51Z"
     },
     "ITAM": {
       "release": {
@@ -352,7 +352,7 @@
         "url": "https://docs.qualys.com/en/csam/release-notes/cybersecurity_asset_management/release_3_7_3.htm",
         "version": "3.7.3"
       },
-      "retrieved_at": "2026-10-15T18:41:16Z"
+      "retrieved_at": "2026-10-17T11:10:51Z"
     },
     "OCA": {
       "release": {
@@ -367,7 +367,7 @@
         "url": "https://docs.qualys.com/en/oca/release-notes/oca/release_1_13.htm",
         "version": "1.13"
       },
-      "retrieved_at": "2026-10-15T18:41:16Z"
+      "retrieved_at": "2026-10-17T11:10:51Z"
     },
     "PM": {
       "release": {
@@ -386,7 +386,7 @@
         "url": " https://docs.qualys.com/en/pm/release-notes/patch_management/release_3_6.htm",
         "version": "3.6"
       },
-      "retrieved_at": "2026-10-15T18:41:16Z"
+      "retrieved_at": "2026-10-17T11:10:51Z"
     },
     "PS": {
       "release": {
@@ -401,7 +401,7 @@
         "url": "https://docs.qualys.com/en/ps/release-notes/ps/release_2_6.htm",
         "version": "2.6"
       },
-      "retrieved_at": "2026-10-15T18:41:16Z"
+      "retrieved_at": "2026-10-17T11:10:51Z"
     },
     "QFLOW": {
       "release": {
@@ -428,7 +428,7 @@
         "url": "https://docs.qualys.com/en/qflow/release-notes/qflow/release_1_24.htm",
         "version": "1.24"
       },
-      "retrieved_at": "2026-10-15T18:41:16Z"
+      "retrieved_at": "2026-10-17T11:10:51Z"
     },
     "QGS": {
       "release": {
@@ -447,7 +447,7 @@
         "url": "https://docs.qualys.com/en/qgs/release-notes/qgs/release_3_16_1.htm",
         "version": "3.16.1"
       },
-      "retrieved_at": "2026-10-15T18:41:16Z"
+      "retrieved_at": "2026-10-17T11:10:51Z"
     },
     "QWEB_PC": {
       "release": {
@@ -494,7 +494,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_pa/pa/release_1_17.htm",
         "version": "1.17"
       },
-      "retrieved_at": "2026-10-15T18:41:16Z"
+      "retrieved_at": "2026-10-17T11:10:51Z"
     },
     "QWEB_VM": {
       "release": {
@@ -509,7 +509,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_vmdr_rn/vmdr/release_2_14.htm",
         "version": "2.14"
       },
-      "retrieved_at": "2026-10-15T18:41:16Z"
+      "retrieved_at": "2026-10-17T11:10:51Z"
     },
     "SEM": {
       "release": {
@@ -532,34 +532,42 @@
         "url": "https://docs.qualys.com/en/vmdr-mobile/release-notes/vmdr_mobile/release_1_6_1.htm",
         "version": "1.6.1"
       },
-      "retrieved_at": "2026-10-15T18:41:16Z"
+      "retrieved_at": "2026-10-17T11:10:51Z"
     },
     "SM": {
       "release": {
         "features": [
           {
-            "description": "You can now upload a CSV file containing asset names to quickly select up to 5,000 assets when testing, running, or scheduling a script. This feature eliminates the need for manual asset selection, making it easier to target large sets of assets at once.",
-            "title": "Import Assets from a CSV File to Run Scripts and Schedule at Scale"
+            "description": "",
+            "title": "Assess Perimeter Devices Without the Cloud Agent"
           },
           {
-            "description": "You can now use theAutomated Asset Selectionoption to search and filter assets for script execution using a QQL query. This enhancement helps you quickly target the required assets while reducing manual selection effort.",
-            "title": "Target the Right Assets for Script Execution Using a\u00a0QQL Query"
+            "description": "",
+            "title": "Schedule Software Packages for Automated Deployments"
           },
           {
-            "description": "You can now edit theTechnologieslist for approved Control ID Remediation scripts created directly in CAR or imported from the Library. This enhancement lets you update the technologies associated with an approved script without creating a duplicate script.",
-            "title": "Edit Technologies\u00a0for Approved Control ID Remediation Scripts"
+            "description": "You can now enable an independent, second-level approval workflow before approving a script or software package. Users cannot approve their own scripts or packages, even if they have approval permission. Another user with approval permission must review and approve them before they can be scheduled or executed.",
+            "title": "Require Second Reviewer Before Scripts and Packages Run"
           },
           {
-            "description": "With this release, we have introduced an improved user experience across all CAR pages. You can see updates across fonts, colors, typography, and buttons, making the interface more intuitive and easier to use.",
-            "title": "Enhanced Readability and Visual Clarity"
+            "description": "This semantic search returns scripts that closely match your request's intent, even if you do not know the script name or the required QQL fields.",
+            "title": "Find Scripts by Describing Your Task"
+          },
+          {
+            "description": "The following table provides the new QQL token added in this release:",
+            "title": "New QQL Tokens"
+          },
+          {
+            "description": "For information on API enhancements, refer to theCustom Assessment and Remediation 2.9.3 API Release Notes.",
+            "title": "API Enhancements"
           }
         ],
         "release_date": null,
-        "title": "Custom Assessment and Remediation Release 2.9.2",
-        "url": "https://docs.qualys.com/en/car/release-notes/car/release_2_9_2.htm",
-        "version": "2.9.2"
+        "title": "Custom Assessment and Remediation Release 2.9.3",
+        "url": "https://docs.qualys.com/en/car/release-notes/car/release_2_9_3.htm",
+        "version": "2.9.3"
       },
-      "retrieved_at": "2026-10-15T18:41:16Z"
+      "retrieved_at": "2026-10-17T11:10:51Z"
     },
     "TA": {
       "release": {
@@ -610,7 +618,7 @@
         "url": "https://docs.qualys.com/en/ta/release-notes/total_ai/release_2_0.htm",
         "version": "2.0"
       },
-      "retrieved_at": "2026-10-15T18:41:16Z"
+      "retrieved_at": "2026-10-17T11:10:51Z"
     },
     "TC": {
       "release": {
@@ -649,7 +657,7 @@
         "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_28.htm",
         "version": "2.28"
       },
-      "retrieved_at": "2026-10-15T18:41:16Z"
+      "retrieved_at": "2026-10-17T11:10:51Z"
     },
     "UD": {
       "release": {
@@ -668,7 +676,7 @@
         "url": "https://docs.qualys.com/en/ud/release-notes/unified_dashboard/release_2_17.htm",
         "version": "2.17"
       },
-      "retrieved_at": "2026-10-15T18:41:16Z"
+      "retrieved_at": "2026-10-17T11:10:51Z"
     },
     "WAS": {
       "release": {
@@ -695,7 +703,7 @@
         "url": "https://docs.qualys.com/en/tas/release-notes/total_app_sec/release_2_1.htm",
         "version": "2.1"
       },
-      "retrieved_at": "2026-10-15T18:41:16Z"
+      "retrieved_at": "2026-10-17T11:10:51Z"
     }
   },
   "parse_format_version": 3,
@@ -1351,6 +1359,36 @@
       "retrieved_at": "2026-09-29T13:20:19Z",
       "source": "qualys_release_notes_index",
       "version": "2.13.0-3-65"
+    },
+    "SM|2.9.2.0-37": {
+      "module": "SM",
+      "release": {
+        "features": [
+          {
+            "description": "You can now upload a CSV file containing asset names to quickly select up to 5,000 assets when testing, running, or scheduling a script. This feature eliminates the need for manual asset selection, making it easier to target large sets of assets at once.",
+            "title": "Import Assets from a CSV File to Run Scripts and Schedule at Scale"
+          },
+          {
+            "description": "You can now use theAutomated Asset Selectionoption to search and filter assets for script execution using a QQL query. This enhancement helps you quickly target the required assets while reducing manual selection effort.",
+            "title": "Target the Right Assets for Script Execution Using a\u00a0QQL Query"
+          },
+          {
+            "description": "You can now edit theTechnologieslist for approved Control ID Remediation scripts created directly in CAR or imported from the Library. This enhancement lets you update the technologies associated with an approved script without creating a duplicate script.",
+            "title": "Edit Technologies\u00a0for Approved Control ID Remediation Scripts"
+          },
+          {
+            "description": "With this release, we have introduced an improved user experience across all CAR pages. You can see updates across fonts, colors, typography, and buttons, making the interface more intuitive and easier to use.",
+            "title": "Enhanced Readability and Visual Clarity"
+          }
+        ],
+        "release_date": null,
+        "title": "Custom Assessment and Remediation Release 2.9.2",
+        "url": "https://docs.qualys.com/en/car/release-notes/car/release_2_9_2.htm",
+        "version": "2.9.2.0-37"
+      },
+      "retrieved_at": "2026-10-17T11:10:51Z",
+      "source": "qualys_release_notes_index",
+      "version": "2.9.2.0-37"
     },
     "TA|2.0.0.0-28": {
       "module": "TA",
