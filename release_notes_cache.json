@@ -1152,6 +1152,64 @@
       "source": "qualys_release_notes_index",
       "version": "1.13.0-290"
     },
+    "ETM|1.14.0-208": {
+      "module": "ETM",
+      "release": {
+        "features": [
+          {
+            "description": "",
+            "title": "Build Remediation Plans with Agent Sara Chat Now"
+          },
+          {
+            "description": "",
+            "title": "View InstaScan Findings in Risk Management"
+          },
+          {
+            "description": "",
+            "title": "Track CISA BOD 26-04 Remediation with New Dashboard Widgets"
+          },
+          {
+            "description": "",
+            "title": "Mitigate Vulnerabilities Directly from ETM"
+          },
+          {
+            "description": "",
+            "title": "Create Alerts and Exceptions Using Mitigation and Patch Details"
+          },
+          {
+            "description": "Use the new tokens to search for findings by mitigation and patch details. You can also use all of these tokens when you create alert rules and exception rules.",
+            "title": "New Tokens for Mitigation and Patch Details"
+          },
+          {
+            "description": "",
+            "title": "See Template Coverage and Mitigation Counts in Risk Workbench Plans"
+          },
+          {
+            "description": "",
+            "title": "Evidence Section in TruConfirm Scan Results"
+          },
+          {
+            "description": "",
+            "title": "ErrorHandlingforSkippedFindingsandAssetsinTruConfirmScans"
+          },
+          {
+            "description": "Use these tokens to find the vulnerabilities from a specific Microsoft Patch Tuesday release, so you can track and fix them each month. You can use the following tokens to search for findings related to Patch Tuesday releases:",
+            "title": "New Tokens for Patch Tuesday"
+          },
+          {
+            "description": "The following reported and notable customer issues are fixed in this release:",
+            "title": "Fixes"
+          }
+        ],
+        "release_date": null,
+        "title": "ETM Release 1.14",
+        "url": "https://docs.qualys.com/en/etm/release-notes/etm/release_1_14.htm",
+        "version": "1.14.0-208"
+      },
+      "retrieved_at": "2026-10-20T12:13:30Z",
+      "source": "qualys_release_notes_index",
+      "version": "1.14.0-208"
+    },
     "ISL|4.1.0.0-282": {
       "module": "ISL",
       "release": {
@@ -1215,6 +1273,36 @@
       "retrieved_at": "2026-10-07T13:57:10Z",
       "source": "qualys_release_notes_index",
       "version": "4.2.0.0-142"
+    },
+    "ISL|4.2.1.0-233": {
+      "module": "ISL",
+      "release": {
+        "features": [
+          {
+            "description": "",
+            "title": "With Agent Sara, Remediate Smarter, and Roll Out in Phased Rings"
+          },
+          {
+            "description": "",
+            "title": "Mitigate ETM Plan Findings to Reduce Risk When No Patch Is Available"
+          },
+          {
+            "description": "Refer to the following table to learn more about the new tokens in this release.",
+            "title": "New QQL Tokens"
+          },
+          {
+            "description": "The following reported and notable customer issues are fixed in this release.",
+            "title": "Issues Addressed"
+          }
+        ],
+        "release_date": null,
+        "title": "TruRisk\u2122 Eliminate Release 4.2.1",
+        "url": "https://docs.qualys.com/en/pm/release-notes/patch_management/release_4_2_1.htm",
+        "version": "4.2.1.0-233"
+      },
+      "retrieved_at": "2026-10-20T12:13:30Z",
+      "source": "qualys_release_notes_index",
+      "version": "4.2.1.0-233"
     },
     "ITAM|3.7.3.0-23": {
       "module": "ITAM",

@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-10-19T14:59:13Z",
+  "last_checked": "2026-10-20T12:13:30Z",
   "modules": {
     "AV2": {
       "api_field": "AV2-VERSION",
@@ -46,8 +46,8 @@
     "ETM": {
       "api_field": "ETM-VERSION",
       "first_seen": "2026-09-10T15:39:50Z",
-      "last_changed": "2026-10-07T13:57:10Z",
-      "version": "1.13.0-290"
+      "last_changed": "2026-10-20T12:13:30Z",
+      "version": "1.14.0-208"
     },
     "FIM": {
       "api_field": "FIM-VERSION",
@@ -70,8 +70,8 @@
     "ISL": {
       "api_field": "ISL-VERSION",
       "first_seen": "2026-09-10T15:39:50Z",
-      "last_changed": "2026-10-07T13:57:10Z",
-      "version": "4.2.0.0-142"
+      "last_changed": "2026-10-20T12:13:30Z",
+      "version": "4.2.1.0-233"
     },
     "ISPM": {
       "api_field": "ISPM-VERSION",
@@ -94,8 +94,8 @@
     "MTG": {
       "api_field": "MTG-VERSION",
       "first_seen": "2026-09-10T15:39:50Z",
-      "last_changed": "2026-10-07T13:57:10Z",
-      "version": "4.2.0.0-142"
+      "last_changed": "2026-10-20T12:13:30Z",
+      "version": "4.2.1.0-233"
     },
     "OCA": {
       "api_field": "OCA-VERSION",
@@ -106,8 +106,8 @@
     "PM": {
       "api_field": "PM-VERSION",
       "first_seen": "2026-09-10T15:39:50Z",
-      "last_changed": "2026-10-07T13:57:10Z",
-      "version": "4.2.0.0-142"
+      "last_changed": "2026-10-20T12:13:30Z",
+      "version": "4.2.1.0-233"
     },
     "PS": {
       "api_field": "PS-VERSION",
