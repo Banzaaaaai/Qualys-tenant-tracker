@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-10-22T18:51:54Z",
+  "last_checked": "2026-10-23T12:08:03Z",
   "modules": {
     "AV2": {
       "api_field": "AV2-VERSION",
@@ -82,8 +82,8 @@
     "ITAM": {
       "api_field": "ITAM-VERSION",
       "first_seen": "2026-09-10T15:39:50Z",
-      "last_changed": "2026-09-25T18:55:22Z",
-      "version": "3.7.3.0-24"
+      "last_changed": "2026-10-23T12:08:03Z",
+      "version": "3.7.3.0-26"
     },
     "MDS": {
       "api_field": "MDS-VERSION",

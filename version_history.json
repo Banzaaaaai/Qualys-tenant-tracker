@@ -686,5 +686,13 @@
     "new_version": "4.2.1.0-233",
     "old_version": "4.2.0.0-142",
     "timestamp": "2026-10-20T12:13:30Z"
+  },
+  {
+    "api_field": "ITAM-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "ITAM",
+    "new_version": "3.7.3.0-26",
+    "old_version": "3.7.3.0-24",
+    "timestamp": "2026-10-23T12:08:03Z"
   }
 ]
