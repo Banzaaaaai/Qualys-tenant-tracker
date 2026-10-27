@@ -1362,6 +1362,36 @@
       "source": "qualys_release_notes_index",
       "version": "4.2.1.0-233"
     },
+    "ISL|4.2.1.0-246": {
+      "module": "ISL",
+      "release": {
+        "features": [
+          {
+            "description": "",
+            "title": "With Agent Sara, Remediate Smarter, and Roll Out in Phased Rings"
+          },
+          {
+            "description": "",
+            "title": "Mitigate ETM Plan Findings to Reduce Risk When No Patch Is Available"
+          },
+          {
+            "description": "Refer to the following table to learn more about the new tokens in this release.",
+            "title": "New QQL Tokens"
+          },
+          {
+            "description": "The following reported and notable customer issues are fixed in this release.",
+            "title": "Fixes"
+          }
+        ],
+        "release_date": null,
+        "title": "TruRisk\u2122 Eliminate Release 4.2.1",
+        "url": "https://docs.qualys.com/en/pm/release-notes/patch_management/release_4_2_1.htm",
+        "version": "4.2.1.0-246"
+      },
+      "retrieved_at": "2026-10-27T12:41:07Z",
+      "source": "qualys_release_notes_index",
+      "version": "4.2.1.0-246"
+    },
     "ITAM|3.7.3.0-23": {
       "module": "ITAM",
       "release": {
@@ -1539,6 +1569,24 @@
       "retrieved_at": "2026-09-29T13:20:19Z",
       "source": "qualys_release_notes_index",
       "version": "2.13.0-3-65"
+    },
+    "QWEB_VM|2.14.0-49": {
+      "module": "QWEB_VM",
+      "release": {
+        "features": [
+          {
+            "description": "The following reported and notable customer issue is\u00a0fixed in this release:",
+            "title": "Fix"
+          }
+        ],
+        "release_date": null,
+        "title": "VMDR Release 2.14",
+        "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_vmdr_rn/vmdr/release_2_14.htm",
+        "version": "2.14.0-49"
+      },
+      "retrieved_at": "2026-10-27T12:41:07Z",
+      "source": "qualys_release_notes_index",
+      "version": "2.14.0-49"
     },
     "SM|2.9.2.0-37": {
       "module": "SM",
