@@ -1,7 +1,7 @@
 # Qualys Tenant Version Report
 
 - **Tenant identifier:** qualysapi.qg2.apps.qualys.eu
-- **Last checked:** 2026-10-27T12:41:07Z
+- **Last checked:** 2026-10-27T19:40:33Z
 - **Total modules:** 37
 
 | Module | API Field | Current Version | First Seen | Last Changed |
