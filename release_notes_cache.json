@@ -1494,6 +1494,40 @@
       "source": "qualys_release_notes_index",
       "version": "3.7.3.0-26"
     },
+    "ITAM|3.7.3.0-31": {
+      "module": "ITAM",
+      "release": {
+        "features": [
+          {
+            "description": "",
+            "title": "Merge Duplicate Assets using Qualys Scanner Rules"
+          },
+          {
+            "description": "",
+            "title": "Prevent Incorrect Asset Merging with Custom Exclusions"
+          },
+          {
+            "description": "",
+            "title": "Access Public and Private IPv6 Details for OCI Assets"
+          },
+          {
+            "description": "",
+            "title": "View DNS Records for Unresolved Domains"
+          },
+          {
+            "description": "The following reported and notable customer issues are fixed in this release:",
+            "title": "Fixes"
+          }
+        ],
+        "release_date": null,
+        "title": "CyberSecurity Asset Management / Global AssetView Release 3.7.3.0",
+        "url": "https://docs.qualys.com/en/csam/release-notes/cybersecurity_asset_management/release_3_7_3.htm",
+        "version": "3.7.3.0-31"
+      },
+      "retrieved_at": "2026-10-28T19:54:43Z",
+      "source": "qualys_release_notes_index",
+      "version": "3.7.3.0-31"
+    },
     "QWEB_PC|1.16.0": {
       "module": "QWEB_PC",
       "release": {

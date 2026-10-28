@@ -742,5 +742,21 @@
     "new_version": "2.17.0-3-31",
     "old_version": "2.17.0-2-29",
     "timestamp": "2026-10-28T13:32:51Z"
+  },
+  {
+    "api_field": "PortalApplication-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "PortalApplication",
+    "new_version": "3.25.0.0-19 DEVELOP #7 (2026-10-25T14:43:45Z)",
+    "old_version": "3.25.0.0-13 DEVELOP #89 (2026-10-07T12:47:34Z)",
+    "timestamp": "2026-10-28T19:54:43Z"
+  },
+  {
+    "api_field": "ITAM-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "ITAM",
+    "new_version": "3.7.3.0-31",
+    "old_version": "3.7.3.0-26",
+    "timestamp": "2026-10-28T19:54:43Z"
   }
 ]
