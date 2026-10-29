@@ -13,7 +13,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_vmdr_rn/vmdr/release_2_14.htm",
         "version": "2.14"
       },
-      "retrieved_at": "2026-10-28T13:32:51Z"
+      "retrieved_at": "2026-10-29T13:44:01Z"
     },
     "CA": {
       "release": {
@@ -68,7 +68,7 @@
         "url": "https://docs.qualys.com/en/ca/release-notes/ca_application/release_2_8.htm",
         "version": "2.8"
       },
-      "retrieved_at": "2026-10-28T13:32:51Z"
+      "retrieved_at": "2026-10-29T13:44:01Z"
     },
     "CERTVIEW": {
       "release": {
@@ -87,7 +87,7 @@
         "url": "https://docs.qualys.com/en/certview/release-notes/certview/release_4_8_1.htm",
         "version": "4.8.1"
       },
-      "retrieved_at": "2026-10-28T13:32:51Z"
+      "retrieved_at": "2026-10-29T13:44:01Z"
     },
     "CLOUDVIEW": {
       "release": {
@@ -126,7 +126,7 @@
         "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_28.htm",
         "version": "2.28"
       },
-      "retrieved_at": "2026-10-28T13:32:51Z"
+      "retrieved_at": "2026-10-29T13:44:01Z"
     },
     "CONN": {
       "release": {
@@ -149,7 +149,7 @@
         "url": "https://docs.qualys.com/en/conn/release-notes/connector/release_2_21.htm",
         "version": "2.21"
       },
-      "retrieved_at": "2026-10-28T13:32:51Z"
+      "retrieved_at": "2026-10-29T13:44:01Z"
     },
     "CS": {
       "release": {
@@ -208,7 +208,7 @@
         "url": "https://docs.qualys.com/en/cs/release-notes/container_security/release_1_45.htm",
         "version": "1.45"
       },
-      "retrieved_at": "2026-10-28T13:32:51Z"
+      "retrieved_at": "2026-10-29T13:44:01Z"
     },
     "ETM": {
       "release": {
@@ -263,7 +263,7 @@
         "url": "https://docs.qualys.com/en/etm/release-notes/etm/release_1_14.htm",
         "version": "1.14"
       },
-      "retrieved_at": "2026-10-28T13:32:51Z"
+      "retrieved_at": "2026-10-29T13:44:01Z"
     },
     "FIM": {
       "release": {
@@ -294,34 +294,22 @@
         "url": "https://docs.qualys.com/en/fim/release-notes/file_integrity_monitoring/release_4_9_4.htm",
         "version": "4.9.4"
       },
-      "retrieved_at": "2026-10-28T13:32:51Z"
+      "retrieved_at": "2026-10-29T13:44:01Z"
     },
     "ISL": {
       "release": {
         "features": [
           {
             "description": "",
-            "title": "With Agent Sara, Remediate Smarter, and Roll Out in Phased Rings"
-          },
-          {
-            "description": "",
-            "title": "Mitigate ETM Plan Findings to Reduce Risk When No Patch Is Available"
-          },
-          {
-            "description": "Refer to the following table to learn more about the new tokens in this release.",
-            "title": "New QQL Tokens"
-          },
-          {
-            "description": "The following reported and notable customer issues are fixed in this release.",
-            "title": "Fixes"
+            "title": "Identify and Remediate PHP2Shell Risk Faster Across All Assets"
           }
         ],
         "release_date": null,
-        "title": "TruRisk\u2122 Eliminate Release 4.2.1",
-        "url": "https://docs.qualys.com/en/pm/release-notes/patch_management/release_4_2_1.htm",
-        "version": "4.2.1"
+        "title": "TruRisk\u2122 Eliminate Release 4.2.1.1",
+        "url": "https://docs.qualys.com/en/pm/release-notes/patch_management/release_4_2_1_1.htm",
+        "version": "4.2.1.1"
       },
-      "retrieved_at": "2026-10-28T13:32:51Z"
+      "retrieved_at": "2026-10-29T13:44:01Z"
     },
     "ITAM": {
       "release": {
@@ -352,7 +340,7 @@
         "url": "https://docs.qualys.com/en/csam/release-notes/cybersecurity_asset_management/release_3_7_3.htm",
         "version": "3.7.3"
       },
-      "retrieved_at": "2026-10-28T13:32:51Z"
+      "retrieved_at": "2026-10-29T13:44:01Z"
     },
     "OCA": {
       "release": {
@@ -367,7 +355,7 @@
         "url": "https://docs.qualys.com/en/oca/release-notes/oca/release_1_13.htm",
         "version": "1.13"
       },
-      "retrieved_at": "2026-10-28T13:32:51Z"
+      "retrieved_at": "2026-10-29T13:44:01Z"
     },
     "PM": {
       "release": {
@@ -386,22 +374,30 @@
         "url": " https://docs.qualys.com/en/pm/release-notes/patch_management/release_3_6.htm",
         "version": "3.6"
       },
-      "retrieved_at": "2026-10-28T13:32:51Z"
+      "retrieved_at": "2026-10-29T13:44:01Z"
     },
     "PS": {
       "release": {
         "features": [
           {
-            "description": "We introduced an improved user experience across the\u00a0NPS user interface, with updates to fonts, colors, typography, and buttons that make the interface more intuitive and user-friendly. Enhancements to the user interface and design system improve visual consistency, readability, and usability throughout the application, resulting in a cleaner and more streamlined experience.",
-            "title": "Enhanced User Interface for NPS"
+            "description": "",
+            "title": "Restrict Sensor Access with Asset Tags"
+          },
+          {
+            "description": "",
+            "title": "Restrict Sensor Access with Business Units"
+          },
+          {
+            "description": "",
+            "title": "Prevent Unauthorized Changes to Configuration Settings"
           }
         ],
         "release_date": null,
-        "title": "Network Passive Sensor Release 2.6",
-        "url": "https://docs.qualys.com/en/ps/release-notes/ps/release_2_6.htm",
-        "version": "2.6"
+        "title": "Network Passive Sensor Release 2.7",
+        "url": "https://docs.qualys.com/en/ps/release-notes/ps/release_2_7.htm",
+        "version": "2.7"
       },
-      "retrieved_at": "2026-10-28T13:32:51Z"
+      "retrieved_at": "2026-10-29T13:44:01Z"
     },
     "QFLOW": {
       "release": {
@@ -428,7 +424,7 @@
         "url": "https://docs.qualys.com/en/qflow/release-notes/qflow/release_1_24.htm",
         "version": "1.24"
       },
-      "retrieved_at": "2026-10-28T13:32:51Z"
+      "retrieved_at": "2026-10-29T13:44:01Z"
     },
     "QGS": {
       "release": {
@@ -447,7 +443,7 @@
         "url": "https://docs.qualys.com/en/qgs/release-notes/qgs/release_3_16_1.htm",
         "version": "3.16.1"
       },
-      "retrieved_at": "2026-10-28T13:32:51Z"
+      "retrieved_at": "2026-10-29T13:44:01Z"
     },
     "QWEB_PC": {
       "release": {
@@ -494,7 +490,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_pa/pa/release_1_17.htm",
         "version": "1.17"
       },
-      "retrieved_at": "2026-10-28T13:32:51Z"
+      "retrieved_at": "2026-10-29T13:44:01Z"
     },
     "QWEB_VM": {
       "release": {
@@ -509,7 +505,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_vmdr_rn/vmdr/release_2_14.htm",
         "version": "2.14"
       },
-      "retrieved_at": "2026-10-28T13:32:51Z"
+      "retrieved_at": "2026-10-29T13:44:01Z"
     },
     "SEM": {
       "release": {
@@ -532,7 +528,7 @@
         "url": "https://docs.qualys.com/en/vmdr-mobile/release-notes/vmdr_mobile/release_1_6_1.htm",
         "version": "1.6.1"
       },
-      "retrieved_at": "2026-10-28T13:32:51Z"
+      "retrieved_at": "2026-10-29T13:44:01Z"
     },
     "SM": {
       "release": {
@@ -567,7 +563,7 @@
         "url": "https://docs.qualys.com/en/car/release-notes/car/release_2_9_3.htm",
         "version": "2.9.3"
       },
-      "retrieved_at": "2026-10-28T13:32:51Z"
+      "retrieved_at": "2026-10-29T13:44:01Z"
     },
     "TA": {
       "release": {
@@ -618,7 +614,7 @@
         "url": "https://docs.qualys.com/en/ta/release-notes/total_ai/release_2_0.htm",
         "version": "2.0"
       },
-      "retrieved_at": "2026-10-28T13:32:51Z"
+      "retrieved_at": "2026-10-29T13:44:01Z"
     },
     "TC": {
       "release": {
@@ -657,7 +653,7 @@
         "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_28.htm",
         "version": "2.28"
       },
-      "retrieved_at": "2026-10-28T13:32:51Z"
+      "retrieved_at": "2026-10-29T13:44:01Z"
     },
     "UD": {
       "release": {
@@ -676,7 +672,7 @@
         "url": "https://docs.qualys.com/en/ud/release-notes/unified_dashboard/release_2_17.htm",
         "version": "2.17"
       },
-      "retrieved_at": "2026-10-28T13:32:51Z"
+      "retrieved_at": "2026-10-29T13:44:01Z"
     },
     "WAS": {
       "release": {
@@ -703,7 +699,7 @@
         "url": "https://docs.qualys.com/en/tas/release-notes/total_app_sec/release_2_1.htm",
         "version": "2.1"
       },
-      "retrieved_at": "2026-10-28T13:32:51Z"
+      "retrieved_at": "2026-10-29T13:44:01Z"
     }
   },
   "parse_format_version": 3,
@@ -1527,6 +1523,24 @@
       "retrieved_at": "2026-10-28T19:54:43Z",
       "source": "qualys_release_notes_index",
       "version": "3.7.3.0-31"
+    },
+    "PS|2.6.0.0-7": {
+      "module": "PS",
+      "release": {
+        "features": [
+          {
+            "description": "We introduced an improved user experience across the\u00a0NPS user interface, with updates to fonts, colors, typography, and buttons that make the interface more intuitive and user-friendly. Enhancements to the user interface and design system improve visual consistency, readability, and usability throughout the application, resulting in a cleaner and more streamlined experience.",
+            "title": "Enhanced User Interface for NPS"
+          }
+        ],
+        "release_date": null,
+        "title": "Network Passive Sensor Release 2.6",
+        "url": "https://docs.qualys.com/en/ps/release-notes/ps/release_2_6.htm",
+        "version": "2.6.0.0-7"
+      },
+      "retrieved_at": "2026-10-29T13:44:01Z",
+      "source": "qualys_release_notes_index",
+      "version": "2.6.0.0-7"
     },
     "QWEB_PC|1.16.0": {
       "module": "QWEB_PC",
