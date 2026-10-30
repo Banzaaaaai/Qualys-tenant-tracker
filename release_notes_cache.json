@@ -13,7 +13,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_vmdr_rn/vmdr/release_2_14.htm",
         "version": "2.14"
       },
-      "retrieved_at": "2026-10-29T13:44:01Z"
+      "retrieved_at": "2026-10-30T19:43:45Z"
     },
     "CA": {
       "release": {
@@ -68,26 +68,26 @@
         "url": "https://docs.qualys.com/en/ca/release-notes/ca_application/release_2_8.htm",
         "version": "2.8"
       },
-      "retrieved_at": "2026-10-29T13:44:01Z"
+      "retrieved_at": "2026-10-30T19:43:45Z"
     },
     "CERTVIEW": {
       "release": {
         "features": [
           {
-            "description": "The newQuantum Readiness custom widgetis now available in the Certificate View dashboard to help assess asset readiness for Post-Quantum Cryptography (PQC). It provides a color-coded view of internal and external assets, highlighting PQC-supported and unsupported assets, TLS 1.3-enabled assets with and without PQC support, and assets using the older TLS protocols.",
-            "title": "Introducing the newPQC Asset Readiness Widget"
+            "description": "",
+            "title": "Spot Certificate Risk Faster with a Cleaner, More Readable Interface"
           },
           {
-            "description": "The following reported and notable customer issue is fixed in this release:",
-            "title": "Issue Addressed"
+            "description": "To make queries consistent across theAsset DetailsandCertificate Detailspages, certificate instance QQL tokens now share the asset.certificate.instance prefix.\u00a0For example, certificate.instance.port (Asset Details) and asset.instance.port (Certificate Details) are both now asset.certificate.instance.port.",
+            "title": "Updated QQL Tokens"
           }
         ],
         "release_date": null,
-        "title": "Certificate View Release 4.8.1",
-        "url": "https://docs.qualys.com/en/certview/release-notes/certview/release_4_8_1.htm",
-        "version": "4.8.1"
+        "title": "Certificate View Release 4.8.2",
+        "url": "https://docs.qualys.com/en/certview/release-notes/certview/release_4_8_2.htm",
+        "version": "4.8.2"
       },
-      "retrieved_at": "2026-10-29T13:44:01Z"
+      "retrieved_at": "2026-10-30T19:43:45Z"
     },
     "CLOUDVIEW": {
       "release": {
@@ -126,7 +126,7 @@
         "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_28.htm",
         "version": "2.28"
       },
-      "retrieved_at": "2026-10-29T13:44:01Z"
+      "retrieved_at": "2026-10-30T19:43:45Z"
     },
     "CONN": {
       "release": {
@@ -149,7 +149,7 @@
         "url": "https://docs.qualys.com/en/conn/release-notes/connector/release_2_21.htm",
         "version": "2.21"
       },
-      "retrieved_at": "2026-10-29T13:44:01Z"
+      "retrieved_at": "2026-10-30T19:43:45Z"
     },
     "CS": {
       "release": {
@@ -208,7 +208,7 @@
         "url": "https://docs.qualys.com/en/cs/release-notes/container_security/release_1_45.htm",
         "version": "1.45"
       },
-      "retrieved_at": "2026-10-29T13:44:01Z"
+      "retrieved_at": "2026-10-30T19:43:45Z"
     },
     "ETM": {
       "release": {
@@ -263,7 +263,7 @@
         "url": "https://docs.qualys.com/en/etm/release-notes/etm/release_1_14.htm",
         "version": "1.14"
       },
-      "retrieved_at": "2026-10-29T13:44:01Z"
+      "retrieved_at": "2026-10-30T19:43:45Z"
     },
     "FIM": {
       "release": {
@@ -294,7 +294,7 @@
         "url": "https://docs.qualys.com/en/fim/release-notes/file_integrity_monitoring/release_4_9_4.htm",
         "version": "4.9.4"
       },
-      "retrieved_at": "2026-10-29T13:44:01Z"
+      "retrieved_at": "2026-10-30T19:43:45Z"
     },
     "ISL": {
       "release": {
@@ -309,7 +309,7 @@
         "url": "https://docs.qualys.com/en/pm/release-notes/patch_management/release_4_2_1_1.htm",
         "version": "4.2.1.1"
       },
-      "retrieved_at": "2026-10-29T13:44:01Z"
+      "retrieved_at": "2026-10-30T19:43:45Z"
     },
     "ITAM": {
       "release": {
@@ -340,7 +340,7 @@
         "url": "https://docs.qualys.com/en/csam/release-notes/cybersecurity_asset_management/release_3_7_3.htm",
         "version": "3.7.3"
       },
-      "retrieved_at": "2026-10-29T13:44:01Z"
+      "retrieved_at": "2026-10-30T19:43:45Z"
     },
     "OCA": {
       "release": {
@@ -355,7 +355,7 @@
         "url": "https://docs.qualys.com/en/oca/release-notes/oca/release_1_13.htm",
         "version": "1.13"
       },
-      "retrieved_at": "2026-10-29T13:44:01Z"
+      "retrieved_at": "2026-10-30T19:43:45Z"
     },
     "PM": {
       "release": {
@@ -374,7 +374,7 @@
         "url": " https://docs.qualys.com/en/pm/release-notes/patch_management/release_3_6.htm",
         "version": "3.6"
       },
-      "retrieved_at": "2026-10-29T13:44:01Z"
+      "retrieved_at": "2026-10-30T19:43:45Z"
     },
     "PS": {
       "release": {
@@ -397,7 +397,7 @@
         "url": "https://docs.qualys.com/en/ps/release-notes/ps/release_2_7.htm",
         "version": "2.7"
       },
-      "retrieved_at": "2026-10-29T13:44:01Z"
+      "retrieved_at": "2026-10-30T19:43:45Z"
     },
     "QFLOW": {
       "release": {
@@ -424,26 +424,22 @@
         "url": "https://docs.qualys.com/en/qflow/release-notes/qflow/release_1_24.htm",
         "version": "1.24"
       },
-      "retrieved_at": "2026-10-29T13:44:01Z"
+      "retrieved_at": "2026-10-30T19:43:45Z"
     },
     "QGS": {
       "release": {
         "features": [
           {
-            "description": "The QGS UI service is now updated to version2.10.0-15. This release includes internal maintenance and stability updates to the service.",
-            "title": "QGS UI Service Version Update"
-          },
-          {
-            "description": "With this release, we have introduced an improved user experience across all QGS\u00a0pages. You can see updates across fonts, colors, typography, and buttons, making the interface more intuitive and easier to use. This release features User Interface and design system enhancements that improve visual consistency, readability, and usability across the application, resulting in a cleaner, more\u2026",
-            "title": "Enhanced User Interface"
+            "description": "",
+            "title": "Updated CAMS/QGS Images and Containers"
           }
         ],
         "release_date": null,
-        "title": "Qualys Gateway Service Release 3.16.1",
-        "url": "https://docs.qualys.com/en/qgs/release-notes/qgs/release_3_16_1.htm",
-        "version": "3.16.1"
+        "title": "Qualys Gateway Service Release 3.16.2",
+        "url": "https://docs.qualys.com/en/qgs/release-notes/qgs/release_3_16_2.htm",
+        "version": "3.16.2"
       },
-      "retrieved_at": "2026-10-29T13:44:01Z"
+      "retrieved_at": "2026-10-30T19:43:45Z"
     },
     "QWEB_PC": {
       "release": {
@@ -490,7 +486,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_pa/pa/release_1_17.htm",
         "version": "1.17"
       },
-      "retrieved_at": "2026-10-29T13:44:01Z"
+      "retrieved_at": "2026-10-30T19:43:45Z"
     },
     "QWEB_VM": {
       "release": {
@@ -505,7 +501,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_vmdr_rn/vmdr/release_2_14.htm",
         "version": "2.14"
       },
-      "retrieved_at": "2026-10-29T13:44:01Z"
+      "retrieved_at": "2026-10-30T19:43:45Z"
     },
     "SEM": {
       "release": {
@@ -528,7 +524,7 @@
         "url": "https://docs.qualys.com/en/vmdr-mobile/release-notes/vmdr_mobile/release_1_6_1.htm",
         "version": "1.6.1"
       },
-      "retrieved_at": "2026-10-29T13:44:01Z"
+      "retrieved_at": "2026-10-30T19:43:45Z"
     },
     "SM": {
       "release": {
@@ -563,7 +559,7 @@
         "url": "https://docs.qualys.com/en/car/release-notes/car/release_2_9_3.htm",
         "version": "2.9.3"
       },
-      "retrieved_at": "2026-10-29T13:44:01Z"
+      "retrieved_at": "2026-10-30T19:43:45Z"
     },
     "TA": {
       "release": {
@@ -614,7 +610,7 @@
         "url": "https://docs.qualys.com/en/ta/release-notes/total_ai/release_2_0.htm",
         "version": "2.0"
       },
-      "retrieved_at": "2026-10-29T13:44:01Z"
+      "retrieved_at": "2026-10-30T19:43:45Z"
     },
     "TC": {
       "release": {
@@ -653,7 +649,7 @@
         "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_28.htm",
         "version": "2.28"
       },
-      "retrieved_at": "2026-10-29T13:44:01Z"
+      "retrieved_at": "2026-10-30T19:43:45Z"
     },
     "UD": {
       "release": {
@@ -663,8 +659,8 @@
             "title": "Faster Access to Active Dashboards in the Frequently Used Tab"
           },
           {
-            "description": "",
-            "title": "Issues Addressed"
+            "description": "The following reported and notable customer issues are fixed in this release:",
+            "title": "Fixes"
           }
         ],
         "release_date": null,
@@ -672,7 +668,7 @@
         "url": "https://docs.qualys.com/en/ud/release-notes/unified_dashboard/release_2_17.htm",
         "version": "2.17"
       },
-      "retrieved_at": "2026-10-29T13:44:01Z"
+      "retrieved_at": "2026-10-30T19:43:45Z"
     },
     "WAS": {
       "release": {
@@ -699,7 +695,7 @@
         "url": "https://docs.qualys.com/en/tas/release-notes/total_app_sec/release_2_1.htm",
         "version": "2.1"
       },
-      "retrieved_at": "2026-10-29T13:44:01Z"
+      "retrieved_at": "2026-10-30T19:43:45Z"
     }
   },
   "parse_format_version": 3,
@@ -761,6 +757,28 @@
       "retrieved_at": "2026-09-23T12:12:53Z",
       "source": "qualys_release_notes_index",
       "version": "2.8.0"
+    },
+    "CERTVIEW|4.8.1.0-13": {
+      "module": "CERTVIEW",
+      "release": {
+        "features": [
+          {
+            "description": "The newQuantum Readiness custom widgetis now available in the Certificate View dashboard to help assess asset readiness for Post-Quantum Cryptography (PQC). It provides a color-coded view of internal and external assets, highlighting PQC-supported and unsupported assets, TLS 1.3-enabled assets with and without PQC support, and assets using the older TLS protocols.",
+            "title": "Introducing the newPQC Asset Readiness Widget"
+          },
+          {
+            "description": "The following reported and notable customer issue is fixed in this release:",
+            "title": "Issue Addressed"
+          }
+        ],
+        "release_date": null,
+        "title": "Certificate View Release 4.8.1",
+        "url": "https://docs.qualys.com/en/certview/release-notes/certview/release_4_8_1.htm",
+        "version": "4.8.1.0-13"
+      },
+      "retrieved_at": "2026-10-30T19:43:45Z",
+      "source": "qualys_release_notes_index",
+      "version": "4.8.1.0-13"
     },
     "CLOUDVIEW|2.27.1-23": {
       "module": "CLOUDVIEW",
