@@ -758,5 +758,21 @@
     "new_version": "3.7.3.0-31",
     "old_version": "3.7.3.0-26",
     "timestamp": "2026-10-28T19:54:43Z"
+  },
+  {
+    "api_field": "ETM-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "ETM",
+    "new_version": "1.14.0-219",
+    "old_version": "1.14.0-211",
+    "timestamp": "2026-10-30T13:36:04Z"
+  },
+  {
+    "api_field": "QWEB_PC-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "QWEB_PC",
+    "new_version": "1.17.0",
+    "old_version": "1.16.0",
+    "timestamp": "2026-10-30T13:36:04Z"
   }
 ]
