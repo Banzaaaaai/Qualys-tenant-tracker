@@ -1464,6 +1464,36 @@
       "source": "qualys_release_notes_index",
       "version": "4.2.1.0-246"
     },
+    "ISL|4.2.1.0-261": {
+      "module": "ISL",
+      "release": {
+        "features": [
+          {
+            "description": "",
+            "title": "With Agent Sara, Remediate Smarter, and Roll Out in Phased Rings"
+          },
+          {
+            "description": "",
+            "title": "Mitigate ETM Plan Findings to Reduce Risk When No Patch Is Available"
+          },
+          {
+            "description": "Refer to the following table to learn more about the new tokens in this release.",
+            "title": "New QQL Tokens"
+          },
+          {
+            "description": "The following reported and notable customer issues are fixed in this release.",
+            "title": "Issues Addressed"
+          }
+        ],
+        "release_date": null,
+        "title": "TruRisk\u2122 Eliminate Release 4.2.1",
+        "url": "https://docs.qualys.com/en/pm/release-notes/patch_management/release_4_2_1.htm",
+        "version": "4.2.1.0-261"
+      },
+      "retrieved_at": "2026-10-31T13:05:13Z",
+      "source": "qualys_release_notes_index",
+      "version": "4.2.1.0-261"
+    },
     "ITAM|3.7.3.0-23": {
       "module": "ITAM",
       "release": {
