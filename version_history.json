@@ -798,5 +798,45 @@
     "new_version": "4.2.1.0-261",
     "old_version": "4.2.1.0-246",
     "timestamp": "2026-10-31T13:05:13Z"
+  },
+  {
+    "api_field": "ICS-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "ICS",
+    "new_version": "1.7.1.0-10",
+    "old_version": "1.7.0.0-18",
+    "timestamp": "2026-11-02T16:33:41Z"
+  },
+  {
+    "api_field": "CERTVIEW-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "CERTVIEW",
+    "new_version": "4.8.1.0-14",
+    "old_version": "4.8.1.0-13",
+    "timestamp": "2026-11-02T16:33:41Z"
+  },
+  {
+    "api_field": "MTG-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "MTG",
+    "new_version": "4.2.1.0-265",
+    "old_version": "4.2.1.0-261",
+    "timestamp": "2026-11-02T16:33:41Z"
+  },
+  {
+    "api_field": "ISL-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "ISL",
+    "new_version": "4.2.1.0-265",
+    "old_version": "4.2.1.0-261",
+    "timestamp": "2026-11-02T16:33:41Z"
+  },
+  {
+    "api_field": "PM-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "PM",
+    "new_version": "4.2.1.0-265",
+    "old_version": "4.2.1.0-261",
+    "timestamp": "2026-11-02T16:33:41Z"
   }
 ]
