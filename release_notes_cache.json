@@ -13,7 +13,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_vmdr_rn/vmdr/release_2_14.htm",
         "version": "2.14"
       },
-      "retrieved_at": "2026-11-02T16:33:41Z"
+      "retrieved_at": "2026-11-03T20:39:55Z"
     },
     "CA": {
       "release": {
@@ -68,7 +68,7 @@
         "url": "https://docs.qualys.com/en/ca/release-notes/ca_application/release_2_8.htm",
         "version": "2.8"
       },
-      "retrieved_at": "2026-11-02T16:33:41Z"
+      "retrieved_at": "2026-11-03T20:39:55Z"
     },
     "CERTVIEW": {
       "release": {
@@ -87,7 +87,7 @@
         "url": "https://docs.qualys.com/en/certview/release-notes/certview/release_4_8_2.htm",
         "version": "4.8.2"
       },
-      "retrieved_at": "2026-11-02T16:33:41Z"
+      "retrieved_at": "2026-11-03T20:39:55Z"
     },
     "CLOUDVIEW": {
       "release": {
@@ -126,7 +126,7 @@
         "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_28.htm",
         "version": "2.28"
       },
-      "retrieved_at": "2026-11-02T16:33:41Z"
+      "retrieved_at": "2026-11-03T20:39:55Z"
     },
     "CONN": {
       "release": {
@@ -149,7 +149,7 @@
         "url": "https://docs.qualys.com/en/conn/release-notes/connector/release_2_21.htm",
         "version": "2.21"
       },
-      "retrieved_at": "2026-11-02T16:33:41Z"
+      "retrieved_at": "2026-11-03T20:39:55Z"
     },
     "CS": {
       "release": {
@@ -208,7 +208,7 @@
         "url": "https://docs.qualys.com/en/cs/release-notes/container_security/release_1_45.htm",
         "version": "1.45"
       },
-      "retrieved_at": "2026-11-02T16:33:41Z"
+      "retrieved_at": "2026-11-03T20:39:55Z"
     },
     "ETM": {
       "release": {
@@ -263,38 +263,38 @@
         "url": "https://docs.qualys.com/en/etm/release-notes/etm/release_1_14.htm",
         "version": "1.14"
       },
-      "retrieved_at": "2026-11-02T16:33:41Z"
+      "retrieved_at": "2026-11-03T20:39:55Z"
     },
     "FIM": {
       "release": {
         "features": [
           {
-            "description": "You can now select individual events on theEvent Reviewtab and create an incident for only those events, so you can raise an incident for a chosen set of file changes without building a search query that isolates exactly those events.",
-            "title": "Create Incident for Individual Events"
-          },
-          {
-            "description": "You can now filter events and incidents byThis YearorYear to date, so you can report on a full calendar year or on the year so far, such as for an annual audit, without defining a custom date range each time.",
-            "title": "This Year and Year to date Timeframe Options"
-          },
-          {
-            "description": "The ignore and restore action now accepts up to 100 events. On theEvent Reviewtab, you can select up to 100 events for a single ignore action. On theIgnoredtab, you can select up to 100 events for a single restore action. When you select more than 100 events, FIM disables theActionsbutton and shows a warning when you point to it.",
-            "title": "Event Limit for Ignore and Restore Actions"
-          },
-          {
-            "description": "With this release, we have introduced an improved user experience across all FIM pages. You can see updates across fonts, colors, typography, and buttons, making the interface more intuitive and easier to use. This release features User Interface and design system enhancements that improve visual consistency, readability, and usability across the application, resulting in a cleaner, more\u2026",
-            "title": "Enhanced User Interface"
+            "description": "",
+            "title": "Run Correlation Rules Every Hour to Detect Incidents Sooner"
           },
           {
             "description": "",
+            "title": "Troubleshoot Stopped FIM Agents Sooner with Daily Failure Reasons"
+          },
+          {
+            "description": "",
+            "title": "Verify the Reporting Period in Scheduled Event Reports"
+          },
+          {
+            "description": "For more information, refer to theSearch Events Tokens.",
             "title": "New Tokens in FIM"
+          },
+          {
+            "description": "",
+            "title": "Fixes"
           }
         ],
-        "release_date": "September 09, 2026",
-        "title": "File Integrity Monitoring Release 4.9.4",
-        "url": "https://docs.qualys.com/en/fim/release-notes/file_integrity_monitoring/release_4_9_4.htm",
-        "version": "4.9.4"
+        "release_date": null,
+        "title": "File Integrity Monitoring Release 4.9.5",
+        "url": "https://docs.qualys.com/en/fim/release-notes/file_integrity_monitoring/release_4_9_5.htm",
+        "version": "4.9.5"
       },
-      "retrieved_at": "2026-11-02T16:33:41Z"
+      "retrieved_at": "2026-11-03T20:39:55Z"
     },
     "ISL": {
       "release": {
@@ -309,7 +309,7 @@
         "url": "https://docs.qualys.com/en/pm/release-notes/patch_management/release_4_2_1_1.htm",
         "version": "4.2.1.1"
       },
-      "retrieved_at": "2026-11-02T16:33:41Z"
+      "retrieved_at": "2026-11-03T20:39:55Z"
     },
     "ITAM": {
       "release": {
@@ -340,7 +340,7 @@
         "url": "https://docs.qualys.com/en/csam/release-notes/cybersecurity_asset_management/release_3_7_3.htm",
         "version": "3.7.3"
       },
-      "retrieved_at": "2026-11-02T16:33:41Z"
+      "retrieved_at": "2026-11-03T20:39:55Z"
     },
     "OCA": {
       "release": {
@@ -355,7 +355,7 @@
         "url": "https://docs.qualys.com/en/oca/release-notes/oca/release_1_13.htm",
         "version": "1.13"
       },
-      "retrieved_at": "2026-11-02T16:33:41Z"
+      "retrieved_at": "2026-11-03T20:39:55Z"
     },
     "PM": {
       "release": {
@@ -374,7 +374,7 @@
         "url": " https://docs.qualys.com/en/pm/release-notes/patch_management/release_3_6.htm",
         "version": "3.6"
       },
-      "retrieved_at": "2026-11-02T16:33:41Z"
+      "retrieved_at": "2026-11-03T20:39:55Z"
     },
     "PS": {
       "release": {
@@ -397,7 +397,7 @@
         "url": "https://docs.qualys.com/en/ps/release-notes/ps/release_2_7.htm",
         "version": "2.7"
       },
-      "retrieved_at": "2026-11-02T16:33:41Z"
+      "retrieved_at": "2026-11-03T20:39:55Z"
     },
     "QFLOW": {
       "release": {
@@ -424,7 +424,7 @@
         "url": "https://docs.qualys.com/en/qflow/release-notes/qflow/release_1_24.htm",
         "version": "1.24"
       },
-      "retrieved_at": "2026-11-02T16:33:41Z"
+      "retrieved_at": "2026-11-03T20:39:55Z"
     },
     "QGS": {
       "release": {
@@ -439,7 +439,7 @@
         "url": "https://docs.qualys.com/en/qgs/release-notes/qgs/release_3_16_2.htm",
         "version": "3.16.2"
       },
-      "retrieved_at": "2026-11-02T16:33:41Z"
+      "retrieved_at": "2026-11-03T20:39:55Z"
     },
     "QWEB_PC": {
       "release": {
@@ -486,7 +486,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_pa/pa/release_1_17.htm",
         "version": "1.17"
       },
-      "retrieved_at": "2026-11-02T16:33:41Z"
+      "retrieved_at": "2026-11-03T20:39:55Z"
     },
     "QWEB_VM": {
       "release": {
@@ -501,7 +501,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_vmdr_rn/vmdr/release_2_14.htm",
         "version": "2.14"
       },
-      "retrieved_at": "2026-11-02T16:33:41Z"
+      "retrieved_at": "2026-11-03T20:39:55Z"
     },
     "SEM": {
       "release": {
@@ -524,7 +524,7 @@
         "url": "https://docs.qualys.com/en/vmdr-mobile/release-notes/vmdr_mobile/release_1_6_1.htm",
         "version": "1.6.1"
       },
-      "retrieved_at": "2026-11-02T16:33:41Z"
+      "retrieved_at": "2026-11-03T20:39:55Z"
     },
     "SM": {
       "release": {
@@ -559,7 +559,7 @@
         "url": "https://docs.qualys.com/en/car/release-notes/car/release_2_9_3.htm",
         "version": "2.9.3"
       },
-      "retrieved_at": "2026-11-02T16:33:41Z"
+      "retrieved_at": "2026-11-03T20:39:55Z"
     },
     "TA": {
       "release": {
@@ -610,7 +610,7 @@
         "url": "https://docs.qualys.com/en/ta/release-notes/total_ai/release_2_0.htm",
         "version": "2.0"
       },
-      "retrieved_at": "2026-11-02T16:33:41Z"
+      "retrieved_at": "2026-11-03T20:39:55Z"
     },
     "TC": {
       "release": {
@@ -649,7 +649,7 @@
         "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_28.htm",
         "version": "2.28"
       },
-      "retrieved_at": "2026-11-02T16:33:41Z"
+      "retrieved_at": "2026-11-03T20:39:55Z"
     },
     "UD": {
       "release": {
@@ -668,7 +668,7 @@
         "url": "https://docs.qualys.com/en/ud/release-notes/unified_dashboard/release_2_17.htm",
         "version": "2.17"
       },
-      "retrieved_at": "2026-11-02T16:33:41Z"
+      "retrieved_at": "2026-11-03T20:39:55Z"
     },
     "WAS": {
       "release": {
@@ -695,7 +695,7 @@
         "url": "https://docs.qualys.com/en/tas/release-notes/total_app_sec/release_2_1.htm",
         "version": "2.1"
       },
-      "retrieved_at": "2026-11-02T16:33:41Z"
+      "retrieved_at": "2026-11-03T20:39:55Z"
     }
   },
   "parse_format_version": 3,
@@ -1361,6 +1361,40 @@
       "retrieved_at": "2026-10-30T13:36:04Z",
       "source": "qualys_release_notes_index",
       "version": "1.14.0-219"
+    },
+    "FIM|4.9.4.0-38": {
+      "module": "FIM",
+      "release": {
+        "features": [
+          {
+            "description": "You can now select individual events on theEvent Reviewtab and create an incident for only those events, so you can raise an incident for a chosen set of file changes without building a search query that isolates exactly those events.",
+            "title": "Create Incident for Individual Events"
+          },
+          {
+            "description": "You can now filter events and incidents byThis YearorYear to date, so you can report on a full calendar year or on the year so far, such as for an annual audit, without defining a custom date range each time.",
+            "title": "This Year and Year to date Timeframe Options"
+          },
+          {
+            "description": "The ignore and restore action now accepts up to 100 events. On theEvent Reviewtab, you can select up to 100 events for a single ignore action. On theIgnoredtab, you can select up to 100 events for a single restore action. When you select more than 100 events, FIM disables theActionsbutton and shows a warning when you point to it.",
+            "title": "Event Limit for Ignore and Restore Actions"
+          },
+          {
+            "description": "With this release, we have introduced an improved user experience across all FIM pages. You can see updates across fonts, colors, typography, and buttons, making the interface more intuitive and easier to use. This release features User Interface and design system enhancements that improve visual consistency, readability, and usability across the application, resulting in a cleaner, more\u2026",
+            "title": "Enhanced User Interface"
+          },
+          {
+            "description": "",
+            "title": "New Tokens in FIM"
+          }
+        ],
+        "release_date": "September 09, 2026",
+        "title": "File Integrity Monitoring Release 4.9.4",
+        "url": "https://docs.qualys.com/en/fim/release-notes/file_integrity_monitoring/release_4_9_4.htm",
+        "version": "4.9.4.0-38"
+      },
+      "retrieved_at": "2026-11-03T20:39:55Z",
+      "source": "qualys_release_notes_index",
+      "version": "4.9.4.0-38"
     },
     "ISL|4.1.0.0-282": {
       "module": "ISL",
