@@ -838,5 +838,13 @@
     "new_version": "4.2.1.0-265",
     "old_version": "4.2.1.0-261",
     "timestamp": "2026-11-02T16:33:41Z"
+  },
+  {
+    "api_field": "WAS-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "WAS",
+    "new_version": "1.32.0.0-16",
+    "old_version": "1.31.0.0-4",
+    "timestamp": "2026-11-03T14:40:17Z"
   }
 ]

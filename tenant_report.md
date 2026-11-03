@@ -1,7 +1,7 @@
 # Qualys Tenant Version Report
 
 - **Tenant identifier:** qualysapi.qg2.apps.qualys.eu
-- **Last checked:** 2026-11-02T16:33:41Z
+- **Last checked:** 2026-11-03T14:40:17Z
 - **Total modules:** 37
 
 | Module | API Field | Current Version | First Seen | Last Changed |
@@ -42,4 +42,4 @@
 | UD | UD-VERSION | 2.17.0-3-31 | 2026-09-10T15:39:50Z | 2026-10-28T13:32:51Z |
 | WAF | WAF-VERSION | 2.13.8.4 | 2026-09-10T15:39:50Z | 2026-09-10T15:39:50Z |
 | WAF_V3 | WAF_V3-VERSION | 3.0.4.0 | 2026-09-10T15:39:50Z | 2026-09-10T15:39:50Z |
-| WAS | WAS-VERSION | 1.31.0.0-4 | 2026-09-10T15:39:50Z | 2026-10-08T14:02:45Z |
+| WAS | WAS-VERSION | 1.32.0.0-16 | 2026-09-10T15:39:50Z | 2026-11-03T14:40:17Z |

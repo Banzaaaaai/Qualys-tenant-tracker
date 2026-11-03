@@ -2063,6 +2063,48 @@
       "retrieved_at": "2026-10-08T14:02:45Z",
       "source": "qualys_release_notes_index",
       "version": "1.31.0.0-4"
+    },
+    "WAS|1.32.0.0-16": {
+      "module": "WAS",
+      "release": {
+        "features": [
+          {
+            "description": "Applies to:TotalAppSec",
+            "title": "Discover Web Applications from VMDR Detections"
+          },
+          {
+            "description": "Applies to:TotalAppSec",
+            "title": "Select the MuleSoft Control Plane for Your Connector"
+          },
+          {
+            "description": "Applies to:TotalAppSec",
+            "title": "MuleSoft API Discovery Now Includes Deployed Runtime Endpoints"
+          },
+          {
+            "description": "Applies to:TotalAppSec and Web Application Scanning",
+            "title": "Burp Suite Informational Findings Mapped to Information Gathered"
+          },
+          {
+            "description": "Applies to:TotalAppSec and Web Application Scanning",
+            "title": "Landing Page Preference for Default Module"
+          },
+          {
+            "description": "Applies to:TotalAppSec and Web Application Scanning",
+            "title": "Choose Which Scan Outcomes Send a Completion Email"
+          },
+          {
+            "description": "The following reported issues are fixed in this release.",
+            "title": "Fixes"
+          }
+        ],
+        "release_date": null,
+        "title": "TotalAppSec Release 2.12 | Web Application Scanning Release 1.32",
+        "url": "https://docs.qualys.com/en/tas/release-notes/total_app_sec/tas_2_12_was_1_32.htm",
+        "version": "1.32.0.0-16"
+      },
+      "retrieved_at": "2026-11-03T14:40:17Z",
+      "source": "qualys_release_notes_index",
+      "version": "1.32.0.0-16"
     }
   }
 }
