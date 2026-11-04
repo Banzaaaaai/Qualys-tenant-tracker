@@ -846,5 +846,29 @@
     "new_version": "1.32.0.0-16",
     "old_version": "1.31.0.0-4",
     "timestamp": "2026-11-03T14:40:17Z"
+  },
+  {
+    "api_field": "MTG-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "MTG",
+    "new_version": "4.2.1.0-279",
+    "old_version": "4.2.1.0-265",
+    "timestamp": "2026-11-04T14:52:48Z"
+  },
+  {
+    "api_field": "ISL-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "ISL",
+    "new_version": "4.2.1.0-279",
+    "old_version": "4.2.1.0-265",
+    "timestamp": "2026-11-04T14:52:48Z"
+  },
+  {
+    "api_field": "PM-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "PM",
+    "new_version": "4.2.1.0-279",
+    "old_version": "4.2.1.0-265",
+    "timestamp": "2026-11-04T14:52:48Z"
   }
 ]
