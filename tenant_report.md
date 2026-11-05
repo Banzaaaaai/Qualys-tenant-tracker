@@ -1,7 +1,7 @@
 # Qualys Tenant Version Report
 
 - **Tenant identifier:** qualysapi.qg2.apps.qualys.eu
-- **Last checked:** 2026-11-04T15:46:47Z
+- **Last checked:** 2026-11-05T14:58:08Z
 - **Total modules:** 37
 
 | Module | API Field | Current Version | First Seen | Last Changed |
@@ -13,7 +13,7 @@
 | CM | CM-VERSION | 1.38.1.0 | 2026-09-10T15:39:50Z | 2026-09-10T15:39:50Z |
 | CONN | CONN-VERSION | 2.21.0-26 | 2026-09-10T15:39:50Z | 2026-10-08T14:02:45Z |
 | CS | CS-VERSION | 1.45.5-16 | 2026-09-10T15:39:50Z | 2026-10-07T13:57:10Z |
-| ETM | ETM-VERSION | 1.14.0-219 | 2026-09-10T15:39:50Z | 2026-10-30T13:36:04Z |
+| ETM | ETM-VERSION | 1.14.0-224 | 2026-09-10T15:39:50Z | 2026-11-05T14:58:08Z |
 | FIM | FIM-VERSION | 4.9.4.0-38 | 2026-09-10T15:39:50Z | 2026-09-22T07:09:04Z |
 | ICS | ICS-VERSION | 1.7.1.0-10 | 2026-09-10T15:39:50Z | 2026-11-02T16:33:41Z |
 | IOC | IOC-VERSION | 3.8.5 | 2026-09-10T15:39:50Z | 2026-09-30T13:00:57Z |

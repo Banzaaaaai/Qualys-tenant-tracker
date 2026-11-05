@@ -870,5 +870,13 @@
     "new_version": "4.2.1.0-279",
     "old_version": "4.2.1.0-265",
     "timestamp": "2026-11-04T14:52:48Z"
+  },
+  {
+    "api_field": "ETM-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "ETM",
+    "new_version": "1.14.0-224",
+    "old_version": "1.14.0-219",
+    "timestamp": "2026-11-05T14:58:08Z"
   }
 ]
