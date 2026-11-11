@@ -878,5 +878,37 @@
     "new_version": "1.14.0-224",
     "old_version": "1.14.0-219",
     "timestamp": "2026-11-05T14:58:08Z"
+  },
+  {
+    "api_field": "PortalApplication-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "PortalApplication",
+    "new_version": "3.25.1.0-4 DEVELOP #93 (2026-10-30T13:14:25Z)",
+    "old_version": "3.25.0.0-19 DEVELOP #7 (2026-10-25T14:43:45Z)",
+    "timestamp": "2026-11-11T14:43:33Z"
+  },
+  {
+    "api_field": "QUESTIONNAIRE_V2-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "QUESTIONNAIRE_V2",
+    "new_version": "1.34.1.0",
+    "old_version": "1.34.0.0",
+    "timestamp": "2026-11-11T14:43:33Z"
+  },
+  {
+    "api_field": "PS-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "PS",
+    "new_version": "2.7.0.0-22",
+    "old_version": "2.6.0.0-7",
+    "timestamp": "2026-11-11T14:43:33Z"
+  },
+  {
+    "api_field": "QUESTIONNAIRE-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "QUESTIONNAIRE",
+    "new_version": "2.46.1.0",
+    "old_version": "2.46.0.0",
+    "timestamp": "2026-11-11T14:43:33Z"
   }
 ]
