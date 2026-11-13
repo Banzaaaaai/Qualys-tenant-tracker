@@ -910,5 +910,21 @@
     "new_version": "2.46.1.0",
     "old_version": "2.46.0.0",
     "timestamp": "2026-11-11T14:43:33Z"
+  },
+  {
+    "api_field": "PortalApplication-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "PortalApplication",
+    "new_version": "3.25.1.0-6 DEVELOP #95 (2026-11-05T11:37:39Z)",
+    "old_version": "3.25.1.0-4 DEVELOP #93 (2026-10-30T13:14:25Z)",
+    "timestamp": "2026-11-13T14:55:09Z"
+  },
+  {
+    "api_field": "UD-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "UD",
+    "new_version": "2.17.1-8-39",
+    "old_version": "2.17.0-3-31",
+    "timestamp": "2026-11-13T14:55:09Z"
   }
 ]

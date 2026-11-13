@@ -2158,6 +2158,36 @@
       "source": "qualys_release_notes_index",
       "version": "2.17.0-3-31"
     },
+    "UD|2.17.1-8-39": {
+      "module": "UD",
+      "release": {
+        "features": [
+          {
+            "description": "",
+            "title": "Inactive Dashboards Now Move to the Recycle Bin Automatically"
+          },
+          {
+            "description": "",
+            "title": "Go Straight to Your Most-Used Module When You Sign In"
+          },
+          {
+            "description": "",
+            "title": "Start with Ready-Made Qualys Recommended Dashboards for Each Module"
+          },
+          {
+            "description": "The following reported and notable customer issues are fixed in this release:",
+            "title": "Fixes"
+          }
+        ],
+        "release_date": null,
+        "title": "Unified Dashboard Release 2.17.1",
+        "url": "https://docs.qualys.com/en/ud/release-notes/unified_dashboard/release_2_17_1.htm",
+        "version": "2.17.1-8-39"
+      },
+      "retrieved_at": "2026-11-13T14:55:09Z",
+      "source": "qualys_release_notes_index",
+      "version": "2.17.1-8-39"
+    },
     "WAS|1.31.0.0-4": {
       "module": "WAS",
       "release": {
