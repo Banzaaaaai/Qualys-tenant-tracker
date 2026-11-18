@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-11-17T16:29:30Z",
+  "last_checked": "2026-11-18T15:58:43Z",
   "modules": {
     "AV2": {
       "api_field": "AV2-VERSION",
@@ -16,8 +16,8 @@
     "CERTVIEW": {
       "api_field": "CERTVIEW-VERSION",
       "first_seen": "2026-09-10T15:39:50Z",
-      "last_changed": "2026-11-02T16:33:41Z",
-      "version": "4.8.1.0-14"
+      "last_changed": "2026-11-18T15:58:43Z",
+      "version": "4.8.2.0-21"
     },
     "CLOUDVIEW": {
       "api_field": "CLOUDVIEW-VERSION",
@@ -172,8 +172,8 @@
     "SM": {
       "api_field": "SM-VERSION",
       "first_seen": "2026-09-10T15:39:50Z",
-      "last_changed": "2026-09-10T15:39:50Z",
-      "version": "2.9.2.0-37"
+      "last_changed": "2026-11-18T15:58:43Z",
+      "version": "2.9.3.0-68"
     },
     "SSC": {
       "api_field": "SSC-VERSION",
@@ -202,8 +202,8 @@
     "UD": {
       "api_field": "UD-VERSION",
       "first_seen": "2026-09-10T15:39:50Z",
-      "last_changed": "2026-11-13T14:55:09Z",
-      "version": "2.17.1-8-39"
+      "last_changed": "2026-11-18T15:58:43Z",
+      "version": "2.18.0-8-42"
     },
     "WAF": {
       "api_field": "WAF-VERSION",
