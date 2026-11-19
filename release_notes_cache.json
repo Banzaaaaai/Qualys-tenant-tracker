@@ -13,7 +13,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_vmdr_rn/vmdr/release_2_14.htm",
         "version": "2.14"
       },
-      "retrieved_at": "2026-11-17T16:29:30Z"
+      "retrieved_at": "2026-11-19T16:04:39Z"
     },
     "CA": {
       "release": {
@@ -68,7 +68,7 @@
         "url": "https://docs.qualys.com/en/ca/release-notes/ca_application/release_2_8.htm",
         "version": "2.8"
       },
-      "retrieved_at": "2026-11-17T16:29:30Z"
+      "retrieved_at": "2026-11-19T16:04:39Z"
     },
     "CERTVIEW": {
       "release": {
@@ -87,7 +87,7 @@
         "url": "https://docs.qualys.com/en/certview/release-notes/certview/release_4_8_2.htm",
         "version": "4.8.2"
       },
-      "retrieved_at": "2026-11-17T16:29:30Z"
+      "retrieved_at": "2026-11-19T16:04:39Z"
     },
     "CLOUDVIEW": {
       "release": {
@@ -146,7 +146,7 @@
         "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_29.htm",
         "version": "2.29"
       },
-      "retrieved_at": "2026-11-17T16:29:30Z"
+      "retrieved_at": "2026-11-19T16:04:39Z"
     },
     "CONN": {
       "release": {
@@ -165,7 +165,7 @@
         "url": "https://docs.qualys.com/en/conn/release-notes/connector/release_2_22.htm",
         "version": "2.22"
       },
-      "retrieved_at": "2026-11-17T16:29:30Z"
+      "retrieved_at": "2026-11-19T16:04:39Z"
     },
     "CS": {
       "release": {
@@ -224,7 +224,7 @@
         "url": "https://docs.qualys.com/en/cs/release-notes/container_security/release_1_45.htm",
         "version": "1.45"
       },
-      "retrieved_at": "2026-11-17T16:29:30Z"
+      "retrieved_at": "2026-11-19T16:04:39Z"
     },
     "ETM": {
       "release": {
@@ -266,6 +266,10 @@
             "title": "ErrorHandlingforSkippedFindingsandAssetsinTruConfirmScans"
           },
           {
+            "description": "",
+            "title": "Export Grouped Asset Data from ETM"
+          },
+          {
             "description": "Use these tokens to find the vulnerabilities from a specific Microsoft Patch Tuesday release, so you can track and fix them each month. You can use the following tokens to search for findings related to Patch Tuesday releases:",
             "title": "New Tokens for Patch Tuesday"
           },
@@ -279,7 +283,7 @@
         "url": "https://docs.qualys.com/en/etm/release-notes/etm/release_1_14.htm",
         "version": "1.14"
       },
-      "retrieved_at": "2026-11-17T16:29:30Z"
+      "retrieved_at": "2026-11-19T16:04:39Z"
     },
     "FIM": {
       "release": {
@@ -310,7 +314,7 @@
         "url": "https://docs.qualys.com/en/fim/release-notes/file_integrity_monitoring/release_4_9_5.htm",
         "version": "4.9.5"
       },
-      "retrieved_at": "2026-11-17T16:29:30Z"
+      "retrieved_at": "2026-11-19T16:04:39Z"
     },
     "ISL": {
       "release": {
@@ -325,38 +329,66 @@
         "url": "https://docs.qualys.com/en/pm/release-notes/patch_management/release_4_2_1_1.htm",
         "version": "4.2.1.1"
       },
-      "retrieved_at": "2026-11-17T16:29:30Z"
+      "retrieved_at": "2026-11-19T16:04:39Z"
     },
     "ITAM": {
       "release": {
         "features": [
           {
             "description": "",
-            "title": "Merge Duplicate Assets using Qualys Scanner Rules"
+            "title": "Discover Internet-Facing Assets Without Open Ports"
           },
           {
             "description": "",
-            "title": "Prevent Incorrect Asset Merging with Custom Exclusions"
+            "title": "Include VMDR Map Scan Assets in EASM Discovery"
           },
           {
             "description": "",
-            "title": "Access Public and Private IPv6 Details for OCI Assets"
+            "title": "Discover\u00a0MCP Servers on Your Internet-Facing Assets"
           },
           {
             "description": "",
-            "title": "View DNS Records for Unresolved Domains"
+            "title": "Exclude Cloud Assets from EASM Lightweight Scans"
           },
           {
-            "description": "The following reported and notable customer issues are fixed in this release:",
-            "title": "Fixes"
+            "description": "",
+            "title": "Understand AI Footprint Across Your External Attack Surface"
+          },
+          {
+            "description": "",
+            "title": "View Hosting Categories for EASM Assets Not Discovered from Shodan"
+          },
+          {
+            "description": "",
+            "title": "Detect Email Authentication and DNS Misconfigurations on Your Domains"
+          },
+          {
+            "description": "",
+            "title": "Identify Cloud Asset Ownership Using Aliases"
+          },
+          {
+            "description": "",
+            "title": "Extend Vulnerability and Compliance Detection to OCI Assets"
+          },
+          {
+            "description": "",
+            "title": "Activate IPv6 Assets Based on Their DNS Hostnames"
+          },
+          {
+            "description": "",
+            "title": "Search Cloud Assets by IPv6 Addresses and OCI Network Details"
+          },
+          {
+            "description": "",
+            "title": "Tokens Update"
           }
         ],
         "release_date": null,
-        "title": "CyberSecurity Asset Management / Global AssetView Release 3.7.3.0",
-        "url": "https://docs.qualys.com/en/csam/release-notes/cybersecurity_asset_management/release_3_7_3.htm",
-        "version": "3.7.3"
+        "title": "CyberSecurity Asset Management / Global AssetView Release 3.8.0.0",
+        "url": "https://docs.qualys.com/en/csam/release-notes/cybersecurity_asset_management/release_3_8.htm",
+        "version": "3.8"
       },
-      "retrieved_at": "2026-11-17T16:29:30Z"
+      "retrieved_at": "2026-11-19T16:04:39Z"
     },
     "OCA": {
       "release": {
@@ -371,7 +403,7 @@
         "url": "https://docs.qualys.com/en/oca/release-notes/oca/release_1_13.htm",
         "version": "1.13"
       },
-      "retrieved_at": "2026-11-17T16:29:30Z"
+      "retrieved_at": "2026-11-19T16:04:39Z"
     },
     "PM": {
       "release": {
@@ -390,7 +422,7 @@
         "url": " https://docs.qualys.com/en/pm/release-notes/patch_management/release_3_6.htm",
         "version": "3.6"
       },
-      "retrieved_at": "2026-11-17T16:29:30Z"
+      "retrieved_at": "2026-11-19T16:04:39Z"
     },
     "PS": {
       "release": {
@@ -413,7 +445,7 @@
         "url": "https://docs.qualys.com/en/ps/release-notes/ps/release_2_7.htm",
         "version": "2.7"
       },
-      "retrieved_at": "2026-11-17T16:29:30Z"
+      "retrieved_at": "2026-11-19T16:04:39Z"
     },
     "QFLOW": {
       "release": {
@@ -440,7 +472,7 @@
         "url": "https://docs.qualys.com/en/qflow/release-notes/qflow/release_1_24.htm",
         "version": "1.24"
       },
-      "retrieved_at": "2026-11-17T16:29:30Z"
+      "retrieved_at": "2026-11-19T16:04:39Z"
     },
     "QGS": {
       "release": {
@@ -455,54 +487,30 @@
         "url": "https://docs.qualys.com/en/qgs/release-notes/qgs/release_3_16_2.htm",
         "version": "3.16.2"
       },
-      "retrieved_at": "2026-11-17T16:29:30Z"
+      "retrieved_at": "2026-11-19T16:04:39Z"
     },
     "QWEB_PC": {
       "release": {
         "features": [
           {
             "description": "",
-            "title": "Improved Control Statements for SDCs"
+            "title": "View and Try Out Latest Features in the What\u2019s New Window"
           },
           {
             "description": "",
-            "title": "Get Notified When a Compliance Scan Fails"
+            "title": "Improved Tags, Technology, and Asset Group Visibility in Policy Details"
           },
           {
-            "description": "",
-            "title": "UDC Support for New Technologies"
-          },
-          {
-            "description": "",
-            "title": "Import and Export Support for Network UDCs"
-          },
-          {
-            "description": "",
-            "title": "Auto Discovery Support for IBM DB2 and PostgreSQL Database Authentication"
-          },
-          {
-            "description": "",
-            "title": "New Timeframe Options in Compliance Policy Report Templates"
-          },
-          {
-            "description": "We have introduced the following new QQL tokens that help you search and filter policies more efficiently:",
-            "title": "New QQL Tokens to Search Policies"
-          },
-          {
-            "description": "",
-            "title": "Support for New Technologies"
-          },
-          {
-            "description": "The following reported and notable customer issues are fixed in this release:",
+            "description": "The following customer reported issues are fixed in this release:",
             "title": "Fixes"
           }
         ],
         "release_date": null,
-        "title": "Policy Audit Release 1.17",
-        "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_pa/pa/release_1_17.htm",
-        "version": "1.17"
+        "title": "Policy Audit Release 1.18",
+        "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_pa/pa/release_1_18.htm",
+        "version": "1.18"
       },
-      "retrieved_at": "2026-11-17T16:29:30Z"
+      "retrieved_at": "2026-11-19T16:04:39Z"
     },
     "QWEB_VM": {
       "release": {
@@ -517,7 +525,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_vmdr_rn/vmdr/release_2_14.htm",
         "version": "2.14"
       },
-      "retrieved_at": "2026-11-17T16:29:30Z"
+      "retrieved_at": "2026-11-19T16:04:39Z"
     },
     "SEM": {
       "release": {
@@ -540,7 +548,7 @@
         "url": "https://docs.qualys.com/en/vmdr-mobile/release-notes/vmdr_mobile/release_1_6_1.htm",
         "version": "1.6.1"
       },
-      "retrieved_at": "2026-11-17T16:29:30Z"
+      "retrieved_at": "2026-11-19T16:04:39Z"
     },
     "SM": {
       "release": {
@@ -575,7 +583,7 @@
         "url": "https://docs.qualys.com/en/car/release-notes/car/release_2_9_3.htm",
         "version": "2.9.3"
       },
-      "retrieved_at": "2026-11-17T16:29:30Z"
+      "retrieved_at": "2026-11-19T16:04:39Z"
     },
     "TA": {
       "release": {
@@ -626,7 +634,7 @@
         "url": "https://docs.qualys.com/en/ta/release-notes/total_ai/release_2_0.htm",
         "version": "2.0"
       },
-      "retrieved_at": "2026-11-17T16:29:30Z"
+      "retrieved_at": "2026-11-19T16:04:39Z"
     },
     "TC": {
       "release": {
@@ -685,34 +693,22 @@
         "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_29.htm",
         "version": "2.29"
       },
-      "retrieved_at": "2026-11-17T16:29:30Z"
+      "retrieved_at": "2026-11-19T16:04:39Z"
     },
     "UD": {
       "release": {
         "features": [
           {
             "description": "",
-            "title": "Inactive Dashboards Now Move to the Recycle Bin Automatically"
-          },
-          {
-            "description": "",
-            "title": "Go Straight to Your Most-Used Module When You Sign In"
-          },
-          {
-            "description": "",
-            "title": "Start with Ready-Made Qualys Recommended Dashboards for Each Module"
-          },
-          {
-            "description": "The following reported and notable customer issues are fixed in this release:",
-            "title": "Fixes"
+            "title": "Same Dashboard in New Browser Tabs"
           }
         ],
         "release_date": null,
-        "title": "Unified Dashboard Release 2.17.1",
-        "url": "https://docs.qualys.com/en/ud/release-notes/unified_dashboard/release_2_17_1.htm",
-        "version": "2.17.1"
+        "title": "Unified Dashboard Release 2.18",
+        "url": "https://docs.qualys.com/en/ud/release-notes/unified_dashboard/release_2_18.htm",
+        "version": "2.18"
       },
-      "retrieved_at": "2026-11-17T16:29:30Z"
+      "retrieved_at": "2026-11-19T16:04:39Z"
     },
     "WAS": {
       "release": {
@@ -739,7 +735,7 @@
         "url": "https://docs.qualys.com/en/tas/release-notes/total_app_sec/release_2_1.htm",
         "version": "2.1"
       },
-      "retrieved_at": "2026-11-17T16:29:30Z"
+      "retrieved_at": "2026-11-19T16:04:39Z"
     }
   },
   "parse_format_version": 3,
@@ -1520,6 +1516,40 @@
       "source": "qualys_release_notes_index",
       "version": "4.9.4.0-38"
     },
+    "FIM|4.9.5.0-17": {
+      "module": "FIM",
+      "release": {
+        "features": [
+          {
+            "description": "",
+            "title": "Run Correlation Rules Every Hour to Detect Incidents Sooner"
+          },
+          {
+            "description": "",
+            "title": "Troubleshoot Stopped FIM Agents Sooner with Daily Failure Reasons"
+          },
+          {
+            "description": "",
+            "title": "Verify the Reporting Period in Scheduled Event Reports"
+          },
+          {
+            "description": "For more information, refer to theSearch Events Tokens.",
+            "title": "New Tokens in FIM"
+          },
+          {
+            "description": "",
+            "title": "Fixes"
+          }
+        ],
+        "release_date": null,
+        "title": "File Integrity Monitoring Release 4.9.5",
+        "url": "https://docs.qualys.com/en/fim/release-notes/file_integrity_monitoring/release_4_9_5.htm",
+        "version": "4.9.5.0-17"
+      },
+      "retrieved_at": "2026-11-19T16:04:39Z",
+      "source": "qualys_release_notes_index",
+      "version": "4.9.5.0-17"
+    },
     "ISL|4.1.0.0-282": {
       "module": "ISL",
       "release": {
@@ -1734,6 +1764,36 @@
       "source": "qualys_release_notes_index",
       "version": "4.2.1.0-279"
     },
+    "ISL|4.2.1.0-283": {
+      "module": "ISL",
+      "release": {
+        "features": [
+          {
+            "description": "",
+            "title": "With Agent Sara, Remediate Smarter, and Roll Out in Phased Rings"
+          },
+          {
+            "description": "",
+            "title": "Mitigate ETM Plan Findings to Reduce Risk When No Patch Is Available"
+          },
+          {
+            "description": "Refer to the following table to learn more about the new tokens in this release.",
+            "title": "New QQL Tokens"
+          },
+          {
+            "description": "The following reported and notable customer issues are fixed in this release.",
+            "title": "Issues Addressed"
+          }
+        ],
+        "release_date": null,
+        "title": "TruRisk\u2122 Eliminate Release 4.2.1",
+        "url": "https://docs.qualys.com/en/pm/release-notes/patch_management/release_4_2_1.htm",
+        "version": "4.2.1.0-283"
+      },
+      "retrieved_at": "2026-11-19T16:04:39Z",
+      "source": "qualys_release_notes_index",
+      "version": "4.2.1.0-283"
+    },
     "ITAM|3.7.3.0-23": {
       "module": "ITAM",
       "release": {
@@ -1869,6 +1929,68 @@
       "retrieved_at": "2026-10-28T19:54:43Z",
       "source": "qualys_release_notes_index",
       "version": "3.7.3.0-31"
+    },
+    "ITAM|3.8.0.0-53": {
+      "module": "ITAM",
+      "release": {
+        "features": [
+          {
+            "description": "",
+            "title": "Discover Internet-Facing Assets Without Open Ports"
+          },
+          {
+            "description": "",
+            "title": "Include VMDR Map Scan Assets in EASM Discovery"
+          },
+          {
+            "description": "",
+            "title": "Discover\u00a0MCP Servers on Your Internet-Facing Assets"
+          },
+          {
+            "description": "",
+            "title": "Exclude Cloud Assets from EASM Lightweight Scans"
+          },
+          {
+            "description": "",
+            "title": "Understand AI Footprint Across Your External Attack Surface"
+          },
+          {
+            "description": "",
+            "title": "View Hosting Categories for EASM Assets Not Discovered from Shodan"
+          },
+          {
+            "description": "",
+            "title": "Detect Email Authentication and DNS Misconfigurations on Your Domains"
+          },
+          {
+            "description": "",
+            "title": "Identify Cloud Asset Ownership Using Aliases"
+          },
+          {
+            "description": "",
+            "title": "Extend Vulnerability and Compliance Detection to OCI Assets"
+          },
+          {
+            "description": "",
+            "title": "Activate IPv6 Assets Based on Their DNS Hostnames"
+          },
+          {
+            "description": "",
+            "title": "Search Cloud Assets by IPv6 Addresses and OCI Network Details"
+          },
+          {
+            "description": "",
+            "title": "Tokens Update"
+          }
+        ],
+        "release_date": null,
+        "title": "CyberSecurity Asset Management / Global AssetView Release 3.8.0.0",
+        "url": "https://docs.qualys.com/en/csam/release-notes/cybersecurity_asset_management/release_3_8.htm",
+        "version": "3.8.0.0-53"
+      },
+      "retrieved_at": "2026-11-19T16:04:39Z",
+      "source": "qualys_release_notes_index",
+      "version": "3.8.0.0-53"
     },
     "PS|2.6.0.0-7": {
       "module": "PS",
@@ -2319,6 +2441,24 @@
       "retrieved_at": "2026-11-18T15:58:43Z",
       "source": "qualys_release_notes_index",
       "version": "2.18.0-8-42"
+    },
+    "UD|2.18.0-9-43": {
+      "module": "UD",
+      "release": {
+        "features": [
+          {
+            "description": "",
+            "title": "Same Dashboard in New Browser Tabs"
+          }
+        ],
+        "release_date": null,
+        "title": "Unified Dashboard Release 2.18",
+        "url": "https://docs.qualys.com/en/ud/release-notes/unified_dashboard/release_2_18.htm",
+        "version": "2.18.0-9-43"
+      },
+      "retrieved_at": "2026-11-19T16:04:39Z",
+      "source": "qualys_release_notes_index",
+      "version": "2.18.0-9-43"
     },
     "WAS|1.31.0.0-4": {
       "module": "WAS",

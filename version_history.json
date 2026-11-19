@@ -966,5 +966,61 @@
     "new_version": "2.9.3.0-68",
     "old_version": "2.9.2.0-37",
     "timestamp": "2026-11-18T15:58:43Z"
+  },
+  {
+    "api_field": "ITAM-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "ITAM",
+    "new_version": "3.8.0.0-53",
+    "old_version": "3.7.3.0-31",
+    "timestamp": "2026-11-19T16:04:39Z"
+  },
+  {
+    "api_field": "MTG-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "MTG",
+    "new_version": "4.2.1.0-283",
+    "old_version": "4.2.1.0-279",
+    "timestamp": "2026-11-19T16:04:39Z"
+  },
+  {
+    "api_field": "UD-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "UD",
+    "new_version": "2.18.0-9-43",
+    "old_version": "2.18.0-8-42",
+    "timestamp": "2026-11-19T16:04:39Z"
+  },
+  {
+    "api_field": "ISL-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "ISL",
+    "new_version": "4.2.1.0-283",
+    "old_version": "4.2.1.0-279",
+    "timestamp": "2026-11-19T16:04:39Z"
+  },
+  {
+    "api_field": "CA-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "CA",
+    "new_version": "2.9.0",
+    "old_version": "2.8.0",
+    "timestamp": "2026-11-19T16:04:39Z"
+  },
+  {
+    "api_field": "FIM-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "FIM",
+    "new_version": "4.9.5.0-17",
+    "old_version": "4.9.4.0-38",
+    "timestamp": "2026-11-19T16:04:39Z"
+  },
+  {
+    "api_field": "PM-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "PM",
+    "new_version": "4.2.1.0-283",
+    "old_version": "4.2.1.0-279",
+    "timestamp": "2026-11-19T16:04:39Z"
   }
 ]
