@@ -968,6 +968,68 @@
       "source": "qualys_release_notes_index",
       "version": "2.28.0-212"
     },
+    "CLOUDVIEW|2.29.1-29": {
+      "module": "CLOUDVIEW",
+      "release": {
+        "features": [
+          {
+            "description": "",
+            "title": "Simplified Remediation with AI"
+          },
+          {
+            "description": "",
+            "title": "Global Posture View Across All Clouds"
+          },
+          {
+            "description": "",
+            "title": "Custom CSV Reports for Your Inventory"
+          },
+          {
+            "description": "",
+            "title": "Improved Discovery and Reconciliation for Azure VMSS"
+          },
+          {
+            "description": "",
+            "title": "Support for MultiCloud Dashboards"
+          },
+          {
+            "description": "",
+            "title": "Enhanced CSPM Reports"
+          },
+          {
+            "description": "",
+            "title": "Expanded AI/ML Inventory Coverage for OCI and GCP"
+          },
+          {
+            "description": "",
+            "title": "Audit Logs for Reports, Exceptions, Alert Rules, and Alert Actions"
+          },
+          {
+            "description": "",
+            "title": "Enhanced User Interface"
+          },
+          {
+            "description": "The following sections describe the enhancements made to the Cloud Detection and Response (CDR) environment in the upcoming CDR release.",
+            "title": "CDR Enhancements and Updates"
+          },
+          {
+            "description": "The following section describes the new tokens introduced as part of TotalCloud 2.29.",
+            "title": "New Tokens"
+          },
+          {
+            "description": "SeeControl Permissions for Azureto understand the permissions needed for the new controls.",
+            "title": "Control Updates"
+          }
+        ],
+        "release_date": null,
+        "title": "TotalCloud Release 2.29",
+        "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_29.htm",
+        "version": "2.29.1-29"
+      },
+      "retrieved_at": "2026-11-20T15:45:52Z",
+      "source": "qualys_release_notes_index",
+      "version": "2.29.1-29"
+    },
     "CONN|2.20.1-8": {
       "module": "CONN",
       "release": {
@@ -1019,6 +1081,28 @@
       "retrieved_at": "2026-10-08T14:02:45Z",
       "source": "qualys_release_notes_index",
       "version": "2.21.0-26"
+    },
+    "CONN|2.22.0-32": {
+      "module": "CONN",
+      "release": {
+        "features": [
+          {
+            "description": "",
+            "title": "FlexScan Support for Oracle Cloud Infrastructure (OCI) Snapshots"
+          },
+          {
+            "description": "",
+            "title": "Zero-touch Snapshot-based Scan for Azure with Qualys Native Deployment"
+          }
+        ],
+        "release_date": null,
+        "title": "Connector Release 2.22",
+        "url": "https://docs.qualys.com/en/conn/release-notes/connector/release_2_22.htm",
+        "version": "2.22.0-32"
+      },
+      "retrieved_at": "2026-11-20T15:45:52Z",
+      "source": "qualys_release_notes_index",
+      "version": "2.22.0-32"
     },
     "CS|1.45.5-16": {
       "module": "CS",

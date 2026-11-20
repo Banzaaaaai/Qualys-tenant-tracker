@@ -1022,5 +1022,21 @@
     "new_version": "4.2.1.0-283",
     "old_version": "4.2.1.0-279",
     "timestamp": "2026-11-19T16:04:39Z"
+  },
+  {
+    "api_field": "CLOUDVIEW-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "CLOUDVIEW",
+    "new_version": "2.29.1-29",
+    "old_version": "2.28.0-212",
+    "timestamp": "2026-11-20T15:45:52Z"
+  },
+  {
+    "api_field": "CONN-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "CONN",
+    "new_version": "2.22.0-32",
+    "old_version": "2.21.0-26",
+    "timestamp": "2026-11-20T15:45:52Z"
   }
 ]
