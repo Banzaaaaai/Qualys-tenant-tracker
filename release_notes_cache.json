@@ -13,7 +13,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_vmdr_rn/vmdr/release_2_14.htm",
         "version": "2.14"
       },
-      "retrieved_at": "2026-11-21T14:56:20Z"
+      "retrieved_at": "2026-11-22T20:50:15Z"
     },
     "CA": {
       "release": {
@@ -68,7 +68,7 @@
         "url": "https://docs.qualys.com/en/ca/release-notes/ca_application/release_2_8.htm",
         "version": "2.8"
       },
-      "retrieved_at": "2026-11-21T14:56:20Z"
+      "retrieved_at": "2026-11-22T20:50:15Z"
     },
     "CERTVIEW": {
       "release": {
@@ -87,7 +87,7 @@
         "url": "https://docs.qualys.com/en/certview/release-notes/certview/release_4_8_2.htm",
         "version": "4.8.2"
       },
-      "retrieved_at": "2026-11-21T14:56:20Z"
+      "retrieved_at": "2026-11-22T20:50:15Z"
     },
     "CLOUDVIEW": {
       "release": {
@@ -146,7 +146,7 @@
         "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_29.htm",
         "version": "2.29"
       },
-      "retrieved_at": "2026-11-21T14:56:20Z"
+      "retrieved_at": "2026-11-22T20:50:15Z"
     },
     "CONN": {
       "release": {
@@ -165,7 +165,7 @@
         "url": "https://docs.qualys.com/en/conn/release-notes/connector/release_2_22.htm",
         "version": "2.22"
       },
-      "retrieved_at": "2026-11-21T14:56:20Z"
+      "retrieved_at": "2026-11-22T20:50:15Z"
     },
     "CS": {
       "release": {
@@ -224,7 +224,7 @@
         "url": "https://docs.qualys.com/en/cs/release-notes/container_security/release_1_45.htm",
         "version": "1.45"
       },
-      "retrieved_at": "2026-11-21T14:56:20Z"
+      "retrieved_at": "2026-11-22T20:50:15Z"
     },
     "ETM": {
       "release": {
@@ -283,7 +283,7 @@
         "url": "https://docs.qualys.com/en/etm/release-notes/etm/release_1_14.htm",
         "version": "1.14"
       },
-      "retrieved_at": "2026-11-21T14:56:20Z"
+      "retrieved_at": "2026-11-22T20:50:15Z"
     },
     "FIM": {
       "release": {
@@ -314,7 +314,7 @@
         "url": "https://docs.qualys.com/en/fim/release-notes/file_integrity_monitoring/release_4_9_5.htm",
         "version": "4.9.5"
       },
-      "retrieved_at": "2026-11-21T14:56:20Z"
+      "retrieved_at": "2026-11-22T20:50:15Z"
     },
     "ISL": {
       "release": {
@@ -329,7 +329,7 @@
         "url": "https://docs.qualys.com/en/pm/release-notes/patch_management/release_4_2_1_1.htm",
         "version": "4.2.1.1"
       },
-      "retrieved_at": "2026-11-21T14:56:20Z"
+      "retrieved_at": "2026-11-22T20:50:15Z"
     },
     "ITAM": {
       "release": {
@@ -388,7 +388,7 @@
         "url": "https://docs.qualys.com/en/csam/release-notes/cybersecurity_asset_management/release_3_8.htm",
         "version": "3.8"
       },
-      "retrieved_at": "2026-11-21T14:56:20Z"
+      "retrieved_at": "2026-11-22T20:50:15Z"
     },
     "OCA": {
       "release": {
@@ -403,7 +403,7 @@
         "url": "https://docs.qualys.com/en/oca/release-notes/oca/release_1_13.htm",
         "version": "1.13"
       },
-      "retrieved_at": "2026-11-21T14:56:20Z"
+      "retrieved_at": "2026-11-22T20:50:15Z"
     },
     "PM": {
       "release": {
@@ -422,7 +422,7 @@
         "url": " https://docs.qualys.com/en/pm/release-notes/patch_management/release_3_6.htm",
         "version": "3.6"
       },
-      "retrieved_at": "2026-11-21T14:56:20Z"
+      "retrieved_at": "2026-11-22T20:50:15Z"
     },
     "PS": {
       "release": {
@@ -445,7 +445,7 @@
         "url": "https://docs.qualys.com/en/ps/release-notes/ps/release_2_7.htm",
         "version": "2.7"
       },
-      "retrieved_at": "2026-11-21T14:56:20Z"
+      "retrieved_at": "2026-11-22T20:50:15Z"
     },
     "QFLOW": {
       "release": {
@@ -472,7 +472,7 @@
         "url": "https://docs.qualys.com/en/qflow/release-notes/qflow/release_1_24.htm",
         "version": "1.24"
       },
-      "retrieved_at": "2026-11-21T14:56:20Z"
+      "retrieved_at": "2026-11-22T20:50:15Z"
     },
     "QGS": {
       "release": {
@@ -487,7 +487,7 @@
         "url": "https://docs.qualys.com/en/qgs/release-notes/qgs/release_3_16_2.htm",
         "version": "3.16.2"
       },
-      "retrieved_at": "2026-11-21T14:56:20Z"
+      "retrieved_at": "2026-11-22T20:50:15Z"
     },
     "QWEB_PC": {
       "release": {
@@ -510,7 +510,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_pa/pa/release_1_18.htm",
         "version": "1.18"
       },
-      "retrieved_at": "2026-11-21T14:56:20Z"
+      "retrieved_at": "2026-11-22T20:50:15Z"
     },
     "QWEB_VM": {
       "release": {
@@ -525,7 +525,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_vmdr_rn/vmdr/release_2_14.htm",
         "version": "2.14"
       },
-      "retrieved_at": "2026-11-21T14:56:20Z"
+      "retrieved_at": "2026-11-22T20:50:15Z"
     },
     "SEM": {
       "release": {
@@ -548,7 +548,7 @@
         "url": "https://docs.qualys.com/en/vmdr-mobile/release-notes/vmdr_mobile/release_1_6_1.htm",
         "version": "1.6.1"
       },
-      "retrieved_at": "2026-11-21T14:56:20Z"
+      "retrieved_at": "2026-11-22T20:50:15Z"
     },
     "SM": {
       "release": {
@@ -583,7 +583,7 @@
         "url": "https://docs.qualys.com/en/car/release-notes/car/release_2_9_3.htm",
         "version": "2.9.3"
       },
-      "retrieved_at": "2026-11-21T14:56:20Z"
+      "retrieved_at": "2026-11-22T20:50:15Z"
     },
     "TA": {
       "release": {
@@ -634,7 +634,7 @@
         "url": "https://docs.qualys.com/en/ta/release-notes/total_ai/release_2_0.htm",
         "version": "2.0"
       },
-      "retrieved_at": "2026-11-21T14:56:20Z"
+      "retrieved_at": "2026-11-22T20:50:15Z"
     },
     "TC": {
       "release": {
@@ -693,7 +693,7 @@
         "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_29.htm",
         "version": "2.29"
       },
-      "retrieved_at": "2026-11-21T14:56:20Z"
+      "retrieved_at": "2026-11-22T20:50:15Z"
     },
     "UD": {
       "release": {
@@ -708,7 +708,7 @@
         "url": "https://docs.qualys.com/en/ud/release-notes/unified_dashboard/release_2_18.htm",
         "version": "2.18"
       },
-      "retrieved_at": "2026-11-21T14:56:20Z"
+      "retrieved_at": "2026-11-22T20:50:15Z"
     },
     "WAS": {
       "release": {
@@ -735,7 +735,7 @@
         "url": "https://docs.qualys.com/en/tas/release-notes/total_app_sec/release_2_1.htm",
         "version": "2.1"
       },
-      "retrieved_at": "2026-11-21T14:56:20Z"
+      "retrieved_at": "2026-11-22T20:50:15Z"
     }
   },
   "parse_format_version": 3,
