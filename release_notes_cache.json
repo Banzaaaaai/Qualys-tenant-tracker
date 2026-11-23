@@ -1566,6 +1566,68 @@
       "source": "qualys_release_notes_index",
       "version": "1.14.0-224"
     },
+    "ETM|1.15.0-130": {
+      "module": "ETM",
+      "release": {
+        "features": [
+          {
+            "description": "Availability:Enablement Required (Beta)",
+            "title": "(Beta) Explore All Attack Path Rules in the New Catalog Tab"
+          },
+          {
+            "description": "Availability:Enablement Required (Beta)",
+            "title": "(Beta) Attack Paths for Identity Domain"
+          },
+          {
+            "description": "Availability:Enablement Required (Beta)",
+            "title": "(Beta) 20 New Attack Path Rules"
+          },
+          {
+            "description": "Availability:Generally Available",
+            "title": "Prioritize Validated Findings That Are Reachable from the Internet"
+          },
+          {
+            "description": "Availability:Generally Available",
+            "title": "Download TruConfirm Scan Results as a CSV Report"
+          },
+          {
+            "description": "Availability:Enablement Required",
+            "title": "See Why TruConfirm Reached Each Result on Cloud Agent Assets"
+          },
+          {
+            "description": "Availability:Enablement Required",
+            "title": "Create Alerts Using TruConfirm Tokens"
+          },
+          {
+            "description": "Availability:Generally Available",
+            "title": "Scope TruConfirm Assessments by Past Results, Scan Date, and QVSS"
+          },
+          {
+            "description": "Availability:Enablement Required",
+            "title": "TruConfirm Scans Are Now Automatically Deleted After 30 Days"
+          },
+          {
+            "description": "Availability:Enablement Required",
+            "title": "Launch TruConfirm Scans from Risk Management"
+          },
+          {
+            "description": "Availability:Enablement Required (Beta)",
+            "title": "(Beta) Export Attack Path Data Using APIs"
+          },
+          {
+            "description": "Availability:Enablement Required",
+            "title": "Find CVEs InstaScan Can Validate in TruLens"
+          }
+        ],
+        "release_date": null,
+        "title": "ETM Release 1.15",
+        "url": "https://docs.qualys.com/en/etm/release-notes/etm/release_1_15.htm",
+        "version": "1.15.0-130"
+      },
+      "retrieved_at": "2026-11-23T18:45:53Z",
+      "source": "qualys_release_notes_index",
+      "version": "1.15.0-130"
+    },
     "FIM|4.9.4.0-38": {
       "module": "FIM",
       "release": {
@@ -2281,6 +2343,24 @@
       "retrieved_at": "2026-10-27T12:41:07Z",
       "source": "qualys_release_notes_index",
       "version": "2.14.0-49"
+    },
+    "QWEB_VM|2.14.0-5-58": {
+      "module": "QWEB_VM",
+      "release": {
+        "features": [
+          {
+            "description": "The following reported and notable customer issue is\u00a0fixed in this release:",
+            "title": "Fix"
+          }
+        ],
+        "release_date": null,
+        "title": "VMDR Release 2.14",
+        "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_vmdr_rn/vmdr/release_2_14.htm",
+        "version": "2.14.0-5-58"
+      },
+      "retrieved_at": "2026-11-23T18:45:53Z",
+      "source": "qualys_release_notes_index",
+      "version": "2.14.0-5-58"
     },
     "SM|2.9.2.0-37": {
       "module": "SM",

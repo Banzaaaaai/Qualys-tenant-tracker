@@ -1038,5 +1038,29 @@
     "new_version": "2.22.0-32",
     "old_version": "2.21.0-26",
     "timestamp": "2026-11-20T15:45:52Z"
+  },
+  {
+    "api_field": "QWEB_VM-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "QWEB_VM",
+    "new_version": "2.14.0-5-58",
+    "old_version": "2.14.0-4-56",
+    "timestamp": "2026-11-23T18:45:53Z"
+  },
+  {
+    "api_field": "ETM-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "ETM",
+    "new_version": "1.15.0-130",
+    "old_version": "1.14.0-224",
+    "timestamp": "2026-11-23T18:45:53Z"
+  },
+  {
+    "api_field": "SSC-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "SSC",
+    "new_version": "1.17.0",
+    "old_version": "1.16.0.1",
+    "timestamp": "2026-11-23T18:45:53Z"
   }
 ]

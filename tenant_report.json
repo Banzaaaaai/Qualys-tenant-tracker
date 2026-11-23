@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-11-22T20:50:15Z",
+  "last_checked": "2026-11-23T18:45:53Z",
   "modules": {
     "AV2": {
       "api_field": "AV2-VERSION",
@@ -46,8 +46,8 @@
     "ETM": {
       "api_field": "ETM-VERSION",
       "first_seen": "2026-09-10T15:39:50Z",
-      "last_changed": "2026-11-05T14:58:08Z",
-      "version": "1.14.0-224"
+      "last_changed": "2026-11-23T18:45:53Z",
+      "version": "1.15.0-130"
     },
     "FIM": {
       "api_field": "FIM-VERSION",
@@ -154,8 +154,8 @@
     "QWEB_VM": {
       "api_field": "QWEB_VM-VERSION",
       "first_seen": "2026-09-10T15:39:50Z",
-      "last_changed": "2026-11-17T16:29:30Z",
-      "version": "2.14.0-4-56"
+      "last_changed": "2026-11-23T18:45:53Z",
+      "version": "2.14.0-5-58"
     },
     "SECURITY_ANALYTICS": {
       "api_field": "SECURITY_ANALYTICS-VERSION",
@@ -178,8 +178,8 @@
     "SSC": {
       "api_field": "SSC-VERSION",
       "first_seen": "2026-09-10T15:39:50Z",
-      "last_changed": "2026-10-01T13:54:56Z",
-      "version": "1.16.0.1"
+      "last_changed": "2026-11-23T18:45:53Z",
+      "version": "1.17.0"
     },
     "TA": {
       "api_field": "TA-VERSION",
