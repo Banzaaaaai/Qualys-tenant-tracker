@@ -1062,5 +1062,29 @@
     "new_version": "1.17.0",
     "old_version": "1.16.0.1",
     "timestamp": "2026-11-23T18:45:53Z"
+  },
+  {
+    "api_field": "ETM-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "ETM",
+    "new_version": "1.0.0-44",
+    "old_version": "1.15.0-130",
+    "timestamp": "2026-11-24T18:19:59Z"
+  },
+  {
+    "api_field": "CERTVIEW-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "CERTVIEW",
+    "new_version": "4.8.2.0-22",
+    "old_version": "4.8.2.0-21",
+    "timestamp": "2026-11-24T18:19:59Z"
+  },
+  {
+    "api_field": "QWEB_PC-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "QWEB_PC",
+    "new_version": "1.18.0",
+    "old_version": "1.17.0",
+    "timestamp": "2026-11-24T18:19:59Z"
   }
 ]

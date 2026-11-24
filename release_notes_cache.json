@@ -13,62 +13,42 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_vmdr_rn/vmdr/release_2_14.htm",
         "version": "2.14"
       },
-      "retrieved_at": "2026-11-22T20:50:15Z"
+      "retrieved_at": "2026-11-24T18:19:59Z"
     },
     "CA": {
       "release": {
         "features": [
           {
-            "description": "We have introduced an improved user experience for theAgentstab in Cloud Agent user interface. You can see updates across menus, fonts, colors, typography, and buttons, making the interface more intuitive and easier to use. This release features User Interface and design system enhancements that improve visual consistency, readability, and usability across the application, resulting in a cleaner,\u2026",
-            "title": "Enhanced Cloud Agent User Interface"
+            "description": "",
+            "title": "New Common Container Agent for Efficient Agent Deployment"
           },
           {
-            "description": "TheAgent Managementwindow now includes a dedicatedRequeststab to track agent report downloads, on-demand vulnerability scans, and vulnerability scan status. Previously, there was no option in Cloud Agent user interface to track these actions.",
-            "title": "Track Scan and Report Download Status with the Requests Tab"
+            "description": "",
+            "title": "Get More from Enhanced Cloud Agent Dashboard"
           },
           {
-            "description": "We are introducing theTag-based User Accessfor Cloud Agent. Tag-based access provides precise, scalable permission control, ensuring that each user can view and edit only the assets\u00a0assigned to them.",
-            "title": "Control User Permissions with Tag-based Access"
+            "description": "",
+            "title": "Control Peer-to-Peer Distribution with Advance Settings"
           },
           {
-            "description": "Cloud Agent now supports activating a new Qualys application, TruConfirm, from the\u00a0Cloud Agent user interface.",
-            "title": "New Application - Qualys TruConfirm"
+            "description": "",
+            "title": "Cloud Agent UI Updates for an Intuitive Experience"
           },
           {
-            "description": "We introduced a new tab,Additional Settings,in Cloud Agent user interface. The Additional Settings tab provides you with the following options:",
-            "title": "Configure Additional Cloud Agent Settings in New Tab"
+            "description": "The following are the new and updated search tokens for Cloud Agent:",
+            "title": "Cloud Agent Token Updates"
           },
           {
-            "description": "Cloud Agent now gives you control over secondary binary updates, such as SwCA, Cloud Agent Passive Sensor (CAPS), and Deep Scan. This prevents unplanned changes in sensitive environments and keeps binary updates aligned with your maintenance schedule. This enhancement also offers a test window for newly released binary versions before deploying them on critical assets.",
-            "title": "Control Secondary Binary Updates"
-          },
-          {
-            "description": "We have updated the ETM Identity activation workflow to support independent activation. You can now activate ETM Identity without activating the dependent Qualys applications, such as Vulnerability Management (VM) and Policy Audit (PA). This removes dependency on the other applications to use ETM Identity features.",
-            "title": "Independent Activation for ETM Identity"
-          },
-          {
-            "description": "We have updated the default transfer and admin ports for peer-to-peer distribution to 7400 and 7401, respectively. These new ports avoid security conflicts in user environments and provide a clean, risk-free gateway for peer-to-peer content distribution.",
-            "title": "Updated Default Ports for Peer-to-Peer Distribution"
-          },
-          {
-            "description": "You can now preview the custom logo before applying it to a Cloud Agent. This enhancement helps you test the custom logo during upload and ensures the correct logo is applied to the asset.",
-            "title": "Preview Cloud Agent Custom Logo"
-          },
-          {
-            "description": "We have optimized the CPU usage limits for SwCA scans on Linux assets. The new CPU limit range for Linux assets is 10-99%. The optimized CPU limit provides smoother scan performance and reduces scan failures by preventing users from setting CPU usage to very low or very high levels.",
-            "title": "Optimized CPU Limits for SwCA Scans"
-          },
-          {
-            "description": "To learn more about Cloud Agent API updates, refer toCloud Agent Application 2.8 Release API.",
-            "title": "Cloud Agent API Release Notes"
+            "description": "",
+            "title": "Fixes"
           }
         ],
         "release_date": null,
-        "title": "Cloud Agent Application Release 2.8",
-        "url": "https://docs.qualys.com/en/ca/release-notes/ca_application/release_2_8.htm",
-        "version": "2.8"
+        "title": "Cloud Agent Application Release 2.9",
+        "url": "https://docs.qualys.com/en/ca/release-notes/ca_application/release_2_9.htm",
+        "version": "2.9"
       },
-      "retrieved_at": "2026-11-22T20:50:15Z"
+      "retrieved_at": "2026-11-24T18:19:59Z"
     },
     "CERTVIEW": {
       "release": {
@@ -87,7 +67,7 @@
         "url": "https://docs.qualys.com/en/certview/release-notes/certview/release_4_8_2.htm",
         "version": "4.8.2"
       },
-      "retrieved_at": "2026-11-22T20:50:15Z"
+      "retrieved_at": "2026-11-24T18:19:59Z"
     },
     "CLOUDVIEW": {
       "release": {
@@ -146,7 +126,7 @@
         "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_29.htm",
         "version": "2.29"
       },
-      "retrieved_at": "2026-11-22T20:50:15Z"
+      "retrieved_at": "2026-11-24T18:19:59Z"
     },
     "CONN": {
       "release": {
@@ -165,7 +145,7 @@
         "url": "https://docs.qualys.com/en/conn/release-notes/connector/release_2_22.htm",
         "version": "2.22"
       },
-      "retrieved_at": "2026-11-22T20:50:15Z"
+      "retrieved_at": "2026-11-24T18:19:59Z"
     },
     "CS": {
       "release": {
@@ -224,66 +204,66 @@
         "url": "https://docs.qualys.com/en/cs/release-notes/container_security/release_1_45.htm",
         "version": "1.45"
       },
-      "retrieved_at": "2026-11-22T20:50:15Z"
+      "retrieved_at": "2026-11-24T18:19:59Z"
     },
     "ETM": {
       "release": {
         "features": [
           {
-            "description": "",
-            "title": "Build Remediation Plans with Agent Sara Chat Now"
+            "description": "Availability:Enablement Required (Beta)",
+            "title": "(Beta) Explore All Attack Path Rules in the New Catalog Tab"
           },
           {
-            "description": "",
-            "title": "View InstaScan Findings in Risk Management"
+            "description": "Availability:Enablement Required (Beta)",
+            "title": "(Beta) Attack Paths for Identity Domain"
           },
           {
-            "description": "",
-            "title": "Track CISA BOD 26-04 Remediation with New Dashboard Widgets"
+            "description": "Availability:Enablement Required (Beta)",
+            "title": "(Beta) 20 New Attack Path Rules"
           },
           {
-            "description": "",
-            "title": "Mitigate Vulnerabilities Directly from ETM"
+            "description": "Availability:Generally Available",
+            "title": "Prioritize Validated Findings That Are Reachable from the Internet"
           },
           {
-            "description": "",
-            "title": "Create Alerts and Exceptions Using Mitigation and Patch Details"
+            "description": "Availability:Generally Available",
+            "title": "Download TruConfirm Scan Results as a CSV Report"
           },
           {
-            "description": "Use the new tokens to search for findings by mitigation and patch details. You can also use all of these tokens when you create alert rules and exception rules.",
-            "title": "New Tokens for Mitigation and Patch Details"
+            "description": "Availability:Enablement Required",
+            "title": "See Why TruConfirm Reached Each Result on Cloud Agent Assets"
           },
           {
-            "description": "",
-            "title": "See Template Coverage and Mitigation Counts in Risk Workbench Plans"
+            "description": "Availability:Enablement Required",
+            "title": "Create Alerts Using TruConfirm Tokens"
           },
           {
-            "description": "",
-            "title": "Evidence Section in TruConfirm Scan Results"
+            "description": "Availability:Generally Available",
+            "title": "Scope TruConfirm Assessments by Past Results, Scan Date, and QVSS"
           },
           {
-            "description": "",
-            "title": "ErrorHandlingforSkippedFindingsandAssetsinTruConfirmScans"
+            "description": "Availability:Enablement Required",
+            "title": "TruConfirm Scans Are Now Automatically Deleted After 30 Days"
           },
           {
-            "description": "",
-            "title": "Export Grouped Asset Data from ETM"
+            "description": "Availability:Enablement Required",
+            "title": "Launch TruConfirm Scans from Risk Management"
           },
           {
-            "description": "Use these tokens to find the vulnerabilities from a specific Microsoft Patch Tuesday release, so you can track and fix them each month. You can use the following tokens to search for findings related to Patch Tuesday releases:",
-            "title": "New Tokens for Patch Tuesday"
+            "description": "Availability:Enablement Required (Beta)",
+            "title": "(Beta) Export Attack Path Data Using APIs"
           },
           {
-            "description": "The following reported and notable customer issues are fixed in this release:",
-            "title": "Fixes"
+            "description": "Availability:Enablement Required",
+            "title": "Find CVEs InstaScan Can Validate in TruLens"
           }
         ],
         "release_date": null,
-        "title": "ETM Release 1.14",
-        "url": "https://docs.qualys.com/en/etm/release-notes/etm/release_1_14.htm",
-        "version": "1.14"
+        "title": "ETM Release 1.15",
+        "url": "https://docs.qualys.com/en/etm/release-notes/etm/release_1_15.htm",
+        "version": "1.15"
       },
-      "retrieved_at": "2026-11-22T20:50:15Z"
+      "retrieved_at": "2026-11-24T18:19:59Z"
     },
     "FIM": {
       "release": {
@@ -314,7 +294,7 @@
         "url": "https://docs.qualys.com/en/fim/release-notes/file_integrity_monitoring/release_4_9_5.htm",
         "version": "4.9.5"
       },
-      "retrieved_at": "2026-11-22T20:50:15Z"
+      "retrieved_at": "2026-11-24T18:19:59Z"
     },
     "ISL": {
       "release": {
@@ -329,7 +309,7 @@
         "url": "https://docs.qualys.com/en/pm/release-notes/patch_management/release_4_2_1_1.htm",
         "version": "4.2.1.1"
       },
-      "retrieved_at": "2026-11-22T20:50:15Z"
+      "retrieved_at": "2026-11-24T18:19:59Z"
     },
     "ITAM": {
       "release": {
@@ -388,7 +368,7 @@
         "url": "https://docs.qualys.com/en/csam/release-notes/cybersecurity_asset_management/release_3_8.htm",
         "version": "3.8"
       },
-      "retrieved_at": "2026-11-22T20:50:15Z"
+      "retrieved_at": "2026-11-24T18:19:59Z"
     },
     "OCA": {
       "release": {
@@ -403,7 +383,7 @@
         "url": "https://docs.qualys.com/en/oca/release-notes/oca/release_1_13.htm",
         "version": "1.13"
       },
-      "retrieved_at": "2026-11-22T20:50:15Z"
+      "retrieved_at": "2026-11-24T18:19:59Z"
     },
     "PM": {
       "release": {
@@ -422,7 +402,7 @@
         "url": " https://docs.qualys.com/en/pm/release-notes/patch_management/release_3_6.htm",
         "version": "3.6"
       },
-      "retrieved_at": "2026-11-22T20:50:15Z"
+      "retrieved_at": "2026-11-24T18:19:59Z"
     },
     "PS": {
       "release": {
@@ -445,7 +425,7 @@
         "url": "https://docs.qualys.com/en/ps/release-notes/ps/release_2_7.htm",
         "version": "2.7"
       },
-      "retrieved_at": "2026-11-22T20:50:15Z"
+      "retrieved_at": "2026-11-24T18:19:59Z"
     },
     "QFLOW": {
       "release": {
@@ -472,7 +452,7 @@
         "url": "https://docs.qualys.com/en/qflow/release-notes/qflow/release_1_24.htm",
         "version": "1.24"
       },
-      "retrieved_at": "2026-11-22T20:50:15Z"
+      "retrieved_at": "2026-11-24T18:19:59Z"
     },
     "QGS": {
       "release": {
@@ -487,7 +467,7 @@
         "url": "https://docs.qualys.com/en/qgs/release-notes/qgs/release_3_16_2.htm",
         "version": "3.16.2"
       },
-      "retrieved_at": "2026-11-22T20:50:15Z"
+      "retrieved_at": "2026-11-24T18:19:59Z"
     },
     "QWEB_PC": {
       "release": {
@@ -510,7 +490,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_pa/pa/release_1_18.htm",
         "version": "1.18"
       },
-      "retrieved_at": "2026-11-22T20:50:15Z"
+      "retrieved_at": "2026-11-24T18:19:59Z"
     },
     "QWEB_VM": {
       "release": {
@@ -525,7 +505,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_vmdr_rn/vmdr/release_2_14.htm",
         "version": "2.14"
       },
-      "retrieved_at": "2026-11-22T20:50:15Z"
+      "retrieved_at": "2026-11-24T18:19:59Z"
     },
     "SEM": {
       "release": {
@@ -548,7 +528,7 @@
         "url": "https://docs.qualys.com/en/vmdr-mobile/release-notes/vmdr_mobile/release_1_6_1.htm",
         "version": "1.6.1"
       },
-      "retrieved_at": "2026-11-22T20:50:15Z"
+      "retrieved_at": "2026-11-24T18:19:59Z"
     },
     "SM": {
       "release": {
@@ -583,7 +563,7 @@
         "url": "https://docs.qualys.com/en/car/release-notes/car/release_2_9_3.htm",
         "version": "2.9.3"
       },
-      "retrieved_at": "2026-11-22T20:50:15Z"
+      "retrieved_at": "2026-11-24T18:19:59Z"
     },
     "TA": {
       "release": {
@@ -634,7 +614,7 @@
         "url": "https://docs.qualys.com/en/ta/release-notes/total_ai/release_2_0.htm",
         "version": "2.0"
       },
-      "retrieved_at": "2026-11-22T20:50:15Z"
+      "retrieved_at": "2026-11-24T18:19:59Z"
     },
     "TC": {
       "release": {
@@ -693,7 +673,7 @@
         "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_29.htm",
         "version": "2.29"
       },
-      "retrieved_at": "2026-11-22T20:50:15Z"
+      "retrieved_at": "2026-11-24T18:19:59Z"
     },
     "UD": {
       "release": {
@@ -708,7 +688,7 @@
         "url": "https://docs.qualys.com/en/ud/release-notes/unified_dashboard/release_2_18.htm",
         "version": "2.18"
       },
-      "retrieved_at": "2026-11-22T20:50:15Z"
+      "retrieved_at": "2026-11-24T18:19:59Z"
     },
     "WAS": {
       "release": {
@@ -735,7 +715,7 @@
         "url": "https://docs.qualys.com/en/tas/release-notes/total_app_sec/release_2_1.htm",
         "version": "2.1"
       },
-      "retrieved_at": "2026-11-22T20:50:15Z"
+      "retrieved_at": "2026-11-24T18:19:59Z"
     }
   },
   "parse_format_version": 3,
@@ -863,6 +843,28 @@
       "retrieved_at": "2026-11-18T15:58:43Z",
       "source": "qualys_release_notes_index",
       "version": "4.8.2.0-21"
+    },
+    "CERTVIEW|4.8.2.0-22": {
+      "module": "CERTVIEW",
+      "release": {
+        "features": [
+          {
+            "description": "",
+            "title": "Spot Certificate Risk Faster with a Cleaner, More Readable Interface"
+          },
+          {
+            "description": "To make queries consistent across theAsset DetailsandCertificate Detailspages, certificate instance QQL tokens now share the asset.certificate.instance prefix.\u00a0For example, certificate.instance.port (Asset Details) and asset.instance.port (Certificate Details) are both now asset.certificate.instance.port.",
+            "title": "Updated QQL Tokens"
+          }
+        ],
+        "release_date": null,
+        "title": "Certificate View Release 4.8.2",
+        "url": "https://docs.qualys.com/en/certview/release-notes/certview/release_4_8_2.htm",
+        "version": "4.8.2.0-22"
+      },
+      "retrieved_at": "2026-11-24T18:19:59Z",
+      "source": "qualys_release_notes_index",
+      "version": "4.8.2.0-22"
     },
     "CLOUDVIEW|2.27.1-23": {
       "module": "CLOUDVIEW",
@@ -2285,6 +2287,32 @@
       "retrieved_at": "2026-10-30T13:36:04Z",
       "source": "qualys_release_notes_index",
       "version": "1.17.0"
+    },
+    "QWEB_PC|1.18.0": {
+      "module": "QWEB_PC",
+      "release": {
+        "features": [
+          {
+            "description": "",
+            "title": "View and Try Out Latest Features in the What\u2019s New Window"
+          },
+          {
+            "description": "",
+            "title": "Improved Tags, Technology, and Asset Group Visibility in Policy Details"
+          },
+          {
+            "description": "The following customer reported issues are fixed in this release:",
+            "title": "Fixes"
+          }
+        ],
+        "release_date": null,
+        "title": "Policy Audit Release 1.18",
+        "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_pa/pa/release_1_18.htm",
+        "version": "1.18.0"
+      },
+      "retrieved_at": "2026-11-24T18:19:59Z",
+      "source": "qualys_release_notes_index",
+      "version": "1.18.0"
     },
     "QWEB_VM|2.13.0-3-65": {
       "module": "QWEB_VM",

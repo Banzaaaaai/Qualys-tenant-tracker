@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-11-23T18:45:53Z",
+  "last_checked": "2026-11-24T18:19:59Z",
   "modules": {
     "AV2": {
       "api_field": "AV2-VERSION",
@@ -16,8 +16,8 @@
     "CERTVIEW": {
       "api_field": "CERTVIEW-VERSION",
       "first_seen": "2026-09-10T15:39:50Z",
-      "last_changed": "2026-11-18T15:58:43Z",
-      "version": "4.8.2.0-21"
+      "last_changed": "2026-11-24T18:19:59Z",
+      "version": "4.8.2.0-22"
     },
     "CLOUDVIEW": {
       "api_field": "CLOUDVIEW-VERSION",
@@ -46,8 +46,8 @@
     "ETM": {
       "api_field": "ETM-VERSION",
       "first_seen": "2026-09-10T15:39:50Z",
-      "last_changed": "2026-11-23T18:45:53Z",
-      "version": "1.15.0-130"
+      "last_changed": "2026-11-24T18:19:59Z",
+      "version": "1.0.0-44"
     },
     "FIM": {
       "api_field": "FIM-VERSION",
@@ -148,8 +148,8 @@
     "QWEB_PC": {
       "api_field": "QWEB_PC-VERSION",
       "first_seen": "2026-09-10T15:39:50Z",
-      "last_changed": "2026-10-30T13:36:04Z",
-      "version": "1.17.0"
+      "last_changed": "2026-11-24T18:19:59Z",
+      "version": "1.18.0"
     },
     "QWEB_VM": {
       "api_field": "QWEB_VM-VERSION",
