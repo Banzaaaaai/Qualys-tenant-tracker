@@ -1086,5 +1086,29 @@
     "new_version": "1.18.0",
     "old_version": "1.17.0",
     "timestamp": "2026-11-24T18:19:59Z"
+  },
+  {
+    "api_field": "WAS-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "WAS",
+    "new_version": "1.32.0.0-17",
+    "old_version": "1.32.0.0-16",
+    "timestamp": "2026-11-25T17:38:08Z"
+  },
+  {
+    "api_field": "QGS-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "QGS",
+    "new_version": "2.10.1-15",
+    "old_version": "2.10.0-15",
+    "timestamp": "2026-11-25T17:38:08Z"
+  },
+  {
+    "api_field": "SEM-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "SEM",
+    "new_version": "1.7.0-0",
+    "old_version": "1.6.2-0",
+    "timestamp": "2026-11-25T17:38:08Z"
   }
 ]
