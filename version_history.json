@@ -1110,5 +1110,53 @@
     "new_version": "1.7.0-0",
     "old_version": "1.6.2-0",
     "timestamp": "2026-11-25T17:38:08Z"
+  },
+  {
+    "api_field": "ETM-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "ETM",
+    "new_version": "1.15.0-130",
+    "old_version": "1.0.0-44",
+    "timestamp": "2026-11-26T17:19:56Z"
+  },
+  {
+    "api_field": "CLOUDVIEW-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "CLOUDVIEW",
+    "new_version": "2.29.1-34",
+    "old_version": "2.29.1-29",
+    "timestamp": "2026-11-26T17:19:56Z"
+  },
+  {
+    "api_field": "MTG-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "MTG",
+    "new_version": "4.2.1.0-289",
+    "old_version": "4.2.1.0-283",
+    "timestamp": "2026-11-26T17:19:56Z"
+  },
+  {
+    "api_field": "ISL-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "ISL",
+    "new_version": "4.2.1.0-289",
+    "old_version": "4.2.1.0-283",
+    "timestamp": "2026-11-26T17:19:56Z"
+  },
+  {
+    "api_field": "PM-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "PM",
+    "new_version": "4.2.1.0-289",
+    "old_version": "4.2.1.0-283",
+    "timestamp": "2026-11-26T17:19:56Z"
+  },
+  {
+    "api_field": "CONN-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "CONN",
+    "new_version": "2.22.0-40",
+    "old_version": "2.22.0-32",
+    "timestamp": "2026-11-26T17:19:56Z"
   }
 ]

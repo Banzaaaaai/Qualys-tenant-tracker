@@ -13,7 +13,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_vmdr_rn/vmdr/release_2_14.htm",
         "version": "2.14"
       },
-      "retrieved_at": "2026-11-24T18:19:59Z"
+      "retrieved_at": "2026-11-26T17:19:56Z"
     },
     "CA": {
       "release": {
@@ -48,7 +48,7 @@
         "url": "https://docs.qualys.com/en/ca/release-notes/ca_application/release_2_9.htm",
         "version": "2.9"
       },
-      "retrieved_at": "2026-11-24T18:19:59Z"
+      "retrieved_at": "2026-11-26T17:19:56Z"
     },
     "CERTVIEW": {
       "release": {
@@ -67,7 +67,7 @@
         "url": "https://docs.qualys.com/en/certview/release-notes/certview/release_4_8_2.htm",
         "version": "4.8.2"
       },
-      "retrieved_at": "2026-11-24T18:19:59Z"
+      "retrieved_at": "2026-11-26T17:19:56Z"
     },
     "CLOUDVIEW": {
       "release": {
@@ -126,7 +126,7 @@
         "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_29.htm",
         "version": "2.29"
       },
-      "retrieved_at": "2026-11-24T18:19:59Z"
+      "retrieved_at": "2026-11-26T17:19:56Z"
     },
     "CONN": {
       "release": {
@@ -145,7 +145,7 @@
         "url": "https://docs.qualys.com/en/conn/release-notes/connector/release_2_22.htm",
         "version": "2.22"
       },
-      "retrieved_at": "2026-11-24T18:19:59Z"
+      "retrieved_at": "2026-11-26T17:19:56Z"
     },
     "CS": {
       "release": {
@@ -204,7 +204,7 @@
         "url": "https://docs.qualys.com/en/cs/release-notes/container_security/release_1_45.htm",
         "version": "1.45"
       },
-      "retrieved_at": "2026-11-24T18:19:59Z"
+      "retrieved_at": "2026-11-26T17:19:56Z"
     },
     "ETM": {
       "release": {
@@ -263,7 +263,7 @@
         "url": "https://docs.qualys.com/en/etm/release-notes/etm/release_1_15.htm",
         "version": "1.15"
       },
-      "retrieved_at": "2026-11-24T18:19:59Z"
+      "retrieved_at": "2026-11-26T17:19:56Z"
     },
     "FIM": {
       "release": {
@@ -294,22 +294,50 @@
         "url": "https://docs.qualys.com/en/fim/release-notes/file_integrity_monitoring/release_4_9_5.htm",
         "version": "4.9.5"
       },
-      "retrieved_at": "2026-11-24T18:19:59Z"
+      "retrieved_at": "2026-11-26T17:19:56Z"
     },
     "ISL": {
       "release": {
         "features": [
           {
             "description": "",
-            "title": "Identify and Remediate PHP2Shell Risk Faster Across All Assets"
+            "title": "Create Ring-Based Deployment Jobs from the Jobs Page"
+          },
+          {
+            "description": "",
+            "title": "Overview and Operational Status Page Enhancements"
+          },
+          {
+            "description": "",
+            "title": "Expand Patch Coverage to macOS 27 GoldenGate"
+          },
+          {
+            "description": "",
+            "title": "Keep Automated Jobs Aligned with Patch Tuesday"
+          },
+          {
+            "description": "",
+            "title": "Preview and Download Exactly Which Assets a Job Will Patch Before You Deploy"
+          },
+          {
+            "description": "",
+            "title": "Share Job Results by Email with a Report Download Link"
+          },
+          {
+            "description": "",
+            "title": "Get Accurate Missing Patches for Linux Assets with Extended Support Subscriptions"
+          },
+          {
+            "description": "Refer to the following table to learn more about the new token in this release.",
+            "title": "New QQL Tokens"
           }
         ],
         "release_date": null,
-        "title": "TruRisk\u2122 Eliminate Release 4.2.1.1",
-        "url": "https://docs.qualys.com/en/pm/release-notes/patch_management/release_4_2_1_1.htm",
-        "version": "4.2.1.1"
+        "title": "TruRisk\u2122 Eliminate Release 4.3",
+        "url": "https://docs.qualys.com/en/pm/release-notes/patch_management/release_4_3.htm",
+        "version": "4.3"
       },
-      "retrieved_at": "2026-11-24T18:19:59Z"
+      "retrieved_at": "2026-11-26T17:19:56Z"
     },
     "ITAM": {
       "release": {
@@ -368,7 +396,7 @@
         "url": "https://docs.qualys.com/en/csam/release-notes/cybersecurity_asset_management/release_3_8.htm",
         "version": "3.8"
       },
-      "retrieved_at": "2026-11-24T18:19:59Z"
+      "retrieved_at": "2026-11-26T17:19:56Z"
     },
     "OCA": {
       "release": {
@@ -383,7 +411,7 @@
         "url": "https://docs.qualys.com/en/oca/release-notes/oca/release_1_13.htm",
         "version": "1.13"
       },
-      "retrieved_at": "2026-11-24T18:19:59Z"
+      "retrieved_at": "2026-11-26T17:19:56Z"
     },
     "PM": {
       "release": {
@@ -402,7 +430,7 @@
         "url": " https://docs.qualys.com/en/pm/release-notes/patch_management/release_3_6.htm",
         "version": "3.6"
       },
-      "retrieved_at": "2026-11-24T18:19:59Z"
+      "retrieved_at": "2026-11-26T17:19:56Z"
     },
     "PS": {
       "release": {
@@ -425,7 +453,7 @@
         "url": "https://docs.qualys.com/en/ps/release-notes/ps/release_2_7.htm",
         "version": "2.7"
       },
-      "retrieved_at": "2026-11-24T18:19:59Z"
+      "retrieved_at": "2026-11-26T17:19:56Z"
     },
     "QFLOW": {
       "release": {
@@ -452,7 +480,7 @@
         "url": "https://docs.qualys.com/en/qflow/release-notes/qflow/release_1_24.htm",
         "version": "1.24"
       },
-      "retrieved_at": "2026-11-24T18:19:59Z"
+      "retrieved_at": "2026-11-26T17:19:56Z"
     },
     "QGS": {
       "release": {
@@ -467,7 +495,7 @@
         "url": "https://docs.qualys.com/en/qgs/release-notes/qgs/release_3_16_2.htm",
         "version": "3.16.2"
       },
-      "retrieved_at": "2026-11-24T18:19:59Z"
+      "retrieved_at": "2026-11-26T17:19:56Z"
     },
     "QWEB_PC": {
       "release": {
@@ -490,7 +518,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_pa/pa/release_1_18.htm",
         "version": "1.18"
       },
-      "retrieved_at": "2026-11-24T18:19:59Z"
+      "retrieved_at": "2026-11-26T17:19:56Z"
     },
     "QWEB_VM": {
       "release": {
@@ -505,7 +533,7 @@
         "url": "https://docs.qualys.com/en/vm/release-notes/mergedProjects/qualys_vmdr_rn/vmdr/release_2_14.htm",
         "version": "2.14"
       },
-      "retrieved_at": "2026-11-24T18:19:59Z"
+      "retrieved_at": "2026-11-26T17:19:56Z"
     },
     "SEM": {
       "release": {
@@ -528,7 +556,7 @@
         "url": "https://docs.qualys.com/en/vmdr-mobile/release-notes/vmdr_mobile/release_1_6_1.htm",
         "version": "1.6.1"
       },
-      "retrieved_at": "2026-11-24T18:19:59Z"
+      "retrieved_at": "2026-11-26T17:19:56Z"
     },
     "SM": {
       "release": {
@@ -563,7 +591,7 @@
         "url": "https://docs.qualys.com/en/car/release-notes/car/release_2_9_3.htm",
         "version": "2.9.3"
       },
-      "retrieved_at": "2026-11-24T18:19:59Z"
+      "retrieved_at": "2026-11-26T17:19:56Z"
     },
     "TA": {
       "release": {
@@ -614,7 +642,7 @@
         "url": "https://docs.qualys.com/en/ta/release-notes/total_ai/release_2_0.htm",
         "version": "2.0"
       },
-      "retrieved_at": "2026-11-24T18:19:59Z"
+      "retrieved_at": "2026-11-26T17:19:56Z"
     },
     "TC": {
       "release": {
@@ -673,7 +701,7 @@
         "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_29.htm",
         "version": "2.29"
       },
-      "retrieved_at": "2026-11-24T18:19:59Z"
+      "retrieved_at": "2026-11-26T17:19:56Z"
     },
     "UD": {
       "release": {
@@ -688,7 +716,7 @@
         "url": "https://docs.qualys.com/en/ud/release-notes/unified_dashboard/release_2_18.htm",
         "version": "2.18"
       },
-      "retrieved_at": "2026-11-24T18:19:59Z"
+      "retrieved_at": "2026-11-26T17:19:56Z"
     },
     "WAS": {
       "release": {
@@ -715,7 +743,7 @@
         "url": "https://docs.qualys.com/en/tas/release-notes/total_app_sec/release_2_1.htm",
         "version": "2.1"
       },
-      "retrieved_at": "2026-11-24T18:19:59Z"
+      "retrieved_at": "2026-11-26T17:19:56Z"
     }
   },
   "parse_format_version": 3,
@@ -1032,6 +1060,68 @@
       "source": "qualys_release_notes_index",
       "version": "2.29.1-29"
     },
+    "CLOUDVIEW|2.29.1-34": {
+      "module": "CLOUDVIEW",
+      "release": {
+        "features": [
+          {
+            "description": "",
+            "title": "Simplified Remediation with AI"
+          },
+          {
+            "description": "",
+            "title": "Global Posture View Across All Clouds"
+          },
+          {
+            "description": "",
+            "title": "Custom CSV Reports for Your Inventory"
+          },
+          {
+            "description": "",
+            "title": "Improved Discovery and Reconciliation for Azure VMSS"
+          },
+          {
+            "description": "",
+            "title": "Support for MultiCloud Dashboards"
+          },
+          {
+            "description": "",
+            "title": "Enhanced CSPM Reports"
+          },
+          {
+            "description": "",
+            "title": "Expanded AI/ML Inventory Coverage for OCI and GCP"
+          },
+          {
+            "description": "",
+            "title": "Audit Logs for Reports, Exceptions, Alert Rules, and Alert Actions"
+          },
+          {
+            "description": "",
+            "title": "Enhanced User Interface"
+          },
+          {
+            "description": "The following sections describe the enhancements made to the Cloud Detection and Response (CDR) environment in the upcoming CDR release.",
+            "title": "CDR Enhancements and Updates"
+          },
+          {
+            "description": "The following section describes the new tokens introduced as part of TotalCloud 2.29.",
+            "title": "New Tokens"
+          },
+          {
+            "description": "SeeControl Permissions for Azureto understand the permissions needed for the new controls.",
+            "title": "Control Updates"
+          }
+        ],
+        "release_date": null,
+        "title": "TotalCloud Release 2.29",
+        "url": "https://docs.qualys.com/en/tc/release-notes/totalcloud/release_2_29.htm",
+        "version": "2.29.1-34"
+      },
+      "retrieved_at": "2026-11-26T17:19:56Z",
+      "source": "qualys_release_notes_index",
+      "version": "2.29.1-34"
+    },
     "CONN|2.20.1-8": {
       "module": "CONN",
       "release": {
@@ -1105,6 +1195,28 @@
       "retrieved_at": "2026-11-20T15:45:52Z",
       "source": "qualys_release_notes_index",
       "version": "2.22.0-32"
+    },
+    "CONN|2.22.0-40": {
+      "module": "CONN",
+      "release": {
+        "features": [
+          {
+            "description": "",
+            "title": "FlexScan Support for Oracle Cloud Infrastructure (OCI) Snapshots"
+          },
+          {
+            "description": "",
+            "title": "Zero-touch Snapshot-based Scan for Azure with Qualys Native Deployment"
+          }
+        ],
+        "release_date": null,
+        "title": "Connector Release 2.22",
+        "url": "https://docs.qualys.com/en/conn/release-notes/connector/release_2_22.htm",
+        "version": "2.22.0-40"
+      },
+      "retrieved_at": "2026-11-26T17:19:56Z",
+      "source": "qualys_release_notes_index",
+      "version": "2.22.0-40"
     },
     "CS|1.45.5-16": {
       "module": "CS",
@@ -1941,6 +2053,36 @@
       "retrieved_at": "2026-11-19T16:04:39Z",
       "source": "qualys_release_notes_index",
       "version": "4.2.1.0-283"
+    },
+    "ISL|4.2.1.0-289": {
+      "module": "ISL",
+      "release": {
+        "features": [
+          {
+            "description": "",
+            "title": "With Agent Sara, Remediate Smarter, and Roll Out in Phased Rings"
+          },
+          {
+            "description": "",
+            "title": "Mitigate ETM Plan Findings to Reduce Risk When No Patch Is Available"
+          },
+          {
+            "description": "Refer to the following table to learn more about the new tokens in this release.",
+            "title": "New QQL Tokens"
+          },
+          {
+            "description": "The following reported and notable customer issues are fixed in this release.",
+            "title": "Issues Addressed"
+          }
+        ],
+        "release_date": null,
+        "title": "TruRisk\u2122 Eliminate Release 4.2.1",
+        "url": "https://docs.qualys.com/en/pm/release-notes/patch_management/release_4_2_1.htm",
+        "version": "4.2.1.0-289"
+      },
+      "retrieved_at": "2026-11-26T17:19:56Z",
+      "source": "qualys_release_notes_index",
+      "version": "4.2.1.0-289"
     },
     "ITAM|3.7.3.0-23": {
       "module": "ITAM",
