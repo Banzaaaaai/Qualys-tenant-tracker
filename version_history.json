@@ -1158,5 +1158,13 @@
     "new_version": "2.22.0-40",
     "old_version": "2.22.0-32",
     "timestamp": "2026-11-26T17:19:56Z"
+  },
+  {
+    "api_field": "ETM-VERSION",
+    "change_type": "VERSION_CHANGED",
+    "module": "ETM",
+    "new_version": "1.15.0-145",
+    "old_version": "1.15.0-130",
+    "timestamp": "2026-11-27T16:59:05Z"
   }
 ]
